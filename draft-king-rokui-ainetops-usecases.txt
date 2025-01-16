@@ -2,11 +2,13 @@
 
 
 
-RTG                                                              D. King
-Internet-Draft                                      Lancaster University
-Intended status: Informational                                  R. Rokui
-Expires: 11 July 2025                                              Ciena
-                                                          7 January 2025
+RTG                                                             R. Rokui
+Internet-Draft                                                     Ciena
+Intended status: Informational                                     C. Li
+Expires: 20 July 2025                                             Huawei
+                                                                 D. King
+                                                    Lancaster University
+                                                         16 January 2025
 
 
           Artificial Intelligence (AI) for Network Operations
@@ -44,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 July 2025.
+   This Internet-Draft will expire on 20 July 2025.
 
 Copyright Notice
 
@@ -89,6 +91,10 @@ Table of Contents
      5.9.  Closed-Loop Automation
      5.10. Network Maintenance and Cleanup
      5.11. Network API Construction
+     5.12. AI-Driven Security Monitoring
+       5.12.1.  Threat Detection and Mitigation
+       5.12.2.  Intrusion Detection and Prevention
+       5.12.3.  Security Policy Automation
    6.  AINetOps Scenarios and Use-cases
      6.1.  Network Reactive Assurance
      6.2.  Network Pro-active Assurance
@@ -334,6 +340,8 @@ Table of Contents
    *  Section 5.10 "Network Maintenance and Cleanup"
 
    *  Section 5.11 "Network API Construction"
+
+   *  Section 5.12 "AI-Driven Security Monitoring"
 
 5.1.  Operator Network Assistance
 
@@ -920,6 +928,48 @@ Table of Contents
    agility and responsiveness of the network to changing conditions and
    user demands.
 
+5.12.  AI-Driven Security Monitoring
+
+   AI is becoming a cornerstone of modern network security, enabling
+   proactive, adaptive, and intelligent measures to safeguard network
+   operations against a rapidly evolving threats.  By leveraging AI,
+   network operators can enhance their ability to detect, prevent, and
+   respond to threats in real-time while automating complex security
+   processes.  This section details the key areas where AI drives
+   security enhancements in network operations.
+
+5.12.1.  Threat Detection and Mitigation
+
+   AI significantly enhances threat detection and mitigation through ML
+   and deep learning.  By analyzing vast amounts of network traffic
+   data, AI models identify unusual patterns and behaviors indicative of
+   malicious activity.  This includes detecting anomalies that signal
+   threats like zero-day attacks or insider threats, generating real-
+   time alerts, and incorporating external threat intelligence to
+   recognize known attack signatures.  Together, these capabilities
+   enable faster response times and improved threat recognition.
+
+5.12.2.  Intrusion Detection and Prevention
+
+   AI improves intrusion detection systems (IDS) and intrusion
+   prevention systems (IPS) by enhancing accuracy and reducing false
+   positives.  It achieves this through behavioral analysis, which
+   identifies unauthorized access or suspicious activities, and
+   automated responses that isolate compromised devices or block
+   malicious IP addresses.  Additionally, AI’s adaptive learning
+   capabilities ensure continuous updates to address new threats in
+   dynamic environments.
+
+5.12.3.  Security Policy Automation
+
+   Using AI would simplify the creation and enforcement of security
+   policies by automating configurations and adjustments, reducing the
+   potential for human error.  It dynamically updates firewall rules and
+   access controls based on real-time threat intelligence, assigns risk
+   scores to network devices and applications to prioritize enforcement,
+   and ensures compliance with regulatory standards by monitoring for
+   deviations and recommending corrective actions.
+
 6.  AINetOps Scenarios and Use-cases
 
    This section further expands Section 5 by exploring scenarios and use
@@ -1384,11 +1434,16 @@ Contributors
 
 Authors' Addresses
 
-   Daniel King
-   Lancaster University
-   Email: d.king@lancaster.ac.uk
-
-
    Reza Rokui
    Ciena
    Email: rrokui@ciena.com
+
+
+   Cheng Li
+   Huawei
+   Email: c.l@huawei.com
+
+
+   Daniel King
+   Lancaster University
+   Email: d.king@lancaster.ac.uk
