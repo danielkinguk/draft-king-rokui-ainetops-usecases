@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-01-16T00:58:09.525382+00:00",
+  "timestamp": "2025-01-19T01:02:40.583998+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -49,6 +49,83 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 4,
+      "id": "I_kwDONbAZCM6menJo",
+      "title": "Add references for existing IRTF and IETF work",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/issues/4",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "danielkinguk"
+      ],
+      "labels": [],
+      "body": "It would be good to acknowledge the existing work that exists across various IRTF and IETF groups. Lets try to do a literature review and add useful references. ",
+      "createdAt": "2025-01-16T15:10:50Z",
+      "updatedAt": "2025-01-16T15:10:50Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 5,
+      "id": "I_kwDONbAZCM6mepBE",
+      "title": "Authors of AI4NET Use Cases please add your use case to the relevant sections of the document",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/issues/5",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "This request includes: Daniele, Arashmid, Oscar, Ignacio, Vincenzo, Nathalie, Cheng, et al. ",
+      "createdAt": "2025-01-16T15:14:02Z",
+      "updatedAt": "2025-01-16T15:14:02Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 6,
+      "id": "I_kwDONbAZCM6mep7T",
+      "title": "Contributors please add your name to Use Cases",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/issues/6",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "danielkinguk"
+      ],
+      "labels": [],
+      "body": "Should we reduce the number and focus? ",
+      "createdAt": "2025-01-16T15:15:37Z",
+      "updatedAt": "2025-01-16T15:35:16Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "danielkinguk",
+          "authorAssociation": "OWNER",
+          "body": "Daniel King - Multi-layer Optimisation 6.11.and 6.12\nReza - 6.1 & 6.2\nCheng - 6.3\nDaniele - All the rest\nNathalie - 6.7",
+          "createdAt": "2025-01-16T15:34:27Z",
+          "updatedAt": "2025-01-16T15:35:16Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "I_kwDONbAZCM6meqzH",
+      "title": "Scope of work, maybe need to add a sub-section.",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/issues/7",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "The objective of the I-D is focus on the applicability of IETF technologies and enabling-AI for Network Operations. We can scope the work in a sub-section, perhaps in the \"Introduction\". ",
+      "createdAt": "2025-01-16T15:16:52Z",
+      "updatedAt": "2025-01-16T15:16:52Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
