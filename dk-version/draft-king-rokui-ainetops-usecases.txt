@@ -1503,7 +1503,19 @@ Table of Contents
 
    *  Data Models
 
-   To be added.
+   The YANG data modeling language is a cornerstone for MLN planning.
+   It provides a structured way to represent network elements,
+   configurations, and operational states, enabling programmatic control
+   and integration across multiple network layers.  Severeal IETF YANG
+   models provide network topology, traffic engineering, optical
+   transport, and service abstraction.
+
+   A core YANG model for MLN planning is the Network Topology Model
+   [RFC8345], which provides a generic framework for representing
+   network nodes, links, and supporting attributes.  This model would
+   faciliate an AI-enabled planning system to define multi-layer
+   relationships, such as the mapping between optical, ethernet, and IP
+   layers, enabling a holistic approach to MLN planning.
 
    *  Alignment with IETF
 
