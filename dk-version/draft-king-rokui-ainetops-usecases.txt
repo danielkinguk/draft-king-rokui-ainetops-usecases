@@ -1491,11 +1491,12 @@ Table of Contents
 
    The PCE architecture [RFC4655] enables efficient path computation for
    traffic-engineered networks by offloading complex calculations to a
-   dedicated entity.  Stateful PCE [RFC8051 and RFC8231] extends the PCE
-   framework by maintaining real-time network state awareness, allowing
-   dynamic path optimisation across layers.  The Hierarchical PCE
-   (H-PCE) [RFC6805] architecture supports multi-layer and multi-domain
-   path computation by allowing collaboration between multiple PCEs.
+   dedicated entity.  Stateful PCE [RFC8051] and [RFC8231] extends the
+   PCE framework by maintaining real-time network state awareness,
+   allowing dynamic path optimisation across layers.  The Hierarchical
+   PCE (H-PCE) [RFC6805] architecture supports multi-layer and multi-
+   domain path computation by allowing collaboration between multiple
+   PCEs.
 
    *  Protocols
 
@@ -1600,9 +1601,41 @@ Table of Contents
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/rfc/rfc2119>.
 
+   [RFC4655]  Farrel, A., Vasseur, J.-P., and J. Ash, "A Path
+              Computation Element (PCE)-Based Architecture", RFC 4655,
+              DOI 10.17487/RFC4655, August 2006,
+              <https://www.rfc-editor.org/rfc/rfc4655>.
+
+   [RFC6805]  King, D., Ed. and A. Farrel, Ed., "The Application of the
+              Path Computation Element Architecture to the Determination
+              of a Sequence of Domains in MPLS and GMPLS", RFC 6805,
+              DOI 10.17487/RFC6805, November 2012,
+              <https://www.rfc-editor.org/rfc/rfc6805>.
+
+   [RFC8051]  Zhang, X., Ed. and I. Minei, Ed., "Applicability of a
+              Stateful Path Computation Element (PCE)", RFC 8051,
+              DOI 10.17487/RFC8051, January 2017,
+              <https://www.rfc-editor.org/rfc/rfc8051>.
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC8231]  Crabbe, E., Minei, I., Medved, J., and R. Varga, "Path
+              Computation Element Communication Protocol (PCEP)
+              Extensions for Stateful PCE", RFC 8231,
+              DOI 10.17487/RFC8231, September 2017,
+              <https://www.rfc-editor.org/rfc/rfc8231>.
+
+   [RFC8345]  Clemm, A., Medved, J., Varga, R., Bahadur, N.,
+              Ananthakrishnan, H., and X. Liu, "A YANG Data Model for
+              Network Topologies", RFC 8345, DOI 10.17487/RFC8345, March
+              2018, <https://www.rfc-editor.org/rfc/rfc8345>.
+
+   [RFC8453]  Ceccarelli, D., Ed. and Y. Lee, Ed., "Framework for
+              Abstraction and Control of TE Networks (ACTN)", RFC 8453,
+              DOI 10.17487/RFC8453, August 2018,
+              <https://www.rfc-editor.org/rfc/rfc8453>.
 
 Appendix A.  IANA Considerations
 
