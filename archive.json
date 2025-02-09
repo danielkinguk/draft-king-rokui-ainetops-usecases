@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-06T00:59:36.287723+00:00",
+  "timestamp": "2025-02-09T01:02:38.576412+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -127,5 +127,32 @@
       "comments": []
     }
   ],
-  "pulls": []
+  "pulls": [
+    {
+      "number": 8,
+      "id": "PR_kwDONbAZCM6KR6Ep",
+      "title": "Adding MLN Planning Use Case Text",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/8",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding description, components, protocols and data models, to describe the multi-layer network planning use case.",
+      "createdAt": "2025-02-06T13:39:32Z",
+      "updatedAt": "2025-02-06T13:39:32Z",
+      "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
+      "headRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
+      "headRefName": "dk-version",
+      "headRefOid": "62095f6cadadb00f73651195189877777968478d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    }
+  ]
 }
