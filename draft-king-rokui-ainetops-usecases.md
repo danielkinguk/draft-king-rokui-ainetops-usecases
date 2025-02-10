@@ -273,11 +273,13 @@ resources across different network layers, such as IP and optical layers.
    based operations to intelligent, automated systems capable of real-
    time adaptation, predictive insights, and optimized decision-making.
 
-   This section outlines the key areas where AINetOps can be applied effectively in network operations, leveraging both data-driven models and domain-specific knowledge.
+   This section outlines the key areas where AINetOps can be
+   applied effectively in network operations, leveraging both data-
+   driven models and domain-specific knowledge.
 
 * Section 5.1 "Operator Network Assistance"
 
-* Section 5.2 "Reactive Network Assurance".  This area is also
+* Section 5.2 "Network active and reactive assurance".  This area is also
 related to "Root Cause Analysis" Section 5.2.1
 
 * Section 5.3 "Predictive Analytics" which includes "Proactive
@@ -347,9 +349,10 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    with advanced technology, leading to smarter and more proactive
    network operations.
    
-## Reactive Network Assurance
+## Network active and reactive assurance
 
-   Reactive network assurance and troubleshooting, both at the single-layer (IP or Optical) and multi-layer (IP over Optical), are critical
+   Network active and reactive assurance and troubleshooting, both at the single-
+   layer (IP or Optical) and multi-layer (IP over Optical), are critical
    components in maintaining the health and stability of modern IP,
    Optical, and IPoDWDM networks.  This process involves the
    identification and resolution of network issues as they arise,
@@ -378,7 +381,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    troubleshooting, network engineers can ensure a more robust and
    resilient network infrastructure.
 
-   The importance of reactive assurance and troubleshooting cannot be
+   The importance of assurance and troubleshooting cannot be
    overstated in today's high-demand network environments.  Rapid
    response to network issues is crucial to maintaining service
    continuity and meeting the expectations of end-users.  Advanced
@@ -386,14 +389,14 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    automated alerts, and detailed analytics, play a vital role in this
    process.  These tools enable engineers to quickly detect anomalies,
    assess their impact, and implement corrective actions.  Through
-   continuous improvement of reactive assurance and troubleshooting
+   continuous improvement of assurance and troubleshooting
    practices, network operators can enhance their ability to maintain
    network performance, reduce operational risks, and deliver a reliable
    and high-quality service to their customers.
 
 ### Root Cause Analysis
 
-   In the context of "Reactive Network Assurance," Root Cause Analysis
+   In the context of "Network active and reactive assurance," Root Cause Analysis
    (RCA) is a critical aspect that extends the reactive troubleshooting
    process to uncover the underlying reasons behind network issues.
    When an issue is detected in the network, RCA leverages advanced
@@ -463,7 +466,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
 ### Proactive Network Assurance and Monitoring (Health Check)
 
    Proactive Network Assurance and Monitoring represents a paradigm
-   shift from the reactive network assurance discussed in Section 5.2.
+   shift from the Network active and reactive assurance discussed in Section 5.2.
    Instead of waiting for issues to arise and then addressing them,
    proactive network assurance involves anticipating potential problems
    and implementing measures to prevent them from occurring.  This
@@ -897,7 +900,7 @@ AI is becoming a cornerstone of modern network security, enabling
 proactive, adaptive, and intelligent measures to safeguard network
 operations against a rapidly evolving threats. By leveraging AI, network
 operators can enhance their ability to detect, prevent, and respond to
-threats in real-time while automating complex security processes.
+threats in real-time while automating complex     security processes.
 This section details the key areas where AI drives security enhancements
 in network operations.
 
@@ -969,9 +972,9 @@ training, validation, and deployment.
 * Alignment with IETF Standards: Analysis of how existing IETF
 standards can be leveraged or extended to support the use case.
 
-## Network Reactive Assurance
+## Network Active and Reactive Assurance
 
-   Reactive network assurance and troubleshooting, both at the single-
+   Network active and reactive assurance, both at the single-
    layer (IP or Optical) and multi-layer (IP over Optical), are critical
    components in maintaining the health and stability of modern IP,
    Optical, and IPoDWDM networks.  This process involves the
@@ -988,7 +991,82 @@ standards can be leveraged or extended to support the use case.
    troubleshooting, on the other hand, requires a more integrated
    approach, as it involves identifying and resolving issues that span
    across multiple layers of the network.  This could include problems
-   where an issue in the optical layer affects the IP layer.
+   where an issue in the optical layer affects the IP layer. 
+   
+   In both reactive and active assurance, network faults have already occurred. These faults may include impairments such as optical fiber cuts, IP packet drops, IP link latency issues, or Threshold Crossing Alarms (TCA), among others.
+   
+   As illustrated in {{figure-reactive-assurance}}, reactive assurance assumes that a fault occurs in the IP/Optical network (Step A) and is subsequently detected by the operator through various means (Step B). Detection methods may include alarm monitoring, performance telemetry data analysis, or customer reports indicating service disruptions. To initiate troubleshooting, the operator can launch the AIOps-Assistant, which acts as the front-end interface for AINetOps (Step C). The assistant then utilizes the backend assurance and troubleshooting mechanisms, leveraging a Gen-AI multi-agent framework. In Step D, a dynamic workflow is executed to diagnose the issue and identify potential root causes. Optionally, at Step E, the Gen-AI dynamic workflow can recommend remedial actions to resolve the issue and implement these actions in a closed-loop fashion, ensuring automated network recovery.
+
+~~~~         
+
+                                         |-------------------|
+                                         |  Gen-AI based     |
+                      (E) |--------------|  Multi-Agent      |
+                          |              |  Dynamic workflow |
+                          |              |-------------------|     
+                          |                      ^
+                          v                      | (D)    
+                  |---------------|              |
+                  |   P-PNC(s),   |        |-----------|    
+                  |   O-PNC(s),   |        |   AIOps   |
+                  |   MDSC        |        | Assistant |
+                  |---------------|        |-----------|  
+                          ^                      ^
+                          | (A)                  | (C)
+               +----------|----------+           |
+               |                     |          (B)
+               |  IP/Optical Network |          
+               |                     |
+               +---------------------+
+
+  Legend:
+  (A) A fault happened in the network 
+      (e.g., Fiber cut, IP packet drop, TCA crossing etc.)
+  (B) Operator is aware of the network issue
+  (C) To start troubleshooting, Operator starts AIOps-Assistant
+  (D) Start troubleshooting using Gen-AI multi-agent dynamic workflow
+  (E) Optional remedial actions
+
+~~~~
+{: #figure-reactive-assurance title="Multi-layer Reactive Assurance Using Gen-AI"}
+  
+  In both reactive and active assurance, network faults have already occurred. These faults may include impairments such as optical fiber cuts, IP packet drops, IP link latency issues, or Threshold Crossing Alarms (TCA), among others. 
+  
+  The active assurance and troubleshooting process is illustrated in {{figure-active-assurance}}. In contrast to {{figure-reactive-assurance}}, active assurance assumes that a fault occurs in the IP/Optical network (Step A) and is subsequently detected automatically by higher-layer controllers (Step B). These controllers may employ detection methods that include monitoring alarms, analyzing performance telemetry data, or processing customer reports indicating service disruptions. To initiate troubleshooting, the detection logic launches the AIOps-Assistant, which serves as the front-end interface for AINetOps (Step C). Steps D and E are identical to those depicted in {{figure-reactive-assurance}}.
+
+~~~~         
+
+                                         |-------------------|
+                                         |  Gen-AI based     |
+                      (E) |--------------|  Multi-Agent      |
+                          |              |  Dynamic workflow |
+                          |              |-------------------|     
+                          |                      ^
+                          v                      | (D)    
+                  |---------------|              |
+                  |   P-PNC(s),   |  (C)   |-----------|    
+              (B) |   O-PNC(s),   | -----> |   AIOps   |
+                  |   MDSC        |        | Assistant |
+                  |---------------|        |-----------|
+                          ^
+                          | (A)
+               +----------|----------+
+               |                     |
+               |  IP/Optical Network |          
+               |                     |
+               +---------------------+
+
+  Legend:
+  (A) A fault happened in the network 
+      (e.g., Fiber cut, IP packet drop, TCA crossing etc.)
+  (B) The higher layer Controller notifies Operator
+  (C) To start troubleshooting, AIOps-Assistant starts automatically
+  (D) Start troubleshooting using Gen-AI multi-agent dynamic workflow
+  (E) Optional remedial actions
+
+~~~~
+{: #figure-active-assurance title="Multi-layer Active Assurance Using Gen-AI"}
+
 
 * Architecture
 
@@ -1011,6 +1089,46 @@ To be added.
 To be added.
 
 ## Network Pro-active Assurance
+
+   Unlike reactive and active assurance, proactive assurance does not wait for a fault to occur in the IP/Optical network. Instead, the network is continuously monitored through a series of trending and forecasting processes designed to detect early signs of deterioration that may eventually lead to faults.
+    
+   As illustrated in {{figure-proactive-assurance}}, achieving proactive assurance involves running multiple processes that continuously monitor network performance. These processes collect and analyze a wide array of network telemetry data—including performance monitoring (PM) data, alarms, logs, network topology, and inventory details (Step A). By employing various techniques including advanced AI/ML algorithms, these processes provide real-time trending and forecasting insights, identifying patterns and anomalies that could indicate potential degradation (Step B).
+    
+   When these background processes detect any signs of deterioration or anomalous behavior, they trigger the AIOps-Assistant for further investigation (Step C). The AIOps-Assistant then leverages a Gen-AI multi-agent framework to initiate the assurance and troubleshooting procedures. In Step D, a dynamic workflow is executed to thoroughly diagnose the emerging issue and identify potential root causes. Optionally, at Step E, the Gen-AI dynamic workflow can recommend remedial actions to resolve the identified issues. These recommendations can be implemented in a closed-loop fashion, ensuring automated network recovery and continuous improvement of network performance. This proactive approach not only mitigates the risk of unexpected network faults but also optimizes operational efficiency by addressing issues before they escalate into service-impacting events.
+    
+   Furthermore, by integrating advanced analytics with automated corrective measures, proactive assurance enhances overall network resilience. It enables network operators to maintain a high quality of service and reliability, even in complex and dynamic network environments.
+
+~~~~         
+
+                                            |-------------------|
+                                            |  Gen-AI based     |
+         (E) |------------------------------|  Multi-Agent      |
+             |                              |  Dynamic workflow |
+             |                              |-------------------|   
+             |                                        ^
+             v                                        | (D)    
+      |---------------|                               |
+      |   P-PNC(s),   |  (B)   |-----------| (C)  |------------|
+  (A) |   O-PNC(s),   | <----> | Monitoring| ---->| AIOps      |
+      |   MDSC        |        | Processes |      | Assistant  |
+      |---------------|        |-----------|      |------------|
+              ^
+              | 
+    +---------|-----------+
+    |                     |
+    |  IP/Optical Network |          
+    |                     |
+    +---------------------+
+
+  Legend:
+  (A) Collect the IP/Optical telemetry data, inventory, logs etc.
+  (B) Processes which monitor the network
+  (C) Upon detection of potential issue, start AIOps-Assistant 
+  (D) Start troubleshooting using Gen-AI multi-agent dynamic workflow
+  (E) Optional remedial actions
+
+~~~~
+{: #figure-proactive-assurance title="Multi-layer Pro-active Assurance Using Gen-AI"}
 
 * Architecture
 
@@ -1158,7 +1276,6 @@ The development of AI-based network anomaly detection systems should align with 
  - Awaiting to add more WGs, BGP-LS, PCE, etc.
 
 Collaboration with these groups ensures that the anomaly detection system integrates seamlessly with existing IETF frameworks and contributes to the broader goal of network security and management.
-
 
 ## Network Predictive Maintenance
 
