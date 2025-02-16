@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-13T00:59:47.320118+00:00",
+  "timestamp": "2025-02-16T01:04:29.789084+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -185,21 +185,21 @@
       "id": "PR_kwDONbAZCM6Kz5uF",
       "title": "Update draft-king-rokui-ainetops-usecases.md",
       "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/10",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "DanieleIETF",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Test",
       "createdAt": "2025-02-11T14:12:59Z",
-      "updatedAt": "2025-02-11T14:13:25Z",
+      "updatedAt": "2025-02-13T15:05:12Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
       "headRepository": "DanieleIETF/draft-king-rokui-ainetops-usecases",
       "headRefName": "patch-1",
       "headRefOid": "99c108d0e918f2baa48b371625b50fa361496745",
-      "closedAt": null,
+      "closedAt": "2025-02-13T15:05:12Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -226,7 +226,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-02-11T17:31:16Z",
-      "updatedAt": "2025-02-11T17:31:16Z",
+      "updatedAt": "2025-02-13T15:12:29Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
@@ -237,7 +237,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "danielkinguk",
+          "authorAssociation": "OWNER",
+          "body": "Looks good, we just reviewed the proposed use case and initially scanned the text on our bi-weekly call. One request for @DanieleIETF is to provide some terminology definitions for terms like \"agent\" and \"multi-agent\" in the context of this document. ",
+          "createdAt": "2025-02-13T15:12:27Z",
+          "updatedAt": "2025-02-13T15:12:27Z"
+        }
+      ],
       "reviews": []
     }
   ]
