@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-16T01:04:29.789084+00:00",
+  "timestamp": "2025-02-18T00:59:36.692893+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -140,7 +140,7 @@
       "labels": [],
       "body": "Adding description, components, protocols and data models, to describe the multi-layer network planning use case.",
       "createdAt": "2025-02-06T13:39:32Z",
-      "updatedAt": "2025-02-06T13:39:32Z",
+      "updatedAt": "2025-02-17T17:46:14Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
@@ -152,7 +152,60 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDONbAZCM6cQ9jF",
+          "commit": {
+            "abbreviatedOid": "62095f6"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-17T17:44:40Z",
+          "updatedAt": "2025-02-17T17:44:40Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONbAZCM6cQ9xB",
+          "commit": {
+            "abbreviatedOid": "62095f6"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-17T17:45:19Z",
+          "updatedAt": "2025-02-17T17:45:19Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONbAZCM6cQ91W",
+          "commit": {
+            "abbreviatedOid": "62095f6"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-17T17:45:31Z",
+          "updatedAt": "2025-02-17T17:45:31Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONbAZCM6cQ-Is",
+          "commit": {
+            "abbreviatedOid": "62095f6"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-17T17:46:14Z",
+          "updatedAt": "2025-02-17T17:46:14Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 9,
@@ -166,7 +219,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-02-10T16:00:24Z",
-      "updatedAt": "2025-02-10T16:00:24Z",
+      "updatedAt": "2025-02-17T17:41:32Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
@@ -178,7 +231,28 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDONbAZCM6cQ8fY",
+          "commit": {
+            "abbreviatedOid": "a6ba786"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-02-17T17:41:32Z",
+          "updatedAt": "2025-02-17T17:41:32Z",
+          "comments": [
+            {
+              "originalPosition": 1,
+              "body": "How does this work relate to \"draft-ietf-nmop-network-anomaly-architecture-01\"? It is good to provide a relationship between these two. I assume the current AIOps anomaly detection is simply enhances \"draft-ietf-nmop-network-anomaly-architecture-01\". Is this a correct assumption?",
+              "createdAt": "2025-02-17T17:41:32Z",
+              "updatedAt": "2025-02-17T17:41:32Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 10,
@@ -219,21 +293,23 @@
       "id": "PR_kwDONbAZCM6K1rP3",
       "title": "Input on multi-agent from Daniele  ",
       "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/11",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "DanieleIETF",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "reza-github"
+      ],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-11T17:31:16Z",
-      "updatedAt": "2025-02-13T15:12:29Z",
+      "updatedAt": "2025-02-17T17:34:05Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
       "headRepository": "DanieleIETF/draft-king-rokui-ainetops-usecases",
       "headRefName": "main",
       "headRefOid": "d56da2b1295fadcba0b2177740cff882b3cffbcc",
-      "closedAt": null,
+      "closedAt": "2025-02-17T17:33:05Z",
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
@@ -241,12 +317,59 @@
         {
           "author": "danielkinguk",
           "authorAssociation": "OWNER",
-          "body": "Looks good, we just reviewed the proposed use case and initially scanned the text on our bi-weekly call. One request for @DanieleIETF is to provide some terminology definitions for terms like \"agent\" and \"multi-agent\" in the context of this document. ",
+          "body": "Looks good, we just reviewed the proposed use case and initially scanned the text on our bi-weekly call. One request for @DanieleIETF is to provide some terminology definitions for terms like \"agent\" and \"multi-agent\" in the context of this document. \r\nAgreed. Ready for merge. ",
           "createdAt": "2025-02-13T15:12:27Z",
-          "updatedAt": "2025-02-13T15:12:27Z"
+          "updatedAt": "2025-02-17T17:34:05Z"
+        },
+        {
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Ready for merge.",
+          "createdAt": "2025-02-17T17:33:05Z",
+          "updatedAt": "2025-02-17T17:33:05Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDONbAZCM6cQylY",
+          "commit": {
+            "abbreviatedOid": "d56da2b"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-17T17:28:35Z",
+          "updatedAt": "2025-02-17T17:28:35Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONbAZCM6cQzLS",
+          "commit": {
+            "abbreviatedOid": "d56da2b"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-17T17:30:14Z",
+          "updatedAt": "2025-02-17T17:30:14Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDONbAZCM6cQzTI",
+          "commit": {
+            "abbreviatedOid": "d56da2b"
+          },
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-02-17T17:30:33Z",
+          "updatedAt": "2025-02-17T17:30:33Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
