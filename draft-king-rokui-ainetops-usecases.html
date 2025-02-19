@@ -2970,37 +2970,47 @@ standards can be leveraged or extended to support the use case.<a href="#section
         <h3 id="name-multi-layer-network-plannin">
 <a href="#section-6.12" class="section-number selfRef">6.12. </a><a href="#name-multi-layer-network-plannin" class="section-name selfRef">Multi-layer Network Planning</a>
         </h3>
-<p id="section-6.12-1">IP/Optical Planning, multi-layer optimization<a href="#section-6.12-1" class="pilcrow">¶</a></p>
+<p id="section-6.12-1">Several innovations have been developed at the IETF for multi-layer network (MLN) planning. This activity is involves coordinating and optimising multiple network layers, such as IP, optical, and transport layers, to improve efficiency, resilience, and scalability. The Internet Engineering Task Force (IETF) has developed several technologies and standards to facilitate multi-layer network planning, including protocols for path computation, topology exchange, and resource optimisation.<a href="#section-6.12-1" class="pilcrow">¶</a></p>
+<p id="section-6.12-2">The components and interfaces for MLN planning include:<a href="#section-6.12-2" class="pilcrow">¶</a></p>
+<p id="section-6.12-3">o Path Computation Element (PCE)<a href="#section-6.12-3" class="pilcrow">¶</a></p>
+<p id="section-6.12-4">o Generalized Multi-Protocol Label Switching (GMPLS)<a href="#section-6.12-4" class="pilcrow">¶</a></p>
+<p id="section-6.12-5">o Traffic Engineering Database (TED) and Topology Exchange<a href="#section-6.12-5" class="pilcrow">¶</a></p>
+<p id="section-6.12-6">o Abstraction and Control of Traffic Engineered Networks (ACTN)<a href="#section-6.12-6" class="pilcrow">¶</a></p>
+<p id="section-6.12-7">o YANG Models for Network Topologies and Node Inventory<a href="#section-6.12-7" class="pilcrow">¶</a></p>
+<p id="section-6.12-8">These enabling technologies are discussed in the following sub-sections.<a href="#section-6.12-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.12-2.1">
-            <p id="section-6.12-2.1.1">Architecture<a href="#section-6.12-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.12-9.1">
+            <p id="section-6.12-9.1.1">Architecture<a href="#section-6.12-9.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.12-3">To be added.<a href="#section-6.12-3" class="pilcrow">¶</a></p>
+<p id="section-6.12-10">The Abstraction and Control of Traffic Engineered Networks (ACTN) ACTN <span>[<a href="#RFC8453" class="cite xref">RFC8453</a>]</span> architecture provides a framework for virtualized network resource control and abstraction, enabling efficient multi-layer coordination between packet and optical networks. It defines key functional components like the Multi-Domain Coordinator (MDSC), which facilitates policy-based control and end-to-end service planning and provisioning.<a href="#section-6.12-10" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.12-4.1">
-            <p id="section-6.12-4.1.1">Interfaces and APIs<a href="#section-6.12-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.12-11.1">
+            <p id="section-6.12-11.1.1">Interfaces and APIs<a href="#section-6.12-11.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.12-5">To be added.<a href="#section-6.12-5" class="pilcrow">¶</a></p>
+<p id="section-6.12-12">The Path Computation Element (PCE) is a fundamental component of a Software Defined Networking (SDN) system, responsible for computing optimal traffic paths and dynamically adjusting them based on network conditions or demand. Originally designed for deriving paths for MPLS, and GMPLS, Label Switched Paths (LSPs), PCE delivers these computed routes to the LSP’s head end via the Path Computation Element Communication Protocol
+(PCEP).<a href="#section-6.12-12" class="pilcrow">¶</a></p>
+<p id="section-6.12-13">The PCE architecture <span>[<a href="#RFC4655" class="cite xref">RFC4655</a>]</span> enables efficient path computation for traffic-engineered networks by offloading complex calculations to a dedicated entity. Stateful PCE <span>[<a href="#RFC8051" class="cite xref">RFC8051</a>]</span> and <span>[<a href="#RFC8231" class="cite xref">RFC8231</a>]</span> extends the PCE framework by maintaining real-time network state awareness, allowing dynamic path optimisation across layers. The Hierarchical PCE (H-PCE) <span>[<a href="#RFC6805" class="cite xref">RFC6805</a>]</span> architecture supports multi-layer and multi-domain path computation by allowing collaboration between multiple PCEs.<a href="#section-6.12-13" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.12-6.1">
-            <p id="section-6.12-6.1.1">Protocols<a href="#section-6.12-6.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.12-14.1">
+            <p id="section-6.12-14.1.1">Protocols<a href="#section-6.12-14.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.12-7">To be added.<a href="#section-6.12-7" class="pilcrow">¶</a></p>
+<p id="section-6.12-15">To be added.<a href="#section-6.12-15" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.12-8.1">
-            <p id="section-6.12-8.1.1">Data Models<a href="#section-6.12-8.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.12-16.1">
+            <p id="section-6.12-16.1.1">Data Models<a href="#section-6.12-16.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.12-9">To be added.<a href="#section-6.12-9" class="pilcrow">¶</a></p>
+<p id="section-6.12-17">The YANG data modeling language is a cornerstone for MLN planning. It provides a structured way to represent network elements, configurations, and operational states, enabling programmatic control and integration across multiple network layers. Severeal IETF YANG models provide network topology, traffic engineering, optical transport, and service abstraction.<a href="#section-6.12-17" class="pilcrow">¶</a></p>
+<p id="section-6.12-18">A core YANG model for MLN planning is the Network Topology Model <span>[<a href="#RFC8345" class="cite xref">RFC8345</a>]</span>, which provides a generic framework for representing network nodes, links, and supporting attributes. This model would faciliate an AI-enabled planning system to define multi-layer relationships, such as the mapping between optical, ethernet, and IP layers, enabling a holistic approach to MLN planning.<a href="#section-6.12-18" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.12-10.1">
-            <p id="section-6.12-10.1.1">Alignment with IETF<a href="#section-6.12-10.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.12-19.1">
+            <p id="section-6.12-19.1.1">Alignment with IETF<a href="#section-6.12-19.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.12-11">To be added.<a href="#section-6.12-11" class="pilcrow">¶</a></p>
+<p id="section-6.12-20">To be added.<a href="#section-6.12-20" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="causality-discovery">
@@ -3297,9 +3307,33 @@ to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref"
       <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC4655">[RFC4655]</dt>
+      <dd>
+<span class="refAuthor">Farrel, A.</span>, <span class="refAuthor">Vasseur, J.-P.</span>, and <span class="refAuthor">J. Ash</span>, <span class="refTitle">"A Path Computation Element (PCE)-Based Architecture"</span>, <span class="seriesInfo">RFC 4655</span>, <span class="seriesInfo">DOI 10.17487/RFC4655</span>, <time datetime="2006-08" class="refDate">August 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4655">https://www.rfc-editor.org/rfc/rfc4655</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6805">[RFC6805]</dt>
+      <dd>
+<span class="refAuthor">King, D., Ed.</span> and <span class="refAuthor">A. Farrel, Ed.</span>, <span class="refTitle">"The Application of the Path Computation Element Architecture to the Determination of a Sequence of Domains in MPLS and GMPLS"</span>, <span class="seriesInfo">RFC 6805</span>, <span class="seriesInfo">DOI 10.17487/RFC6805</span>, <time datetime="2012-11" class="refDate">November 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6805">https://www.rfc-editor.org/rfc/rfc6805</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8051">[RFC8051]</dt>
+      <dd>
+<span class="refAuthor">Zhang, X., Ed.</span> and <span class="refAuthor">I. Minei, Ed.</span>, <span class="refTitle">"Applicability of a Stateful Path Computation Element (PCE)"</span>, <span class="seriesInfo">RFC 8051</span>, <span class="seriesInfo">DOI 10.17487/RFC8051</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8051">https://www.rfc-editor.org/rfc/rfc8051</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8231">[RFC8231]</dt>
+      <dd>
+<span class="refAuthor">Crabbe, E.</span>, <span class="refAuthor">Minei, I.</span>, <span class="refAuthor">Medved, J.</span>, and <span class="refAuthor">R. Varga</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Extensions for Stateful PCE"</span>, <span class="seriesInfo">RFC 8231</span>, <span class="seriesInfo">DOI 10.17487/RFC8231</span>, <time datetime="2017-09" class="refDate">September 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8231">https://www.rfc-editor.org/rfc/rfc8231</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8345">[RFC8345]</dt>
+      <dd>
+<span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Medved, J.</span>, <span class="refAuthor">Varga, R.</span>, <span class="refAuthor">Bahadur, N.</span>, <span class="refAuthor">Ananthakrishnan, H.</span>, and <span class="refAuthor">X. Liu</span>, <span class="refTitle">"A YANG Data Model for Network Topologies"</span>, <span class="seriesInfo">RFC 8345</span>, <span class="seriesInfo">DOI 10.17487/RFC8345</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8345">https://www.rfc-editor.org/rfc/rfc8345</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8453">[RFC8453]</dt>
+    <dd>
+<span class="refAuthor">Ceccarelli, D., Ed.</span> and <span class="refAuthor">Y. Lee, Ed.</span>, <span class="refTitle">"Framework for Abstraction and Control of TE Networks (ACTN)"</span>, <span class="seriesInfo">RFC 8453</span>, <span class="seriesInfo">DOI 10.17487/RFC8453</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8453">https://www.rfc-editor.org/rfc/rfc8453</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
