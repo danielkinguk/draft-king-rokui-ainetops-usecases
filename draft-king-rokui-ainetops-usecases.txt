@@ -5,10 +5,10 @@
 RTG                                                             R. Rokui
 Internet-Draft                                                     Ciena
 Intended status: Informational                                     C. Li
-Expires: 10 August 2025                                           Huawei
+Expires: 23 August 2025                                           Huawei
                                                                  D. King
                                                     Lancaster University
-                                                         6 February 2025
+                                                        19 February 2025
 
 
           Artificial Intelligence (AI) for Network Operations
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 August 2025.
+   This Internet-Draft will expire on 23 August 2025.
 
 Copyright Notice
 
@@ -95,6 +95,7 @@ Table of Contents
        5.12.1.  Threat Detection and Mitigation
        5.12.2.  Intrusion Detection and Prevention
        5.12.3.  Security Policy Automation
+     5.13. Multi Agent Interworking
    6.  AINetOps Scenarios and Use-cases
      6.1.  Network Active and Reactive Assurance
      6.2.  Network Pro-active Assurance
@@ -110,7 +111,8 @@ Table of Contents
      6.12. Multi-layer Network Planning
      6.13. Causality Discovery
      6.14. Network Clean Up
-     6.15. Other Use Cases
+     6.15. Multi agent interworking
+     6.16. Other Use Cases
    7.  Normative References
    Appendix A.  IANA Considerations
    Acknowledgments
@@ -342,6 +344,8 @@ Table of Contents
    *  Section 5.11 "Network API Construction"
 
    *  Section 5.12 "AI-Driven Security Monitoring"
+
+   *  Section 5.13 "Multi Agent Interworking"
 
 5.1.  Operator Network Assistance
 
@@ -972,6 +976,31 @@ Table of Contents
    and ensures compliance with regulatory standards by monitoring for
    deviations and recommending corrective actions.
 
+5.13.  Multi Agent Interworking
+
+   As seen in the use cases above, the usage of agents introduces
+   various challenges, spanning from the definition of APIs that can be
+   used by the various agent to the interworking with already existing
+   components of the Network Managent and Control stack.  New challenges
+   arise when we move from a single agent to a multi-agent architecture.
+   When multiple agents are deployed we need to consider how they
+   discover each other, how they interwork with the discovered agents
+   and how they are kept in synch.
+
+   The discovery aspect could be relatively simple in the short term,
+   when few agents will be deployed in the network and it could be
+   possible to manually configure each agent with the identifiers and
+   capabilities of the other agents to interact with.  With the
+   evolution of AI based architectures with more and more agents being
+   part of the architecture, mechanisms to advertise their presence and
+   more important their capabilties will be required.
+
+   The second aspect to consider is the interworking between them.  As
+   of today the way we interact with agents is mostly based on LLM, but
+   would that be the best way for interacting between them as well?
+   Probably a more machine oriented type of language, encoding and
+   protocols would have better perfomances.
+
 6.  AINetOps Scenarios and Use-cases
 
    This section further expands Section 5 by exploring scenarios and use
@@ -1515,7 +1544,167 @@ Table of Contents
 
    To be added.
 
-6.15.  Other Use Cases
+6.15.  Multi agent interworking
+
+   As briefly introduced in chapter 5, effectively deploying multiple AI
+   agents for network management introduces significant interworking
+   challenges that must be addressed for successful and reliable
+   operation.  These challenges span several key areas:
+
+   *  Communication and Coordination: Multiple agents operating in a
+      shared network environment need to communicate effectively to
+      coordinate their actions.  This includes sharing information about
+      network state, learned models, and planned interventions.  A lack
+      of standardized protocols and data models can lead to the need to
+      deploy expensive and time consuming adaptation layers.  It is also
+      extremly important to determine the appropriate communication
+      frequency and granularity to avoid overloading the communication
+      network between them while keeping a sufficient level of details
+      to avoid suboptimal or even harmful decisions due to incomplete
+      information.
+
+   *  Conflict Resolution and Decision Fusion: When multiple agents are
+      responsible for overlapping or interdependent network functions,
+      conflicts in their decisions are inevitable.  For example, one
+      agent might decide to reroute traffic to alleviate congestion,
+      while another agent simultaneously decides to scale down resources
+      in the same area.  Effective conflict resolution mechanisms are
+      needed to prioritize actions, negotiate solutions, and ensure that
+      the overall impact on the network is positive.  This requires
+      defining clear roles and responsibilities for each agent,
+      establishing decision fusion strategies, and potentially
+      incorporating a central arbitration mechanism, like for example in
+      the case of coordination of multiple PCEs.  Furthermore, handling
+      conflicting information from different agents, potentially due to
+      noisy or incomplete data, requires robust data validation and
+      aggregation techniques.
+
+   *  Consistency and Stability: The dynamic nature of networks requires
+      agents to continuously learn and adapt.  However, independent
+      learning by multiple agents can lead to inconsistencies in their
+      learned models and behaviors, potentially causing instability in
+      the network.  For example, different agents might learn different
+      optimal routing strategies, leading to oscillations and
+      unpredictable network performance.  Mechanisms for sharing learned
+      knowledge, synchronizing models, and ensuring convergence towards
+      a stable and consistent global state are essential.  This could
+      involve techniques like federated learning or distributed
+      consensus protocols.
+
+   *  Trust and Security: In a multi-agent environment, trust and
+      security become critical concerns.  Agents might be vulnerable to
+      malicious attacks or faulty behavior, which can compromise the
+      entire network.  Robust authentication and authorization
+      mechanisms are needed to ensure that only legitimate agents can
+      access and control network resources.  Establishing trust between
+      agents, potentially through reputation systems or blockchain
+      technologies, can also enhance the overall security and resilience
+      of the network.
+
+   *  Scalability and Management: As the number of agents and the
+      complexity of the network increase, managing the interactions
+      between agents becomes increasingly challenging.  Scalable
+      architectures and management frameworks are needed to handle the
+      growing communication overhead, coordination complexity, and
+      resource requirements.  One possible option to overcome this
+      problem could be leveraging on a hierarchical agent structure.  As
+      previously introduced, in order to allow for scalability, it is
+      also important to foresee advertisement protocols/extensions to
+      let the agents learn about their counterparts and their
+      capabilities.
+
+   Addressing these interworking challenges is essential for realizing
+   the full potential of AI agents in network management.  Developing
+   standardized protocols, robust coordination mechanisms, and scalable
+   management frameworks will pave the way for autonomous networks.
+
+   *  Architecture
+
+   Multi agent architecture can be extremely complex, but figure
+   Figure 6 tries to capture the main interwokring issues of this
+   scenario.  An example with an arbitrary number of agents (N)
+   connecting to different components of the management and control
+   stack (SDN controllers, observability function, assurance function,
+   and others) is provided.
+
+
+         |------------|         (A)           |------------|
+         |  Agent #1  | <-------------------->|  Agent #N  |
+         |------------|                       |------------|
+               |   |                           |  ^      |
+               |   +------------------+    --- +  |      +--+
+               v                      |    |      |         |
+         |---------------|            v    V      |         V
+         |   P-PNC(s),   |      |--------------|  |      |------------|
+         |   O-PNC(s),   |      | Observability|  |  ... | Assurance  |
+         |   MDSC        |      |              |  |      |            |
+         |---------------|      |--------------|  |      |------------|
+                 ^                                |
+                 |                                v
+       +---------|------------------------------------------------+
+       |                                                          |
+       |                      IP/Optical Network                  |
+       |                                                          |
+       +----------------------------------------------------------+
+
+     Legend:
+     (A) Inter Agent comunication for coordination
+
+                     Figure 6: Multi-agent architecture
+
+   Alternatively, a hierarchical solution can be foreseen, with an agent
+   (H-Agent) specifically designed for coordinating agents, or an agent
+   designated to play the role of H-Agent in addition to its duties, as
+   shown in Figure 7:
+
+                           |------------|
+                           |  H-Agent   |
+                           |------------|
+                     (A)      |     |    (A)
+               +--------------+     +----------------+
+               |                                     |
+               V                                     V
+         |------------|                       |------------|
+         |  Agent #1  |                       |  Agent #N  |
+         |------------|                       |------------|
+               |   |                           |  ^      |
+               |   +------------------+    --- +  |      +--+
+               v                      |    |      |         |
+         |---------------|            v    V      |         V
+         |   P-PNC(s),   |      |--------------|  |      |------------|
+         |   O-PNC(s),   |      | Observability|  |  ... | Assurance  |
+         |   MDSC        |      |              |  |      |            |
+         |---------------|      |--------------|  |      |------------|
+                 ^                                |
+                 |                                v
+       +---------|------------------------------------------------+
+       |                                                          |
+       |                      IP/Optical Network                  |
+       |                                                          |
+       +----------------------------------------------------------+
+
+     Legend:
+     (A) H-Agent to Agent comunication
+
+              Figure 7: Multi-agent hierarchical architecture
+
+   *  Interfaces and APIs
+
+   To be added.
+
+   *  Protocols
+
+   To be added.
+
+   *  Data Models
+
+   To be added.
+
+   *  Alignment with IETF
+
+   To be added.
+
+6.16.  Other Use Cases
 
    To be discussed and agreed.
 
