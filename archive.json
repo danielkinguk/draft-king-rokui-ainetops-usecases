@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-18T00:59:36.692893+00:00",
+  "timestamp": "2025-02-20T01:00:20.893581+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -133,24 +133,26 @@
       "id": "PR_kwDONbAZCM6KR6Ep",
       "title": "Adding MLN Planning Use Case Text",
       "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/8",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danielkinguk",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Adding description, components, protocols and data models, to describe the multi-layer network planning use case.",
       "createdAt": "2025-02-06T13:39:32Z",
-      "updatedAt": "2025-02-17T17:46:14Z",
+      "updatedAt": "2025-02-19T08:29:17Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
       "headRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "headRefName": "dk-version",
       "headRefOid": "62095f6cadadb00f73651195189877777968478d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-02-19T08:29:17Z",
+      "mergedAt": "2025-02-19T08:29:16Z",
+      "mergedBy": "reza-github",
+      "mergeCommit": {
+        "oid": "17b368e3c9621da4b6568d0d2199c579b39f4906"
+      },
       "comments": [],
       "reviews": [
         {
@@ -259,28 +261,28 @@
       "id": "PR_kwDONbAZCM6Kz5uF",
       "title": "Update draft-king-rokui-ainetops-usecases.md",
       "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/10",
-      "state": "CLOSED",
+      "state": "OPEN",
       "author": "DanieleIETF",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Test",
       "createdAt": "2025-02-11T14:12:59Z",
-      "updatedAt": "2025-02-13T15:05:12Z",
+      "updatedAt": "2025-02-19T07:58:26Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
       "headRepository": "DanieleIETF/draft-king-rokui-ainetops-usecases",
       "headRefName": "patch-1",
       "headRefOid": "99c108d0e918f2baa48b371625b50fa361496745",
-      "closedAt": "2025-02-13T15:05:12Z",
+      "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [
         {
           "author": "DanieleIETF",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Test",
           "createdAt": "2025-02-11T14:13:25Z",
           "updatedAt": "2025-02-11T14:13:25Z"
@@ -293,33 +295,35 @@
       "id": "PR_kwDONbAZCM6K1rP3",
       "title": "Input on multi-agent from Daniele  ",
       "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/11",
-      "state": "CLOSED",
+      "state": "MERGED",
       "author": "DanieleIETF",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [
         "reza-github"
       ],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-11T17:31:16Z",
-      "updatedAt": "2025-02-17T17:34:05Z",
+      "updatedAt": "2025-02-19T08:18:26Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "c556ce327d3668957cefdfe9578241a1e8b5f10f",
       "headRepository": "DanieleIETF/draft-king-rokui-ainetops-usecases",
       "headRefName": "main",
       "headRefOid": "d56da2b1295fadcba0b2177740cff882b3cffbcc",
-      "closedAt": "2025-02-17T17:33:05Z",
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-02-19T08:17:31Z",
+      "mergedAt": "2025-02-19T08:17:31Z",
+      "mergedBy": "reza-github",
+      "mergeCommit": {
+        "oid": "a39d83d6bd8492563f17b7ac219bcf53b5fa2210"
+      },
       "comments": [
         {
           "author": "danielkinguk",
           "authorAssociation": "OWNER",
-          "body": "Looks good, we just reviewed the proposed use case and initially scanned the text on our bi-weekly call. One request for @DanieleIETF is to provide some terminology definitions for terms like \"agent\" and \"multi-agent\" in the context of this document. \r\nAgreed. Ready for merge. ",
+          "body": "Looks good, we just reviewed the proposed use case and initially scanned the text on our bi-weekly call. One request for @DanieleIETF is to provide some terminology definitions for terms like \"agent\" and \"multi-agent\" in the context of this document. \r\nAgreed. we can merge it and then Daniele can add these definitions.",
           "createdAt": "2025-02-13T15:12:27Z",
-          "updatedAt": "2025-02-17T17:34:05Z"
+          "updatedAt": "2025-02-19T07:59:41Z"
         },
         {
           "author": "reza-github",
@@ -327,6 +331,13 @@
           "body": "Ready for merge.",
           "createdAt": "2025-02-17T17:33:05Z",
           "updatedAt": "2025-02-17T17:33:05Z"
+        },
+        {
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merged to main. \r\nDaniele would you add the definitions for AI Agents",
+          "createdAt": "2025-02-19T08:18:25Z",
+          "updatedAt": "2025-02-19T08:18:25Z"
         }
       ],
       "reviews": [
