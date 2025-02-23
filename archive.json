@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-20T01:00:20.893581+00:00",
+  "timestamp": "2025-02-23T01:04:39.984554+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -381,6 +381,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDONbAZCM6MG3ZV",
+      "title": "Arashmid contribution ",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/12",
+      "state": "OPEN",
+      "author": "arashmid",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Adding section 6.16 - Network traffic management ",
+      "createdAt": "2025-02-21T22:03:38Z",
+      "updatedAt": "2025-02-21T22:03:38Z",
+      "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "17b368e3c9621da4b6568d0d2199c579b39f4906",
+      "headRepository": "arashmid/draft-king-rokui-ainetops-usecases",
+      "headRefName": "main",
+      "headRefOid": "f300673c5727893e86a13308f819fa0e46bf8a68",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
