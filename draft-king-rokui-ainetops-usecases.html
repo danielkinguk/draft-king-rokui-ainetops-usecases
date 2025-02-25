@@ -1065,7 +1065,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rokui, et al.</td>
-<td class="center">Expires 23 August 2025</td>
+<td class="center">Expires 29 August 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1078,12 +1078,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-king-rokui-ainetops-usecases-00</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-02-19" class="published">19 February 2025</time>
+<time datetime="2025-02-25" class="published">25 February 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-08-23">23 August 2025</time></dd>
+<dd class="expires"><time datetime="2025-08-29">29 August 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1137,7 +1137,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 23 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 August 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1320,7 +1320,21 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
                 <p id="section-toc.1-1.6.2.15.1"><a href="#section-6.15" class="auto internal xref">6.15</a>. <a href="#name-multi-agent-interworking-2" class="internal xref">Multi agent interworking</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.16">
-                <p id="section-toc.1-1.6.2.16.1"><a href="#section-6.16" class="auto internal xref">6.16</a>. <a href="#name-other-use-cases" class="internal xref">Other Use Cases</a></p>
+                <p id="section-toc.1-1.6.2.16.1"><a href="#section-6.16" class="auto internal xref">6.16</a>. <a href="#name-network-traffic-management" class="internal xref">Network traffic management</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.16.2.1">
+                    <p id="section-toc.1-1.6.2.16.2.1.1"><a href="#section-6.16.1" class="auto internal xref">6.16.1</a>.  <a href="#name-short-term-approaches" class="internal xref">Short term approaches</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.16.2.2">
+                    <p id="section-toc.1-1.6.2.16.2.2.1"><a href="#section-6.16.2" class="auto internal xref">6.16.2</a>.  <a href="#name-inference" class="internal xref">Inference</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.16.2.3">
+                    <p id="section-toc.1-1.6.2.16.2.3.1"><a href="#section-6.16.3" class="auto internal xref">6.16.3</a>.  <a href="#name-longer-term-view" class="internal xref">Longer term view</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.17">
+                <p id="section-toc.1-1.6.2.17.1"><a href="#section-6.17" class="auto internal xref">6.17</a>. <a href="#name-other-use-cases" class="internal xref">Other Use Cases</a></p>
 </li>
             </ul>
 </li>
@@ -3257,42 +3271,371 @@ to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref"
 <p id="section-6.15-16">To be added.<a href="#section-6.15-16" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="other-use-cases">
+<div id="network-traffic-management">
 <section id="section-6.16">
-        <h3 id="name-other-use-cases">
-<a href="#section-6.16" class="section-number selfRef">6.16. </a><a href="#name-other-use-cases" class="section-name selfRef">Other Use Cases</a>
+        <h3 id="name-network-traffic-management">
+<a href="#section-6.16" class="section-number selfRef">6.16. </a><a href="#name-network-traffic-management" class="section-name selfRef">Network traffic management</a>
         </h3>
-<p id="section-6.16-1">To be discussed and agreed.<a href="#section-6.16-1" class="pilcrow">¶</a></p>
+<p id="section-6.16-1">Flow placement, traffic engineering/steering along with network
+resource defragmentation are among important aspects of network
+operations that can benefit from artificial intelligence.<a href="#section-6.16-1" class="pilcrow">¶</a></p>
+<p id="section-6.16-2">Network routing protocols automate flow placement for best-effort
+traffic.  Traffic engineering and steering are commonly based on
+statistical analysis and historical trends of network traffic.  They
+are mostly implemented via configurations and tunnel setups, often
+employing scripts for automation purposes.<a href="#section-6.16-2" class="pilcrow">¶</a></p>
+<p id="section-6.16-3">While there are some proactive approach to network resource
+defragmentation, reactive methods are still quite common.  There are
+short-term approaches and longer-term views on employing AI to
+address traffic management.<a href="#section-6.16-3" class="pilcrow">¶</a></p>
+<div id="short-term-approaches">
+<section id="section-6.16.1">
+          <h4 id="name-short-term-approaches">
+<a href="#section-6.16.1" class="section-number selfRef">6.16.1. </a><a href="#name-short-term-approaches" class="section-name selfRef">Short term approaches</a>
+          </h4>
+<p id="section-6.16.1-1">In the short-term, AI models train on operator’s network traffic
+patterns and employ a set of APIs to connect to network configuration
+equipment in order to add, remove, and modify configurations and perform
+different traffic management related tasks. Model training can be either 
+off-line or on-line.<a href="#section-6.16.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-2">Initially, AI models perform their inference tasks exclusively based
+on their training on historical network traffic patterns, and topology changes
+in a centralized manner.  In more advanced approaches, the models not only
+train on network traffic patterns, and network topology changes, but also 
+learn how to interpret and digest external events. This added capability allows
+the AI models to be more effective in performing their traffic management tasks.<a href="#section-6.16.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-3">Generally speaking, IETF/IRTF can work on describing and providing synthetic networks
+along with synthetic traffic that can be used to train AI models. Furthermore, IETF/IRTF
+can also define and provide expected reasonable traffic flows.<a href="#section-6.16.1-3" class="pilcrow">¶</a></p>
+<div id="offline-training">
+<section id="section-6.16.1.1">
+            <h5 id="name-offline-training">
+<a href="#section-6.16.1.1" class="section-number selfRef">6.16.1.1. </a><a href="#name-offline-training" class="section-name selfRef">Offline training</a>
+            </h5>
+<p id="section-6.16.1.1-1">During off-line training, external events, network monitoring information 
+(available via protocols such as SNMP), historical data from traffic engineering 
+databases, network topology changes, and other traffic-related data from the 
+operator's network are collected over time. This data is then used later 
+during the training and model performance evaluation process.<a href="#section-6.16.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.16.1.1-2">There is potential to define a set of APIs to collect information or enable
+a query mechanism to pull the required training data, particularly for external events.<a href="#section-6.16.1.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.16.1.1-3">Selecting the important features from the entire dataset is another crucial
+aspect of training.<a href="#section-6.16.1.1-3" class="pilcrow">¶</a></p>
+<p id="section-6.16.1.1-4">IETF/IRTF can certainly play a role in both of the above-mentioned cases.<a href="#section-6.16.1.1-4" class="pilcrow">¶</a></p>
+<span id="name-ai-assisted-traffic-managem"></span><div id="_figure-off-line">
+<figure id="figure-8">
+              <div class="alignLeft art-text artwork" id="section-6.16.1.1-5.1">
+<pre>
++---------+     (A) + (B)
+| Outside |xxxxxxxx External xxxxxxxxx
+|  world  |          events          x
++---------+                          x
+                                     x
+                                     V
++-----------+              +--------------------+
+|  Network  |-------------&gt;|     Dataset        |
++-----------+              |    repository      |
+                           +--------------------+
+                           | Network monitoring |
+                           |       info.        |
+                           |   (e.g via SNMP)   |
+                           |         +          |
+                           |   Topology changes |
+                           |         +          |
+                           |   Historical data  |
+                           |   from TE-DB, etc. |
+                           +--------------------+
+                                     x
+                                     x (B)
+                                     x
+                                     V
+                               +------------+
+                               |  AI model  |
+                               |   under    |
+                               |  training  |
+                               +------------+
+
+
+  Legend:
+  xxx Potential IETF defined and standardized interface.
+  (A) Extracting and storing outside world events data.
+  (B) Important features for training the model for traffic mgmt.
+
+</pre>
+</div>
+<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
+<a href="#name-ai-assisted-traffic-managem" class="selfRef">AI assisted traffic management: Offline training</a>
+              </figcaption></figure>
+</div>
+</section>
+</div>
+<div id="online-training">
+<section id="section-6.16.1.2">
+            <h5 id="name-online-training">
+<a href="#section-6.16.1.2" class="section-number selfRef">6.16.1.2. </a><a href="#name-online-training" class="section-name selfRef">Online training</a>
+            </h5>
+<p id="section-6.16.1.2-1">On-line training takes a more real-time approach. Here model training is based
+on processing data incrementally as it becomes available. This method is particularly
+suitable for scenarios such as network traffic management which require real-time
+learning and adaptation to changes.<a href="#section-6.16.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.16.1.2-2">A traffic management AI model under online training uses the same input sources as it
+does in offline training. However, unlike offline training, the data here is not stored
+in a repository but streamed into the training process. As such, the ground truth for model performance evaluation in online training is derived from observation of
+actual real time world events and network behavior, rather than stored data.
+The training process therefore requires a mechanism to extract important features from the stream of incoming real-time network data and outside world events. These extracted
+features are then fed to the training process for adjusting model's parameters in a dynamic manner.<a href="#section-6.16.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.16.1.2-3">IETF/IRTF can work to standardize the mechanisms to identify important feature and implement the above mentioned required real-time data delivery and feature extraction.<a href="#section-6.16.1.2-3" class="pilcrow">¶</a></p>
+<span id="name-ai-assisted-traffic-manageme"></span><div id="_figure-online-line">
+<figure id="figure-9">
+              <div class="alignLeft art-text artwork" id="section-6.16.1.2-4.1">
+<pre>
++---------+     (A) + (B)
+| Outside |xxxxxxxxxxxx External xxxxxxxxxxxxxxxx
+|  world  |              events                 x
++---------+                                     x
+                                                x
+                                                V
+                                          +------------+
++-----------+          (A) + (B)          |  AI model  |
+|  Network  |xxxxxxxxxxxxxxxxxxxxxxxxxxxx&gt;|   under    |
++-----------+                             |  training  |
+                                          +------------+
+                real-time stream of
+                Network monitoring
+                       info.
+                  (e.g via SNMP)
+                         +
+                  Topology changes
+                         +
+                  Historical data
+                  from TE-DB, etc.
+
+
+  Legend:
+  xxx Potential IETF defined and standardized interface.
+  (A) Extracting and storing outside world events data.
+  (B) Important features for training the model for traffic mgmt.
+
+</pre>
+</div>
+<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
+<a href="#name-ai-assisted-traffic-manageme" class="selfRef">AI assisted traffic management: On-line training</a>
+              </figcaption></figure>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="inference">
+<section id="section-6.16.2">
+          <h4 id="name-inference">
+<a href="#section-6.16.2" class="section-number selfRef">6.16.2. </a><a href="#name-inference" class="section-name selfRef">Inference</a>
+          </h4>
+<p id="section-6.16.2-1">Inference phase for traffic management requires an interface to translate AI model's
+output to a set of network operation tasks and configuration commands. With this
+information readily available, existing protocols such as NETCONF can be employed to
+manage the network.<a href="#section-6.16.2-1" class="pilcrow">¶</a></p>
+<span id="name-ai-assisted-traffic-managemen"></span><div id="_figure-Inference">
+<figure id="figure-10">
+            <div class="alignLeft art-text artwork" id="section-6.16.2-2.1">
+<pre>
++---------+     (A) + (B)
+| Outside |xxxxxxxxxxxx External xxxxxxxxxxxxxxxx
+|  world  |              events                 x
++---------+                                     x
+                                                x
+                                                V
+                                          +------------+
++-----------+          (A) + (B)          |  AI model  |
+|  Network  |xxxxxxxxxxxxxxxxxxxxxxxxxxxx&gt;|     in     |
++-----------+                             |  operation |
+      ^                                   +------------+
+      |         real-time stream of             x
+      |         Network monitoring              x
+      |                info.                    x (C)
+      |            (e.g via SNMP)               x
+      |                  +                      V
+      |           Topology changes        +------------+
+      |                  +                | AI output  |
+      |               Data from           | to network |
+      |              TE-DB, etc.          | config     |
+      |                                   | translator |
+      |                                   +------------+
+      |                                         |
+      |                                         |
+      +----------- Configuration commands ------+
+
+
+  Legend:
+  xxx Potential IETF defined and standardized interface.
+  (A) Extracting and storing outside world events data.
+  (B) Important features for training the model for traffic mgmt.
+  (C) Standardized output of the AI model delivered for translation
+
+</pre>
+</div>
+<figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
+<a href="#name-ai-assisted-traffic-managemen" class="selfRef">AI assisted traffic management: Inference</a>
+            </figcaption></figure>
+</div>
+</section>
+</div>
+<div id="longer-term-view">
+<section id="section-6.16.3">
+          <h4 id="name-longer-term-view">
+<a href="#section-6.16.3" class="section-number selfRef">6.16.3. </a><a href="#name-longer-term-view" class="section-name selfRef">Longer term view</a>
+          </h4>
+<p id="section-6.16.3-1">Over time, the full integration of AI models and network elements will transform networks from their current state into agent-based or Agentic networks. In a distributed version of Agentic networks, each node is accompanied by an AI agents. Once trained, these agents work together to address flow placement, traffic steering/engineering, and other network related tasks such as traffic management, network resource defragmentation, and even routing.<a href="#section-6.16.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.16.3-2">While being different from networks managed by a set of interworking multi agents , the Agentic networks face some of the same challenges outlined in the multi agent interworking
+section of the document. However, in Agentic networks, distributed training of the agents and proper knowledge sharing between them can enhance their collective training performance and can potentially alleviate some of these difficulties.<a href="#section-6.16.3-2" class="pilcrow">¶</a></p>
+<p id="section-6.16.3-3">In these networks, AI agents trained on local traffic patterns and external events will exchange knowledge and network state information through a set of protocols in a distributed manner in order to address network related tasks. Agentic networks will potentially offer highly automated, streamlined, and tunnel-less traffic management that is currently available only for best-effort traffic.<a href="#section-6.16.3-3" class="pilcrow">¶</a></p>
+<p id="section-6.16.3-4">In addition to the potential standardization opportunities outlined in the previous section, IETF/IRTF can alo play a role in defining and standardizing the followings:<a href="#section-6.16.3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.16-2.1">
-            <p id="section-6.16-2.1.1">Architecture<a href="#section-6.16-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.16.3-5.1">
+              <p id="section-6.16.3-5.1.1">Training<a href="#section-6.16.3-5.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.3-5.1.2.1">
+                  <p id="section-6.16.3-5.1.2.1.1">Mechanisms for distributed training and knowledge sharing<a href="#section-6.16.3-5.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-6.16.3-5.1.2.2">
+                  <p id="section-6.16.3-5.1.2.2.1">Mechanisms for feeding traffic and overall network state information to agents for training purposes.<a href="#section-6.16.3-5.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-6.16.3-5.1.2.3">
+                  <p id="section-6.16.3-5.1.2.3.1">Mechanisms for feeding external events information to agents during training.<a href="#section-6.16.3-5.1.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              </ul>
+</li>
+            <li class="normal" id="section-6.16.3-5.2">
+              <p id="section-6.16.3-5.2.1">Inference<a href="#section-6.16.3-5.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.3-5.2.2.1">
+                  <p id="section-6.16.3-5.2.2.1.1">Mechanisms for distributing agents' decisions and inference results.<a href="#section-6.16.3-5.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-6.16.3-5.2.2.2">
+                  <p id="section-6.16.3-5.2.2.2.1">Mechanisms for feeding traffic and overall network state information to agents during inference phase.<a href="#section-6.16.3-5.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+                <li class="normal" id="section-6.16.3-5.2.2.3">
+                  <p id="section-6.16.3-5.2.2.3.1">Mechanisms for feeding external events information to agents during inference phase.<a href="#section-6.16.3-5.2.2.3.1" class="pilcrow">¶</a></p>
+</li>
+              </ul>
+</li>
+            <li class="normal" id="section-6.16.3-5.3">
+              <p id="section-6.16.3-5.3.1">There is also potentially a need to define mechanisms to identify flow requirements to the agents during network operations.<a href="#section-6.16.3-5.3.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-6.16.3-6">The following figure depicts an example of an Agentic network.<a href="#section-6.16.3-6" class="pilcrow">¶</a></p>
+<span id="name-distributed-agentic-network"></span><div id="_figure-Agentic-networks">
+<figure id="figure-11">
+            <div class="alignLeft art-text artwork" id="section-6.16.3-7.1">
+<pre>
++---------+                  (C) + (D)                +---------+
+| Outside |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx| Network |
+| world   |   x                   x             x     |         |
++---------+   x                   x             x     +---------+
+              x                   x             x
+              x                   x             xxxxxxxxxx
+              x                   x                      x
+              V                   V                      V
+        +------------+      +------------+          +------------+
+    xxx&gt;|  AI Agent  |  xxx&gt;|  AI Agent  |      xxx&gt;|  AI Agent  |
+    x   |------------|  x   +------------+ ...  x   +------------+
+    x   |            |  x   |            |      x   |            |
+    x   |   Node-1   |  x   |   Node-2   |      x   |   Node-n   |
+    x   +------------+  x   +------------+      x   +------------+
+    x                   x                       x
+    x                   x                       x
+    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                       (A) + (B)
+
+ Legend:
+  xxx Potential IETF defined and standardized interfaces
+  (A) APIs/Interfaces/Protocols for distributing training
+      and knowledge sharing.
+  (B) APIs/Interfaces/Protocols for distributing agents'
+      decisions and inference results.
+  (C) APIs/Interfaces/Protocols for feeding regionally
+      observed traffic and network state info. to agents
+      for training and inference.
+  (D) APIs/Interfaces/Protocols for feeding regionally
+      observed external events info. to agents for
+      training and inference.
+
+</pre>
+</div>
+<figcaption><a href="#figure-11" class="selfRef">Figure 11</a>:
+<a href="#name-distributed-agentic-network" class="selfRef">Distributed agentic networks</a>
+            </figcaption></figure>
+</div>
+<ul class="normal">
+<li class="normal" id="section-6.16.3-8.1">
+              <p id="section-6.16.3-8.1.1">Architecture<a href="#section-6.16.3-8.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-6.16.3-9">To be added.<a href="#section-6.16.3-9" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.3-10.1">
+              <p id="section-6.16.3-10.1.1">Interfaces and APIs<a href="#section-6.16.3-10.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-6.16.3-11">To be added.<a href="#section-6.16.3-11" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.3-12.1">
+              <p id="section-6.16.3-12.1.1">Protocols<a href="#section-6.16.3-12.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-6.16.3-13">To be added.<a href="#section-6.16.3-13" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.3-14.1">
+              <p id="section-6.16.3-14.1.1">Data Models<a href="#section-6.16.3-14.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-6.16.3-15">To be added.<a href="#section-6.16.3-15" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.3-16.1">
+              <p id="section-6.16.3-16.1.1">Alignment with IETF<a href="#section-6.16.3-16.1.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+<p id="section-6.16.3-17">To be added.<a href="#section-6.16.3-17" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="other-use-cases">
+<section id="section-6.17">
+        <h3 id="name-other-use-cases">
+<a href="#section-6.17" class="section-number selfRef">6.17. </a><a href="#name-other-use-cases" class="section-name selfRef">Other Use Cases</a>
+        </h3>
+<p id="section-6.17-1">To be discussed and agreed.<a href="#section-6.17-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.17-2.1">
+            <p id="section-6.17-2.1.1">Architecture<a href="#section-6.17-2.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.16-3">To be added.<a href="#section-6.16-3" class="pilcrow">¶</a></p>
+<p id="section-6.17-3">To be added.<a href="#section-6.17-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.16-4.1">
-            <p id="section-6.16-4.1.1">Interfaces and APIs<a href="#section-6.16-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.17-4.1">
+            <p id="section-6.17-4.1.1">Interfaces and APIs<a href="#section-6.17-4.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.16-5">To be added.<a href="#section-6.16-5" class="pilcrow">¶</a></p>
+<p id="section-6.17-5">To be added.<a href="#section-6.17-5" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.16-6.1">
-            <p id="section-6.16-6.1.1">Protocols<a href="#section-6.16-6.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.17-6.1">
+            <p id="section-6.17-6.1.1">Protocols<a href="#section-6.17-6.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.16-7">To be added.<a href="#section-6.16-7" class="pilcrow">¶</a></p>
+<p id="section-6.17-7">To be added.<a href="#section-6.17-7" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.16-8.1">
-            <p id="section-6.16-8.1.1">Data Models<a href="#section-6.16-8.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.17-8.1">
+            <p id="section-6.17-8.1.1">Data Models<a href="#section-6.17-8.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.16-9">To be added.<a href="#section-6.16-9" class="pilcrow">¶</a></p>
+<p id="section-6.17-9">To be added.<a href="#section-6.17-9" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.16-10.1">
-            <p id="section-6.16-10.1.1">Alignment with IETF<a href="#section-6.16-10.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.17-10.1">
+            <p id="section-6.17-10.1.1">Alignment with IETF<a href="#section-6.17-10.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.16-11">To be added.<a href="#section-6.16-11" class="pilcrow">¶</a></p>
+<p id="section-6.17-11">To be added.<a href="#section-6.17-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
