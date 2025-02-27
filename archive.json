@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-25T01:01:40.799661+00:00",
+  "timestamp": "2025-02-27T01:01:16.047643+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -387,25 +387,35 @@
       "id": "PR_kwDONbAZCM6MG3ZV",
       "title": "Arashmid contribution ",
       "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/12",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "arashmid",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Adding section 6.16 - Network traffic management ",
       "createdAt": "2025-02-21T22:03:38Z",
-      "updatedAt": "2025-02-21T22:03:38Z",
+      "updatedAt": "2025-02-25T05:38:26Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "17b368e3c9621da4b6568d0d2199c579b39f4906",
       "headRepository": "arashmid/draft-king-rokui-ainetops-usecases",
       "headRefName": "main",
       "headRefOid": "f300673c5727893e86a13308f819fa0e46bf8a68",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2025-02-25T05:37:39Z",
+      "mergedAt": "2025-02-25T05:37:39Z",
+      "mergedBy": "reza-github",
+      "mergeCommit": {
+        "oid": "d5aa33f71d5861b62412f2f34a0f9ac8baf88da2"
+      },
+      "comments": [
+        {
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Since it is a brand new sub section, it is merged. Everyone can review the content ",
+          "createdAt": "2025-02-25T05:38:24Z",
+          "updatedAt": "2025-02-25T05:38:24Z"
+        }
+      ],
       "reviews": []
     }
   ]
