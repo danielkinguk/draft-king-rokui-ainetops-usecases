@@ -2794,38 +2794,102 @@ standards can be leveraged or extended to support the use case.<a href="#section
         <h3 id="name-cognitive-search-on-interna">
 <a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-cognitive-search-on-interna" class="section-name selfRef">Cognitive Search On Internal Operator Data</a>
         </h3>
-<p id="section-6.7-1">Cognitive Search on internal Enterprise MOP, documentation, content
-   etc.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
+<p id="section-6.7-1">The operation of IP and optical networks comprises a wide range of management,
+monitoring and optimization tasks, including equipment configuration (switches,
+routers, OTNs, etc.), implementation of network policies, fault detection,
+troubleshooting, and capacity planning. The execution of such tasks usually requires access, 
+comprehension and analysis of specific documentation containing information about network 
+topologies, hardware inventory, vendor specifications, and pre-defined procedures. 
+Given the capacity of LLMs to understand natural language, including technical 
+jargon, and their ability to process large amounts of information in short times, 
+they can be used to build useful tools that support the network operational work, 
+by executing comprehensive cognitive searches through the different documentation 
+available to the operational teams, providing fast and concrete answers to technical 
+enquiries, and making the access to such information a more efficient and interactive 
+process.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
+<p id="section-6.7-2">To provision an LLM with such knowledge requires either a fine-tuning training job, 
+that retrains an existing LLM, or the implementation of a RAG based architecture, 
+where the information coming from the documentation is stored in a knowledge base 
+and provided as context to the LLM. For this scenario, the RAG based approach has 
+some specific advantages like lower computational cost, faster deployment, no need 
+of retraining when the documentation is updated, and easier scalability. 
+Therefore, it is often the default approach for this type of solutions. Next section provides 
+an architectural overview of how a RAG based system can be implemented to provide cognitive 
+search for network operations.<a href="#section-6.7-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.7-2.1">
-            <p id="section-6.7-2.1.1">Architecture<a href="#section-6.7-2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.7-3.1">
+            <p id="section-6.7-3.1.1">Architecture<a href="#section-6.7-3.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.7-3">To be added.<a href="#section-6.7-3" class="pilcrow">¶</a></p>
+<p id="section-6.7-4">In a RAG based architecture, a knowledge base is created by using an embedding model capable of splitting and transforming the content of different documents into numerical representations (vectors), and storing them in a data base, also known as Vector Data Base. The general process executed by the system every time a query is made by a user can be summarized in the following steps:
+1. Retrieval: The query made by the user is transformed by the embedding model and used to search and retrieve relevant information from the Vector Data Base.
+2. Augmentation: The information retrieved from the Vector Data Base is used to augment the query made by the user, adding context that might be unknown to the LLM.
+3. Generation: The augmented query is sent to the LLM, which then generates and answer in natural language that is finally delivered to the user.<a href="#section-6.7-4" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-6.7-5">
+<pre>
+
+    |-----------|                                             |---------|
+    |           |&lt;----------------Response--------------------|         |
+    |  Network  |                                             |         |
+    |  Operator |                       |---------------|     |         |
+    |           |---Query---+----------&gt;|    Query      |     |         |
+    |-----------|           +           | +  Context    |----&gt;|   LLM   |
+                            +           | +  Prompt     |     |         |
+                            +           |---------------|     |         |
+                            +                   ^             |         |
+                            +                   +             |         |
+                            v                   +             |---------|
+                   |---------------|        |----------|
+                   |   Embedding   | +++++&gt; |  Vector  |
+                   |     Model     | -----&gt; |    DB    |
+                   |---------------|        |----------|
+                           ^
+                           |
+                           |
+          |----------------|------------------|
+          |                |                  |
+ +++++++++|++++++++++++++++|++++++++++++++++++|++++++++++++
+ +        |                |                  |           +
+ +   |----------|    |----------------|    |----------|   +
+ +   | Network  |    |    Method of   |    |  Vendor  |   +
+ +   | Topology |    |  Procedure MOP |    |   docs   |   +
+ +   |----------|    |----------------|    |----------|   +
+ +                                                        +
+ +  Internal Operator documentation                       +
+ ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+</pre><a href="#section-6.7-5" class="pilcrow">¶</a>
+</div>
+<p id="section-6.7-6">As previously mentioned, the documents stored in the Vector Database for this specific
+use case correspond to various types of Network Operation Documentation. Thus, this system
+serves as a powerful tool, offering quick and efficient access to complex
+information across different areas of the Network Operations landscape, including
+network infrastructure, Standard Operating Procedures, security documentation, 
+incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.7-4.1">
-            <p id="section-6.7-4.1.1">Interfaces and APIs<a href="#section-6.7-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.7-7.1">
+            <p id="section-6.7-7.1.1">Interfaces and APIs<a href="#section-6.7-7.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.7-5">To be added.<a href="#section-6.7-5" class="pilcrow">¶</a></p>
+<p id="section-6.7-8">To be added.<a href="#section-6.7-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.7-6.1">
-            <p id="section-6.7-6.1.1">Protocols<a href="#section-6.7-6.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.7-9.1">
+            <p id="section-6.7-9.1.1">Protocols<a href="#section-6.7-9.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.7-7">To be added.<a href="#section-6.7-7" class="pilcrow">¶</a></p>
+<p id="section-6.7-10">To be added.<a href="#section-6.7-10" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.7-8.1">
-            <p id="section-6.7-8.1.1">Data Models<a href="#section-6.7-8.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.7-11.1">
+            <p id="section-6.7-11.1.1">Data Models<a href="#section-6.7-11.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.7-9">To be added.<a href="#section-6.7-9" class="pilcrow">¶</a></p>
+<p id="section-6.7-12">To be added.<a href="#section-6.7-12" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.7-10.1">
-            <p id="section-6.7-10.1.1">Alignment with IETF<a href="#section-6.7-10.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.7-13.1">
+            <p id="section-6.7-13.1.1">Alignment with IETF<a href="#section-6.7-13.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.7-11">To be added.<a href="#section-6.7-11" class="pilcrow">¶</a></p>
+<p id="section-6.7-14">To be added.<a href="#section-6.7-14" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-operator-assistant">
