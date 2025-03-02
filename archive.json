@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-27T01:01:16.047643+00:00",
+  "timestamp": "2025-03-02T01:05:21.804655+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -416,6 +416,32 @@
           "updatedAt": "2025-02-25T05:38:24Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDONbAZCM6Mz2kP",
+      "title": "Use case: Cognitive Search On Internal Operator Data",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/13",
+      "state": "OPEN",
+      "author": "NathalieRM",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-02-27T14:46:20Z",
+      "updatedAt": "2025-02-27T14:46:20Z",
+      "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "d5aa33f71d5861b62412f2f34a0f9ac8baf88da2",
+      "headRepository": "NathalieRM/draft-king-rokui-ainetops-usecases",
+      "headRefName": "main",
+      "headRefOid": "be843ce6e163a5de4a9ba7f4ef7ae73544b2739a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
