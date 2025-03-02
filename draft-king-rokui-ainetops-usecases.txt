@@ -116,7 +116,12 @@ Table of Contents
        6.16.1.  Short term approaches
        6.16.2.  Inference
        6.16.3.  Longer term view
-     6.17. Other Use Cases
+     6.17. AI-Driven Resilience Testing
+     6.18. Energy Efficiency Optimization
+     6.19. AI-Driven Green Energy Optimization
+     6.20. AI-Driven Policy Enforcement and Compliance Auditing
+     6.21. AI-Driven Network Slicing Optimization
+     6.22. Other Use Cases
    7.  Normative References
    Appendix A.  IANA Considerations
    Acknowledgments
@@ -128,8 +133,8 @@ Table of Contents
    The increasing complexity of modern networks has driven the need for
    innovative approaches to network operations and management.
    Artificial Intelligence for Network Operations (AINetOps) has emerged
-   as a transformative concept, leveraging artificial intelligence (AI)
-   and machine learning (ML) to automate, enhance, and optimize network
+   as a innovative concept, leveraging artificial intelligence (AI) and
+   machine learning (ML) to automate, enhance, and optimize network
    management tasks.  AINetOps offers the potential to reduce
    operational costs, improve service reliability, and enhance user
    experiences by enabling intelligent automation, predictive insights,
@@ -208,6 +213,10 @@ Table of Contents
    *  Multi-Layer Optimization:  Addressing cross-layer dependencies and
          optimizing resources across different network layers, such as
          IP and optical layers.
+
+   *  P-PNC: Packet Provisioning Network Controllers
+
+   *  O-PNC: Optical Provisioning Network Controllers
 
 3.  AI, ML, Deep Learning and Gen-AI
 
@@ -1557,12 +1566,12 @@ Table of Contents
 
    Several innovations have been developed at the IETF for multi-layer
    network (MLN) planning.  This activity is involves coordinating and
-   optimising multiple network layers, such as IP, optical, and
+   optimizing multiple network layers, such as IP, optical, and
    transport layers, to improve efficiency, resilience, and scalability.
    The Internet Engineering Task Force (IETF) has developed several
    technologies and standards to facilitate multi-layer network
    planning, including protocols for path computation, topology
-   exchange, and resource optimisation.
+   exchange, and resource optimization.
 
    The components and interfaces for MLN planning include:
 
@@ -1603,7 +1612,7 @@ Table of Contents
    traffic-engineered networks by offloading complex calculations to a
    dedicated entity.  Stateful PCE [RFC8051] and [RFC8231] extends the
    PCE framework by maintaining real-time network state awareness,
-   allowing dynamic path optimisation across layers.  The Hierarchical
+   allowing dynamic path optimization across layers.  The Hierarchical
    PCE (H-PCE) [RFC6805] architecture supports multi-layer and multi-
    domain path computation by allowing collaboration between multiple
    PCEs.
@@ -1617,14 +1626,14 @@ Table of Contents
    The YANG data modeling language is a cornerstone for MLN planning.
    It provides a structured way to represent network elements,
    configurations, and operational states, enabling programmatic control
-   and integration across multiple network layers.  Severeal IETF YANG
+   and integration across multiple network layers.  Several IETF YANG
    models provide network topology, traffic engineering, optical
    transport, and service abstraction.
 
    A core YANG model for MLN planning is the Network Topology Model
    [RFC8345], which provides a generic framework for representing
    network nodes, links, and supporting attributes.  This model would
-   faciliate an AI-enabled planning system to define multi-layer
+   facilitate an AI-enabled planning system to define multi-layer
    relationships, such as the mapping between optical, ethernet, and IP
    layers, enabling a holistic approach to MLN planning.
 
@@ -1693,7 +1702,7 @@ Table of Contents
       network state, learned models, and planned interventions.  A lack
       of standardized protocols and data models can lead to the need to
       deploy expensive and time consuming adaptation layers.  It is also
-      extremly important to determine the appropriate communication
+      extremely important to determine the appropriate communication
       frequency and granularity to avoid overloading the communication
       network between them while keeping a sufficient level of details
       to avoid suboptimal or even harmful decisions due to incomplete
@@ -1784,7 +1793,7 @@ Table of Contents
        +----------------------------------------------------------+
 
      Legend:
-     (A) Inter Agent comunication for coordination
+     (A) Inter Agent communication for coordination
 
                      Figure 6: Multi-agent architecture
 
@@ -1820,7 +1829,7 @@ Table of Contents
        +----------------------------------------------------------+
 
      Legend:
-     (A) H-Agent to Agent comunication
+     (A) H-Agent to Agent communication
 
               Figure 7: Multi-agent hierarchical architecture
 
@@ -2139,7 +2148,587 @@ Table of Contents
 
    To be added.
 
-6.17.  Other Use Cases
+6.17.  AI-Driven Resilience Testing
+
+   This use case leverages AI to design and execute fault injection
+   scenarios that test the resilience of IP/optical networks under
+   simulated failure conditions.  By proactively introducing controlled
+   disruptions—such as packet drops, latency spikes, or optical signal
+   degradation—AI assesses the network's ability to detect, respond, and
+   recover from faults.  This approach enhances network robustness by
+   identifying weaknesses and validating automated recovery mechanisms
+   before real failures occur, addressing both single-layer (IP or
+   optical) and multi-layer (IP over optical) scenarios.
+
+   The AI system analyzes historical failure data (e.g., fiber cuts,
+   equipment outages), real-time telemetry (e.g., latency, BER), and
+   external factors (e.g., weather events, traffic surges) to model
+   probable failure points.  It then injects faults, monitors the
+   network’s response, and refines recovery strategies, potentially in a
+   closed-loop manner.  For example, an AI model might predict a high-
+   risk optical link based on trending attenuation, simulate a fiber
+   cut, and evaluate whether IP-layer rerouting maintains SLAs.  If
+   recovery is suboptimal, it suggests adjustments (e.g., updating TE
+   policies) and retests.
+
+   *  Architecture
+
+      The architecture integrates an AI Fault Injection Engine with
+      network controllers and elements to simulate faults and assess
+      resilience across IP and optical layers.  Figure 12 illustrates
+      this design, showing the AI Fault Injection Engine interfacing
+      with P-PNC, O-PNC network controllers, which manage the IP/optical
+      network.  The engine designs fault scenarios, injects them via
+      controller APIs, collects telemetry feedback, and triggers
+      recovery actions as needed.  This centralized approach leverages
+      existing IETF control-plane components, ensuring compatibility
+      with multi-layer coordination frameworks like ACTN.
+
+                 |----------------------------|
+                 |      AI Fault              |
+                 |      Injection Engine      |
+                 |----------------------------|
+                 |      Fault Scenario        |
+                 |      Design & Analysis     |
+                 |----------------------------|
+                       ^                |
+                   (B) |                | (C)
+                       |                v
+           |-----------------------------------------|
+           |  packet controller (P-PNC),             |
+           |  optical controller (O-PNC),            |
+           |  and/or higher layer controllers (MDSC) |
+           |-----------------------------------------|
+                               ^
+                          (A)  |
+                               v
+                 |-----------------------------|
+                 |                             |
+                 |       IP/Optical Network    |
+                 |                             |
+                 |-----------------------------|
+
+Legend:
+(A) Fault injection commands (e.g., disable link, drop packets, degrade signal)
+(B) Telemetry feedback (e.g., latency, packet loss, BER)
+(C) Recovery actions (e.g., reroute traffic, adjust optical parameters)
+
+       Figure 12: Architecture for AI-Driven Resilience Testing
+
+   *  Interfaces and APIs
+
+      The AI Fault Injection Engine interfaces with network controllers
+      using standard management and telemetry APIs.  NETCONF (RFC 6241)
+      or RESTCONF (RFC 8040) enables fault injection by sending commands
+      to disable interfaces, drop packets, or adjust optical parameters
+      (e.g., signal power).  Real-time telemetry is collected via gNMI
+      (gRPC Network Management Interface) or OpenConfig streams,
+      providing metrics like latency, packet loss, and Bit Error Rate
+      (BER).  External data sources (e.g., weather APIs, threat
+      intelligence feeds) may integrate via REST APIs to enrich fault
+      scenario design.
+
+   *  Protocols
+
+      Several IETF protocols support this use case.  PCEP (RFC 5440)
+      extensions could enable dynamic path recomputation during fault
+      scenarios, testing traffic engineering resilience.  BGP (RFC 4271)
+      or OSPF (RFC 2328) adjustments validate routing protocol stability
+      under simulated failures.  For optical layers, OTN (G.709) or ASON
+      (G.8080) signaling protocols facilitate fault injection (e.g.,
+      simulating fiber cuts).  Telemetry protocols like IPFIX (RFC 7011)
+      or SNMP (RFC 3411) provide feedback data, though streaming
+      alternatives (e.g., gNMI) are preferred for real-time needs.
+
+   *  Data Models
+
+      YANG models are central to representing fault injection and
+      resilience data.  The base Network Topology Model (RFC 8345) can
+      be extended with new YANG modules to define fault parameters
+      (e.g., failure type, duration, scope) and resilience metrics
+      (e.g., recovery time, SLA compliance).  OpenConfig YANG models for
+      interfaces (e.g., openconfig-interfaces) and optical transport
+      (e.g., openconfig-terminal-device) support fault execution and
+      telemetry collection.  A new YANG model may be needed to
+      standardize fault injection workflows and outcomes.
+
+   *  Processes and Procedures
+
+      The process begins with AI training on historical failure data,
+      synthetic scenarios, and real-time network state, using ML
+      techniques like supervised learning for fault prediction and
+      reinforcement learning for recovery optimization.  Fault injection
+      tests are scheduled (e.g., off-peak) or triggered on-demand, with
+      operator oversight via an AIOps-Assistant interface (similar to
+      6.8).  Post-test analysis generates reports on resilience gaps,
+      updates network policies (e.g., QoS, routing), and refines the AI
+      model’s training dataset.  Closed-loop automation may execute
+      recovery actions autonomously, validated by subsequent tests.
+
+   *  Alignment with IETF
+
+      This use case aligns with ongoing IETF efforts in multiple working
+      groups.  The Network Management Research Group (NMRG) explores AI
+      applications in networking, providing a foundation for fault
+      injection methodologies.  The Traffic Engineering Architecture and
+      Signaling (TEAS) working group’s work on resilience and path
+      computation (e.g., RFC 8453 for ACTN) supports multi-layer
+      testing.  Extensions to YANG (NETMOD), PCEP (PCE), and telemetry
+      protocols (OPSAWG) could standardize fault injection and
+      resilience assessment, fostering interoperability across vendor
+      implementations.
+
+6.18.  Energy Efficiency Optimization
+
+   This use case employs AI to optimize energy consumption across IP/
+   optical networks by dynamically adjusting network resources based on
+   traffic demand, equipment performance, and environmental conditions.
+   With routers, switches, and optical amplifiers contributing
+   significantly to power usage, AI-driven energy management reduces
+   operational costs and carbon footprints while maintaining performance
+   and reliability.  It addresses both single-layer (IP or optical) and
+   multi-layer (IP over optical) scenarios.
+
+   The AI system analyzes real-time telemetry (e.g., power usage, link
+   utilization), historical patterns (e.g., peak/off-peak traffic), and
+   external factors (e.g., electricity costs, cooling needs) to identify
+   energy-saving opportunities.  Actions include powering down idle
+   ports, rerouting traffic to consolidate active paths, tuning optical
+   signal parameters, or scheduling high-energy tasks during low-cost
+   periods.  For instance, during off-peak hours, the AI might
+   deactivate redundant IP interfaces or reduce optical amplifier gain,
+   ensuring SLAs are met with minimal power draw.
+
+   *  Architecture
+
+      The architecture for energy efficiency optimization mirrors the
+      centralized design used for AI-Driven Resilience Testing (see
+      Section 6.17).  Figure 12 illustrates this, with the AI Energy
+      Optimization Engine replacing the AI Fault Injection Engine,
+      interfacing with P-PNC and O-PNC to manage the IP/optical network.
+      The engine collects telemetry and external data, computes energy-
+      efficient configurations, and applies them via controller APIs.
+      In this context, (A) represents energy optimization commands
+      (e.g., power down ports, adjust signal gain), (B) denotes
+      telemetry feedback (e.g., power usage, traffic load), and (C)
+      indicates configuration updates (e.g., reroute traffic, schedule
+      operations).
+
+   *  Interfaces and APIs
+
+      The interfaces and APIs are largely identical to those in
+      Section 6.17, adapted for energy optimization.  NETCONF (RFC 6241)
+      or RESTCONF (RFC 8040) delivers commands to adjust power states or
+      reroute traffic, while gNMI or OpenConfig streams provide real-
+      time telemetry (e.g., power consumption, utilization).  External
+      inputs, such as electricity pricing or weather data, integrate via
+      REST APIs to inform optimization, consistent with the approach in
+      Section 6.17.
+
+   *  Protocols
+
+      The protocols align closely with those in Section 6.17, tailored
+      for energy goals.  PCEP (RFC 5440) supports traffic rerouting to
+      consolidate paths, reducing energy use.  BGP (RFC 4271) or OSPF
+      (RFC 2328) adjustments optimize routing efficiency.  For optical
+      layers, OTN (G.709) signaling tunes power settings (e.g., lowering
+      laser output).  Telemetry protocols like IPFIX (RFC 7011) or SNMP
+      (RFC 3411) provide feedback, with streaming alternatives (e.g.,
+      gNMI) preferred for real-time needs, as noted in Section 6.18.
+
+   *  Data Models
+
+      YANG models for energy optimization build on those in
+      Section 6.17.  The Network Topology Model (RFC 8345) can be
+      augmented to define energy-specific parameters (e.g., power
+      states, utilization thresholds) and metrics (e.g., watts consumed,
+      energy cost), extending the fault-related models from
+      Section 6.18.  OpenConfig models for interfaces and optical
+      transport support power adjustments and telemetry, with a
+      potential new YANG model to standardize energy efficiency
+      policies.
+
+   *  Processes and Procedures
+
+      The process begins with AI training on historical energy usage,
+      traffic patterns, and cost data, using reinforcement learning for
+      policy optimization and time-series analysis for demand
+      forecasting.  Optimization runs continuously or on a schedule,
+      with operator oversight via an AIOps-Assistant (similar to 6.8).
+      Post-optimization, the AI evaluates energy savings against
+      performance impacts, updating policies and retraining as needed.
+      Closed-loop automation applies adjustments, validated by
+      telemetry, following the workflow principles in Section 6.17.
+
+   *  Alignment with IETF
+
+      This use case aligns with IETF efforts in sustainability and
+      network management, paralleling Section 6.17 standardization ties.
+      The Operations and Management Area Working Group (OPSAWG) supports
+      telemetry and efficiency metrics, while the Traffic Engineering
+      Architecture and Signaling (TEAS) working group’s path
+      optimization work (e.g., RFC 8453 for ACTN) enables energy-
+      efficient rerouting.  Extensions to YANG (NETMOD), PCEP (PCE), and
+      telemetry standards (OPSAWG) could standardize energy
+      optimization, leveraging the same frameworks proposed in
+      Section 6.17.
+
+6.19.  AI-Driven Green Energy Optimization
+
+   This use case leverages AI to optimize network and compute operations
+   by prioritizing resources powered by green energy sources (e.g.,
+   solar, wind) over conventional ones, while ensuring performance
+   requirements (e.g., latency, throughput) are met.  As networks
+   increasingly rely on distributed compute elements like Virtual
+   Network Functions (VNFs) or edge servers, selecting energy sources
+   for these workloads impacts both sustainability and cost.  This
+   applies to single-layer (e.g., IP compute nodes) and multi-layer
+   (e.g., IP over optical with compute) scenarios.
+
+   The AI system analyzes real-time telemetry (e.g., latency, traffic
+   load), energy source data (e.g., green vs. conventional
+   availability), and external factors (e.g., renewable energy
+   forecasts) to decide where and how to execute compute tasks.  For
+   example, in a mobile core network, a media optimizer VNF processing
+   mobility traffic could be instantiated on a green-energy-powered
+   server in a specific NFVi Point of Delivery (PoD) or datacenter
+   instead of a conventionally powered one, provided latency SLAs are
+   not violated.  If green resources are unavailable or insufficient,
+   the AI shifts workloads or adjusts traffic paths dynamically,
+   balancing sustainability with service quality.
+
+   *  Architecture
+
+      The architecture integrates an AI Green Energy Optimization Engine
+      with both compute orchestration and network control layers to
+      manage workload placement and traffic across IP/optical networks
+      and NFVi PoDs or datacenters.  Figure 13 illustrates this design,
+      showing the AI engine interfacing with an NFV Orchestrator (NFVO)
+      to shift compute jobs (e.g., VNFs) between PoDs/datacenters based
+      on green energy availability, and optionally with P-PNC and O-PNC
+      for traffic adjustments.  The engine collects telemetry and energy
+      data, computes optimal configurations, and applies them via
+      orchestration and controller APIs.
+
+                 |----------------------------|
+                 |   AI-based Green Energy    |
+                 |   Optimization Engine      |
+                 |----------------------------|
+                       ^                |
+                   (B) |                | (C)
+                       |                v
+           |-----------------------------------------|
+           |  packet controller (P-PNC),             |
+           |  optical controller (O-PNC),            |
+           |  and/or higher layer controllers (MDSC) |
+           |                    &                    |
+           |  NFVO                                   |
+           |-----------------------------------------|
+                               ^
+                          (A)  |
+                               v
+                 |-----------------------------|
+                 |                             |
+                 |   NFVi PoDs / Datacenters   |
+                 |              &              |
+                 |   IP/Optical Network        |
+                 |                             |
+                 |-----------------------------|
+
+     Legend:
+     (A) Optimization commands (e.g., instantiate VNF on green PoD, reroute traffic)
+     (B) Telemetry feedback (e.g., latency, energy source, compute load)
+     (C) Configuration updates (e.g., shift VNFs, adjust network paths)
+     NFVO: Network Function Virtualization Orchestrator
+
+   Figure 13: Architecture for AI-Driven Green Energy Optimization
+
+   *  Interfaces and APIs
+
+      Interfaces extend those in Section 6.17 and Section 6.18, with a
+      focus on compute orchestration.  The NFVO uses ETSI NFV MANO APIs
+      (e.g., Os-Ma-nfvo reference point) to instantiate or migrate VNFs
+      across NFVi PoDs/ datacenters based on green energy availability.
+      NETCONF (RFC 6241) or RESTCONF (RFC 8040) manages traffic
+      adjustments via P-PNC/O-PNC when needed, while gNMI or OpenConfig
+      streams provide telemetry (e.g., latency, server energy type).
+      REST APIs integrate external data like green energy availability
+      or weather forecasts, consistent with Section 6.17.
+
+   *  Protocols
+
+      Protocols align with Section 6.17 and Section 6.18, with additions
+      for compute management.  PCEP (RFC 5440) enables traffic rerouting
+      to align with green-energy-powered nodes, while BGP (RFC 4271) or
+      OSPF (RFC 2328) adjusts routing paths.  OTN (G.709) signaling
+      supports optical adjustments if involved.  For compute, ETSI NFV
+      protocols (e.g., VE-Vnfm-vnf for VNF management) complement
+      network protocols.  Telemetry uses IPFIX (RFC 7011) or SNMP (RFC
+      3411), with streaming options (e.g., gNMI) preferred, as in
+      Section 6.17.
+
+   *  Data Models
+
+      YANG models build on Section 6.17 and Section 6.18, with compute-
+      specific extensions.  The Network Topology Model (RFC 8345) can be
+      augmented to include NFVi PoD/datacenter attributes (e.g., energy
+      source, compute capacity) and metrics (e.g., carbon footprint,
+      latency).  OpenConfig models for interfaces and ETSI NFV YANG
+      models (e.g., for VNF descriptors) support configuration and
+      telemetry.  A new YANG model may standardize green energy
+      optimization across network and compute domains.
+
+   *  Processes and Procedures
+
+      The process starts with AI training on historical traffic,
+      latency, and energy source data, using reinforcement learning to
+      optimize green energy use and predictive models for renewable
+      availability.  Optimization runs continuously, shifting VNFs to
+      green PoDs/datacenters or adjusting traffic when viable, with
+      operator oversight via an AIOps- Assistant (similar to 6.8).
+      Post-optimization, the AI assesses sustainability gains against
+      performance, updating policies and retraining.  Closed-loop
+      automation adjusts configurations, validated by telemetry,
+      following Section 6.18 workflow.
+
+   *  Alignment with IETF
+
+      This use case aligns with IETF sustainability and compute-network
+      integration efforts.  The Operations and Management Area Working
+      Group (OPSAWG) supports telemetry for energy metrics, while the
+      Computing in the Network Research Group (COINRG) and Network
+      Function Virtualization Research Group (NFVRG) address compute
+      placement, applicable to VNFs.  The Traffic Engineering
+      Architecture and Signaling (TEAS) working groups efforts (e.g.,
+      RFC 8453 for ACTN) enable green-energy-aware routing.  Extensions
+      to YANG (NETMOD), PCEP (PCE), and telemetry standards (OPSAWG)
+      could standardize this, leveraging Section 6.17 and Section 6.18
+      frameworks.
+
+6.20.  AI-Driven Policy Enforcement and Compliance Auditing
+
+   This use case leverages AI to automate the enforcement of network
+   policies and auditing of compliance with regulatory standards and
+   internal guidelines.  By continuously monitoring network
+   configurations, traffic, and security postures, AI ensures that
+   policies are consistently applied and compliance requirements are
+   met.  This use case addresses both single-layer (e.g., IP) and multi-
+   layer (e.g., IP over optical) scenarios, as well as cross-domain
+   environments.
+
+   The AI system analyzes real-time telemetry (e.g., configuration
+   changes, traffic flows, security logs), historical data, and external
+   inputs (e.g., regulatory updates, threat intelligence) to enforce
+   policies and audit compliance.  For example, AI can detect
+   unauthorized changes to firewall rules, enforce encryption standards
+   for sensitive data, or ensure that network configurations align with
+   GDPR requirements.  If violations are detected, AI can automatically
+   remediate issues or alert operators for manual intervention.
+
+   *  Architecture
+
+      The architecture integrates an AI Policy Enforcement and
+      Compliance Engine with network controllers, security systems, and
+      orchestration platforms.  Figure 14 illustrates this design,
+      showing the AI engine interfacing with P-PNC, O-PNC and Security
+      Information and Event Management (SIEM) systems.  The engine
+      collects telemetry, enforces policies, and audits compliance,
+      applying corrective actions via controller APIs.
+
+                 |----------------------------------|
+                 |   AI-based Policy Enforcement &  |
+                 |   Compliance Engine              |
+                 |----------------------------------|
+                       ^                |
+                   (B) |                | (C)
+                       |                v
+           |-----------------------------------------|
+           |  packet controller (P-PNC),             |
+           |  optical controller (O-PNC),            |
+           |  and/or higher layer controllers (MDSC) |
+           |-----------------------------------------|
+                               ^
+                          (A)  |
+                               v
+                 |-----------------------------|
+                 |                             |
+                 |       IP/Optical Network    |
+                 |                             |
+                 |-----------------------------|
+
+     Legend:
+     (A) Policy enforcement commands (e.g., block traffic, adjust QoS)
+     (B) Telemetry feedback (e.g., configuration changes, security logs)
+     (C) Compliance reports and alerts
+
+     Figure 14: Architecture for AI-Driven Policy Enforcement and
+                         Compliance Auditing
+
+   *  Interfaces and APIs
+
+      The AI engine interfaces with network controllers and security
+      systems using standard management and telemetry APIs.  NETCONF
+      (RFC 6241) or RESTCONF (RFC 8040) delivers policy enforcement
+      commands, while gNMI or OpenConfig streams provide real-time
+      telemetry (e.g., configuration changes, traffic flows).  SIEM
+      systems integrate via REST APIs to provide security logs and
+      threat intelligence.
+
+   *  Protocols
+
+      The protocols align with existing IETF standards.  PCEP (RFC 5440)
+      supports traffic engineering adjustments to enforce QoS policies,
+      while BGP (RFC 4271) or OSPF (RFC 2328) ensures routing
+      compliance.  For security, protocols like IPsec (RFC 4301) and TLS
+      (RFC 8446) enforce encryption standards.  Telemetry protocols like
+      IPFIX (RFC 7011) or SNMP (RFC 3411) provide feedback, with
+      streaming alternatives (e.g., gNMI) preferred for real-time needs.
+
+   *  Data Models
+
+      YANG models are central to representing policies and compliance
+      data.  The Network Topology Model (RFC 8345) can be extended to
+      define policy parameters (e.g., access control, encryption) and
+      compliance metrics (e.g., audit logs, violation counts).
+      OpenConfig YANG models for interfaces and security support
+      configuration and telemetry.  A new YANG model may standardize
+      policy enforcement and compliance workflows.
+
+   *  Processes and Procedures
+
+      The process begins with AI training on historical configuration
+      data, security logs, and regulatory requirements.  Policy
+      enforcement runs continuously, with operator oversight via an
+      AIOps-Assistant (similar to 6.8).  Post-audit, the AI generates
+      compliance reports, updates policies, and retrains as needed.
+      Closed-loop automation applies corrective actions, validated by
+      telemetry.
+
+   *  Alignment with IETF
+
+      This use case aligns with IETF efforts in network management,
+      security, and policy enforcement.  The Operations and Management
+      Area Working Group (OPSAWG) supports telemetry for compliance
+      metrics, while the Security Area Working Group (SEC) addresses
+      policy enforcement.  Extensions to YANG (NETMOD), PCEP (PCE), and
+      telemetry standards (OPSAWG) could standardize this use case,
+      leveraging frameworks proposed in Section 6.17 and Section 6.18.
+
+6.21.  AI-Driven Network Slicing Optimization
+
+   This use case leverages AI to optimize the creation, management, and
+   performance of network slices in 5G and beyond.  By dynamically
+   allocating resources, predicting SLA violations, and coordinating
+   across multiple domains, AI ensures that each slice meets its
+   performance requirements while efficiently utilizing the underlying
+   physical infrastructure.  This use case addresses both single-domain
+   (e.g., RAN) and multi-domain (e.g., RAN, transport, core) scenarios.
+
+   The AI system analyzes real-time telemetry (e.g., traffic patterns,
+   resource utilization), historical data, and external inputs (e.g.,
+   service requirements, network topology) to optimize network slices.
+   For example, AI can allocate additional bandwidth to a slice
+   experiencing high traffic or reroute traffic to prevent congestion.
+   If SLA violations are predicted, AI can take proactive measures
+   (e.g., scaling resources, adjusting configurations) to ensure
+   compliance.
+
+   *  Architecture
+
+      The architecture integrates an AI Network Slicing Optimization
+      Engine with the NSMF (Network Slice Management Function) and
+      NSSMFs (Network Slice Subnet Management Functions) for RAN, Core,
+      and Transport domains.  Figure 15 illustrates this design, showing
+      the AI engine interfacing with the NSMF, which coordinates with
+      the NSSMFs to manage and optimize network slices.  The engine
+      collects telemetry, predicts SLA violations, and provides
+      optimization recommendations to the NSMF, which implements changes
+      via the NSSMFs.
+
+                 |------------------------------|
+                 |                              |
+                 |   AI-based Network Slicing   |
+                 |   Optimization Engine        |
+                 |                              |
+                 |------------------------------|
+                       ^                |
+                   (B) |                | (C)
+                       |                v
+             |---------------------------------------|
+             |     RAN, Core, and Transport NSSMF    |
+             |---------------------------------------|
+                               ^
+                          (A)  |
+                               v
+             |---------------------------------------|
+             |                                       |
+             |    Physical Network Infrastructure    |
+             |    (RAN, Core, Transport)             |
+             |                                       |
+             |---------------------------------------|
+
+     Legend:
+     (A) Optimization commands (e.g., adjust slice resources, reroute traffic)
+     (B) Telemetry feedback (e.g., slice performance, resource utilization)
+     (C) SLA compliance reports and alerts
+     NSMF: Network Slice Management Function
+     NSSMF: Network Slice Subnet Management Function (RAN, Core, Transport)
+
+   Figure 15: Corrected Architecture for AI-Driven Network Slicing
+                             Optimization
+
+   *  Interfaces and APIs
+
+      The AI engine interfaces with the NSMF using standard management
+      and telemetry APIs.  The NSMF communicates with the NSSMFs using
+      3GPP- defined interfaces (e.g., Nsmf_PDUSession_Create,
+      Nsmf_EventExposure_Subscribe).  The AI engine collects telemetry
+      via gNMI or OpenConfig streams and provides optimization
+      recommendations to the NSMF via REST APIs.
+
+   *  Protocols
+
+      The protocols align with 3GPP and IETF standards.  The NSMF and
+      NSSMFs use 3GPP-defined protocols (e.g., HTTP/2 for service-based
+      interfaces).  For transport, protocols like PCEP (RFC 5440) and
+      BGP (RFC 4271) support traffic engineering adjustments.  Telemetry
+      protocols like IPFIX (RFC 7011) or SNMP (RFC 3411) provide
+      feedback, with streaming alternatives (e.g., gNMI) preferred for
+      real-time needs.
+
+   *  Data Models
+
+      YANG models are central to representing slice configurations and
+      performance data.  The Network Topology Model (RFC 8345) can be
+      extended to define slice parameters (e.g., latency, bandwidth) and
+      metrics (e.g., resource utilization, SLA compliance). 3GPP YANG
+      models for RAN, Core, and Transport support configuration and
+      telemetry.  A new YANG model may standardize network slicing
+      optimization workflows.
+
+   *  Processes and Procedures
+
+      The process begins with AI training on historical traffic data,
+      slice configurations, and SLA requirements.  Optimization runs
+      continuously, with operator oversight via an AIOps-Assistant
+      (similar to 6.8).  Post-optimization, the AI evaluates slice
+      performance, updates configurations, and retrains as needed.
+      Closed-loop automation applies corrective actions, validated by
+      telemetry.
+
+   *  Alignment with IETF and 3GPP
+
+      This use case aligns with 3GPP efforts in network slicing and IETF
+      efforts in network management and traffic engineering.  The
+      Operations and Management Area Working Group (OPSAWG) supports
+      telemetry for slice performance metrics, while the Traffic
+      Engineering Architecture and Signaling (TEAS) working group’s work
+      on path optimization (e.g., RFC 8453 for ACTN) enables slice-aware
+      routing.  Extensions to YANG (NETMOD), PCEP (PCE), and telemetry
+      standards (OPSAWG) could standardize this use case, leveraging
+      frameworks proposed in Section 6.17 and Section 6.18.
+
+6.22.  Other Use Cases
 
    To be discussed and agreed.
 
@@ -2247,9 +2836,14 @@ Contributors
    Email: nathalie.romo-moreno@telekom.de
 
 
-   C. L.
+   Cheng Li
    Huawei
    Email: c.l@huawei.com
+
+
+   Ali Tizghadam
+   Telus
+   Email: ali.tizghadam@telus.com
 
 
 Authors' Addresses
