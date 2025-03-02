@@ -5,10 +5,10 @@
 RTG                                                             R. Rokui
 Internet-Draft                                                     Ciena
 Intended status: Informational                                     C. Li
-Expires: 29 August 2025                                           Huawei
+Expires: 3 September 2025                                         Huawei
                                                                  D. King
                                                     Lancaster University
-                                                        25 February 2025
+                                                            2 March 2025
 
 
           Artificial Intelligence (AI) for Network Operations
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 August 2025.
+   This Internet-Draft will expire on 3 September 2025.
 
 Copyright Notice
 
