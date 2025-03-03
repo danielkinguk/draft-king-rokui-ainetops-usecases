@@ -2064,17 +2064,19 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    decisions to optimize resource allocation and improve overall
    efficiency.  This insight is particularly valuable in multi-layer IP/
    Optical networks, where the interplay between different network
-   layers can be complex.  By leveraging these insights, operators can
+   layers can be complex. <span>[<a href="#RFC5557" class="cite xref">RFC5557</a>]</span> provides examples of the PCE 
+   being using to optimize resource allocation.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
+<p id="section-5.4-3">By leveraging these insights, operators can
    ensure that both the IP and optical layers are operating
    harmoniously, leading to optimal performance and cost efficiency.  In
    essence, Network Operational Insights empower operators with the
    knowledge needed to maintain a high-performing, resilient, and
-   future-proof network infrastructure.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
-<p id="section-5.4-3">The network operational insight can be grouped into two categories.
+   future-proof network infrastructure.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
+<p id="section-5.4-4">The network operational insight can be grouped into two categories.
    By categorizing network operational insights into these two
    categories, operators can better prioritize their efforts and
    resources, ensuring both immediate and long-term network health and
-   performance.<a href="#section-5.4-3" class="pilcrow">¶</a></p>
+   performance.<a href="#section-5.4-4" class="pilcrow">¶</a></p>
 <div id="operational-insights-requiring-no-further-analysis">
 <section id="section-5.4.1">
           <h4 id="name-operational-insights-requir">
@@ -2652,13 +2654,13 @@ The architecture should be scalable to handle large volumes of data and adaptabl
 To facilitate interoperability and integration with existing network management systems, the following interfaces and APIs are recommended:<a href="#section-6.3-6.1.2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.3-6.1.3.1">
-                <p id="section-6.3-6.1.3.1.1">Northbound API: Provides a standardized interface for external systems to query anomaly detection results and receive alerts.This API should align with RESTCONF (RFC 8040) for consistency with IETF standards.<a href="#section-6.3-6.1.3.1.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-6.1.3.1.1">Northbound API: Provides a standardized interface for external systems to query anomaly detection results and receive alerts.This API should align with RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span> for consistency with IETF standards.<a href="#section-6.3-6.1.3.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-6.1.3.2">
-                <p id="section-6.3-6.1.3.2.1">Southbound API: Allows the anomaly detection system to interact with network devices for data collection and response actions. This API may use NETCONF (RFC 6241) or RESTCONF (RFC 8040) for device management.<a href="#section-6.3-6.1.3.2.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-6.1.3.2.1">Southbound API: Allows the anomaly detection system to interact with network devices for data collection and response actions. This API may use NETCONF <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span> or RESTCONF <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span> for device management.<a href="#section-6.3-6.1.3.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-6.1.3.3">
-                <p id="section-6.3-6.1.3.3.1">Model Management API: Enables the deployment, updating, and monitoring of AI models used in the analysis layer. This API should support secure communication as defined in RFC 8446 (TLS 1.3).<a href="#section-6.3-6.1.3.3.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-6.1.3.3.1">Model Management API: Enables the deployment, updating, and monitoring of AI models used in the analysis layer. This API should support secure communication as defined in <span>[<a href="#RFC8446" class="cite xref">RFC8446</a>]</span> (TLS 1.3).<a href="#section-6.3-6.1.3.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 <p id="section-6.3-6.1.4">
@@ -2711,13 +2713,13 @@ These APIs should adhere to RESTful principles or other widely adopted standards
 The following protocols are suggested for communication between the components of the anomaly detection system:<a href="#section-6.3-8.1.2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.3-8.1.3.1">
-                <p id="section-6.3-8.1.3.1.1">NETCONF/RESTCONF: For configuring and managing network devices and retrieving operational data, as defined in RFC 6241 and RFC 8040.<a href="#section-6.3-8.1.3.1.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.1.3.1.1">NETCONF/RESTCONF: For configuring and managing network devices and retrieving operational data, as defined in <span>[<a href="#RFC6241" class="cite xref">RFC6241</a>]</span> and <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>.<a href="#section-6.3-8.1.3.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-8.1.3.2">
-                <p id="section-6.3-8.1.3.2.1">gRPC/HTTP2: For high-performance communication between the analysis layer and other components, leveraging HTTP/2 (RFC 7540) for efficient data transfer.<a href="#section-6.3-8.1.3.2.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.1.3.2.1">gRPC/HTTP2: For high-performance communication between the analysis layer and other components, leveraging HTTP/2 <span>[<a href="#RFC7540" class="cite xref">RFC7540</a>]</span>) for efficient data transfer.<a href="#section-6.3-8.1.3.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-8.1.3.3">
-                <p id="section-6.3-8.1.3.3.1">MQTT: For lightweight, publish-subscribe messaging between distributed components, particularly in IoT environments, as specified in RFC 7252 (CoAP) or MQTT 5.0 (OASIS Standard).<a href="#section-6.3-8.1.3.3.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.1.3.3.1">MQTT: For lightweight, publish-subscribe messaging between distributed components, particularly in IoT environments, as specified in <span>[<a href="#RFC7252" class="cite xref">RFC7252</a>]</span> (CoAP) or MQTT 5.0 (OASIS Standard).<a href="#section-6.3-8.1.3.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 <p id="section-6.3-8.1.4">
@@ -2729,13 +2731,13 @@ The choice of protocol should consider factors such as latency, bandwidth, and s
 Data models for network anomaly detection should be designed to capture both the structure and semantics of network traffic data. The following models are recommended:<a href="#section-6.3-8.2.2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.3-8.2.3.1">
-                <p id="section-6.3-8.2.3.1.1">YANG Data Models: For representing network configuration and state data in a structured format, as defined in RFC 7950 and extended by RFC 8345 for network topologies.<a href="#section-6.3-8.2.3.1.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.2.3.1.1">YANG Data Models: For representing network configuration and state data in a structured format, as defined in <span>[<a href="#RFC7950" class="cite xref">RFC7950</a>]</span> and extended by <span>[<a href="#RFC8345" class="cite xref">RFC8345</a>]</span> for network topologies.<a href="#section-6.3-8.2.3.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-8.2.3.2">
-                <p id="section-6.3-8.2.3.2.1">JSON/XML Schemas: For defining the format of data exchanged between components via APIs, consistent with RFC 8259 (JSON) and RFC 7303 (XML).<a href="#section-6.3-8.2.3.2.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.2.3.2.1">JSON/XML Schemas: For defining the format of data exchanged between components via APIs, consistent with <span>[<a href="#RFC8259" class="cite xref">RFC8259</a>]</span> (JSON) and <span>[<a href="#RFC7303" class="cite xref">RFC7303</a>]</span> (XML).<a href="#section-6.3-8.2.3.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-8.2.3.3">
-                <p id="section-6.3-8.2.3.3.1">Feature Vectors: For representing the input data to AI models, which may include packet headers, flow statistics, and behavioral patterns. These vectors should align with the IPFIX Information Model (RFC 7012) for flow data representation.<a href="#section-6.3-8.2.3.3.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.2.3.3.1">Feature Vectors: For representing the input data to AI models, which may include packet headers, flow statistics, and behavioral patterns. These vectors should align with the IPFIX Information Model <span>[<a href="#RFC7012" class="cite xref">RFC7012</a>]</span> for flow data representation.<a href="#section-6.3-8.2.3.3.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 <p id="section-6.3-8.2.4">
@@ -2747,13 +2749,13 @@ These data models should be extensible to accommodate new types of network data 
 The development of AI-based network anomaly detection systems should align with existing IETF standards and working groups, such as:<a href="#section-6.3-8.3.2" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6.3-8.3.3.1">
-                <p id="section-6.3-8.3.3.1.1">NETMOD (Network Modeling): For leveraging YANG data models (RFC 7950, RFC 8345) and NETCONF/RESTCONF protocols (RFC 6241, RFC 8040).<a href="#section-6.3-8.3.3.1.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.3.3.1.1">NETMOD (Network Modeling): For leveraging YANG data models <span>[<a href="#RFC7950" class="cite xref">RFC7950</a>]</span>, <span>[<a href="#RFC8345" class="cite xref">RFC8345</a>]</span> and NETCONF/RESTCONF protocols <span>[<a href="#RFC8040" class="cite xref">RFC8040</a>]</span>.<a href="#section-6.3-8.3.3.1.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-8.3.3.2">
-                <p id="section-6.3-8.3.3.2.1">MILE (Managed Incident Lightweight Exchange, concluded): For standardizing the exchange of security incident information, as outlined in RFC 8329.<a href="#section-6.3-8.3.3.2.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.3.3.2.1">MILE (Managed Incident Lightweight Exchange, concluded): For standardizing the exchange of security incident information, as outlined in <span>[<a href="#RFC8329" class="cite xref">RFC8329</a>]</span>.<a href="#section-6.3-8.3.3.2.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-8.3.3.3">
-                <p id="section-6.3-8.3.3.3.1">DOTS (DDoS Open Threat Signaling ,concluded): For coordinating responses to distributed denial-of-service attacks, as defined in RFC 8811.<a href="#section-6.3-8.3.3.3.1" class="pilcrow">¶</a></p>
+                <p id="section-6.3-8.3.3.3.1">DOTS (DDoS Open Threat Signaling ,concluded): For coordinating responses to distributed denial-of-service attacks, as defined in <span>[<a href="#RFC8811" class="cite xref">RFC8811</a>]</span>.<a href="#section-6.3-8.3.3.3.1" class="pilcrow">¶</a></p>
 </li>
               <li class="normal" id="section-6.3-8.3.3.4">
                 <p id="section-6.3-8.3.3.4.1">Awaiting to add more WGs, BGP-LS, PCE, etc.<a href="#section-6.3-8.3.3.4.1" class="pilcrow">¶</a></p>
@@ -4082,9 +4084,41 @@ This use case aligns with 3GPP efforts in network slicing and IETF
       <dd>
 <span class="refAuthor">Farrel, A.</span>, <span class="refAuthor">Vasseur, J.-P.</span>, and <span class="refAuthor">J. Ash</span>, <span class="refTitle">"A Path Computation Element (PCE)-Based Architecture"</span>, <span class="seriesInfo">RFC 4655</span>, <span class="seriesInfo">DOI 10.17487/RFC4655</span>, <time datetime="2006-08" class="refDate">August 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4655">https://www.rfc-editor.org/rfc/rfc4655</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC5557">[RFC5557]</dt>
+      <dd>
+<span class="refAuthor">Lee, Y.</span>, <span class="refAuthor">Le Roux, JL.</span>, <span class="refAuthor">King, D.</span>, and <span class="refAuthor">E. Oki</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Requirements and Protocol Extensions in Support of Global Concurrent Optimization"</span>, <span class="seriesInfo">RFC 5557</span>, <span class="seriesInfo">DOI 10.17487/RFC5557</span>, <time datetime="2009-07" class="refDate">July 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5557">https://www.rfc-editor.org/rfc/rfc5557</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC6241">[RFC6241]</dt>
+      <dd>
+<span class="refAuthor">Enns, R., Ed.</span>, <span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refAuthor">Schoenwaelder, J., Ed.</span>, and <span class="refAuthor">A. Bierman, Ed.</span>, <span class="refTitle">"Network Configuration Protocol (NETCONF)"</span>, <span class="seriesInfo">RFC 6241</span>, <span class="seriesInfo">DOI 10.17487/RFC6241</span>, <time datetime="2011-06" class="refDate">June 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6241">https://www.rfc-editor.org/rfc/rfc6241</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC6805">[RFC6805]</dt>
       <dd>
 <span class="refAuthor">King, D., Ed.</span> and <span class="refAuthor">A. Farrel, Ed.</span>, <span class="refTitle">"The Application of the Path Computation Element Architecture to the Determination of a Sequence of Domains in MPLS and GMPLS"</span>, <span class="seriesInfo">RFC 6805</span>, <span class="seriesInfo">DOI 10.17487/RFC6805</span>, <time datetime="2012-11" class="refDate">November 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6805">https://www.rfc-editor.org/rfc/rfc6805</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7012">[RFC7012]</dt>
+      <dd>
+<span class="refAuthor">Claise, B., Ed.</span> and <span class="refAuthor">B. Trammell, Ed.</span>, <span class="refTitle">"Information Model for IP Flow Information Export (IPFIX)"</span>, <span class="seriesInfo">RFC 7012</span>, <span class="seriesInfo">DOI 10.17487/RFC7012</span>, <time datetime="2013-09" class="refDate">September 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7012">https://www.rfc-editor.org/rfc/rfc7012</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7252">[RFC7252]</dt>
+      <dd>
+<span class="refAuthor">Shelby, Z.</span>, <span class="refAuthor">Hartke, K.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"The Constrained Application Protocol (CoAP)"</span>, <span class="seriesInfo">RFC 7252</span>, <span class="seriesInfo">DOI 10.17487/RFC7252</span>, <time datetime="2014-06" class="refDate">June 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7252">https://www.rfc-editor.org/rfc/rfc7252</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7303">[RFC7303]</dt>
+      <dd>
+<span class="refAuthor">Thompson, H.</span> and <span class="refAuthor">C. Lilley</span>, <span class="refTitle">"XML Media Types"</span>, <span class="seriesInfo">RFC 7303</span>, <span class="seriesInfo">DOI 10.17487/RFC7303</span>, <time datetime="2014-07" class="refDate">July 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7303">https://www.rfc-editor.org/rfc/rfc7303</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7540">[RFC7540]</dt>
+      <dd>
+<span class="refAuthor">Belshe, M.</span>, <span class="refAuthor">Peon, R.</span>, and <span class="refAuthor">M. Thomson, Ed.</span>, <span class="refTitle">"Hypertext Transfer Protocol Version 2 (HTTP/2)"</span>, <span class="seriesInfo">RFC 7540</span>, <span class="seriesInfo">DOI 10.17487/RFC7540</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7540">https://www.rfc-editor.org/rfc/rfc7540</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC7950">[RFC7950]</dt>
+      <dd>
+<span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refTitle">"The YANG 1.1 Data Modeling Language"</span>, <span class="seriesInfo">RFC 7950</span>, <span class="seriesInfo">DOI 10.17487/RFC7950</span>, <time datetime="2016-08" class="refDate">August 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7950">https://www.rfc-editor.org/rfc/rfc7950</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8040">[RFC8040]</dt>
+      <dd>
+<span class="refAuthor">Bierman, A.</span>, <span class="refAuthor">Bjorklund, M.</span>, and <span class="refAuthor">K. Watsen</span>, <span class="refTitle">"RESTCONF Protocol"</span>, <span class="seriesInfo">RFC 8040</span>, <span class="seriesInfo">DOI 10.17487/RFC8040</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8040">https://www.rfc-editor.org/rfc/rfc8040</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8051">[RFC8051]</dt>
       <dd>
@@ -4098,13 +4132,29 @@ This use case aligns with 3GPP efforts in network slicing and IETF
       <dd>
 <span class="refAuthor">Crabbe, E.</span>, <span class="refAuthor">Minei, I.</span>, <span class="refAuthor">Medved, J.</span>, and <span class="refAuthor">R. Varga</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Extensions for Stateful PCE"</span>, <span class="seriesInfo">RFC 8231</span>, <span class="seriesInfo">DOI 10.17487/RFC8231</span>, <time datetime="2017-09" class="refDate">September 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8231">https://www.rfc-editor.org/rfc/rfc8231</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8259">[RFC8259]</dt>
+      <dd>
+<span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8329">[RFC8329]</dt>
+      <dd>
+<span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Lopez, E.</span>, <span class="refAuthor">Dunbar, L.</span>, <span class="refAuthor">Strassner, J.</span>, and <span class="refAuthor">R. Kumar</span>, <span class="refTitle">"Framework for Interface to Network Security Functions"</span>, <span class="seriesInfo">RFC 8329</span>, <span class="seriesInfo">DOI 10.17487/RFC8329</span>, <time datetime="2018-02" class="refDate">February 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8329">https://www.rfc-editor.org/rfc/rfc8329</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8345">[RFC8345]</dt>
       <dd>
 <span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Medved, J.</span>, <span class="refAuthor">Varga, R.</span>, <span class="refAuthor">Bahadur, N.</span>, <span class="refAuthor">Ananthakrishnan, H.</span>, and <span class="refAuthor">X. Liu</span>, <span class="refTitle">"A YANG Data Model for Network Topologies"</span>, <span class="seriesInfo">RFC 8345</span>, <span class="seriesInfo">DOI 10.17487/RFC8345</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8345">https://www.rfc-editor.org/rfc/rfc8345</a>&gt;</span>. </dd>
 <dd class="break"></dd>
+<dt id="RFC8446">[RFC8446]</dt>
+      <dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="seriesInfo">RFC 8446</span>, <span class="seriesInfo">DOI 10.17487/RFC8446</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8446">https://www.rfc-editor.org/rfc/rfc8446</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC8453">[RFC8453]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Ceccarelli, D., Ed.</span> and <span class="refAuthor">Y. Lee, Ed.</span>, <span class="refTitle">"Framework for Abstraction and Control of TE Networks (ACTN)"</span>, <span class="seriesInfo">RFC 8453</span>, <span class="seriesInfo">DOI 10.17487/RFC8453</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8453">https://www.rfc-editor.org/rfc/rfc8453</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8811">[RFC8811]</dt>
+    <dd>
+<span class="refAuthor">Mortensen, A., Ed.</span>, <span class="refAuthor">Reddy.K, T., Ed.</span>, <span class="refAuthor">Andreasen, F.</span>, <span class="refAuthor">Teague, N.</span>, and <span class="refAuthor">R. Compton</span>, <span class="refTitle">"DDoS Open Threat Signaling (DOTS) Architecture"</span>, <span class="seriesInfo">RFC 8811</span>, <span class="seriesInfo">DOI 10.17487/RFC8811</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8811">https://www.rfc-editor.org/rfc/rfc8811</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

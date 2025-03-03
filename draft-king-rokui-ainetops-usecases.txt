@@ -712,12 +712,14 @@ Table of Contents
    decisions to optimize resource allocation and improve overall
    efficiency.  This insight is particularly valuable in multi-layer IP/
    Optical networks, where the interplay between different network
-   layers can be complex.  By leveraging these insights, operators can
-   ensure that both the IP and optical layers are operating
-   harmoniously, leading to optimal performance and cost efficiency.  In
-   essence, Network Operational Insights empower operators with the
-   knowledge needed to maintain a high-performing, resilient, and
-   future-proof network infrastructure.
+   layers can be complex.  [RFC5557] provides examples of the PCE being
+   using to optimize resource allocation.
+
+   By leveraging these insights, operators can ensure that both the IP
+   and optical layers are operating harmoniously, leading to optimal
+   performance and cost efficiency.  In essence, Network Operational
+   Insights empower operators with the knowledge needed to maintain a
+   high-performing, resilient, and future-proof network infrastructure.
 
    The network operational insight can be grouped into two categories.
    By categorizing network operational insights into these two
@@ -1338,18 +1340,18 @@ Table of Contents
 
       -  Northbound API: Provides a standardized interface for external
          systems to query anomaly detection results and receive
-         alerts.This API should align with RESTCONF (RFC 8040) for
+         alerts.This API should align with RESTCONF [RFC8040] for
          consistency with IETF standards.
 
       -  Southbound API: Allows the anomaly detection system to interact
          with network devices for data collection and response actions.
-         This API may use NETCONF (RFC 6241) or RESTCONF (RFC 8040) for
+         This API may use NETCONF [RFC6241] or RESTCONF [RFC8040] for
          device management.
 
       -  Model Management API: Enables the deployment, updating, and
          monitoring of AI models used in the analysis layer.  This API
-         should support secure communication as defined in RFC 8446 (TLS
-         1.3).
+         should support secure communication as defined in [RFC8446]
+         (TLS 1.3).
 
       These APIs should adhere to RESTful principles or other widely
       adopted standards to ensure ease of integration.
@@ -1394,16 +1396,16 @@ Table of Contents
       the components of the anomaly detection system:
 
       -  NETCONF/RESTCONF: For configuring and managing network devices
-         and retrieving operational data, as defined in RFC 6241 and RFC
-         8040.
+         and retrieving operational data, as defined in [RFC6241] and
+         [RFC8040].
 
       -  gRPC/HTTP2: For high-performance communication between the
-         analysis layer and other components, leveraging HTTP/2 (RFC
-         7540) for efficient data transfer.
+         analysis layer and other components, leveraging HTTP/2
+         [RFC7540]) for efficient data transfer.
 
       -  MQTT: For lightweight, publish-subscribe messaging between
          distributed components, particularly in IoT environments, as
-         specified in RFC 7252 (CoAP) or MQTT 5.0 (OASIS Standard).
+         specified in [RFC7252] (CoAP) or MQTT 5.0 (OASIS Standard).
 
       The choice of protocol should consider factors such as latency,
       bandwidth, and security requirements.
@@ -1415,17 +1417,17 @@ Table of Contents
       The following models are recommended:
 
       -  YANG Data Models: For representing network configuration and
-         state data in a structured format, as defined in RFC 7950 and
-         extended by RFC 8345 for network topologies.
+         state data in a structured format, as defined in [RFC7950] and
+         extended by [RFC8345] for network topologies.
 
       -  JSON/XML Schemas: For defining the format of data exchanged
-         between components via APIs, consistent with RFC 8259 (JSON)
-         and RFC 7303 (XML).
+         between components via APIs, consistent with [RFC8259] (JSON)
+         and [RFC7303] (XML).
 
       -  Feature Vectors: For representing the input data to AI models,
          which may include packet headers, flow statistics, and
          behavioral patterns.  These vectors should align with the IPFIX
-         Information Model (RFC 7012) for flow data representation.
+         Information Model [RFC7012] for flow data representation.
 
       These data models should be extensible to accommodate new types of
       network data and evolving AI techniques.
@@ -1436,17 +1438,16 @@ Table of Contents
       should align with existing IETF standards and working groups, such
       as:
 
-      -  NETMOD (Network Modeling): For leveraging YANG data models (RFC
-         7950, RFC 8345) and NETCONF/RESTCONF protocols (RFC 6241, RFC
-         8040).
+      -  NETMOD (Network Modeling): For leveraging YANG data models
+         [RFC7950], [RFC8345] and NETCONF/RESTCONF protocols [RFC8040].
 
       -  MILE (Managed Incident Lightweight Exchange, concluded): For
          standardizing the exchange of security incident information, as
-         outlined in RFC 8329.
+         outlined in [RFC8329].
 
       -  DOTS (DDoS Open Threat Signaling ,concluded): For coordinating
          responses to distributed denial-of-service attacks, as defined
-         in RFC 8811.
+         in [RFC8811].
 
       -  Awaiting to add more WGs, BGP-LS, PCE, etc.
 
@@ -2727,11 +2728,49 @@ Table of Contents
               DOI 10.17487/RFC4655, August 2006,
               <https://www.rfc-editor.org/rfc/rfc4655>.
 
+   [RFC5557]  Lee, Y., Le Roux, JL., King, D., and E. Oki, "Path
+              Computation Element Communication Protocol (PCEP)
+              Requirements and Protocol Extensions in Support of Global
+              Concurrent Optimization", RFC 5557, DOI 10.17487/RFC5557,
+              July 2009, <https://www.rfc-editor.org/rfc/rfc5557>.
+
+   [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
+              and A. Bierman, Ed., "Network Configuration Protocol
+              (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
+              <https://www.rfc-editor.org/rfc/rfc6241>.
+
    [RFC6805]  King, D., Ed. and A. Farrel, Ed., "The Application of the
               Path Computation Element Architecture to the Determination
               of a Sequence of Domains in MPLS and GMPLS", RFC 6805,
               DOI 10.17487/RFC6805, November 2012,
               <https://www.rfc-editor.org/rfc/rfc6805>.
+
+   [RFC7012]  Claise, B., Ed. and B. Trammell, Ed., "Information Model
+              for IP Flow Information Export (IPFIX)", RFC 7012,
+              DOI 10.17487/RFC7012, September 2013,
+              <https://www.rfc-editor.org/rfc/rfc7012>.
+
+   [RFC7252]  Shelby, Z., Hartke, K., and C. Bormann, "The Constrained
+              Application Protocol (CoAP)", RFC 7252,
+              DOI 10.17487/RFC7252, June 2014,
+              <https://www.rfc-editor.org/rfc/rfc7252>.
+
+   [RFC7303]  Thompson, H. and C. Lilley, "XML Media Types", RFC 7303,
+              DOI 10.17487/RFC7303, July 2014,
+              <https://www.rfc-editor.org/rfc/rfc7303>.
+
+   [RFC7540]  Belshe, M., Peon, R., and M. Thomson, Ed., "Hypertext
+              Transfer Protocol Version 2 (HTTP/2)", RFC 7540,
+              DOI 10.17487/RFC7540, May 2015,
+              <https://www.rfc-editor.org/rfc/rfc7540>.
+
+   [RFC7950]  Bjorklund, M., Ed., "The YANG 1.1 Data Modeling Language",
+              RFC 7950, DOI 10.17487/RFC7950, August 2016,
+              <https://www.rfc-editor.org/rfc/rfc7950>.
+
+   [RFC8040]  Bierman, A., Bjorklund, M., and K. Watsen, "RESTCONF
+              Protocol", RFC 8040, DOI 10.17487/RFC8040, January 2017,
+              <https://www.rfc-editor.org/rfc/rfc8040>.
 
    [RFC8051]  Zhang, X., Ed. and I. Minei, Ed., "Applicability of a
               Stateful Path Computation Element (PCE)", RFC 8051,
@@ -2748,15 +2787,34 @@ Table of Contents
               DOI 10.17487/RFC8231, September 2017,
               <https://www.rfc-editor.org/rfc/rfc8231>.
 
+   [RFC8259]  Bray, T., Ed., "The JavaScript Object Notation (JSON) Data
+              Interchange Format", STD 90, RFC 8259,
+              DOI 10.17487/RFC8259, December 2017,
+              <https://www.rfc-editor.org/rfc/rfc8259>.
+
+   [RFC8329]  Lopez, D., Lopez, E., Dunbar, L., Strassner, J., and R.
+              Kumar, "Framework for Interface to Network Security
+              Functions", RFC 8329, DOI 10.17487/RFC8329, February 2018,
+              <https://www.rfc-editor.org/rfc/rfc8329>.
+
    [RFC8345]  Clemm, A., Medved, J., Varga, R., Bahadur, N.,
               Ananthakrishnan, H., and X. Liu, "A YANG Data Model for
               Network Topologies", RFC 8345, DOI 10.17487/RFC8345, March
               2018, <https://www.rfc-editor.org/rfc/rfc8345>.
 
+   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
+              <https://www.rfc-editor.org/rfc/rfc8446>.
+
    [RFC8453]  Ceccarelli, D., Ed. and Y. Lee, Ed., "Framework for
               Abstraction and Control of TE Networks (ACTN)", RFC 8453,
               DOI 10.17487/RFC8453, August 2018,
               <https://www.rfc-editor.org/rfc/rfc8453>.
+
+   [RFC8811]  Mortensen, A., Ed., Reddy.K, T., Ed., Andreasen, F.,
+              Teague, N., and R. Compton, "DDoS Open Threat Signaling
+              (DOTS) Architecture", RFC 8811, DOI 10.17487/RFC8811,
+              August 2020, <https://www.rfc-editor.org/rfc/rfc8811>.
 
 Appendix A.  IANA Considerations
 
