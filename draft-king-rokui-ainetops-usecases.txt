@@ -5,10 +5,10 @@
 RTG                                                             R. Rokui
 Internet-Draft                                                     Ciena
 Intended status: Informational                                     C. Li
-Expires: 3 September 2025                                         Huawei
+Expires: 4 September 2025                                         Huawei
                                                                  D. King
                                                     Lancaster University
-                                                            2 March 2025
+                                                            3 March 2025
 
 
           Artificial Intelligence (AI) for Network Operations
@@ -46,7 +46,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2025.
+   This Internet-Draft will expire on 4 September 2025.
 
 Copyright Notice
 
@@ -298,20 +298,20 @@ Table of Contents
    Figure 2 shows the relationship between AI, ML, Deep Learning, and
    Gen-AI.
 
-        |------------|    |--------------|     |-----------------------|
-        |            |    |  AI /        |     |                       |
-        |    Big     |    |  ML /        |     |                       |
-        |    Data    |  + |  Gen-AI/     |  =  |        AINetOps       |
-        |            |    |  Rule-based  |     |                       |
-        |            |    |              |     |                       |
-        |------------|    |--------------|     |-----------------------|
-                                                 AINetOPS provides
-                                                 Operational Benefits
-        Big Data: Historical or Real-time data
-                 (e.g., time series PM, Alarm, Topology, Log,
-                  OAM data, product content/documentation etc.)
+       |------------|    |--------------|     |-----------------------|
+       |            |    |  AI /        |     |                       |
+       |    Big     |    |  ML /        |     |                       |
+       |    Data    |  + |  Gen-AI/     |  =  |        AINetOps       |
+       |            |    |  Rule-based  |     |                       |
+       |            |    |              |     |                       |
+       |------------|    |--------------|     |-----------------------|
+                                                  AINetOPS provides
+                                                  Operational Benefits
+         Big Data: Historical or Real-time data
+                  (e.g., time series PM, Alarm, Topology, Log,
+                   OAM data, product content/documentation etc.)
 
-                Figure 2: Figure 2: Definition of AINetOp
+                 Figure 2: Figure 2: Definition of AINetOp
 
 5.  Operational Benefits Provided by AINetOps
 
@@ -1016,13 +1016,16 @@ Table of Contents
 
 6.  AINetOps Scenarios and Use-cases
 
+   {Editor's note: This is a work in progress.  More use cases will be
+   added, and existing ones will be revised.}
+
    This section further expands Section 5 by exploring scenarios and use
    cases for applying AINetOps in network operations, focusing on their
    architectural, procedural, and protocol-level requirements.  Each use
    case highlights how AINetOps can be leveraged to address challenges
    in network management and optimization, while identifying the
-   relevant IETF protocols, interfaces, and data models that are
-   involved or need enhancement.
+   relevant IETF protocols, interfaces, and data models that are nvolved
+   or need enhancement.
 
    For every use case described, the following dimensions are examined
    to provide a comprehensive understanding of its implications and
@@ -1167,25 +1170,7 @@ Table of Contents
 
             Figure 4: Multi-layer Active Assurance Using Gen-AI
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.2.  Network Pro-active Assurance
 
@@ -1255,116 +1240,229 @@ Table of Contents
 
           Figure 5: Multi-layer Pro-active Assurance Using Gen-AI
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.3.  Network Anomaly Detection
 
+   Network anomaly detection is a critical component of modern network
+   security and management, aimed at identifying deviations from normal
+   network behavior that may indicate potential threats or operational
+   issues.  With the increasing complexity of networks and the growing
+   sophistication of cyber threats, traditional rule-based detection
+   methods are often insufficient.  The integration of Artificial
+   Intelligence (AI) and Machine Learning (ML) techniques offers a more
+   dynamic and adaptive approach to detecting anomalies in real-time.
+   This section outlines the architecture, interfaces, protocols, data
+   models, and alignment with IETF standards necessary to implement an
+   effective AI-driven network anomaly detection system.  The design and
+   implementation of such systems may use some relevant technologies,
+   such as RFC 8345 (YANG Data Model for Network Topologies), RFC 6241
+   (NETCONF Protocol), and RFC 8529 (YANG Schema Mount).
+
+   Machine learning would provide a key function in network anomaly
+   detection as it can be seamlessly integrated into the architecture,
+   via the “Analysis Layer” described in the figure above.  By
+   leveraging ML techniques, it would be possible to identify deviations
+   from normal behavior, uncovering anomalies that might be
+   imperceptible to human network engineers.
+
+   An ML technique using unsupervised learning is particularly well-
+   suited for network anomaly detection, as the network infrastructure
+   is typically dynamic and evolving by nature.  While machine learning
+   requires large volumes of high-quality data and substantial
+   computational resources for training, its benefits outweigh these
+   challenges.  Machine learning models offer generalizability,
+   robustness, and reduced dependence on manual fine-tuning.  More
+   importantly, they enable the detection of complex and previously
+   unseen anomaly patterns, enhancing network security, reliability, and
+   operational efficiency.
+
    *  Architecture
 
-   To be added.
+   The architecture for network anomaly detection using AI typically
+   involves a distributed system where data collection, analysis, and
+   response mechanisms are decoupled but interconnected.  The system
+   comprises the following key components:
+
+   o Data Collection Layer: Responsible for gathering network traffic
+   data from various sources such as routers, switches, and endpoints.
+   This layer may leverage protocols like IPFIX (RFC 7011) for flow data
+   export.
+
+   o Analysis Layer: Utilizes machine learning (ML) models to detect
+   anomalies in the collected data.  This layer may include both real-
+   time and batch processing capabilities.
+
+   o Response Layer: Executes predefined actions based on the analysis
+   results, such as alerting administrators, blocking malicious
+   traffic,or reconfiguring network devices.  This layer may integrate
+   with DOTS (RFC 8811) to mitigate DDoS attacks.
+
+   The architecture should be scalable to handle large volumes of data
+   and adaptable to incorporate new AI models as they evolve.
+
+   Figure 6 illustrates the high-level architecture of an AI-based
+   network anomaly detection system:
+
+                            +-------------------+
+                            |                   |
+                            |    Analysis       |
+               +----------->|      Layer        |------------+
+               |            |     (AI/ML)       |            |
+               |            +-------------------+            |
+               |                                             |
+               |                                             v
+      +-------------------+                       +-----------------+
+      |                   |                       |                 |
+      |  Data Collection  |                       |    Response     |
+      |      Layer        |<------+       +-------|      Layer      |
+      |                   |       |       |       |                 |
+      +-------------------+       |       |       +-----------------+
+                                  |       |resolve incidents, etc
+                         monitor  |       |
+                                  |       v
+                           +-------------------+
+                           |  Network Devices  |
+                           | (Routers, Switches|
+                           | Endpoints, etc.)  |
+                           +-------------------+
+
+         Figure 6: Architecture of network anomaly detection system
 
    *  Interfaces and APIs
 
-   To be added.
+   To facilitate interoperability and integration with existing network
+   management systems, the following interfaces and APIs are
+   recommended:
+
+   o Northbound API: Provides a standardized interface for external
+   systems to query anomaly detection results and receive alerts.This
+   API should align with RESTCONF (RFC 8040) for consistency with IETF
+   standards.
+
+   o Southbound API: Allows the anomaly detection system to interact
+   with network devices for data collection and response actions.  This
+   API may use NETCONF (RFC 6241) or RESTCONF (RFC 8040) for device
+   management.
+
+   o Model Management API: Enables the deployment, updating, and
+   monitoring of AI models used in the analysis layer.  This API should
+   support secure communication as defined in RFC 8446 (TLS 1.3).
+
+   These APIs should adhere to RESTful principles or other widely
+   adopted standards to ensure ease of integration.
+
+   Figure 7 illustrates the interaction between the anomaly detection
+   system and external components via the defined interfaces:
+
+       +-----------------------------------------------------------+
+       |                       External Systems                    |
+       +-----------------------------------------------------------+
+          ^                          ^
+          |  Northbound API          | Model Management API
+          |                          |
+          |                 +-------------------+
+          |                 |                   |
+          |                 |    Analysis       |
+          |    |----------->|      Layer        |------------|
+          |    |            |     (AI/ML)       |            |
+          |    |            +-------------------+            |
+          |    |                                             |
+          |    |                                             v
+      +-------------------+                       +-----------------+
+      |                   |                       |                 |
+      |  Data Collection  |                       |    Response     |
+      |      Layer        |<------|       |-------|      Layer      |
+      |                   |       |       |       |                 |
+      +-------------------+       |       |       +-----------------+
+                                  |       |
+                Southbound API    |       | Southbound API
+     (NETCONF, IPFIX,BGP-LS, etc) |       v (NETCONF, PCEP, BGP, etc)
+                           +-------------------+
+                           |  Network Devices  |
+                           | (Routers, Switches|
+                           | Endpoints, etc.)  |
+                           +-------------------+
+
+          Figure 7: Interfaces of network anomaly detection system
 
    *  Protocols
 
-   To be added.
+   The following protocols are suggested for communication between the
+   components of the anomaly detection system:
+
+   o NETCONF/RESTCONF: For configuring and managing network devices and
+   retrieving operational data, as defined in RFC 6241 and RFC 8040.
+
+   o gRPC/HTTP2: For high-performance communication between the analysis
+   layer and other components, leveraging HTTP/2 (RFC 7540) for
+   efficient data transfer.
+
+   o MQTT: For lightweight, publish-subscribe messaging between
+   distributed components, particularly in IoT environments, as
+   specified in RFC 7252 (CoAP) or MQTT 5.0 (OASIS Standard).
+
+   The choice of protocol should consider factors such as latency,
+   bandwidth, and security requirements.
 
    *  Data Models
 
-   To be added.
+   Data models for network anomaly detection should be designed to
+   capture both the structure and semantics of network traffic data.
+   The following models are recommended:
+
+   o YANG Data Models: For representing network configuration and state
+   data in a structured format, as defined in RFC 7950 and extended by
+   RFC 8345 for network topologies.
+
+   o JSON/XML Schemas: For defining the format of data exchanged between
+   components via APIs, consistent with RFC 8259 (JSON) and RFC 7303
+   (XML).
+
+   o Feature Vectors: For representing the input data to AI models,
+   which may include packet headers, flow statistics, and behavioral
+   patterns.  These vectors should align with the IPFIX Information
+   Model (RFC 7012) for flow data representation.
+
+   These data models should be extensible to accommodate new types of
+   network data and evolving AI techniques.
 
    *  Alignment with IETF
 
-   To be added.
+   The development of AI-based network anomaly detection systems should
+   align with existing IETF standards and working groups, such as:
+
+   o NETMOD (Network Modeling): For leveraging YANG data models (RFC
+   7950, RFC 8345) and NETCONF/RESTCONF protocols (RFC 6241, RFC 8040).
+
+   o MILE (Managed Incident Lightweight Exchange, concluded): For
+   standardizing the exchange of security incident information, as
+   outlined in RFC 8329.
+
+   o DOTS (DDoS Open Threat Signaling ,concluded): For coordinating
+   responses to distributed denial-of-service attacks, as defined in RFC
+   8811.
+
+   o Awaiting to add more WGs, BGP-LS, PCE, etc.
+
+   Collaboration with these groups ensures that the anomaly detection
+   system integrates seamlessly with existing IETF frameworks and
+   contributes to the broader goal of network security and management.
 
 6.4.  Network Predictive Maintenance
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.5.  Detection of Network Misconfiguration
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.6.  Generate Node Configuration
 
    Generate node config with certain customer requirement (e.g., certain
    QOS, policy, ACL, tunnels, …)
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.7.  Cognitive Search On Internal Operator Data
 
@@ -1414,35 +1512,35 @@ Table of Contents
    in natural language that is finally delivered to the user.
 
 
-    |-----------|                                             |---------|
-    |           |<----------------Response--------------------|         |
-    |  Network  |                                             |         |
-    |  Operator |                       |---------------|     |         |
-    |           |---Query---+---------->|    Query      |     |         |
-    |-----------|           +           | +  Context    |---->|   LLM   |
-                            +           | +  Prompt     |     |         |
-                            +           |---------------|     |         |
-                            +                   ^             |         |
-                            +                   +             |         |
-                            v                   +             |---------|
-                   |---------------|        |----------|
-                   |   Embedding   | +++++> |  Vector  |
-                   |     Model     | -----> |    DB    |
-                   |---------------|        |----------|
-                           ^
-                           |
-                           |
-          |----------------|------------------|
-          |                |                  |
- +++++++++|++++++++++++++++|++++++++++++++++++|++++++++++++
- +        |                |                  |           +
- +   |----------|    |----------------|    |----------|   +
- +   | Network  |    |    Method of   |    |  Vendor  |   +
- +   | Topology |    |  Procedure MOP |    |   docs   |   +
- +   |----------|    |----------------|    |----------|   +
- +                                                        +
- +  Internal Operator documentation                       +
- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    |-----------|                                           |---------|
+    |           |<----------------Response------------------|         |
+    |  Network  |                                           |         |
+    |  Operator |                       |--------------|    |         |
+    |           |---Query---+---------->|   Query +    |    |         |
+    |-----------|           +           |   Context +  |--->|   LLM   |
+                            +           |   Prompt     |    |         |
+                            +           |--------------|    |         |
+                            +                   ^           |---------|
+                            +                   +
+                            v                   +
+                  |---------------|        |----------|
+                  |   Embedding   | +++++> |  Vector  |
+                  |     Model     | -----> |    DB    |
+                  |---------------|        |----------|
+                              ^
+                              |
+                              |
+             |----------------|------------------|
+             |                |                  |
+    +++++++++|++++++++++++++++|++++++++++++++++++|++++++++++++
+    +        |                |                  |           +
+    +   |----------|    |----------------|    |----------|   +
+    +   | Network  |    |    Method of   |    |  Vendor  |   +
+    +   | Topology |    |  Procedure MOP |    |   docs   |   +
+    +   |----------|    |----------------|    |----------|   +
+    +                                                        +
+    +  Internal Operator documentation                       +
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
    As previously mentioned, the documents stored in the Vector Database
    for this specific use case correspond to various types of Network
@@ -1452,115 +1550,29 @@ Table of Contents
    network infrastructure, Standard Operating Procedures, security
    documentation, incident reports, and more.
 
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.8.  Network Operator Assistant
 
    Operator-Assistant as a virtual-expert-network-engineer.
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.9.  Gen-AI based Network Operational Insights
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.10.  Network Traffic Prediction
 
    Telefonica use-case: Traffic-prediction using AI
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.11.  Multi-layer Use-case
 
    Multi-layer aspect of above use-cases, e.g.,
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.12.  Multi-layer Network Planning
 
@@ -1645,49 +1657,13 @@ Table of Contents
 
    Causality discovery: you want to know to be updated by Vincenzo.
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.14.  Network Clean Up
 
    Clean-up procedure in the network
 
-   *  Architecture
-
-   To be added.
-
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.15.  Multi agent interworking
 
@@ -1766,7 +1742,7 @@ Table of Contents
    *  Architecture
 
    Multi agent architecture can be extremely complex, but figure
-   Figure 6 tries to capture the main interwokring issues of this
+   Figure 8 tries to capture the main interwokring issues of this
    scenario.  An example with an arbitrary number of agents (N)
    connecting to different components of the management and control
    stack (SDN controllers, observability function, assurance function,
@@ -1795,12 +1771,12 @@ Table of Contents
      Legend:
      (A) Inter Agent communication for coordination
 
-                     Figure 6: Multi-agent architecture
+                     Figure 8: Multi-agent architecture
 
    Alternatively, a hierarchical solution can be foreseen, with an agent
    (H-Agent) specifically designed for coordinating agents, or an agent
    designated to play the role of H-Agent in addition to its duties, as
-   shown in Figure 7:
+   shown in Figure 9:
 
                            |------------|
                            |  H-Agent   |
@@ -1831,23 +1807,9 @@ Table of Contents
      Legend:
      (A) H-Agent to Agent communication
 
-              Figure 7: Multi-agent hierarchical architecture
+              Figure 9: Multi-agent hierarchical architecture
 
-   *  Interfaces and APIs
-
-   To be added.
-
-   *  Protocols
-
-   To be added.
-
-   *  Data Models
-
-   To be added.
-
-   *  Alignment with IETF
-
-   To be added.
+   More to be added.
 
 6.16.  Network traffic management
 
@@ -1906,42 +1868,38 @@ Table of Contents
    IETF/IRTF can certainly play a role in both of the above-mentioned
    cases.
 
-   +---------+     (A) + (B)
-   | Outside |xxxxxxxx External xxxxxxxxx
-   |  world  |          events          x
-   +---------+                          x
-                                        x
-                                        V
-   +-----------+              +--------------------+
-   |  Network  |------------->|     Dataset        |
-   +-----------+              |    repository      |
-                              +--------------------+
-                              | Network monitoring |
-                              |       info.        |
-                              |   (e.g via SNMP)   |
-                              |         +          |
-                              |   Topology changes |
-                              |         +          |
-                              |   Historical data  |
-                              |   from TE-DB, etc. |
-                              +--------------------+
-                                        x
-                                        x (B)
-                                        x
-                                        V
-                                  +------------+
-                                  |  AI model  |
-                                  |   under    |
-                                  |  training  |
-                                  +------------+
-
+      +---------+                   (A) + (B)
+      | Outside |xxxxxxxx External xxxxxxxxxxx
+      |  world  |          events            x
+      +---------+                            x
+                                             x
+                                             V
+      +-----------+              +--------------------------+
+      |  Network  |------------->|    Dataset Repository    |
+      +-----------+              |    ------------------    |
+                                 | Network monitoring data  |
+                                 | (e.g via SNMP)           |
+                                 |           &              |
+                                 | Topology changes         |
+                                 |           &              |
+                                 | Historical data from     |
+                                 | TE-DB, etc.              |
+                                 +--------------------------+
+                                              x
+                                              x (B)
+                                              x
+                                              V
+                                    +------------------+
+                                    |  AI model        |
+                                    |  under training  |
+                                    +------------------+
 
      Legend:
      xxx Potential IETF defined and standardized interface.
      (A) Extracting and storing outside world events data.
      (B) Important features for training the model for traffic mgmt.
 
-         Figure 8: AI assisted traffic management: Offline training
+        Figure 10: AI assisted traffic management: Offline training
 
 6.16.1.2.  Online training
 
@@ -1994,7 +1952,7 @@ Table of Contents
      (A) Extracting and storing outside world events data.
      (B) Important features for training the model for traffic mgmt.
 
-         Figure 9: AI assisted traffic management: On-line training
+        Figure 11: AI assisted traffic management: On-line training
 
 6.16.2.  Inference
 
@@ -2037,7 +1995,7 @@ Table of Contents
      (B) Important features for training the model for traffic mgmt.
      (C) Standardized output of the AI model delivered for translation
 
-            Figure 10: AI assisted traffic management: Inference
+            Figure 12: AI assisted traffic management: Inference
 
 6.16.3.  Longer term view
 
@@ -2126,7 +2084,7 @@ Table of Contents
          observed external events info. to agents for
          training and inference.
 
-                  Figure 11: Distributed agentic networks
+                  Figure 13: Distributed agentic networks
 
    *  Architecture
 
@@ -2175,7 +2133,7 @@ Table of Contents
 
       The architecture integrates an AI Fault Injection Engine with
       network controllers and elements to simulate faults and assess
-      resilience across IP and optical layers.  Figure 12 illustrates
+      resilience across IP and optical layers.  Figure 14 illustrates
       this design, showing the AI Fault Injection Engine interfacing
       with P-PNC, O-PNC network controllers, which manage the IP/optical
       network.  The engine designs fault scenarios, injects them via
@@ -2184,36 +2142,38 @@ Table of Contents
       existing IETF control-plane components, ensuring compatibility
       with multi-layer coordination frameworks like ACTN.
 
-                 |----------------------------|
-                 |      AI Fault              |
-                 |      Injection Engine      |
-                 |----------------------------|
-                 |      Fault Scenario        |
-                 |      Design & Analysis     |
-                 |----------------------------|
-                       ^                |
-                   (B) |                | (C)
-                       |                v
-           |-----------------------------------------|
-           |  packet controller (P-PNC),             |
-           |  optical controller (O-PNC),            |
-           |  and/or higher layer controllers (MDSC) |
-           |-----------------------------------------|
-                               ^
-                          (A)  |
-                               v
-                 |-----------------------------|
-                 |                             |
-                 |       IP/Optical Network    |
-                 |                             |
-                 |-----------------------------|
+                    |----------------------------|
+                    |      AI Fault              |
+                    |      Injection Engine      |
+                    |----------------------------|
+                    |      Fault Scenario        |
+                    |      Design & Analysis     |
+                    |----------------------------|
+                          ^                |
+                      (B) |                | (C)
+                          |                v
+              |-----------------------------------------|
+              |  packet controller (P-PNC),             |
+              |  optical controller (O-PNC),            |
+              |  and/or higher layer controllers (MDSC) |
+              |-----------------------------------------|
+                                  ^
+                             (A)  |
+                                  v
+                    |-----------------------------|
+                    |                             |
+                    |       IP/Optical Network    |
+                    |                             |
+                    |-----------------------------|
 
-Legend:
-(A) Fault injection commands (e.g., disable link, drop packets, degrade signal)
-(B) Telemetry feedback (e.g., latency, packet loss, BER)
-(C) Recovery actions (e.g., reroute traffic, adjust optical parameters)
+   Legend:
+     (A) Fault injection commands (e.g., disable link, drop packets, d
+         egrade signal)
+     (B) Telemetry feedback (e.g., latency, packet loss, BER)
+     (C) Recovery actions (e.g., reroute traffic, adjust optical
+         parameters)
 
-       Figure 12: Architecture for AI-Driven Resilience Testing
+          Figure 14: Architecture for AI-Driven Resilience Testing
 
    *  Interfaces and APIs
 
@@ -2402,7 +2362,7 @@ Legend:
       The architecture integrates an AI Green Energy Optimization Engine
       with both compute orchestration and network control layers to
       manage workload placement and traffic across IP/optical networks
-      and NFVi PoDs or datacenters.  Figure 13 illustrates this design,
+      and NFVi PoDs or datacenters.  Figure 15 illustrates this design,
       showing the AI engine interfacing with an NFV Orchestrator (NFVO)
       to shift compute jobs (e.g., VNFs) between PoDs/datacenters based
       on green energy availability, and optionally with P-PNC and O-PNC
@@ -2410,38 +2370,39 @@ Legend:
       data, computes optimal configurations, and applies them via
       orchestration and controller APIs.
 
-                 |----------------------------|
-                 |   AI-based Green Energy    |
-                 |   Optimization Engine      |
-                 |----------------------------|
-                       ^                |
-                   (B) |                | (C)
-                       |                v
-           |-----------------------------------------|
-           |  packet controller (P-PNC),             |
-           |  optical controller (O-PNC),            |
-           |  and/or higher layer controllers (MDSC) |
-           |                    &                    |
-           |  NFVO                                   |
-           |-----------------------------------------|
-                               ^
-                          (A)  |
-                               v
-                 |-----------------------------|
-                 |                             |
-                 |   NFVi PoDs / Datacenters   |
-                 |              &              |
-                 |   IP/Optical Network        |
-                 |                             |
-                 |-----------------------------|
+                   |----------------------------|
+                   |   AI-based Green Energy    |
+                   |   Optimization Engine      |
+                   |----------------------------|
+                         ^                |
+                     (B) |                | (C)
+                         |                v
+             |-----------------------------------------|
+             |  packet controller (P-PNC),             |
+             |  optical controller (O-PNC),            |
+             |  and/or higher layer controllers (MDSC) |
+             |                    &                    |
+             |  NFVO                                   |
+             |-----------------------------------------|
+                                 ^
+                            (A)  |
+                                 v
+                   |-----------------------------|
+                   |                             |
+                   |   NFVi PoDs / Datacenters   |
+                   |              &              |
+                   |   IP/Optical Network        |
+                   |                             |
+                   |-----------------------------|
 
-     Legend:
-     (A) Optimization commands (e.g., instantiate VNF on green PoD, reroute traffic)
+   Legend:
+     (A) Optimization commands (e.g., instantiate VNF on green PoD,
+         reroute traffic)
      (B) Telemetry feedback (e.g., latency, energy source, compute load)
      (C) Configuration updates (e.g., shift VNFs, adjust network paths)
      NFVO: Network Function Virtualization Orchestrator
 
-   Figure 13: Architecture for AI-Driven Green Energy Optimization
+     Figure 15: Architecture for AI-Driven Green Energy Optimization
 
    *  Interfaces and APIs
 
@@ -2529,40 +2490,40 @@ Legend:
 
       The architecture integrates an AI Policy Enforcement and
       Compliance Engine with network controllers, security systems, and
-      orchestration platforms.  Figure 14 illustrates this design,
+      orchestration platforms.  Figure 16 illustrates this design,
       showing the AI engine interfacing with P-PNC, O-PNC and Security
       Information and Event Management (SIEM) systems.  The engine
       collects telemetry, enforces policies, and audits compliance,
       applying corrective actions via controller APIs.
 
-                 |----------------------------------|
-                 |   AI-based Policy Enforcement &  |
-                 |   Compliance Engine              |
-                 |----------------------------------|
-                       ^                |
-                   (B) |                | (C)
-                       |                v
-           |-----------------------------------------|
-           |  packet controller (P-PNC),             |
-           |  optical controller (O-PNC),            |
-           |  and/or higher layer controllers (MDSC) |
-           |-----------------------------------------|
-                               ^
-                          (A)  |
-                               v
-                 |-----------------------------|
-                 |                             |
-                 |       IP/Optical Network    |
-                 |                             |
-                 |-----------------------------|
+                    |----------------------------------|
+                    |   AI-based Policy Enforcement &  |
+                    |   Compliance Engine              |
+                    |----------------------------------|
+                          ^                |
+                      (B) |                | (C)
+                          |                v
+              |-----------------------------------------|
+              |  packet controller (P-PNC),             |
+              |  optical controller (O-PNC),            |
+              |  and/or higher layer controllers (MDSC) |
+              |-----------------------------------------|
+                                  ^
+                             (A)  |
+                                  v
+                    |-----------------------------|
+                    |                             |
+                    |       IP/Optical Network    |
+                    |                             |
+                    |-----------------------------|
 
-     Legend:
+    Legend:
      (A) Policy enforcement commands (e.g., block traffic, adjust QoS)
      (B) Telemetry feedback (e.g., configuration changes, security logs)
      (C) Compliance reports and alerts
 
-     Figure 14: Architecture for AI-Driven Policy Enforcement and
-                         Compliance Auditing
+        Figure 16: Architecture for AI-Driven Policy Enforcement and
+                            Compliance Auditing
 
    *  Interfaces and APIs
 
@@ -2638,44 +2599,46 @@ Legend:
       The architecture integrates an AI Network Slicing Optimization
       Engine with the NSMF (Network Slice Management Function) and
       NSSMFs (Network Slice Subnet Management Functions) for RAN, Core,
-      and Transport domains.  Figure 15 illustrates this design, showing
+      and Transport domains.  Figure 17 illustrates this design, showing
       the AI engine interfacing with the NSMF, which coordinates with
       the NSSMFs to manage and optimize network slices.  The engine
       collects telemetry, predicts SLA violations, and provides
       optimization recommendations to the NSMF, which implements changes
       via the NSSMFs.
 
-                 |------------------------------|
-                 |                              |
-                 |   AI-based Network Slicing   |
-                 |   Optimization Engine        |
-                 |                              |
-                 |------------------------------|
-                       ^                |
-                   (B) |                | (C)
-                       |                v
-             |---------------------------------------|
-             |     RAN, Core, and Transport NSSMF    |
-             |---------------------------------------|
-                               ^
-                          (A)  |
-                               v
-             |---------------------------------------|
-             |                                       |
-             |    Physical Network Infrastructure    |
-             |    (RAN, Core, Transport)             |
-             |                                       |
-             |---------------------------------------|
+                    |------------------------------|
+                    |                              |
+                    |   AI-based Network Slicing   |
+                    |   Optimization Engine        |
+                    |                              |
+                    |------------------------------|
+                          ^                |
+                      (B) |                | (C)
+                          |                v
+                |---------------------------------------|
+                |     RAN, Core, and Transport NSSMF    |
+                |---------------------------------------|
+                                  ^
+                             (A)  |
+                                  v
+                |---------------------------------------|
+                |                                       |
+                |    Physical Network Infrastructure    |
+                |    (RAN, Core, Transport)             |
+                |                                       |
+                |---------------------------------------|
 
-     Legend:
-     (A) Optimization commands (e.g., adjust slice resources, reroute traffic)
-     (B) Telemetry feedback (e.g., slice performance, resource utilization)
-     (C) SLA compliance reports and alerts
-     NSMF: Network Slice Management Function
-     NSSMF: Network Slice Subnet Management Function (RAN, Core, Transport)
+   Legend:
+      (A) Optimization commands (e.g., adjust slice resources,
+          reroute traffic)
+      (B) Telemetry feedback (e.g., slice performance,
+          resource utilization)
+      (C) SLA compliance reports and alerts
+      NSSMF: Network Slice Subnet Management Function
+      (RAN, Core, Transport)
 
-   Figure 15: Corrected Architecture for AI-Driven Network Slicing
-                             Optimization
+      Figure 17: Corrected Architecture for AI-Driven Network Slicing
+                                Optimization
 
    *  Interfaces and APIs
 
@@ -2834,11 +2797,6 @@ Contributors
    Nathalie Romo-moreno
    Telekom
    Email: nathalie.romo-moreno@telekom.de
-
-
-   Cheng Li
-   Huawei
-   Email: c.l@huawei.com
 
 
    Ali Tizghadam

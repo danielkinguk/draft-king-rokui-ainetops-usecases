@@ -23,14 +23,14 @@ network assurance, predictive analytics, network optimization,
 multi-layer planning, and more. It aims to guide the evolution of IETF
 protocols to support AINetOps-driven network management. 
     " name="description">
-<meta content="xml2rfc 3.27.0" name="generator">
+<meta content="xml2rfc 3.28.0" name="generator">
 <meta content="AI" name="keyword">
 <meta content="ML" name="keyword">
 <meta content="Artificial Intelligence" name="keyword">
 <meta content="Use Cases" name="keyword">
 <meta content="draft-king-rokui-ainetops-usecases-00" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.27.0
+  xml2rfc 3.28.0
     Python 3.12.9
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
@@ -1065,7 +1065,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rokui, et al.</td>
-<td class="center">Expires 3 September 2025</td>
+<td class="center">Expires 4 September 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1078,12 +1078,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-king-rokui-ainetops-usecases-00</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-03-02" class="published">2 March 2025</time>
+<time datetime="2025-03-03" class="published">3 March 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-03">3 September 2025</time></dd>
+<dd class="expires"><time datetime="2025-09-04">4 September 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1137,7 +1137,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 3 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1605,13 +1605,13 @@ resources across different network layers, such as IP and optical layers.<a href
 <figure id="figure-2">
         <div class="alignCenter art-text artwork" id="section-4-5.1">
 <pre>
-      |------------|    |--------------|     |-----------------------|
-      |            |    |  AI /        |     |                       |
-      |    Big     |    |  ML /        |     |                       |
-      |    Data    |  + |  Gen-AI/     |  =  |        AINetOps       |
-      |            |    |  Rule-based  |     |                       |
-      |            |    |              |     |                       |
-      |------------|    |--------------|     |-----------------------|
+    |------------|    |--------------|     |-----------------------|
+    |            |    |  AI /        |     |                       |
+    |    Big     |    |  ML /        |     |                       |
+    |    Data    |  + |  Gen-AI/     |  =  |        AINetOps       |
+    |            |    |  Rule-based  |     |                       |
+    |            |    |              |     |                       |
+    |------------|    |--------------|     |-----------------------|
                                                AINetOPS provides
                                                Operational Benefits
       Big Data: Historical or Real-time data
@@ -2408,44 +2408,27 @@ encoding and protocols would have better perfomances.<a href="#section-5.13-3" c
       <h2 id="name-ainetops-scenarios-and-use-">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-ainetops-scenarios-and-use-" class="section-name selfRef">AINetOps Scenarios and Use-cases</a>
       </h2>
-<p id="section-6-1">This section further expands Section 5 by exploring scenarios and use
-   cases for applying AINetOps in network operations, focusing on their
-   architectural, procedural, and protocol-level requirements.  Each use
-   case highlights how AINetOps can be leveraged to address challenges
-   in network management and optimization, while identifying the
-   relevant IETF protocols, interfaces, and data models that are
-   involved or need enhancement.<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">For every use case described, the following dimensions are examined
-   to provide a comprehensive understanding of its implications and
-   requirements.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-1">{Editor's note: This is a work in progress. More use cases will be added, and existing ones will be revised.}<a href="#section-6-1" class="pilcrow">¶</a></p>
+<p id="section-6-2">This section further expands Section 5 by exploring scenarios and use cases for applying AINetOps in network operations, focusing on their architectural, procedural, and protocol-level requirements.  Each use case highlights how AINetOps can be leveraged to address challenges in network management and optimization, while identifying the relevant IETF protocols, interfaces, and data models that are nvolved or need enhancement.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-3">For every use case described, the following dimensions are examined to provide a comprehensive understanding of its implications and requirements.<a href="#section-6-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6-3.1">
-          <p id="section-6-3.1.1">Architecture: The high-level architecture necessary to support the
-use case, including control-plane and data-plane interactions, as
-well as integration points for AI-driven systems<a href="#section-6-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6-4.1">
+          <p id="section-6-4.1.1">Architecture: The high-level architecture necessary to support the use case, including control-plane and data-plane interactions, as well as integration points for AI-driven systems<a href="#section-6-4.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-6-3.2">
-          <p id="section-6-3.2.1">Interfaces and APIs: The key interfaces between AI systems and
-network elements, including management APIs (e.g., NETCONF,
-RESTCONF, gNMI) and telemetry interfaces<a href="#section-6-3.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-6-4.2">
+          <p id="section-6-4.2.1">Interfaces and APIs: The key interfaces between AI systems and network elements, including management APIs (e.g., NETCONF, RESTCONF, gNMI) and telemetry interfaces<a href="#section-6-4.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-6-3.3">
-          <p id="section-6-3.3.1">Protocols: IETF protocols involved in enabling the use case, and
-potential extensions to existing protocols to accommodate AI-
-driven operations.<a href="#section-6-3.3.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-6-4.3">
+          <p id="section-6-4.3.1">Protocols: IETF protocols involved in enabling the use case, and potential extensions to existing protocols to accommodate AI-driven operations.<a href="#section-6-4.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-6-3.4">
-          <p id="section-6-3.4.1">Data Models: The data models required to represent network state,
-telemetry, policies, and configurations<a href="#section-6-3.4.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-6-4.4">
+          <p id="section-6-4.4.1">Data Models: The data models required to represent network state, telemetry, policies, and configurations<a href="#section-6-4.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-6-3.5">
-          <p id="section-6-3.5.1">Processes and Procedures: Workflow considerations for integrating
-AI systems into existing operational practices, including
-training, validation, and deployment.<a href="#section-6-3.5.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-6-4.5">
+          <p id="section-6-4.5.1">Processes and Procedures: Workflow considerations for integrating AI systems into existing operational practices, including training, validation, and deployment.<a href="#section-6-4.5.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-6-3.6">
-          <p id="section-6-3.6.1">Alignment with IETF Standards: Analysis of how existing IETF
-standards can be leveraged or extended to support the use case.<a href="#section-6-3.6.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-6-4.6">
+          <p id="section-6-4.6.1">Alignment with IETF Standards: Analysis of how existing IETF standards can be leveraged or extended to support the use case.<a href="#section-6-4.6.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <div id="network-active-and-reactive-assurance-1">
@@ -2550,36 +2533,7 @@ standards can be leveraged or extended to support the use case.<a href="#section
 <a href="#name-multi-layer-active-assuranc" class="selfRef">Multi-layer Active Assurance Using Gen-AI</a>
           </figcaption></figure>
 </div>
-<ul class="normal">
-<li class="normal" id="section-6.1-9.1">
-            <p id="section-6.1-9.1.1">Architecture<a href="#section-6.1-9.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.1-10">To be added.<a href="#section-6.1-10" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.1-11.1">
-            <p id="section-6.1-11.1.1">Interfaces and APIs<a href="#section-6.1-11.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.1-12">To be added.<a href="#section-6.1-12" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.1-13.1">
-            <p id="section-6.1-13.1.1">Protocols<a href="#section-6.1-13.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.1-14">To be added.<a href="#section-6.1-14" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.1-15.1">
-            <p id="section-6.1-15.1.1">Data Models<a href="#section-6.1-15.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.1-16">To be added.<a href="#section-6.1-16" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.1-17.1">
-            <p id="section-6.1-17.1.1">Alignment with IETF<a href="#section-6.1-17.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.1-18">To be added.<a href="#section-6.1-18" class="pilcrow">¶</a></p>
+<p id="section-6.1-9">More to be added.<a href="#section-6.1-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network_proactive_assurance">
@@ -2628,36 +2582,7 @@ standards can be leveraged or extended to support the use case.<a href="#section
 <a href="#name-multi-layer-pro-active-assu" class="selfRef">Multi-layer Pro-active Assurance Using Gen-AI</a>
           </figcaption></figure>
 </div>
-<ul class="normal">
-<li class="normal" id="section-6.2-6.1">
-            <p id="section-6.2-6.1.1">Architecture<a href="#section-6.2-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.2-7">To be added.<a href="#section-6.2-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2-8.1">
-            <p id="section-6.2-8.1.1">Interfaces and APIs<a href="#section-6.2-8.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.2-9">To be added.<a href="#section-6.2-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2-10.1">
-            <p id="section-6.2-10.1.1">Protocols<a href="#section-6.2-10.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.2-11">To be added.<a href="#section-6.2-11" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2-12.1">
-            <p id="section-6.2-12.1.1">Data Models<a href="#section-6.2-12.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.2-13">To be added.<a href="#section-6.2-13" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2-14.1">
-            <p id="section-6.2-14.1.1">Alignment with IETF<a href="#section-6.2-14.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.2-15">To be added.<a href="#section-6.2-15" class="pilcrow">¶</a></p>
+<p id="section-6.2-6">More to be added.<a href="#section-6.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-anomaly-detection">
@@ -2665,36 +2590,134 @@ standards can be leveraged or extended to support the use case.<a href="#section
         <h3 id="name-network-anomaly-detection">
 <a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-network-anomaly-detection" class="section-name selfRef">Network Anomaly Detection</a>
         </h3>
+<p id="section-6.3-1">Network anomaly detection is a critical component of modern network security and management, aimed at identifying deviations from normal network behavior that may indicate potential threats or operational issues. With the increasing complexity of networks and the growing    sophistication of cyber threats, traditional rule-based detection methods are often insufficient. The integration of Artificial Intelligence (AI) and Machine Learning (ML) techniques offers a more dynamic and adaptive approach to detecting anomalies in real-time. This section outlines the architecture, interfaces, protocols, data models, and alignment with IETF standards necessary to implement an effective AI-driven network anomaly detection system. The design and implementation of such systems may use some relevant technologies, such as RFC 8345 (YANG Data Model for Network Topologies), RFC 6241 (NETCONF Protocol), and RFC 8529 (YANG Schema Mount).<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-2">Machine learning would provide a key function in network anomaly detection as it can be seamlessly integrated into the architecture, via the “Analysis Layer” described in the figure above. By leveraging ML techniques, it would be possible to identify deviations from normal behavior, uncovering anomalies that might be imperceptible to human network engineers.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
+<p id="section-6.3-3">An ML technique using unsupervised learning is particularly well-suited for network anomaly detection, as the network infrastructure is typically dynamic and evolving by nature. While machine learning requires large volumes of high-quality data and substantial computational resources for training, its benefits outweigh these challenges. Machine learning models offer generalizability, robustness, and reduced dependence on manual fine-tuning. More importantly, they enable the detection of complex and previously unseen anomaly patterns, enhancing network security, reliability, and operational efficiency.<a href="#section-6.3-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-1.1">
-            <p id="section-6.3-1.1.1">Architecture<a href="#section-6.3-1.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-4.1">
+            <p id="section-6.3-4.1.1">Architecture<a href="#section-6.3-4.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-2">To be added.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
+<p id="section-6.3-5">The architecture for network anomaly detection using AI typically involves a distributed system where data collection, analysis, and    response mechanisms are decoupled but interconnected. The system comprises the following key components:<a href="#section-6.3-5" class="pilcrow">¶</a></p>
+<p id="section-6.3-6">o Data Collection Layer: Responsible for gathering network traffic data from various sources such as routers, switches, and endpoints. 
+     This layer may leverage protocols like IPFIX (RFC 7011) for flow data export.<a href="#section-6.3-6" class="pilcrow">¶</a></p>
+<p id="section-6.3-7">o Analysis Layer: Utilizes machine learning (ML) models to detect anomalies in the collected data. This layer may include both real-time and batch processing capabilities.<a href="#section-6.3-7" class="pilcrow">¶</a></p>
+<p id="section-6.3-8">o Response Layer: Executes predefined actions based on the analysis results, such as alerting administrators, blocking malicious traffic,or reconfiguring network devices. This layer may integrate with DOTS (RFC 8811) to mitigate DDoS attacks.<a href="#section-6.3-8" class="pilcrow">¶</a></p>
+<p id="section-6.3-9">The architecture should be scalable to handle large volumes of data and adaptable to incorporate new AI models as they evolve.<a href="#section-6.3-9" class="pilcrow">¶</a></p>
+<p id="section-6.3-10"><a href="#fig_NAD" class="auto internal xref">Figure 6</a> illustrates the high-level architecture of an AI-based network anomaly detection system:<a href="#section-6.3-10" class="pilcrow">¶</a></p>
+<span id="name-architecture-of-network-ano"></span><div id="fig_NAD">
+<figure id="figure-6">
+          <div class="alignLeft art-text artwork" id="section-6.3-11.1">
+<pre>
+                         +-------------------+
+                         |                   |
+                         |    Analysis       |
+            +-----------&gt;|      Layer        |------------+
+            |            |     (AI/ML)       |            |
+            |            +-------------------+            |
+            |                                             |
+            |                                             v
+   +-------------------+                       +-----------------+
+   |                   |                       |                 |
+   |  Data Collection  |                       |    Response     |
+   |      Layer        |&lt;------+       +-------|      Layer      |
+   |                   |       |       |       |                 |
+   +-------------------+       |       |       +-----------------+
+                               |       |resolve incidents, etc
+                      monitor  |       |
+                               |       v
+                        +-------------------+
+                        |  Network Devices  |
+                        | (Routers, Switches|
+                        | Endpoints, etc.)  |
+                        +-------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
+<a href="#name-architecture-of-network-ano" class="selfRef">Architecture of network anomaly detection system</a>
+          </figcaption></figure>
+</div>
 <ul class="normal">
-<li class="normal" id="section-6.3-3.1">
-            <p id="section-6.3-3.1.1">Interfaces and APIs<a href="#section-6.3-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-12.1">
+            <p id="section-6.3-12.1.1">Interfaces and APIs<a href="#section-6.3-12.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-4">To be added.<a href="#section-6.3-4" class="pilcrow">¶</a></p>
+<p id="section-6.3-13">To facilitate interoperability and integration with existing network management systems, the following interfaces and APIs are recommended:<a href="#section-6.3-13" class="pilcrow">¶</a></p>
+<p id="section-6.3-14">o Northbound API: Provides a standardized interface for external systems to query anomaly detection results and receive alerts.This API should align with RESTCONF (RFC 8040) for consistency with IETF standards.<a href="#section-6.3-14" class="pilcrow">¶</a></p>
+<p id="section-6.3-15">o Southbound API: Allows the anomaly detection system to interact with network devices for data collection and response actions. This API may use NETCONF (RFC 6241) or RESTCONF (RFC 8040) for device management.<a href="#section-6.3-15" class="pilcrow">¶</a></p>
+<p id="section-6.3-16">o Model Management API: Enables the deployment, updating, and monitoring of AI models used in the analysis layer. This API should support secure communication as defined in RFC 8446 (TLS 1.3).<a href="#section-6.3-16" class="pilcrow">¶</a></p>
+<p id="section-6.3-17">These APIs should adhere to RESTful principles or other widely adopted standards to ensure ease of integration.<a href="#section-6.3-17" class="pilcrow">¶</a></p>
+<p id="section-6.3-18"><a href="#fig_NAD_Intf" class="auto internal xref">Figure 7</a> illustrates the interaction between the anomaly detection system and external components via the defined interfaces:<a href="#section-6.3-18" class="pilcrow">¶</a></p>
+<span id="name-interfaces-of-network-anoma"></span><div id="fig_NAD_Intf">
+<figure id="figure-7">
+          <div class="alignLeft art-text artwork" id="section-6.3-19.1">
+<pre>
+    +-----------------------------------------------------------+
+    |                       External Systems                    |
+    +-----------------------------------------------------------+
+       ^                          ^
+       |  Northbound API          | Model Management API
+       |                          |
+       |                 +-------------------+
+       |                 |                   |
+       |                 |    Analysis       |
+       |    |-----------&gt;|      Layer        |------------|
+       |    |            |     (AI/ML)       |            |
+       |    |            +-------------------+            |
+       |    |                                             |
+       |    |                                             v
+   +-------------------+                       +-----------------+
+   |                   |                       |                 |
+   |  Data Collection  |                       |    Response     |
+   |      Layer        |&lt;------|       |-------|      Layer      |
+   |                   |       |       |       |                 |
+   +-------------------+       |       |       +-----------------+
+                               |       |
+             Southbound API    |       | Southbound API
+  (NETCONF, IPFIX,BGP-LS, etc) |       v (NETCONF, PCEP, BGP, etc)
+                        +-------------------+
+                        |  Network Devices  |
+                        | (Routers, Switches|
+                        | Endpoints, etc.)  |
+                        +-------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
+<a href="#name-interfaces-of-network-anoma" class="selfRef">Interfaces of network anomaly detection system</a>
+          </figcaption></figure>
+</div>
 <ul class="normal">
-<li class="normal" id="section-6.3-5.1">
-            <p id="section-6.3-5.1.1">Protocols<a href="#section-6.3-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-20.1">
+            <p id="section-6.3-20.1.1">Protocols<a href="#section-6.3-20.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-6">To be added.<a href="#section-6.3-6" class="pilcrow">¶</a></p>
+<p id="section-6.3-21">The following protocols are suggested for communication between the components of the anomaly detection system:<a href="#section-6.3-21" class="pilcrow">¶</a></p>
+<p id="section-6.3-22">o NETCONF/RESTCONF: For configuring and managing network devices and retrieving operational data, as defined in RFC 6241 and RFC 8040.<a href="#section-6.3-22" class="pilcrow">¶</a></p>
+<p id="section-6.3-23">o gRPC/HTTP2: For high-performance communication between the analysis layer and other components, leveraging HTTP/2 (RFC 7540) for efficient data transfer.<a href="#section-6.3-23" class="pilcrow">¶</a></p>
+<p id="section-6.3-24">o MQTT: For lightweight, publish-subscribe messaging between distributed components, particularly in IoT environments, as specified in RFC 7252 (CoAP) or MQTT 5.0 (OASIS Standard).<a href="#section-6.3-24" class="pilcrow">¶</a></p>
+<p id="section-6.3-25">The choice of protocol should consider factors such as latency, bandwidth, and security requirements.<a href="#section-6.3-25" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-7.1">
-            <p id="section-6.3-7.1.1">Data Models<a href="#section-6.3-7.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-26.1">
+            <p id="section-6.3-26.1.1">Data Models<a href="#section-6.3-26.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-8">To be added.<a href="#section-6.3-8" class="pilcrow">¶</a></p>
+<p id="section-6.3-27">Data models for network anomaly detection should be designed to capture both the structure and semantics of network traffic data. The following models are recommended:<a href="#section-6.3-27" class="pilcrow">¶</a></p>
+<p id="section-6.3-28">o YANG Data Models: For representing network configuration and state data in a structured format, as defined in RFC 7950 and extended by RFC 8345 for network topologies.<a href="#section-6.3-28" class="pilcrow">¶</a></p>
+<p id="section-6.3-29">o JSON/XML Schemas: For defining the format of data exchanged between components via APIs, consistent with RFC 8259 (JSON) and RFC 7303 (XML).<a href="#section-6.3-29" class="pilcrow">¶</a></p>
+<p id="section-6.3-30">o Feature Vectors: For representing the input data to AI models, which may include packet headers, flow statistics, and behavioral 
+     patterns. These vectors should align with the IPFIX Information Model (RFC 7012) for flow data representation.<a href="#section-6.3-30" class="pilcrow">¶</a></p>
+<p id="section-6.3-31">These data models should be extensible to accommodate new types of network data and evolving AI techniques.<a href="#section-6.3-31" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-9.1">
-            <p id="section-6.3-9.1.1">Alignment with IETF<a href="#section-6.3-9.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-32.1">
+            <p id="section-6.3-32.1.1">Alignment with IETF<a href="#section-6.3-32.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-10">To be added.<a href="#section-6.3-10" class="pilcrow">¶</a></p>
+<p id="section-6.3-33">The development of AI-based network anomaly detection systems should align with existing IETF standards and working groups, such as:<a href="#section-6.3-33" class="pilcrow">¶</a></p>
+<p id="section-6.3-34">o NETMOD (Network Modeling): For leveraging YANG data models (RFC 7950, RFC 8345) and NETCONF/RESTCONF protocols (RFC 6241, RFC 8040).<a href="#section-6.3-34" class="pilcrow">¶</a></p>
+<p id="section-6.3-35">o MILE (Managed Incident Lightweight Exchange, concluded): For standardizing the exchange of security incident information, as outlined in RFC 8329.<a href="#section-6.3-35" class="pilcrow">¶</a></p>
+<p id="section-6.3-36">o DOTS (DDoS Open Threat Signaling ,concluded): For coordinating responses to distributed denial-of-service attacks, as defined in RFC 8811.<a href="#section-6.3-36" class="pilcrow">¶</a></p>
+<p id="section-6.3-37">o Awaiting to add more WGs, BGP-LS, PCE, etc.<a href="#section-6.3-37" class="pilcrow">¶</a></p>
+<p id="section-6.3-38">Collaboration with these groups ensures that the anomaly detection system integrates seamlessly with existing IETF frameworks and contributes to the broader goal of network security and management.<a href="#section-6.3-38" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-predictive-maintenance">
@@ -2702,36 +2725,7 @@ standards can be leveraged or extended to support the use case.<a href="#section
         <h3 id="name-network-predictive-maintena">
 <a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-network-predictive-maintena" class="section-name selfRef">Network Predictive Maintenance</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.4-1.1">
-            <p id="section-6.4-1.1.1">Architecture<a href="#section-6.4-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.4-2">To be added.<a href="#section-6.4-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-3.1">
-            <p id="section-6.4-3.1.1">Interfaces and APIs<a href="#section-6.4-3.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.4-4">To be added.<a href="#section-6.4-4" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-5.1">
-            <p id="section-6.4-5.1.1">Protocols<a href="#section-6.4-5.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.4-6">To be added.<a href="#section-6.4-6" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-7.1">
-            <p id="section-6.4-7.1.1">Data Models<a href="#section-6.4-7.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.4-8">To be added.<a href="#section-6.4-8" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-9.1">
-            <p id="section-6.4-9.1.1">Alignment with IETF<a href="#section-6.4-9.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.4-10">To be added.<a href="#section-6.4-10" class="pilcrow">¶</a></p>
+<p id="section-6.4-1">More to be added.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="detection-of-network-misconfiguration">
@@ -2739,36 +2733,7 @@ standards can be leveraged or extended to support the use case.<a href="#section
         <h3 id="name-detection-of-network-miscon">
 <a href="#section-6.5" class="section-number selfRef">6.5. </a><a href="#name-detection-of-network-miscon" class="section-name selfRef">Detection of Network Misconfiguration</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.5-1.1">
-            <p id="section-6.5-1.1.1">Architecture<a href="#section-6.5-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.5-2">To be added.<a href="#section-6.5-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.5-3.1">
-            <p id="section-6.5-3.1.1">Interfaces and APIs<a href="#section-6.5-3.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.5-4">To be added.<a href="#section-6.5-4" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.5-5.1">
-            <p id="section-6.5-5.1.1">Protocols<a href="#section-6.5-5.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.5-6">To be added.<a href="#section-6.5-6" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.5-7.1">
-            <p id="section-6.5-7.1.1">Data Models<a href="#section-6.5-7.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.5-8">To be added.<a href="#section-6.5-8" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.5-9.1">
-            <p id="section-6.5-9.1.1">Alignment with IETF<a href="#section-6.5-9.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.5-10">To be added.<a href="#section-6.5-10" class="pilcrow">¶</a></p>
+<p id="section-6.5-1">More to be added.<a href="#section-6.5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="generate-node-configuration">
@@ -2778,36 +2743,7 @@ standards can be leveraged or extended to support the use case.<a href="#section
         </h3>
 <p id="section-6.6-1">Generate node config with certain customer requirement (e.g., certain
    QOS, policy, ACL, tunnels, …)<a href="#section-6.6-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.6-2.1">
-            <p id="section-6.6-2.1.1">Architecture<a href="#section-6.6-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.6-3">To be added.<a href="#section-6.6-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.6-4.1">
-            <p id="section-6.6-4.1.1">Interfaces and APIs<a href="#section-6.6-4.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.6-5">To be added.<a href="#section-6.6-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.6-6.1">
-            <p id="section-6.6-6.1.1">Protocols<a href="#section-6.6-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.6-7">To be added.<a href="#section-6.6-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.6-8.1">
-            <p id="section-6.6-8.1.1">Data Models<a href="#section-6.6-8.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.6-9">To be added.<a href="#section-6.6-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.6-10.1">
-            <p id="section-6.6-10.1.1">Alignment with IETF<a href="#section-6.6-10.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.6-11">To be added.<a href="#section-6.6-11" class="pilcrow">¶</a></p>
+<p id="section-6.6-2">More to be added.<a href="#section-6.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="cognitive-search-on-internal-operator-data">
@@ -2849,21 +2785,21 @@ search for network operations.<a href="#section-6.7-2" class="pilcrow">¶</a></p
 <div class="alignLeft art-text artwork" id="section-6.7-5">
 <pre>
 
-    |-----------|                                             |---------|
-    |           |&lt;----------------Response--------------------|         |
-    |  Network  |                                             |         |
-    |  Operator |                       |---------------|     |         |
-    |           |---Query---+----------&gt;|    Query      |     |         |
-    |-----------|           +           | +  Context    |----&gt;|   LLM   |
-                            +           | +  Prompt     |     |         |
-                            +           |---------------|     |         |
-                            +                   ^             |         |
-                            +                   +             |         |
-                            v                   +             |---------|
-                   |---------------|        |----------|
-                   |   Embedding   | +++++&gt; |  Vector  |
-                   |     Model     | -----&gt; |    DB    |
-                   |---------------|        |----------|
+ |-----------|                                           |---------|
+ |           |&lt;----------------Response------------------|         |
+ |  Network  |                                           |         |
+ |  Operator |                       |--------------|    |         |
+ |           |---Query---+----------&gt;|   Query +    |    |         |
+ |-----------|           +           |   Context +  |---&gt;|   LLM   |
+                         +           |   Prompt     |    |         |
+                         +           |--------------|    |         |
+                         +                   ^           |---------|
+                         +                   +
+                         v                   +
+               |---------------|        |----------|
+               |   Embedding   | +++++&gt; |  Vector  |
+               |     Model     | -----&gt; |    DB    |
+               |---------------|        |----------|
                            ^
                            |
                            |
@@ -2887,30 +2823,7 @@ serves as a powerful tool, offering quick and efficient access to complex
 information across different areas of the Network Operations landscape, including
 network infrastructure, Standard Operating Procedures, security documentation, 
 incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.7-7.1">
-            <p id="section-6.7-7.1.1">Interfaces and APIs<a href="#section-6.7-7.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.7-8">To be added.<a href="#section-6.7-8" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.7-9.1">
-            <p id="section-6.7-9.1.1">Protocols<a href="#section-6.7-9.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.7-10">To be added.<a href="#section-6.7-10" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.7-11.1">
-            <p id="section-6.7-11.1.1">Data Models<a href="#section-6.7-11.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.7-12">To be added.<a href="#section-6.7-12" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.7-13.1">
-            <p id="section-6.7-13.1.1">Alignment with IETF<a href="#section-6.7-13.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.7-14">To be added.<a href="#section-6.7-14" class="pilcrow">¶</a></p>
+<p id="section-6.7-7">More to be added.<a href="#section-6.7-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-operator-assistant">
@@ -2919,36 +2832,7 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
 <a href="#section-6.8" class="section-number selfRef">6.8. </a><a href="#name-network-operator-assistant" class="section-name selfRef">Network Operator Assistant</a>
         </h3>
 <p id="section-6.8-1">Operator-Assistant as a virtual-expert-network-engineer.<a href="#section-6.8-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.8-2.1">
-            <p id="section-6.8-2.1.1">Architecture<a href="#section-6.8-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.8-3">To be added.<a href="#section-6.8-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.8-4.1">
-            <p id="section-6.8-4.1.1">Interfaces and APIs<a href="#section-6.8-4.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.8-5">To be added.<a href="#section-6.8-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.8-6.1">
-            <p id="section-6.8-6.1.1">Protocols<a href="#section-6.8-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.8-7">To be added.<a href="#section-6.8-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.8-8.1">
-            <p id="section-6.8-8.1.1">Data Models<a href="#section-6.8-8.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.8-9">To be added.<a href="#section-6.8-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.8-10.1">
-            <p id="section-6.8-10.1.1">Alignment with IETF<a href="#section-6.8-10.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.8-11">To be added.<a href="#section-6.8-11" class="pilcrow">¶</a></p>
+<p id="section-6.8-2">More to be added.<a href="#section-6.8-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="gen-ai-based-network-operational-insights">
@@ -2956,36 +2840,7 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
         <h3 id="name-gen-ai-based-network-operat">
 <a href="#section-6.9" class="section-number selfRef">6.9. </a><a href="#name-gen-ai-based-network-operat" class="section-name selfRef">Gen-AI based Network Operational Insights</a>
         </h3>
-<ul class="normal">
-<li class="normal" id="section-6.9-1.1">
-            <p id="section-6.9-1.1.1">Architecture<a href="#section-6.9-1.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.9-2">To be added.<a href="#section-6.9-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.9-3.1">
-            <p id="section-6.9-3.1.1">Interfaces and APIs<a href="#section-6.9-3.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.9-4">To be added.<a href="#section-6.9-4" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.9-5.1">
-            <p id="section-6.9-5.1.1">Protocols<a href="#section-6.9-5.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.9-6">To be added.<a href="#section-6.9-6" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.9-7.1">
-            <p id="section-6.9-7.1.1">Data Models<a href="#section-6.9-7.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.9-8">To be added.<a href="#section-6.9-8" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.9-9.1">
-            <p id="section-6.9-9.1.1">Alignment with IETF<a href="#section-6.9-9.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.9-10">To be added.<a href="#section-6.9-10" class="pilcrow">¶</a></p>
+<p id="section-6.9-1">More to be added.<a href="#section-6.9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-traffic-prediction">
@@ -2994,36 +2849,7 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
 <a href="#section-6.10" class="section-number selfRef">6.10. </a><a href="#name-network-traffic-prediction" class="section-name selfRef">Network Traffic Prediction</a>
         </h3>
 <p id="section-6.10-1">Telefonica use-case: Traffic-prediction using AI<a href="#section-6.10-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.10-2.1">
-            <p id="section-6.10-2.1.1">Architecture<a href="#section-6.10-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.10-3">To be added.<a href="#section-6.10-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.10-4.1">
-            <p id="section-6.10-4.1.1">Interfaces and APIs<a href="#section-6.10-4.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.10-5">To be added.<a href="#section-6.10-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.10-6.1">
-            <p id="section-6.10-6.1.1">Protocols<a href="#section-6.10-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.10-7">To be added.<a href="#section-6.10-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.10-8.1">
-            <p id="section-6.10-8.1.1">Data Models<a href="#section-6.10-8.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.10-9">To be added.<a href="#section-6.10-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.10-10.1">
-            <p id="section-6.10-10.1.1">Alignment with IETF<a href="#section-6.10-10.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.10-11">To be added.<a href="#section-6.10-11" class="pilcrow">¶</a></p>
+<p id="section-6.10-2">More to be added.<a href="#section-6.10-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="multi-layer-use-case">
@@ -3032,36 +2858,7 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
 <a href="#section-6.11" class="section-number selfRef">6.11. </a><a href="#name-multi-layer-use-case" class="section-name selfRef">Multi-layer Use-case</a>
         </h3>
 <p id="section-6.11-1">Multi-layer aspect of above use-cases, e.g.,<a href="#section-6.11-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.11-2.1">
-            <p id="section-6.11-2.1.1">Architecture<a href="#section-6.11-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.11-3">To be added.<a href="#section-6.11-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.11-4.1">
-            <p id="section-6.11-4.1.1">Interfaces and APIs<a href="#section-6.11-4.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.11-5">To be added.<a href="#section-6.11-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.11-6.1">
-            <p id="section-6.11-6.1.1">Protocols<a href="#section-6.11-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.11-7">To be added.<a href="#section-6.11-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.11-8.1">
-            <p id="section-6.11-8.1.1">Data Models<a href="#section-6.11-8.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.11-9">To be added.<a href="#section-6.11-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.11-10.1">
-            <p id="section-6.11-10.1.1">Alignment with IETF<a href="#section-6.11-10.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.11-11">To be added.<a href="#section-6.11-11" class="pilcrow">¶</a></p>
+<p id="section-6.11-2">More to be added.<a href="#section-6.11-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="multi-layer-network-planning">
@@ -3118,36 +2915,7 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
 <a href="#section-6.13" class="section-number selfRef">6.13. </a><a href="#name-causality-discovery" class="section-name selfRef">Causality Discovery</a>
         </h3>
 <p id="section-6.13-1">Causality discovery: you want to know to be updated by Vincenzo.<a href="#section-6.13-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.13-2.1">
-            <p id="section-6.13-2.1.1">Architecture<a href="#section-6.13-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.13-3">To be added.<a href="#section-6.13-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.13-4.1">
-            <p id="section-6.13-4.1.1">Interfaces and APIs<a href="#section-6.13-4.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.13-5">To be added.<a href="#section-6.13-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.13-6.1">
-            <p id="section-6.13-6.1.1">Protocols<a href="#section-6.13-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.13-7">To be added.<a href="#section-6.13-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.13-8.1">
-            <p id="section-6.13-8.1.1">Data Models<a href="#section-6.13-8.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.13-9">To be added.<a href="#section-6.13-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.13-10.1">
-            <p id="section-6.13-10.1.1">Alignment with IETF<a href="#section-6.13-10.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.13-11">To be added.<a href="#section-6.13-11" class="pilcrow">¶</a></p>
+<p id="section-6.13-2">More to be added.<a href="#section-6.13-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-clean-up">
@@ -3156,36 +2924,7 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
 <a href="#section-6.14" class="section-number selfRef">6.14. </a><a href="#name-network-clean-up" class="section-name selfRef">Network Clean Up</a>
         </h3>
 <p id="section-6.14-1">Clean-up procedure in the network<a href="#section-6.14-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.14-2.1">
-            <p id="section-6.14-2.1.1">Architecture<a href="#section-6.14-2.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.14-3">To be added.<a href="#section-6.14-3" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.14-4.1">
-            <p id="section-6.14-4.1.1">Interfaces and APIs<a href="#section-6.14-4.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.14-5">To be added.<a href="#section-6.14-5" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.14-6.1">
-            <p id="section-6.14-6.1.1">Protocols<a href="#section-6.14-6.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.14-7">To be added.<a href="#section-6.14-7" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.14-8.1">
-            <p id="section-6.14-8.1.1">Data Models<a href="#section-6.14-8.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.14-9">To be added.<a href="#section-6.14-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.14-10.1">
-            <p id="section-6.14-10.1.1">Alignment with IETF<a href="#section-6.14-10.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.14-11">To be added.<a href="#section-6.14-11" class="pilcrow">¶</a></p>
+<p id="section-6.14-2">More to be added.<a href="#section-6.14-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="multi-agent-interworking-1">
@@ -3252,11 +2991,11 @@ the way for autonomous networks.<a href="#section-6.15-3" class="pilcrow">¶</a>
             <p id="section-6.15-4.1.1">Architecture<a href="#section-6.15-4.1.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.15-5">Multi agent architecture can be extremely complex, but figure  <a href="#_figure-multi-agent" class="auto internal xref">Figure 6</a> tries to capture the main interwokring issues of this scenario.
+<p id="section-6.15-5">Multi agent architecture can be extremely complex, but figure  <a href="#_figure-multi-agent" class="auto internal xref">Figure 8</a> tries to capture the main interwokring issues of this scenario.
 An example with an arbitrary number of agents (N) connecting to different components of the management and control stack 
 (SDN controllers, observability function, assurance function, and others) is provided.<a href="#section-6.15-5" class="pilcrow">¶</a></p>
 <span id="name-multi-agent-architecture"></span><div id="_figure-multi-agent">
-<figure id="figure-6">
+<figure id="figure-8">
           <div class="alignLeft art-text artwork" id="section-6.15-6.1">
 <pre>
 
@@ -3284,15 +3023,15 @@ An example with an arbitrary number of agents (N) connecting to different compon
 
 </pre>
 </div>
-<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
+<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
 <a href="#name-multi-agent-architecture" class="selfRef">Multi-agent architecture</a>
           </figcaption></figure>
 </div>
 <p id="section-6.15-7">Alternatively, a hierarchical solution can be foreseen, with an agent (H-Agent) specifically
 designed for coordinating agents, or an agent designated to play the role of H-Agent in addition
-to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref">Figure 7</a>:<a href="#section-6.15-7" class="pilcrow">¶</a></p>
+to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref">Figure 9</a>:<a href="#section-6.15-7" class="pilcrow">¶</a></p>
 <span id="name-multi-agent-hierarchical-ar"></span><div id="_figure-h-agent">
-<figure id="figure-7">
+<figure id="figure-9">
           <div class="alignLeft art-text artwork" id="section-6.15-8.1">
 <pre>
                         |------------|
@@ -3326,34 +3065,11 @@ to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref"
 
 </pre>
 </div>
-<figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
+<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
 <a href="#name-multi-agent-hierarchical-ar" class="selfRef">Multi-agent hierarchical architecture</a>
           </figcaption></figure>
 </div>
-<ul class="normal">
-<li class="normal" id="section-6.15-9.1">
-            <p id="section-6.15-9.1.1">Interfaces and APIs<a href="#section-6.15-9.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.15-10">To be added.<a href="#section-6.15-10" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.15-11.1">
-            <p id="section-6.15-11.1.1">Protocols<a href="#section-6.15-11.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.15-12">To be added.<a href="#section-6.15-12" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.15-13.1">
-            <p id="section-6.15-13.1.1">Data Models<a href="#section-6.15-13.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.15-14">To be added.<a href="#section-6.15-14" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.15-15.1">
-            <p id="section-6.15-15.1.1">Alignment with IETF<a href="#section-6.15-15.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.15-16">To be added.<a href="#section-6.15-16" class="pilcrow">¶</a></p>
+<p id="section-6.15-9">More to be added.<a href="#section-6.15-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-traffic-management">
@@ -3408,38 +3124,34 @@ a query mechanism to pull the required training data, particularly for external 
 aspect of training.<a href="#section-6.16.1.1-3" class="pilcrow">¶</a></p>
 <p id="section-6.16.1.1-4">IETF/IRTF can certainly play a role in both of the above-mentioned cases.<a href="#section-6.16.1.1-4" class="pilcrow">¶</a></p>
 <span id="name-ai-assisted-traffic-managem"></span><div id="_figure-off-line">
-<figure id="figure-8">
+<figure id="figure-10">
               <div class="alignLeft art-text artwork" id="section-6.16.1.1-5.1">
 <pre>
-+---------+     (A) + (B)
-| Outside |xxxxxxxx External xxxxxxxxx
-|  world  |          events          x
-+---------+                          x
-                                     x
-                                     V
-+-----------+              +--------------------+
-|  Network  |-------------&gt;|     Dataset        |
-+-----------+              |    repository      |
-                           +--------------------+
-                           | Network monitoring |
-                           |       info.        |
-                           |   (e.g via SNMP)   |
-                           |         +          |
-                           |   Topology changes |
-                           |         +          |
-                           |   Historical data  |
-                           |   from TE-DB, etc. |
-                           +--------------------+
-                                     x
-                                     x (B)
-                                     x
-                                     V
-                               +------------+
-                               |  AI model  |
-                               |   under    |
-                               |  training  |
-                               +------------+
-
+   +---------+                   (A) + (B)
+   | Outside |xxxxxxxx External xxxxxxxxxxx
+   |  world  |          events            x
+   +---------+                            x
+                                          x
+                                          V
+   +-----------+              +--------------------------+
+   |  Network  |-------------&gt;|    Dataset Repository    |
+   +-----------+              |    ------------------    |
+                              | Network monitoring data  |
+                              | (e.g via SNMP)           |
+                              |           &amp;              |
+                              | Topology changes         |
+                              |           &amp;              |
+                              | Historical data from     |
+                              | TE-DB, etc.              |
+                              +--------------------------+
+                                           x
+                                           x (B)
+                                           x
+                                           V
+                                 +------------------+
+                                 |  AI model        |
+                                 |  under training  |
+                                 +------------------+
 
   Legend:
   xxx Potential IETF defined and standardized interface.
@@ -3448,7 +3160,7 @@ aspect of training.<a href="#section-6.16.1.1-3" class="pilcrow">¶</a></p>
 
 </pre>
 </div>
-<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
+<figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
 <a href="#name-ai-assisted-traffic-managem" class="selfRef">AI assisted traffic management: Offline training</a>
               </figcaption></figure>
 </div>
@@ -3471,7 +3183,7 @@ The training process therefore requires a mechanism to extract important feature
 features are then fed to the training process for adjusting model's parameters in a dynamic manner.<a href="#section-6.16.1.2-2" class="pilcrow">¶</a></p>
 <p id="section-6.16.1.2-3">IETF/IRTF can work to standardize the mechanisms to identify important feature and implement the above mentioned required real-time data delivery and feature extraction.<a href="#section-6.16.1.2-3" class="pilcrow">¶</a></p>
 <span id="name-ai-assisted-traffic-manageme"></span><div id="_figure-online-line">
-<figure id="figure-9">
+<figure id="figure-11">
               <div class="alignLeft art-text artwork" id="section-6.16.1.2-4.1">
 <pre>
 +---------+     (A) + (B)
@@ -3503,7 +3215,7 @@ features are then fed to the training process for adjusting model's parameters i
 
 </pre>
 </div>
-<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
+<figcaption><a href="#figure-11" class="selfRef">Figure 11</a>:
 <a href="#name-ai-assisted-traffic-manageme" class="selfRef">AI assisted traffic management: On-line training</a>
               </figcaption></figure>
 </div>
@@ -3521,7 +3233,7 @@ output to a set of network operation tasks and configuration commands. With this
 information readily available, existing protocols such as NETCONF can be employed to
 manage the network.<a href="#section-6.16.2-1" class="pilcrow">¶</a></p>
 <span id="name-ai-assisted-traffic-managemen"></span><div id="_figure-Inference">
-<figure id="figure-10">
+<figure id="figure-12">
             <div class="alignLeft art-text artwork" id="section-6.16.2-2.1">
 <pre>
 +---------+     (A) + (B)
@@ -3559,7 +3271,7 @@ manage the network.<a href="#section-6.16.2-1" class="pilcrow">¶</a></p>
 
 </pre>
 </div>
-<figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
+<figcaption><a href="#figure-12" class="selfRef">Figure 12</a>:
 <a href="#name-ai-assisted-traffic-managemen" class="selfRef">AI assisted traffic management: Inference</a>
             </figcaption></figure>
 </div>
@@ -3610,7 +3322,7 @@ section of the document. However, in Agentic networks, distributed training of t
           </ul>
 <p id="section-6.16.3-6">The following figure depicts an example of an Agentic network.<a href="#section-6.16.3-6" class="pilcrow">¶</a></p>
 <span id="name-distributed-agentic-network"></span><div id="_figure-Agentic-networks">
-<figure id="figure-11">
+<figure id="figure-13">
             <div class="alignLeft art-text artwork" id="section-6.16.3-7.1">
 <pre>
 +---------+                  (C) + (D)                +---------+
@@ -3647,7 +3359,7 @@ section of the document. However, in Agentic networks, distributed training of t
 
 </pre>
 </div>
-<figcaption><a href="#figure-11" class="selfRef">Figure 11</a>:
+<figcaption><a href="#figure-13" class="selfRef">Figure 13</a>:
 <a href="#name-distributed-agentic-network" class="selfRef">Distributed agentic networks</a>
             </figcaption></figure>
 </div>
@@ -3715,7 +3427,7 @@ section of the document. However, in Agentic networks, distributed training of t
 <p id="section-6.17-3.1.2">
 The architecture integrates an AI Fault Injection Engine with network
  controllers and elements to simulate faults and assess resilience
- across IP and optical layers. <a href="#architecture_for_ai_derive_resilience" class="auto internal xref">Figure 12</a> illustrates this design,
+ across IP and optical layers. <a href="#architecture_for_ai_derive_resilience" class="auto internal xref">Figure 14</a> illustrates this design,
  showing the AI Fault Injection Engine interfacing with P-PNC, O-PNC network controllers, which manage the
  IP/optical network. The engine designs fault scenarios, injects them
  via controller APIs, collects telemetry feedback, and triggers
@@ -3725,7 +3437,7 @@ The architecture integrates an AI Fault Injection Engine with network
 </li>
         </ul>
 <span id="name-architecture-for-ai-driven-"></span><div id="architecture_for_ai_derive_resilience">
-<figure id="figure-12">
+<figure id="figure-14">
           <div class="alignLeft art-text artwork" id="section-6.17-4.1">
 <pre>
                  |----------------------------|
@@ -3753,13 +3465,15 @@ The architecture integrates an AI Fault Injection Engine with network
                  |-----------------------------|
 
 Legend:
-(A) Fault injection commands (e.g., disable link, drop packets, degrade signal)
-(B) Telemetry feedback (e.g., latency, packet loss, BER)
-(C) Recovery actions (e.g., reroute traffic, adjust optical parameters)
+  (A) Fault injection commands (e.g., disable link, drop packets, d
+      egrade signal)
+  (B) Telemetry feedback (e.g., latency, packet loss, BER)
+  (C) Recovery actions (e.g., reroute traffic, adjust optical
+      parameters)
 
 </pre>
 </div>
-<figcaption><a href="#figure-12" class="selfRef">Figure 12</a>:
+<figcaption><a href="#figure-14" class="selfRef">Figure 14</a>:
 <a href="#name-architecture-for-ai-driven-" class="selfRef">Architecture for AI-Driven Resilience Testing</a>
           </figcaption></figure>
 </div>
@@ -3860,14 +3574,14 @@ This use case aligns with ongoing IETF efforts in multiple working
             <p id="section-6.18-3.1.1">Architecture<a href="#section-6.18-3.1.1" class="pilcrow">¶</a></p>
 <p id="section-6.18-3.1.2">
 The architecture for energy efficiency optimization mirrors the
-centralized design used for AI-Driven Resilience Testing (see <a href="#ai_drive_resilience_testing" class="auto internal xref">Section 6.17</a>). Figure 12 illustrates this, with the AI Energy Optimization
-Engine replacing the AI Fault Injection Engine, interfacing with P-PNC and O-PNC to manage the IP/optical network. The engine
-collects telemetry and external data, computes energy-efficient
-configurations, and applies them via controller APIs. In this context,
-(A) represents energy optimization commands (e.g., power down ports,
-adjust signal gain), (B) denotes telemetry feedback (e.g., power usage,
-traffic load), and (C) indicates configuration updates (e.g., reroute
-traffic, schedule operations).<a href="#section-6.18-3.1.2" class="pilcrow">¶</a></p>
+ centralized design used for AI-Driven Resilience Testing (see <a href="#ai_drive_resilience_testing" class="auto internal xref">Section 6.17</a>). Figure 12 illustrates this, with the AI Energy Optimization
+ Engine replacing the AI Fault Injection Engine, interfacing with P-PNC and O-PNC to manage the IP/optical network. The engine
+ collects telemetry and external data, computes energy-efficient
+ configurations, and applies them via controller APIs. In this context,
+ (A) represents energy optimization commands (e.g., power down ports,
+ adjust signal gain), (B) denotes telemetry feedback (e.g., power usage,
+ traffic load), and (C) indicates configuration updates (e.g., reroute
+ traffic, schedule operations).<a href="#section-6.18-3.1.2" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-6.18-3.2">
             <p id="section-6.18-3.2.1">Interfaces and APIs<a href="#section-6.18-3.2.1" class="pilcrow">¶</a></p>
@@ -3884,13 +3598,13 @@ The interfaces and APIs are largely identical to those in <a href="#ai_drive_res
             <p id="section-6.18-3.3.1">Protocols<a href="#section-6.18-3.3.1" class="pilcrow">¶</a></p>
 <p id="section-6.18-3.3.2">
 The protocols align closely with those in <a href="#ai_drive_resilience_testing" class="auto internal xref">Section 6.17</a>, tailored for
-energy goals. PCEP (RFC 5440) supports traffic rerouting to consolidate
-paths, reducing energy use. BGP (RFC 4271) or OSPF (RFC 2328) adjustments
-optimize routing efficiency. For optical layers, OTN (G.709) signaling
-tunes power settings (e.g., lowering laser output). Telemetry protocols
-like IPFIX (RFC 7011) or SNMP (RFC 3411) provide feedback, with streaming
-alternatives (e.g., gNMI) preferred for real-time needs, as noted in
-<a href="#energy_efficiency_optimization" class="auto internal xref">Section 6.18</a>.<a href="#section-6.18-3.3.2" class="pilcrow">¶</a></p>
+ energy goals. PCEP (RFC 5440) supports traffic rerouting to consolidate
+ paths, reducing energy use. BGP (RFC 4271) or OSPF (RFC 2328) adjustments
+ optimize routing efficiency. For optical layers, OTN (G.709) signaling
+ tunes power settings (e.g., lowering laser output). Telemetry protocols
+ like IPFIX (RFC 7011) or SNMP (RFC 3411) provide feedback, with streaming
+ alternatives (e.g., gNMI) preferred for real-time needs, as noted in
+ <a href="#energy_efficiency_optimization" class="auto internal xref">Section 6.18</a>.<a href="#section-6.18-3.3.2" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-6.18-3.4">
             <p id="section-6.18-3.4.1">Data Models<a href="#section-6.18-3.4.1" class="pilcrow">¶</a></p>
@@ -3960,7 +3674,7 @@ This use case aligns with IETF efforts in sustainability and network
 The architecture integrates an AI Green Energy Optimization Engine with
  both compute orchestration and network control layers to manage workload
  placement and traffic across IP/optical networks and NFVi PoDs or
- datacenters. <a href="#architecture_for_ai_derive_green" class="auto internal xref">Figure 13</a> illustrates this design, showing the AI engine
+ datacenters. <a href="#architecture_for_ai_derive_green" class="auto internal xref">Figure 15</a> illustrates this design, showing the AI engine
  interfacing with an NFV Orchestrator (NFVO) to shift compute jobs (e.g.,
  VNFs) between PoDs/datacenters based on green energy availability, and
  optionally with P-PNC and O-PNC for traffic adjustments. The engine
@@ -3969,7 +3683,7 @@ The architecture integrates an AI Green Energy Optimization Engine with
 </li>
         </ul>
 <span id="name-architecture-for-ai-driven-g"></span><div id="architecture_for_ai_derive_green">
-<figure id="figure-13">
+<figure id="figure-15">
           <div class="alignLeft art-text artwork" id="section-6.19-4.1">
 <pre>
                  |----------------------------|
@@ -3997,15 +3711,16 @@ The architecture integrates an AI Green Energy Optimization Engine with
                  |                             |
                  |-----------------------------|
 
-     Legend:
-     (A) Optimization commands (e.g., instantiate VNF on green PoD, reroute traffic)
-     (B) Telemetry feedback (e.g., latency, energy source, compute load)
-     (C) Configuration updates (e.g., shift VNFs, adjust network paths)
-     NFVO: Network Function Virtualization Orchestrator
+ Legend:
+   (A) Optimization commands (e.g., instantiate VNF on green PoD,
+       reroute traffic)
+   (B) Telemetry feedback (e.g., latency, energy source, compute load)
+   (C) Configuration updates (e.g., shift VNFs, adjust network paths)
+   NFVO: Network Function Virtualization Orchestrator
 
 </pre>
 </div>
-<figcaption><a href="#figure-13" class="selfRef">Figure 13</a>:
+<figcaption><a href="#figure-15" class="selfRef">Figure 15</a>:
 <a href="#name-architecture-for-ai-driven-g" class="selfRef">Architecture for AI-Driven Green Energy Optimization</a>
           </figcaption></figure>
 </div>
@@ -4101,7 +3816,7 @@ This use case aligns with IETF sustainability and compute-network
 <p id="section-6.20-3.1.2">
 The architecture integrates an AI Policy Enforcement and Compliance
  Engine with network controllers, security systems, and orchestration
- platforms. <a href="#architecture_for_ai_derive_policy_enforcement" class="auto internal xref">Figure 14</a> illustrates this design, showing the AI engine
+ platforms. <a href="#architecture_for_ai_derive_policy_enforcement" class="auto internal xref">Figure 16</a> illustrates this design, showing the AI engine
  interfacing with P-PNC, O-PNC and Security Information and
  Event Management (SIEM) systems. The engine collects telemetry,
  enforces policies, and audits compliance, applying corrective actions
@@ -4109,7 +3824,7 @@ The architecture integrates an AI Policy Enforcement and Compliance
 </li>
         </ul>
 <span id="name-architecture-for-ai-driven-p"></span><div id="architecture_for_ai_derive_policy_enforcement">
-<figure id="figure-14">
+<figure id="figure-16">
           <div class="alignLeft art-text artwork" id="section-6.20-4.1">
 <pre>
                  |----------------------------------|
@@ -4133,14 +3848,14 @@ The architecture integrates an AI Policy Enforcement and Compliance
                  |                             |
                  |-----------------------------|
 
-     Legend:
-     (A) Policy enforcement commands (e.g., block traffic, adjust QoS)
-     (B) Telemetry feedback (e.g., configuration changes, security logs)
-     (C) Compliance reports and alerts
+ Legend:
+  (A) Policy enforcement commands (e.g., block traffic, adjust QoS)
+  (B) Telemetry feedback (e.g., configuration changes, security logs)
+  (C) Compliance reports and alerts
 
 </pre>
 </div>
-<figcaption><a href="#figure-14" class="selfRef">Figure 14</a>:
+<figcaption><a href="#figure-16" class="selfRef">Figure 16</a>:
 <a href="#name-architecture-for-ai-driven-p" class="selfRef">Architecture for AI-Driven Policy Enforcement and Compliance Auditing</a>
           </figcaption></figure>
 </div>
@@ -4227,7 +3942,7 @@ This use case aligns with IETF efforts in network management, security,
 The architecture integrates an AI Network Slicing Optimization Engine
  with the NSMF (Network Slice Management Function) and NSSMFs (Network
  Slice Subnet Management Functions) for RAN, Core, and Transport
- domains. <a href="#architecture_for_ai_derive_5g_ns" class="auto internal xref">Figure 15</a> illustrates this design, showing the AI engine
+ domains. <a href="#architecture_for_ai_derive_5g_ns" class="auto internal xref">Figure 17</a> illustrates this design, showing the AI engine
  interfacing with the NSMF, which coordinates with the NSSMFs to
  manage and optimize network slices. The engine collects telemetry,
  predicts SLA violations, and provides optimization recommendations to
@@ -4235,7 +3950,7 @@ The architecture integrates an AI Network Slicing Optimization Engine
 </li>
         </ul>
 <span id="name-corrected-architecture-for-"></span><div id="architecture_for_ai_derive_5g_ns">
-<figure id="figure-15">
+<figure id="figure-17">
           <div class="alignLeft art-text artwork" id="section-6.21-4.1">
 <pre>
                  |------------------------------|
@@ -4260,16 +3975,18 @@ The architecture integrates an AI Network Slicing Optimization Engine
              |                                       |
              |---------------------------------------|
 
-     Legend:
-     (A) Optimization commands (e.g., adjust slice resources, reroute traffic)
-     (B) Telemetry feedback (e.g., slice performance, resource utilization)
-     (C) SLA compliance reports and alerts
-     NSMF: Network Slice Management Function
-     NSSMF: Network Slice Subnet Management Function (RAN, Core, Transport)
+Legend:
+   (A) Optimization commands (e.g., adjust slice resources,
+       reroute traffic)
+   (B) Telemetry feedback (e.g., slice performance,
+       resource utilization)
+   (C) SLA compliance reports and alerts
+   NSSMF: Network Slice Subnet Management Function
+   (RAN, Core, Transport)
 
 </pre>
 </div>
-<figcaption><a href="#figure-15" class="selfRef">Figure 15</a>:
+<figcaption><a href="#figure-17" class="selfRef">Figure 17</a>:
 <a href="#name-corrected-architecture-for-" class="selfRef">Corrected Architecture for AI-Driven Network Slicing Optimization</a>
           </figcaption></figure>
 </div>
@@ -4481,14 +4198,6 @@ AI4NETWORK Side Meetings.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:nathalie.romo-moreno@telekom.de" class="email">nathalie.romo-moreno@telekom.de</a>
-</div>
-</address>
-<address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Cheng Li</span></div>
-<div dir="auto" class="left"><span class="org">Huawei</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:c.l@huawei.com" class="email">c.l@huawei.com</a>
 </div>
 </address>
 <address class="vcard">
