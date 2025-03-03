@@ -1317,10 +1317,10 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
                 <p id="section-toc.1-1.6.2.14.1"><a href="#section-6.14" class="auto internal xref">6.14</a>. <a href="#name-network-clean-up" class="internal xref">Network Clean Up</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.15">
-                <p id="section-toc.1-1.6.2.15.1"><a href="#section-6.15" class="auto internal xref">6.15</a>. <a href="#name-multi-agent-interworking-2" class="internal xref">Multi agent interworking</a></p>
+                <p id="section-toc.1-1.6.2.15.1"><a href="#section-6.15" class="auto internal xref">6.15</a>. <a href="#name-multi-agent-interworking-2" class="internal xref">Multi Agent Interworking</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.16">
-                <p id="section-toc.1-1.6.2.16.1"><a href="#section-6.16" class="auto internal xref">6.16</a>. <a href="#name-network-traffic-management" class="internal xref">Network traffic management</a></p>
+                <p id="section-toc.1-1.6.2.16.1"><a href="#section-6.16" class="auto internal xref">6.16</a>. <a href="#name-network-traffic-management" class="internal xref">Network Traffic Management</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.16.2.1">
                     <p id="section-toc.1-1.6.2.16.2.1.1"><a href="#section-6.16.1" class="auto internal xref">6.16.1</a>.  <a href="#name-short-term-approaches" class="internal xref">Short term approaches</a></p>
@@ -2386,7 +2386,7 @@ recommending corrective actions.<a href="#section-5.12.3-1" class="pilcrow">¶</
         </h3>
 <p id="section-5.13-1">As seen in the use cases above, the usage of agents introduces various challenges,
 spanning from the definition of APIs that can be used by the various agent to the
-interworking with already existing components of the Network Managent and Control stack.
+interworking with already existing components of the Network Management and Control stack.
 New challenges arise when we move from a single agent to a multi-agent architecture.
 When multiple agents are deployed we need to consider how they discover each other, 
 how they interwork with the discovered agents and how they are kept in synch.<a href="#section-5.13-1" class="pilcrow">¶</a></p>
@@ -2394,11 +2394,11 @@ how they interwork with the discovered agents and how they are kept in synch.<a 
 be deployed in the network and it could be possible to manually configure each agent
 with the identifiers and capabilities of the other agents to interact with. With the evolution 
 of AI based architectures with more and more agents being part of the architecture, 
-mechanisms to advertise their presence and more important their capabilties will be required.<a href="#section-5.13-2" class="pilcrow">¶</a></p>
+mechanisms to advertise their presence and more important their capabilities will be required.<a href="#section-5.13-2" class="pilcrow">¶</a></p>
 <p id="section-5.13-3">The second aspect to consider is the interworking between them. As of today the way we 
 interact with agents is mostly based on LLM, but would that be the best way for
 interacting between them as well? Probably a more machine oriented type of language,
-encoding and protocols would have better perfomances.<a href="#section-5.13-3" class="pilcrow">¶</a></p>
+encoding and protocols would have better performances.<a href="#section-5.13-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -2409,7 +2409,7 @@ encoding and protocols would have better perfomances.<a href="#section-5.13-3" c
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-ainetops-scenarios-and-use-" class="section-name selfRef">AINetOps Scenarios and Use-cases</a>
       </h2>
 <p id="section-6-1">{Editor's note: This is a work in progress. More use cases will be added, and existing ones will be revised.}<a href="#section-6-1" class="pilcrow">¶</a></p>
-<p id="section-6-2">This section further expands Section 5 by exploring scenarios and use cases for applying AINetOps in network operations, focusing on their architectural, procedural, and protocol-level requirements.  Each use case highlights how AINetOps can be leveraged to address challenges in network management and optimization, while identifying the relevant IETF protocols, interfaces, and data models that are nvolved or need enhancement.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<p id="section-6-2">This section further expands Section 5 by exploring scenarios and use cases for applying AINetOps in network operations, focusing on their architectural, procedural, and protocol-level requirements.  Each use case highlights how AINetOps can be leveraged to address challenges in network management and optimization, while identifying the relevant IETF protocols, interfaces, and data models that are evolved or need enhancement.<a href="#section-6-2" class="pilcrow">¶</a></p>
 <p id="section-6-3">For every use case described, the following dimensions are examined to provide a comprehensive understanding of its implications and requirements.<a href="#section-6-3" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-6-4.1">
@@ -2596,18 +2596,23 @@ encoding and protocols would have better perfomances.<a href="#section-5.13-3" c
 <ul class="normal">
 <li class="normal" id="section-6.3-4.1">
             <p id="section-6.3-4.1.1">Architecture<a href="#section-6.3-4.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.3-4.1.2">
+The architecture for network anomaly detection using AI typically involves a distributed system where data collection, analysis, and    response mechanisms are decoupled but interconnected. The system comprises the following key components:<a href="#section-6.3-4.1.2" class="pilcrow">¶</a></p>
+<p id="section-6.3-4.1.3">
+o Data Collection Layer: Responsible for gathering network traffic data from various sources such as routers, switches, and endpoints. 
+   This layer may leverage protocols like IPFIX (RFC 7011) for flow data export.<a href="#section-6.3-4.1.3" class="pilcrow">¶</a></p>
+<p id="section-6.3-4.1.4">
+o Analysis Layer: Utilizes machine learning (ML) models to detect anomalies in the collected data. This layer may include both real-time and batch processing capabilities.<a href="#section-6.3-4.1.4" class="pilcrow">¶</a></p>
+<p id="section-6.3-4.1.5">
+o Response Layer: Executes predefined actions based on the analysis results, such as alerting administrators, blocking malicious traffic,or reconfiguring network devices. This layer may integrate with DOTS (RFC 8811) to mitigate DDoS attacks.<a href="#section-6.3-4.1.5" class="pilcrow">¶</a></p>
+<p id="section-6.3-4.1.6">
+The architecture should be scalable to handle large volumes of data and adaptable to incorporate new AI models as they evolve.<a href="#section-6.3-4.1.6" class="pilcrow">¶</a></p>
+<p id="section-6.3-4.1.7"><a href="#fig_NAD" class="auto internal xref">Figure 6</a> illustrates the high-level architecture of an AI-based network anomaly detection system:<a href="#section-6.3-4.1.7" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-5">The architecture for network anomaly detection using AI typically involves a distributed system where data collection, analysis, and    response mechanisms are decoupled but interconnected. The system comprises the following key components:<a href="#section-6.3-5" class="pilcrow">¶</a></p>
-<p id="section-6.3-6">o Data Collection Layer: Responsible for gathering network traffic data from various sources such as routers, switches, and endpoints. 
-     This layer may leverage protocols like IPFIX (RFC 7011) for flow data export.<a href="#section-6.3-6" class="pilcrow">¶</a></p>
-<p id="section-6.3-7">o Analysis Layer: Utilizes machine learning (ML) models to detect anomalies in the collected data. This layer may include both real-time and batch processing capabilities.<a href="#section-6.3-7" class="pilcrow">¶</a></p>
-<p id="section-6.3-8">o Response Layer: Executes predefined actions based on the analysis results, such as alerting administrators, blocking malicious traffic,or reconfiguring network devices. This layer may integrate with DOTS (RFC 8811) to mitigate DDoS attacks.<a href="#section-6.3-8" class="pilcrow">¶</a></p>
-<p id="section-6.3-9">The architecture should be scalable to handle large volumes of data and adaptable to incorporate new AI models as they evolve.<a href="#section-6.3-9" class="pilcrow">¶</a></p>
-<p id="section-6.3-10"><a href="#fig_NAD" class="auto internal xref">Figure 6</a> illustrates the high-level architecture of an AI-based network anomaly detection system:<a href="#section-6.3-10" class="pilcrow">¶</a></p>
 <span id="name-architecture-of-network-ano"></span><div id="fig_NAD">
 <figure id="figure-6">
-          <div class="alignLeft art-text artwork" id="section-6.3-11.1">
+          <div class="alignLeft art-text artwork" id="section-6.3-5.1">
 <pre>
                          +-------------------+
                          |                   |
@@ -2638,19 +2643,29 @@ encoding and protocols would have better perfomances.<a href="#section-5.13-3" c
           </figcaption></figure>
 </div>
 <ul class="normal">
-<li class="normal" id="section-6.3-12.1">
-            <p id="section-6.3-12.1.1">Interfaces and APIs<a href="#section-6.3-12.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-6.1">
+            <p id="section-6.3-6.1.1">Interfaces and APIs<a href="#section-6.3-6.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.3-6.1.2">
+To facilitate interoperability and integration with existing network management systems, the following interfaces and APIs are recommended:<a href="#section-6.3-6.1.2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-6.1.3.1">
+                <p id="section-6.3-6.1.3.1.1">Northbound API: Provides a standardized interface for external systems to query anomaly detection results and receive alerts.This API should align with RESTCONF (RFC 8040) for consistency with IETF standards.<a href="#section-6.3-6.1.3.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-6.1.3.2">
+                <p id="section-6.3-6.1.3.2.1">Southbound API: Allows the anomaly detection system to interact with network devices for data collection and response actions. This API may use NETCONF (RFC 6241) or RESTCONF (RFC 8040) for device management.<a href="#section-6.3-6.1.3.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-6.1.3.3">
+                <p id="section-6.3-6.1.3.3.1">Model Management API: Enables the deployment, updating, and monitoring of AI models used in the analysis layer. This API should support secure communication as defined in RFC 8446 (TLS 1.3).<a href="#section-6.3-6.1.3.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-6.3-6.1.4">
+These APIs should adhere to RESTful principles or other widely adopted standards to ensure ease of integration.<a href="#section-6.3-6.1.4" class="pilcrow">¶</a></p>
+<p id="section-6.3-6.1.5"><a href="#fig_NAD_Intf" class="auto internal xref">Figure 7</a> illustrates the interaction between the anomaly detection system and external components via the defined interfaces:<a href="#section-6.3-6.1.5" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-13">To facilitate interoperability and integration with existing network management systems, the following interfaces and APIs are recommended:<a href="#section-6.3-13" class="pilcrow">¶</a></p>
-<p id="section-6.3-14">o Northbound API: Provides a standardized interface for external systems to query anomaly detection results and receive alerts.This API should align with RESTCONF (RFC 8040) for consistency with IETF standards.<a href="#section-6.3-14" class="pilcrow">¶</a></p>
-<p id="section-6.3-15">o Southbound API: Allows the anomaly detection system to interact with network devices for data collection and response actions. This API may use NETCONF (RFC 6241) or RESTCONF (RFC 8040) for device management.<a href="#section-6.3-15" class="pilcrow">¶</a></p>
-<p id="section-6.3-16">o Model Management API: Enables the deployment, updating, and monitoring of AI models used in the analysis layer. This API should support secure communication as defined in RFC 8446 (TLS 1.3).<a href="#section-6.3-16" class="pilcrow">¶</a></p>
-<p id="section-6.3-17">These APIs should adhere to RESTful principles or other widely adopted standards to ensure ease of integration.<a href="#section-6.3-17" class="pilcrow">¶</a></p>
-<p id="section-6.3-18"><a href="#fig_NAD_Intf" class="auto internal xref">Figure 7</a> illustrates the interaction between the anomaly detection system and external components via the defined interfaces:<a href="#section-6.3-18" class="pilcrow">¶</a></p>
 <span id="name-interfaces-of-network-anoma"></span><div id="fig_NAD_Intf">
 <figure id="figure-7">
-          <div class="alignLeft art-text artwork" id="section-6.3-19.1">
+          <div class="alignLeft art-text artwork" id="section-6.3-7.1">
 <pre>
     +-----------------------------------------------------------+
     |                       External Systems                    |
@@ -2687,37 +2702,64 @@ encoding and protocols would have better perfomances.<a href="#section-5.13-3" c
           </figcaption></figure>
 </div>
 <ul class="normal">
-<li class="normal" id="section-6.3-20.1">
-            <p id="section-6.3-20.1.1">Protocols<a href="#section-6.3-20.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.3-21">The following protocols are suggested for communication between the components of the anomaly detection system:<a href="#section-6.3-21" class="pilcrow">¶</a></p>
-<p id="section-6.3-22">o NETCONF/RESTCONF: For configuring and managing network devices and retrieving operational data, as defined in RFC 6241 and RFC 8040.<a href="#section-6.3-22" class="pilcrow">¶</a></p>
-<p id="section-6.3-23">o gRPC/HTTP2: For high-performance communication between the analysis layer and other components, leveraging HTTP/2 (RFC 7540) for efficient data transfer.<a href="#section-6.3-23" class="pilcrow">¶</a></p>
-<p id="section-6.3-24">o MQTT: For lightweight, publish-subscribe messaging between distributed components, particularly in IoT environments, as specified in RFC 7252 (CoAP) or MQTT 5.0 (OASIS Standard).<a href="#section-6.3-24" class="pilcrow">¶</a></p>
-<p id="section-6.3-25">The choice of protocol should consider factors such as latency, bandwidth, and security requirements.<a href="#section-6.3-25" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-8.1">
+            <p id="section-6.3-8.1.1">Protocols<a href="#section-6.3-8.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.3-8.1.2">
+The following protocols are suggested for communication between the components of the anomaly detection system:<a href="#section-6.3-8.1.2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-26.1">
-            <p id="section-6.3-26.1.1">Data Models<a href="#section-6.3-26.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-8.1.3.1">
+                <p id="section-6.3-8.1.3.1.1">NETCONF/RESTCONF: For configuring and managing network devices and retrieving operational data, as defined in RFC 6241 and RFC 8040.<a href="#section-6.3-8.1.3.1.1" class="pilcrow">¶</a></p>
 </li>
-        </ul>
-<p id="section-6.3-27">Data models for network anomaly detection should be designed to capture both the structure and semantics of network traffic data. The following models are recommended:<a href="#section-6.3-27" class="pilcrow">¶</a></p>
-<p id="section-6.3-28">o YANG Data Models: For representing network configuration and state data in a structured format, as defined in RFC 7950 and extended by RFC 8345 for network topologies.<a href="#section-6.3-28" class="pilcrow">¶</a></p>
-<p id="section-6.3-29">o JSON/XML Schemas: For defining the format of data exchanged between components via APIs, consistent with RFC 8259 (JSON) and RFC 7303 (XML).<a href="#section-6.3-29" class="pilcrow">¶</a></p>
-<p id="section-6.3-30">o Feature Vectors: For representing the input data to AI models, which may include packet headers, flow statistics, and behavioral 
-     patterns. These vectors should align with the IPFIX Information Model (RFC 7012) for flow data representation.<a href="#section-6.3-30" class="pilcrow">¶</a></p>
-<p id="section-6.3-31">These data models should be extensible to accommodate new types of network data and evolving AI techniques.<a href="#section-6.3-31" class="pilcrow">¶</a></p>
+              <li class="normal" id="section-6.3-8.1.3.2">
+                <p id="section-6.3-8.1.3.2.1">gRPC/HTTP2: For high-performance communication between the analysis layer and other components, leveraging HTTP/2 (RFC 7540) for efficient data transfer.<a href="#section-6.3-8.1.3.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-8.1.3.3">
+                <p id="section-6.3-8.1.3.3.1">MQTT: For lightweight, publish-subscribe messaging between distributed components, particularly in IoT environments, as specified in RFC 7252 (CoAP) or MQTT 5.0 (OASIS Standard).<a href="#section-6.3-8.1.3.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-6.3-8.1.4">
+The choice of protocol should consider factors such as latency, bandwidth, and security requirements.<a href="#section-6.3-8.1.4" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-8.2">
+            <p id="section-6.3-8.2.1">Data Models<a href="#section-6.3-8.2.1" class="pilcrow">¶</a></p>
+<p id="section-6.3-8.2.2">
+Data models for network anomaly detection should be designed to capture both the structure and semantics of network traffic data. The following models are recommended:<a href="#section-6.3-8.2.2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-32.1">
-            <p id="section-6.3-32.1.1">Alignment with IETF<a href="#section-6.3-32.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.3-8.2.3.1">
+                <p id="section-6.3-8.2.3.1.1">YANG Data Models: For representing network configuration and state data in a structured format, as defined in RFC 7950 and extended by RFC 8345 for network topologies.<a href="#section-6.3-8.2.3.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-8.2.3.2">
+                <p id="section-6.3-8.2.3.2.1">JSON/XML Schemas: For defining the format of data exchanged between components via APIs, consistent with RFC 8259 (JSON) and RFC 7303 (XML).<a href="#section-6.3-8.2.3.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-8.2.3.3">
+                <p id="section-6.3-8.2.3.3.1">Feature Vectors: For representing the input data to AI models, which may include packet headers, flow statistics, and behavioral patterns. These vectors should align with the IPFIX Information Model (RFC 7012) for flow data representation.<a href="#section-6.3-8.2.3.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-6.3-8.2.4">
+These data models should be extensible to accommodate new types of network data and evolving AI techniques.<a href="#section-6.3-8.2.4" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.3-8.3">
+            <p id="section-6.3-8.3.1">Alignment with IETF<a href="#section-6.3-8.3.1" class="pilcrow">¶</a></p>
+<p id="section-6.3-8.3.2">
+The development of AI-based network anomaly detection systems should align with existing IETF standards and working groups, such as:<a href="#section-6.3-8.3.2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-8.3.3.1">
+                <p id="section-6.3-8.3.3.1.1">NETMOD (Network Modeling): For leveraging YANG data models (RFC 7950, RFC 8345) and NETCONF/RESTCONF protocols (RFC 6241, RFC 8040).<a href="#section-6.3-8.3.3.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-8.3.3.2">
+                <p id="section-6.3-8.3.3.2.1">MILE (Managed Incident Lightweight Exchange, concluded): For standardizing the exchange of security incident information, as outlined in RFC 8329.<a href="#section-6.3-8.3.3.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-8.3.3.3">
+                <p id="section-6.3-8.3.3.3.1">DOTS (DDoS Open Threat Signaling ,concluded): For coordinating responses to distributed denial-of-service attacks, as defined in RFC 8811.<a href="#section-6.3-8.3.3.3.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-8.3.3.4">
+                <p id="section-6.3-8.3.3.4.1">Awaiting to add more WGs, BGP-LS, PCE, etc.<a href="#section-6.3-8.3.3.4.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+<p id="section-6.3-8.3.4">
+Collaboration with these groups ensures that the anomaly detection system integrates seamlessly with existing IETF frameworks and contributes to the broader goal of network security and management.<a href="#section-6.3-8.3.4" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.3-33">The development of AI-based network anomaly detection systems should align with existing IETF standards and working groups, such as:<a href="#section-6.3-33" class="pilcrow">¶</a></p>
-<p id="section-6.3-34">o NETMOD (Network Modeling): For leveraging YANG data models (RFC 7950, RFC 8345) and NETCONF/RESTCONF protocols (RFC 6241, RFC 8040).<a href="#section-6.3-34" class="pilcrow">¶</a></p>
-<p id="section-6.3-35">o MILE (Managed Incident Lightweight Exchange, concluded): For standardizing the exchange of security incident information, as outlined in RFC 8329.<a href="#section-6.3-35" class="pilcrow">¶</a></p>
-<p id="section-6.3-36">o DOTS (DDoS Open Threat Signaling ,concluded): For coordinating responses to distributed denial-of-service attacks, as defined in RFC 8811.<a href="#section-6.3-36" class="pilcrow">¶</a></p>
-<p id="section-6.3-37">o Awaiting to add more WGs, BGP-LS, PCE, etc.<a href="#section-6.3-37" class="pilcrow">¶</a></p>
-<p id="section-6.3-38">Collaboration with these groups ensures that the anomaly detection system integrates seamlessly with existing IETF frameworks and contributes to the broader goal of network security and management.<a href="#section-6.3-38" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-predictive-maintenance">
@@ -2741,8 +2783,7 @@ encoding and protocols would have better perfomances.<a href="#section-5.13-3" c
         <h3 id="name-generate-node-configuration">
 <a href="#section-6.6" class="section-number selfRef">6.6. </a><a href="#name-generate-node-configuration" class="section-name selfRef">Generate Node Configuration</a>
         </h3>
-<p id="section-6.6-1">Generate node config with certain customer requirement (e.g., certain
-   QOS, policy, ACL, tunnels, …)<a href="#section-6.6-1" class="pilcrow">¶</a></p>
+<p id="section-6.6-1">Generate node config with certain customer requirement (e.g., certain QOS, policy, ACL, tunnels, …)<a href="#section-6.6-1" class="pilcrow">¶</a></p>
 <p id="section-6.6-2">More to be added.<a href="#section-6.6-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2751,79 +2792,65 @@ encoding and protocols would have better perfomances.<a href="#section-5.13-3" c
         <h3 id="name-cognitive-search-on-interna">
 <a href="#section-6.7" class="section-number selfRef">6.7. </a><a href="#name-cognitive-search-on-interna" class="section-name selfRef">Cognitive Search On Internal Operator Data</a>
         </h3>
-<p id="section-6.7-1">The operation of IP and optical networks comprises a wide range of management,
-monitoring and optimization tasks, including equipment configuration (switches,
-routers, OTNs, etc.), implementation of network policies, fault detection,
-troubleshooting, and capacity planning. The execution of such tasks usually requires access, 
-comprehension and analysis of specific documentation containing information about network 
-topologies, hardware inventory, vendor specifications, and pre-defined procedures. 
-Given the capacity of LLMs to understand natural language, including technical 
-jargon, and their ability to process large amounts of information in short times, 
-they can be used to build useful tools that support the network operational work, 
-by executing comprehensive cognitive searches through the different documentation 
-available to the operational teams, providing fast and concrete answers to technical 
-enquiries, and making the access to such information a more efficient and interactive 
-process.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
-<p id="section-6.7-2">To provision an LLM with such knowledge requires either a fine-tuning training job, 
-that retrains an existing LLM, or the implementation of a RAG based architecture, 
-where the information coming from the documentation is stored in a knowledge base 
-and provided as context to the LLM. For this scenario, the RAG based approach has 
-some specific advantages like lower computational cost, faster deployment, no need 
-of retraining when the documentation is updated, and easier scalability. 
-Therefore, it is often the default approach for this type of solutions. Next section provides 
-an architectural overview of how a RAG based system can be implemented to provide cognitive 
-search for network operations.<a href="#section-6.7-2" class="pilcrow">¶</a></p>
+<p id="section-6.7-1">The operation of IP and optical networks comprises a wide range of management, monitoring and optimization tasks, including equipment configuration (switches, routers, OTNs, etc.), implementation of network policies, fault detection, troubleshooting, and capacity planning. The execution of such tasks usually requires access,  comprehension and analysis of specific documentation containing information about network topologies, hardware inventory, vendor specifications, and pre-defined procedures.<a href="#section-6.7-1" class="pilcrow">¶</a></p>
+<p id="section-6.7-2">Given the capacity of LLMs to understand natural language, including technical jargon, and their ability to process large amounts of information in short times, they can be used to build useful tools that support the network operational work, by executing comprehensive cognitive searches through the different documentation available to the operational teams, providing fast and concrete answers to technical enquiries, and making the access to such information a more efficient and interactive process.<a href="#section-6.7-2" class="pilcrow">¶</a></p>
+<p id="section-6.7-3">To provision an LLM with such knowledge requires either a fine-tuning training job, that retrains an existing LLM, or the implementation of a RAG based architecture, where the information coming from the documentation is stored in a knowledge base and provided as context to the LLM. For this scenario, the RAG based approach has some specific advantages like lower computational cost, faster deployment, no need of retraining when the documentation is updated, and easier scalability.<a href="#section-6.7-3" class="pilcrow">¶</a></p>
+<p id="section-6.7-4">Therefore, it is often the default approach for this type of solutions. Next section provides an architectural overview of how a RAG based system can be implemented to provide cognitive  search for network operations.<a href="#section-6.7-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.7-3.1">
-            <p id="section-6.7-3.1.1">Architecture<a href="#section-6.7-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.7-5.1">
+            <p id="section-6.7-5.1.1">Architecture<a href="#section-6.7-5.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.7-5.1.2">
+In a RAG based architecture, a knowledge base is created by using an embedding model capable of splitting and transforming the content of different documents into numerical representations (vectors), and storing them in a data base, also known as Vector Data Base. The general process executed by the system every time a query is made by a user can be summarized in the following steps:<a href="#section-6.7-5.1.2" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.7-5.1.3">
+<li id="section-6.7-5.1.3.1">
+                <p id="section-6.7-5.1.3.1.1">Retrieval: The query made by the user is transformed by the embedding model and used to search and retrieve relevant information from the Vector Data Base.<a href="#section-6.7-5.1.3.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li id="section-6.7-5.1.3.2">
+                <p id="section-6.7-5.1.3.2.1">Augmentation: The information retrieved from the Vector Data Base is used to augment the query made by the user, adding context that might be unknown to the LLM.<a href="#section-6.7-5.1.3.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li id="section-6.7-5.1.3.3">
+                <p id="section-6.7-5.1.3.3.1">Generation: The augmented query is sent to the LLM, which then generates and answer in natural language that is finally delivered to the user.<a href="#section-6.7-5.1.3.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ol>
 </li>
         </ul>
-<p id="section-6.7-4">In a RAG based architecture, a knowledge base is created by using an embedding model capable of splitting and transforming the content of different documents into numerical representations (vectors), and storing them in a data base, also known as Vector Data Base. The general process executed by the system every time a query is made by a user can be summarized in the following steps:
-1. Retrieval: The query made by the user is transformed by the embedding model and used to search and retrieve relevant information from the Vector Data Base.
-2. Augmentation: The information retrieved from the Vector Data Base is used to augment the query made by the user, adding context that might be unknown to the LLM.
-3. Generation: The augmented query is sent to the LLM, which then generates and answer in natural language that is finally delivered to the user.<a href="#section-6.7-4" class="pilcrow">¶</a></p>
-<div class="alignLeft art-text artwork" id="section-6.7-5">
+<div class="alignLeft art-text artwork" id="section-6.7-6">
 <pre>
 
  |-----------|                                           |---------|
  |           |&lt;----------------Response------------------|         |
  |  Network  |                                           |         |
  |  Operator |                       |--------------|    |         |
- |           |---Query---+----------&gt;|   Query +    |    |         |
- |-----------|           +           |   Context +  |---&gt;|   LLM   |
-                         +           |   Prompt     |    |         |
-                         +           |--------------|    |         |
-                         +                   ^           |---------|
-                         +                   +
-                         v                   +
+ |           |---Query--------------&gt;|   Query +    |    |         |
+ |-----------|            |          |   Context +  |---&gt;|   LLM   |
+                          |          |   Prompt     |    |         |
+                          |          |--------------|    |         |
+                          |                  ^           |---------|
+                          |                  |
+                          v                  |
                |---------------|        |----------|
-               |   Embedding   | +++++&gt; |  Vector  |
-               |     Model     | -----&gt; |    DB    |
+               |   Embedding   | -----&gt; |  Vector  |
+               |     Model     |        |    DB    |
                |---------------|        |----------|
                            ^
                            |
                            |
           |----------------|------------------|
           |                |                  |
- +++++++++|++++++++++++++++|++++++++++++++++++|++++++++++++
- +        |                |                  |           +
- +   |----------|    |----------------|    |----------|   +
- +   | Network  |    |    Method of   |    |  Vendor  |   +
- +   | Topology |    |  Procedure MOP |    |   docs   |   +
- +   |----------|    |----------------|    |----------|   +
- +                                                        +
- +  Internal Operator documentation                       +
- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ |++++++++|++++++++++++++++|++++++++++++++++++|+++++++++++|
+ |        |                |                  |           |
+ |   |----------|    |----------------|    |----------|   |
+ |   | Network  |    |    Method of   |    |  Vendor  |   |
+ |   | Topology |    |  Procedure MOP |    |   docs   |   |
+ |   |----------|    |----------------|    |----------|   |
+ |                                                        |
+ |  Internal Operator documentation                       |
+ |++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
 
-</pre><a href="#section-6.7-5" class="pilcrow">¶</a>
+</pre><a href="#section-6.7-6" class="pilcrow">¶</a>
 </div>
-<p id="section-6.7-6">As previously mentioned, the documents stored in the Vector Database for this specific
-use case correspond to various types of Network Operation Documentation. Thus, this system
-serves as a powerful tool, offering quick and efficient access to complex
-information across different areas of the Network Operations landscape, including
-network infrastructure, Standard Operating Procedures, security documentation, 
-incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
-<p id="section-6.7-7">More to be added.<a href="#section-6.7-7" class="pilcrow">¶</a></p>
+<p id="section-6.7-7">As previously mentioned, the documents stored in the Vector Database for this specific use case correspond to various types of Network Operation Documentation. Thus, this system serves as a powerful tool, offering quick and efficient access to complex information across different areas of the Network Operations landscape, including network infrastructure, Standard Operating Procedures, security documentation, incident reports, and more.<a href="#section-6.7-7" class="pilcrow">¶</a></p>
+<p id="section-6.7-8">More to be added.<a href="#section-6.7-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-operator-assistant">
@@ -2868,45 +2895,55 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
         </h3>
 <p id="section-6.12-1">Several innovations have been developed at the IETF for multi-layer network (MLN) planning. This activity is involves coordinating and optimizing multiple network layers, such as IP, optical, and transport layers, to improve efficiency, resilience, and scalability. The Internet Engineering Task Force (IETF) has developed several technologies and standards to facilitate multi-layer network planning, including protocols for path computation, topology exchange, and resource optimization.<a href="#section-6.12-1" class="pilcrow">¶</a></p>
 <p id="section-6.12-2">The components and interfaces for MLN planning include:<a href="#section-6.12-2" class="pilcrow">¶</a></p>
-<p id="section-6.12-3">o Path Computation Element (PCE)<a href="#section-6.12-3" class="pilcrow">¶</a></p>
-<p id="section-6.12-4">o Generalized Multi-Protocol Label Switching (GMPLS)<a href="#section-6.12-4" class="pilcrow">¶</a></p>
-<p id="section-6.12-5">o Traffic Engineering Database (TED) and Topology Exchange<a href="#section-6.12-5" class="pilcrow">¶</a></p>
-<p id="section-6.12-6">o Abstraction and Control of Traffic Engineered Networks (ACTN)<a href="#section-6.12-6" class="pilcrow">¶</a></p>
-<p id="section-6.12-7">o YANG Models for Network Topologies and Node Inventory<a href="#section-6.12-7" class="pilcrow">¶</a></p>
-<p id="section-6.12-8">These enabling technologies are discussed in the following sub-sections.<a href="#section-6.12-8" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.12-9.1">
-            <p id="section-6.12-9.1.1">Architecture<a href="#section-6.12-9.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.12-3.1">
+            <p id="section-6.12-3.1.1">Path Computation Element (PCE)<a href="#section-6.12-3.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-3.2">
+            <p id="section-6.12-3.2.1">Generalized Multi-Protocol Label Switching (GMPLS)<a href="#section-6.12-3.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-3.3">
+            <p id="section-6.12-3.3.1">Traffic Engineering Database (TED) and Topology Exchange<a href="#section-6.12-3.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-3.4">
+            <p id="section-6.12-3.4.1">Abstraction and Control of Traffic Engineered Networks (ACTN)<a href="#section-6.12-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-3.5">
+            <p id="section-6.12-3.5.1">YANG Models for Network Topologies and Node Inventory<a href="#section-6.12-3.5.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.12-10">The Abstraction and Control of Traffic Engineered Networks (ACTN) ACTN <span>[<a href="#RFC8453" class="cite xref">RFC8453</a>]</span> architecture provides a framework for virtualized network resource control and abstraction, enabling efficient multi-layer coordination between packet and optical networks. It defines key functional components like the Multi-Domain Coordinator (MDSC), which facilitates policy-based control and end-to-end service planning and provisioning.<a href="#section-6.12-10" class="pilcrow">¶</a></p>
+<p id="section-6.12-4">These enabling technologies are discussed in the following sub-sections.<a href="#section-6.12-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.12-11.1">
-            <p id="section-6.12-11.1.1">Interfaces and APIs<a href="#section-6.12-11.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.12-5.1">
+            <p id="section-6.12-5.1.1">Architecture<a href="#section-6.12-5.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.12-5.1.2">
+The Abstraction and Control of Traffic Engineered Networks (ACTN) ACTN <span>[<a href="#RFC8453" class="cite xref">RFC8453</a>]</span> architecture provides a framework for virtualized network resource control and abstraction, enabling efficient multi-layer coordination between packet and optical networks. It defines key functional components like the Multi-Domain Coordinator (MDSC), which facilitates policy-based control and end-to-end service planning and provisioning.<a href="#section-6.12-5.1.2" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-5.2">
+            <p id="section-6.12-5.2.1">Interfaces and APIs<a href="#section-6.12-5.2.1" class="pilcrow">¶</a></p>
+<p id="section-6.12-5.2.2">
+The Path Computation Element (PCE) is a fundamental component of a Software Defined Networking (SDN) system, responsible for computing optimal traffic paths and dynamically adjusting them based on network conditions or demand. Originally designed for deriving paths for MPLS, and GMPLS, Label Switched Paths (LSPs), PCE delivers these computed routes to the LSP’s head end via the Path Computation Element Communication Protocol (PCEP).<a href="#section-6.12-5.2.2" class="pilcrow">¶</a></p>
+<p id="section-6.12-5.2.3">
+The PCE architecture <span>[<a href="#RFC4655" class="cite xref">RFC4655</a>]</span> enables efficient path computation for traffic-engineered networks by offloading complex calculations to a dedicated entity. Stateful PCE <span>[<a href="#RFC8051" class="cite xref">RFC8051</a>]</span> and <span>[<a href="#RFC8231" class="cite xref">RFC8231</a>]</span> extends the PCE framework by maintaining real-time network state awareness, allowing dynamic path optimization across layers. The Hierarchical PCE (H-PCE) <span>[<a href="#RFC6805" class="cite xref">RFC6805</a>]</span> architecture supports multi-layer and multi-domain path computation by allowing collaboration between multiple PCEs.<a href="#section-6.12-5.2.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-5.3">
+            <p id="section-6.12-5.3.1">Protocols<a href="#section-6.12-5.3.1" class="pilcrow">¶</a></p>
+<p id="section-6.12-5.3.2">
+To be added.<a href="#section-6.12-5.3.2" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-5.4">
+            <p id="section-6.12-5.4.1">Data Models<a href="#section-6.12-5.4.1" class="pilcrow">¶</a></p>
+<p id="section-6.12-5.4.2">
+The YANG data modeling language is a cornerstone for MLN planning. It provides a structured way to represent network elements, configurations, and operational states, enabling programmatic control and integration across multiple network layers. Several IETF YANG models provide network topology, traffic engineering, optical transport, and service abstraction.<a href="#section-6.12-5.4.2" class="pilcrow">¶</a></p>
+<p id="section-6.12-5.4.3">
+A core YANG model for MLN planning is the Network Topology Model <span>[<a href="#RFC8345" class="cite xref">RFC8345</a>]</span>, which provides a generic framework for representing network nodes, links, and supporting attributes. This model would facilitate an AI-enabled planning system to define multi-layer relationships, such as the mapping between optical, ethernet, and IP layers, enabling a holistic approach to MLN planning.<a href="#section-6.12-5.4.3" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-6.12-5.5">
+            <p id="section-6.12-5.5.1">Alignment with IETF<a href="#section-6.12-5.5.1" class="pilcrow">¶</a></p>
+<p id="section-6.12-5.5.2">
+To be added.<a href="#section-6.12-5.5.2" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.12-12">The Path Computation Element (PCE) is a fundamental component of a Software Defined Networking (SDN) system, responsible for computing optimal traffic paths and dynamically adjusting them based on network conditions or demand. Originally designed for deriving paths for MPLS, and GMPLS, Label Switched Paths (LSPs), PCE delivers these computed routes to the LSP’s head end via the Path Computation Element Communication Protocol
-(PCEP).<a href="#section-6.12-12" class="pilcrow">¶</a></p>
-<p id="section-6.12-13">The PCE architecture <span>[<a href="#RFC4655" class="cite xref">RFC4655</a>]</span> enables efficient path computation for traffic-engineered networks by offloading complex calculations to a dedicated entity. Stateful PCE <span>[<a href="#RFC8051" class="cite xref">RFC8051</a>]</span> and <span>[<a href="#RFC8231" class="cite xref">RFC8231</a>]</span> extends the PCE framework by maintaining real-time network state awareness, allowing dynamic path optimization across layers. The Hierarchical PCE (H-PCE) <span>[<a href="#RFC6805" class="cite xref">RFC6805</a>]</span> architecture supports multi-layer and multi-domain path computation by allowing collaboration between multiple PCEs.<a href="#section-6.12-13" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.12-14.1">
-            <p id="section-6.12-14.1.1">Protocols<a href="#section-6.12-14.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.12-15">To be added.<a href="#section-6.12-15" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.12-16.1">
-            <p id="section-6.12-16.1.1">Data Models<a href="#section-6.12-16.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.12-17">The YANG data modeling language is a cornerstone for MLN planning. It provides a structured way to represent network elements, configurations, and operational states, enabling programmatic control and integration across multiple network layers. Several IETF YANG models provide network topology, traffic engineering, optical transport, and service abstraction.<a href="#section-6.12-17" class="pilcrow">¶</a></p>
-<p id="section-6.12-18">A core YANG model for MLN planning is the Network Topology Model <span>[<a href="#RFC8345" class="cite xref">RFC8345</a>]</span>, which provides a generic framework for representing network nodes, links, and supporting attributes. This model would facilitate an AI-enabled planning system to define multi-layer relationships, such as the mapping between optical, ethernet, and IP layers, enabling a holistic approach to MLN planning.<a href="#section-6.12-18" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.12-19.1">
-            <p id="section-6.12-19.1.1">Alignment with IETF<a href="#section-6.12-19.1.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.12-20">To be added.<a href="#section-6.12-20" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="causality-discovery">
@@ -2930,73 +2967,69 @@ incident reports, and more.<a href="#section-6.7-6" class="pilcrow">¶</a></p>
 <div id="multi-agent-interworking-1">
 <section id="section-6.15">
         <h3 id="name-multi-agent-interworking-2">
-<a href="#section-6.15" class="section-number selfRef">6.15. </a><a href="#name-multi-agent-interworking-2" class="section-name selfRef">Multi agent interworking</a>
+<a href="#section-6.15" class="section-number selfRef">6.15. </a><a href="#name-multi-agent-interworking-2" class="section-name selfRef">Multi Agent Interworking</a>
         </h3>
-<p id="section-6.15-1">As briefly introduced in chapter 5, effectively deploying multiple AI agents for network management introduces
-significant interworking challenges that must be addressed for successful and reliable operation.
-These challenges span several key areas:<a href="#section-6.15-1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.15-2.1">
+<p id="section-6.15-1">As briefly introduced in chapter 5, effectively deploying multiple AI agents for network management introduces significant interworking challenges that must be addressed for successful and reliable operation. These challenges span several key areas:<a href="#section-6.15-1" class="pilcrow">¶</a></p>
+<ol start="1" type="1" class="normal type-1" id="section-6.15-2">
+<li id="section-6.15-2.1">
             <p id="section-6.15-2.1.1">Communication and Coordination:  Multiple agents operating in a shared network environment
-need to communicate effectively to coordinate their actions.  This includes sharing information
-about network state, learned models, and planned interventions.  A lack of standardized
-protocols and data models can lead to the need to deploy expensive and time consuming adaptation
-layers.  It is also extremely important to determine the appropriate communication frequency
-and granularity to avoid overloading the communication network between them while keeping
-a sufficient level of details to avoid suboptimal or even harmful decisions due to incomplete information.<a href="#section-6.15-2.1.1" class="pilcrow">¶</a></p>
+  need to communicate effectively to coordinate their actions.  This includes sharing information
+  about network state, learned models, and planned interventions.  A lack of standardized
+  protocols and data models can lead to the need to deploy expensive and time consuming adaptation
+  layers.  It is also extremely important to determine the appropriate communication frequency
+  and granularity to avoid overloading the communication network between them while keeping
+  a sufficient level of details to avoid suboptimal or even harmful decisions due to incomplete information.<a href="#section-6.15-2.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.15-2.2">
+          <li id="section-6.15-2.2">
             <p id="section-6.15-2.2.1">Conflict Resolution and Decision Fusion:  When multiple agents are responsible for overlapping
-or interdependent network functions, conflicts in their decisions are inevitable.  For example,
-one agent might decide to reroute traffic to alleviate congestion, while another agent
-simultaneously decides to scale down resources in the same area.  Effective conflict resolution
-mechanisms are needed to prioritize actions, negotiate solutions, and ensure that the overall
-impact on the network is positive.  This requires defining clear roles and responsibilities
-for each agent, establishing decision fusion strategies, and potentially incorporating a central
-arbitration mechanism, like for example in the case of coordination of multiple PCEs. Furthermore,
-handling conflicting information from different agents, potentially due to noisy or incomplete data,
-requires robust data validation and aggregation techniques.<a href="#section-6.15-2.2.1" class="pilcrow">¶</a></p>
+  or interdependent network functions, conflicts in their decisions are inevitable.  For example,
+  one agent might decide to reroute traffic to alleviate congestion, while another agent
+  simultaneously decides to scale down resources in the same area.  Effective conflict resolution
+  mechanisms are needed to prioritize actions, negotiate solutions, and ensure that the overall
+  impact on the network is positive.  This requires defining clear roles and responsibilities
+  for each agent, establishing decision fusion strategies, and potentially incorporating a central
+  arbitration mechanism, like for example in the case of coordination of multiple PCEs. Furthermore,
+  handling conflicting information from different agents, potentially due to noisy or incomplete data,
+  requires robust data validation and aggregation techniques.<a href="#section-6.15-2.2.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.15-2.3">
+          <li id="section-6.15-2.3">
             <p id="section-6.15-2.3.1">Consistency and Stability:  The dynamic nature of networks requires agents to continuously learn and
-adapt.  However, independent learning by multiple agents can lead to inconsistencies in their
-learned models and behaviors, potentially causing instability in the network.  For example,
-different agents might learn different optimal routing strategies, leading to oscillations
-and unpredictable network performance.  Mechanisms for sharing learned knowledge, synchronizing models,
-and ensuring convergence towards a stable and consistent global state are essential.
-This could involve techniques like federated learning or distributed consensus protocols.<a href="#section-6.15-2.3.1" class="pilcrow">¶</a></p>
+  adapt.  However, independent learning by multiple agents can lead to inconsistencies in their
+  learned models and behaviors, potentially causing instability in the network.  For example,
+  different agents might learn different optimal routing strategies, leading to oscillations
+  and unpredictable network performance.  Mechanisms for sharing learned knowledge, synchronizing models,
+  and ensuring convergence towards a stable and consistent global state are essential.
+  This could involve techniques like federated learning or distributed consensus protocols.<a href="#section-6.15-2.3.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.15-2.4">
+          <li id="section-6.15-2.4">
             <p id="section-6.15-2.4.1">Trust and Security:  In a multi-agent environment, trust and security become critical concerns.
-Agents might be vulnerable to malicious attacks or faulty behavior, which can compromise the entire network.
-Robust authentication and authorization mechanisms are needed to ensure that only legitimate agents
-can access and control network resources. Establishing trust between agents, potentially through
-reputation systems or blockchain technologies, can also enhance the overall security and resilience of the network.<a href="#section-6.15-2.4.1" class="pilcrow">¶</a></p>
+  Agents might be vulnerable to malicious attacks or faulty behavior, which can compromise the entire network.
+  Robust authentication and authorization mechanisms are needed to ensure that only legitimate agents
+  can access and control network resources. Establishing trust between agents, potentially through
+  reputation systems or blockchain technologies, can also enhance the overall security and resilience of the network.<a href="#section-6.15-2.4.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.15-2.5">
+          <li id="section-6.15-2.5">
             <p id="section-6.15-2.5.1">Scalability and Management:  As the number of agents and the complexity of the network increase,
-managing the interactions between agents becomes increasingly challenging.  Scalable architectures
-and management frameworks are needed to handle the growing communication overhead, coordination complexity,
-and resource requirements. One possible option to overcome this problem could be leveraging on a
-hierarchical agent structure. As previously introduced, in order to allow for scalability, it is also
-important to foresee advertisement protocols/extensions to let the agents learn about their counterparts
-and their capabilities.<a href="#section-6.15-2.5.1" class="pilcrow">¶</a></p>
+  managing the interactions between agents becomes increasingly challenging.  Scalable architectures
+  and management frameworks are needed to handle the growing communication overhead, coordination complexity,
+  and resource requirements. One possible option to overcome this problem could be leveraging on a
+  hierarchical agent structure. As previously introduced, in order to allow for scalability, it is also
+  important to foresee advertisement protocols/extensions to let the agents learn about their counterparts
+  and their capabilities.<a href="#section-6.15-2.5.1" class="pilcrow">¶</a></p>
+<p id="section-6.15-2.5.2">
+Addressing these interworking challenges is essential for realizing the full potential of AI agents in network management. Developing standardized protocols, robust coordination mechanisms, and scalable management frameworks will pave the way for autonomous networks.<a href="#section-6.15-2.5.2" class="pilcrow">¶</a></p>
 </li>
-        </ul>
-<p id="section-6.15-3">Addressing these interworking challenges is essential for realizing the full potential of AI agents in network management.
-Developing standardized protocols, robust coordination mechanisms, and scalable management frameworks will pave 
-the way for autonomous networks.<a href="#section-6.15-3" class="pilcrow">¶</a></p>
+        </ol>
 <ul class="normal">
-<li class="normal" id="section-6.15-4.1">
-            <p id="section-6.15-4.1.1">Architecture<a href="#section-6.15-4.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.15-3.1">
+            <p id="section-6.15-3.1.1">Architecture<a href="#section-6.15-3.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.15-3.1.2">
+Multi agent architecture can be extremely complex, but figure  <a href="#_figure-multi-agent" class="auto internal xref">Figure 8</a> tries to capture the main interwokring issues of this scenario. An example with an arbitrary number of agents (N) connecting to different components of the management and control stack (SDN controllers, observability function, assurance function, and others) is provided.<a href="#section-6.15-3.1.2" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-6.15-5">Multi agent architecture can be extremely complex, but figure  <a href="#_figure-multi-agent" class="auto internal xref">Figure 8</a> tries to capture the main interwokring issues of this scenario.
-An example with an arbitrary number of agents (N) connecting to different components of the management and control stack 
-(SDN controllers, observability function, assurance function, and others) is provided.<a href="#section-6.15-5" class="pilcrow">¶</a></p>
 <span id="name-multi-agent-architecture"></span><div id="_figure-multi-agent">
 <figure id="figure-8">
-          <div class="alignLeft art-text artwork" id="section-6.15-6.1">
+          <div class="alignLeft art-text artwork" id="section-6.15-4.1">
 <pre>
 
       |------------|         (A)           |------------|
@@ -3027,12 +3060,10 @@ An example with an arbitrary number of agents (N) connecting to different compon
 <a href="#name-multi-agent-architecture" class="selfRef">Multi-agent architecture</a>
           </figcaption></figure>
 </div>
-<p id="section-6.15-7">Alternatively, a hierarchical solution can be foreseen, with an agent (H-Agent) specifically
-designed for coordinating agents, or an agent designated to play the role of H-Agent in addition
-to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref">Figure 9</a>:<a href="#section-6.15-7" class="pilcrow">¶</a></p>
+<p id="section-6.15-5">Alternatively, a hierarchical solution can be foreseen, with an agent (H-Agent) specifically designed for coordinating agents, or an agent designated to play the role of H-Agent in addition to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref">Figure 9</a>:<a href="#section-6.15-5" class="pilcrow">¶</a></p>
 <span id="name-multi-agent-hierarchical-ar"></span><div id="_figure-h-agent">
 <figure id="figure-9">
-          <div class="alignLeft art-text artwork" id="section-6.15-8.1">
+          <div class="alignLeft art-text artwork" id="section-6.15-6.1">
 <pre>
                         |------------|
                         |  H-Agent   |
@@ -3069,84 +3100,61 @@ to its duties, as shown in <a href="#_figure-h-agent" class="auto internal xref"
 <a href="#name-multi-agent-hierarchical-ar" class="selfRef">Multi-agent hierarchical architecture</a>
           </figcaption></figure>
 </div>
-<p id="section-6.15-9">More to be added.<a href="#section-6.15-9" class="pilcrow">¶</a></p>
+<p id="section-6.15-7">More to be added.<a href="#section-6.15-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="network-traffic-management">
 <section id="section-6.16">
         <h3 id="name-network-traffic-management">
-<a href="#section-6.16" class="section-number selfRef">6.16. </a><a href="#name-network-traffic-management" class="section-name selfRef">Network traffic management</a>
+<a href="#section-6.16" class="section-number selfRef">6.16. </a><a href="#name-network-traffic-management" class="section-name selfRef">Network Traffic Management</a>
         </h3>
-<p id="section-6.16-1">Flow placement, traffic engineering/steering along with network
-resource defragmentation are among important aspects of network
-operations that can benefit from artificial intelligence.<a href="#section-6.16-1" class="pilcrow">¶</a></p>
-<p id="section-6.16-2">Network routing protocols automate flow placement for best-effort
-traffic.  Traffic engineering and steering are commonly based on
-statistical analysis and historical trends of network traffic.  They
-are mostly implemented via configurations and tunnel setups, often
-employing scripts for automation purposes.<a href="#section-6.16-2" class="pilcrow">¶</a></p>
-<p id="section-6.16-3">While there are some proactive approach to network resource
-defragmentation, reactive methods are still quite common.  There are
-short-term approaches and longer-term views on employing AI to
-address traffic management.<a href="#section-6.16-3" class="pilcrow">¶</a></p>
+<p id="section-6.16-1">Flow placement, traffic engineering/steering along with network resource defragmentation are among important aspects of network operations that can benefit from artificial intelligence.<a href="#section-6.16-1" class="pilcrow">¶</a></p>
+<p id="section-6.16-2">Network routing protocols automate flow placement for best-effort traffic.  Traffic engineering and steering are commonly based on statistical analysis and historical trends of network traffic. They are mostly implemented via configurations and tunnel setups, often employing scripts for automation purposes.<a href="#section-6.16-2" class="pilcrow">¶</a></p>
+<p id="section-6.16-3">While there are some proactive approach to network resource defragmentation, reactive methods are still quite common.  There are short-term approaches and longer-term views on employing AI to address traffic management.<a href="#section-6.16-3" class="pilcrow">¶</a></p>
 <div id="short-term-approaches">
 <section id="section-6.16.1">
           <h4 id="name-short-term-approaches">
 <a href="#section-6.16.1" class="section-number selfRef">6.16.1. </a><a href="#name-short-term-approaches" class="section-name selfRef">Short term approaches</a>
           </h4>
-<p id="section-6.16.1-1">In the short-term, AI models train on operator’s network traffic
-patterns and employ a set of APIs to connect to network configuration
-equipment in order to add, remove, and modify configurations and perform
-different traffic management related tasks. Model training can be either 
-off-line or on-line.<a href="#section-6.16.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.16.1-2">Initially, AI models perform their inference tasks exclusively based
-on their training on historical network traffic patterns, and topology changes
-in a centralized manner.  In more advanced approaches, the models not only
-train on network traffic patterns, and network topology changes, but also 
-learn how to interpret and digest external events. This added capability allows
-the AI models to be more effective in performing their traffic management tasks.<a href="#section-6.16.1-2" class="pilcrow">¶</a></p>
-<p id="section-6.16.1-3">Generally speaking, IETF/IRTF can work on describing and providing synthetic networks
-along with synthetic traffic that can be used to train AI models. Furthermore, IETF/IRTF
-can also define and provide expected reasonable traffic flows.<a href="#section-6.16.1-3" class="pilcrow">¶</a></p>
-<div id="offline-training">
-<section id="section-6.16.1.1">
-            <h5 id="name-offline-training">
-<a href="#section-6.16.1.1" class="section-number selfRef">6.16.1.1. </a><a href="#name-offline-training" class="section-name selfRef">Offline training</a>
-            </h5>
-<p id="section-6.16.1.1-1">During off-line training, external events, network monitoring information 
-(available via protocols such as SNMP), historical data from traffic engineering 
-databases, network topology changes, and other traffic-related data from the 
-operator's network are collected over time. This data is then used later 
-during the training and model performance evaluation process.<a href="#section-6.16.1.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.16.1.1-2">There is potential to define a set of APIs to collect information or enable
-a query mechanism to pull the required training data, particularly for external events.<a href="#section-6.16.1.1-2" class="pilcrow">¶</a></p>
-<p id="section-6.16.1.1-3">Selecting the important features from the entire dataset is another crucial
-aspect of training.<a href="#section-6.16.1.1-3" class="pilcrow">¶</a></p>
-<p id="section-6.16.1.1-4">IETF/IRTF can certainly play a role in both of the above-mentioned cases.<a href="#section-6.16.1.1-4" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-1">In the short-term, AI models train on operator’s network traffic patterns and employ a set of APIs to connect to network configuration equipment in order to add, remove, and modify configurations and perform different traffic management related tasks. Model training can be either off-line or on-line.<a href="#section-6.16.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-2">Initially, AI models perform their inference tasks exclusively based on their training on historical network traffic patterns, and topology changes in a centralized manner.  In more advanced approaches, the models not only train on network traffic patterns, and network topology changes, but also  learn how to interpret and digest external events. This added capability allows the AI models to be more effective in performing their traffic management tasks.<a href="#section-6.16.1-2" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-3">Generally speaking, IETF/IRTF can work on describing and providing synthetic networks along with synthetic traffic that can be used to train AI models. Furthermore, IETF/IRTF can also define and provide expected reasonable traffic flows.<a href="#section-6.16.1-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.1-4.1">
+              <p id="section-6.16.1-4.1.1">Offline training<a href="#section-6.16.1-4.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-4.1.2">
+During off-line training, external events, network monitoring information (available via protocols such as SNMP), historical data from traffic engineering  databases, network topology changes, and other traffic-related data from the operator's network are collected over time. This data is then used later  during the training and model performance evaluation process.<a href="#section-6.16.1-4.1.2" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-4.1.3">
+There is potential to define a set of APIs to collect information or enable a query mechanism to pull the required training data, particularly for external events.<a href="#section-6.16.1-4.1.3" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-4.1.4">
+Selecting the important features from the entire dataset is another crucial aspect of training.<a href="#section-6.16.1-4.1.4" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-4.1.5">
+IETF/IRTF can certainly play a role in both of the above-mentioned cases.<a href="#section-6.16.1-4.1.5" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 <span id="name-ai-assisted-traffic-managem"></span><div id="_figure-off-line">
 <figure id="figure-10">
-              <div class="alignLeft art-text artwork" id="section-6.16.1.1-5.1">
+            <div class="alignLeft art-text artwork" id="section-6.16.1-5.1">
 <pre>
-   +---------+                   (A) + (B)
-   | Outside |xxxxxxxx External xxxxxxxxxxx
-   |  world  |          events            x
-   +---------+                            x
-                                          x
+   +---------+     External Events
+   | Outside |----------------------------|   (A)+(B)
+   |  world  |                            |
+   +---------+                            |
+                                          |
                                           V
    +-----------+              +--------------------------+
-   |  Network  |-------------&gt;|    Dataset Repository    |
+   |  Network  |..............|    Dataset Repository    |
    +-----------+              |    ------------------    |
                               | Network monitoring data  |
-                              | (e.g via SNMP)           |
-                              |           &amp;              |
+                              |           +              |
                               | Topology changes         |
-                              |           &amp;              |
+                              |           +              |
                               | Historical data from     |
                               | TE-DB, etc.              |
                               +--------------------------+
-                                           x
-                                           x (B)
-                                           x
+                                           |
+                                           | (B)
+                                           |
                                            V
                                  +------------------+
                                  |  AI model        |
@@ -3154,72 +3162,63 @@ aspect of training.<a href="#section-6.16.1.1-3" class="pilcrow">¶</a></p>
                                  +------------------+
 
   Legend:
-  xxx Potential IETF defined and standardized interface.
+  --- Potential IETF defined and standardized interface.
   (A) Extracting and storing outside world events data.
-  (B) Important features for training the model for traffic mgmt.
+  (B) Important features for training model for traffic management
 
 </pre>
 </div>
 <figcaption><a href="#figure-10" class="selfRef">Figure 10</a>:
 <a href="#name-ai-assisted-traffic-managem" class="selfRef">AI assisted traffic management: Offline training</a>
-              </figcaption></figure>
+            </figcaption></figure>
 </div>
-</section>
-</div>
-<div id="online-training">
-<section id="section-6.16.1.2">
-            <h5 id="name-online-training">
-<a href="#section-6.16.1.2" class="section-number selfRef">6.16.1.2. </a><a href="#name-online-training" class="section-name selfRef">Online training</a>
-            </h5>
-<p id="section-6.16.1.2-1">On-line training takes a more real-time approach. Here model training is based
-on processing data incrementally as it becomes available. This method is particularly
-suitable for scenarios such as network traffic management which require real-time
-learning and adaptation to changes.<a href="#section-6.16.1.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.16.1.2-2">A traffic management AI model under online training uses the same input sources as it
-does in offline training. However, unlike offline training, the data here is not stored
-in a repository but streamed into the training process. As such, the ground truth for model performance evaluation in online training is derived from observation of
-actual real time world events and network behavior, rather than stored data.
-The training process therefore requires a mechanism to extract important features from the stream of incoming real-time network data and outside world events. These extracted
-features are then fed to the training process for adjusting model's parameters in a dynamic manner.<a href="#section-6.16.1.2-2" class="pilcrow">¶</a></p>
-<p id="section-6.16.1.2-3">IETF/IRTF can work to standardize the mechanisms to identify important feature and implement the above mentioned required real-time data delivery and feature extraction.<a href="#section-6.16.1.2-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.16.1-6.1">
+              <p id="section-6.16.1-6.1.1">Online training<a href="#section-6.16.1-6.1.1" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-6.1.2">
+Online training takes a more real-time approach. Here model training is based on processing data incrementally as it becomes available. This method is particularly suitable for scenarios such as network traffic management which require real-time learning and adaptation to changes.<a href="#section-6.16.1-6.1.2" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-6.1.3">
+A traffic management AI model under online training uses the same input sources as it does in offline training. However, unlike offline training, the data here is not stored in a repository but streamed into the training process. As such, the ground truth for model performance evaluation in online training is derived from observation of actual real time world events and network behavior, rather than stored data.<a href="#section-6.16.1-6.1.3" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-6.1.4">
+The training process therefore requires a mechanism to extract important features from the stream of incoming real-time network data and outside world events. These extracted features are then fed to the training process for adjusting model's parameters in a dynamic manner.<a href="#section-6.16.1-6.1.4" class="pilcrow">¶</a></p>
+<p id="section-6.16.1-6.1.5">
+IETF/IRTF can work to standardize the mechanisms to identify important feature and implement the above mentioned required real-time data delivery and feature extraction.<a href="#section-6.16.1-6.1.5" class="pilcrow">¶</a></p>
+</li>
+          </ul>
 <span id="name-ai-assisted-traffic-manageme"></span><div id="_figure-online-line">
 <figure id="figure-11">
-              <div class="alignLeft art-text artwork" id="section-6.16.1.2-4.1">
+            <div class="alignLeft art-text artwork" id="section-6.16.1-7.1">
 <pre>
-+---------+     (A) + (B)
-| Outside |xxxxxxxxxxxx External xxxxxxxxxxxxxxxx
-|  world  |              events                 x
-+---------+                                     x
-                                                x
-                                                V
-                                          +------------+
-+-----------+          (A) + (B)          |  AI model  |
-|  Network  |xxxxxxxxxxxxxxxxxxxxxxxxxxxx&gt;|   under    |
-+-----------+                             |  training  |
-                                          +------------+
+  +---------+     External Events
+  | Outside |-------------------------------------| (A)+(B)
+  |  world  |                                     |
+  +---------+                                     |
+                                                  |
+                                                  V
+                                            +------------+
+  +-----------+          (A) + (B)          |  AI model  |
+  |  Network  |----------------------------&gt;|   under    |
+  +-----------+                             |  training  |
+                                            +------------+
                 real-time stream of
-                Network monitoring
-                       info.
-                  (e.g via SNMP)
+                Network monitoring info
                          +
-                  Topology changes
+                Topology changes
                          +
-                  Historical data
-                  from TE-DB, etc.
+                Historical data
+                from TE-DB, etc.
 
 
   Legend:
-  xxx Potential IETF defined and standardized interface.
+  --- Potential IETF defined and standardized interface.
   (A) Extracting and storing outside world events data.
-  (B) Important features for training the model for traffic mgmt.
+  (B) Important features for training model for traffic management
 
 </pre>
 </div>
 <figcaption><a href="#figure-11" class="selfRef">Figure 11</a>:
 <a href="#name-ai-assisted-traffic-manageme" class="selfRef">AI assisted traffic management: On-line training</a>
-              </figcaption></figure>
-</div>
-</section>
+            </figcaption></figure>
 </div>
 </section>
 </div>
@@ -3228,45 +3227,40 @@ features are then fed to the training process for adjusting model's parameters i
           <h4 id="name-inference">
 <a href="#section-6.16.2" class="section-number selfRef">6.16.2. </a><a href="#name-inference" class="section-name selfRef">Inference</a>
           </h4>
-<p id="section-6.16.2-1">Inference phase for traffic management requires an interface to translate AI model's
-output to a set of network operation tasks and configuration commands. With this
-information readily available, existing protocols such as NETCONF can be employed to
-manage the network.<a href="#section-6.16.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.16.2-1">Inference phase for traffic management requires an interface to translate AI model's output to a set of network operation tasks and configuration commands. With this information readily available, existing protocols such as NETCONF can be employed to manage the network.<a href="#section-6.16.2-1" class="pilcrow">¶</a></p>
 <span id="name-ai-assisted-traffic-managemen"></span><div id="_figure-Inference">
 <figure id="figure-12">
             <div class="alignLeft art-text artwork" id="section-6.16.2-2.1">
 <pre>
-+---------+     (A) + (B)
-| Outside |xxxxxxxxxxxx External xxxxxxxxxxxxxxxx
-|  world  |              events                 x
-+---------+                                     x
-                                                x
++---------+        External Events
+| Outside |-------------------------------------| (A)+(B)
+|  world  |                                     |
++---------+                                     |
+                                                |
                                                 V
                                           +------------+
 +-----------+          (A) + (B)          |  AI model  |
-|  Network  |xxxxxxxxxxxxxxxxxxxxxxxxxxxx&gt;|     in     |
+|  Network  |----------------------------&gt;|     in     |
 +-----------+                             |  operation |
       ^                                   +------------+
-      |         real-time stream of             x
-      |         Network monitoring              x
-      |                info.                    x (C)
-      |            (e.g via SNMP)               x
-      |                  +                      V
-      |           Topology changes        +------------+
-      |                  +                | AI output  |
-      |               Data from           | to network |
-      |              TE-DB, etc.          | config     |
-      |                                   | translator |
-      |                                   +------------+
-      |                                         |
-      |                                         |
-      +----------- Configuration commands ------+
+      .         real-time stream of             |
+      .         Network monitoring info         | (C)
+      .                  +                      V
+      .         Topology changes          +------------+
+      .                  +                | AI output  |
+      .         Data from TE-DB, etc.     | to network |
+      .                                   | config     |
+      .                                   | translator |
+      .                                   +------------+
+      .                                         .
+      . .........................................
+                   Configuration commands
 
 
   Legend:
-  xxx Potential IETF defined and standardized interface.
+  --- Potential IETF defined and standardized interface.
   (A) Extracting and storing outside world events data.
-  (B) Important features for training the model for traffic mgmt.
+  (B) Important features for training model for traffic management
   (C) Standardized output of the AI model delivered for translation
 
 </pre>
@@ -3283,8 +3277,7 @@ manage the network.<a href="#section-6.16.2-1" class="pilcrow">¶</a></p>
 <a href="#section-6.16.3" class="section-number selfRef">6.16.3. </a><a href="#name-longer-term-view" class="section-name selfRef">Longer term view</a>
           </h4>
 <p id="section-6.16.3-1">Over time, the full integration of AI models and network elements will transform networks from their current state into agent-based or Agentic networks. In a distributed version of Agentic networks, each node is accompanied by an AI agents. Once trained, these agents work together to address flow placement, traffic steering/engineering, and other network related tasks such as traffic management, network resource defragmentation, and even routing.<a href="#section-6.16.3-1" class="pilcrow">¶</a></p>
-<p id="section-6.16.3-2">While being different from networks managed by a set of interworking multi agents , the Agentic networks face some of the same challenges outlined in the multi agent interworking
-section of the document. However, in Agentic networks, distributed training of the agents and proper knowledge sharing between them can enhance their collective training performance and can potentially alleviate some of these difficulties.<a href="#section-6.16.3-2" class="pilcrow">¶</a></p>
+<p id="section-6.16.3-2">While being different from networks managed by a set of interworking multi agents , the Agentic networks face some of the same challenges outlined in the multi agent interworking section of the document. However, in Agentic networks, distributed training of the agents and proper knowledge sharing between them can enhance their collective training performance and can potentially alleviate some of these difficulties.<a href="#section-6.16.3-2" class="pilcrow">¶</a></p>
 <p id="section-6.16.3-3">In these networks, AI agents trained on local traffic patterns and external events will exchange knowledge and network state information through a set of protocols in a distributed manner in order to address network related tasks. Agentic networks will potentially offer highly automated, streamlined, and tunnel-less traffic management that is currently available only for best-effort traffic.<a href="#section-6.16.3-3" class="pilcrow">¶</a></p>
 <p id="section-6.16.3-4">In addition to the potential standardization opportunities outlined in the previous section, IETF/IRTF can alo play a role in defining and standardizing the followings:<a href="#section-6.16.3-4" class="pilcrow">¶</a></p>
 <ul class="normal">
@@ -3326,26 +3319,26 @@ section of the document. However, in Agentic networks, distributed training of t
             <div class="alignLeft art-text artwork" id="section-6.16.3-7.1">
 <pre>
 +---------+                  (C) + (D)                +---------+
-| Outside |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx| Network |
-| world   |   x                   x             x     |         |
-+---------+   x                   x             x     +---------+
-              x                   x             x
-              x                   x             xxxxxxxxxx
-              x                   x                      x
-              V                   V                      V
+| Outside |-------------------------------------------| Network |
+| world   |    |                  |             |     |         |
++---------+    |                  |             |     +---------+
+               |                  |             |
+               |                  |             |--------|
+               |                  |                      |
+               V                  V                      V
         +------------+      +------------+          +------------+
-    xxx&gt;|  AI Agent  |  xxx&gt;|  AI Agent  |      xxx&gt;|  AI Agent  |
-    x   |------------|  x   +------------+ ...  x   +------------+
-    x   |            |  x   |            |      x   |            |
-    x   |   Node-1   |  x   |   Node-2   |      x   |   Node-n   |
-    x   +------------+  x   +------------+      x   +------------+
-    x                   x                       x
-    x                   x                       x
-    xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    |--&gt;|  AI Agent  |  |--&gt;|  AI Agent  |      |--&gt;|  AI Agent  |
+    |   |------------|  |   +------------+ ...  |   +------------+
+    |   |            |  |   |            |      |   |            |
+    |   |   Node-1   |  |   |   Node-2   |      |   |   Node-n   |
+    |   +------------+  |   +------------+      |   +------------+
+    |                   |                       |
+    |                   |                       |
+    |-------------------------------------------|
                        (A) + (B)
 
  Legend:
-  xxx Potential IETF defined and standardized interfaces
+  --- Potential IETF defined and standardized interfaces
   (A) APIs/Interfaces/Protocols for distributing training
       and knowledge sharing.
   (B) APIs/Interfaces/Protocols for distributing agents'
@@ -3363,36 +3356,7 @@ section of the document. However, in Agentic networks, distributed training of t
 <a href="#name-distributed-agentic-network" class="selfRef">Distributed agentic networks</a>
             </figcaption></figure>
 </div>
-<ul class="normal">
-<li class="normal" id="section-6.16.3-8.1">
-              <p id="section-6.16.3-8.1.1">Architecture<a href="#section-6.16.3-8.1.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-6.16.3-9">To be added.<a href="#section-6.16.3-9" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.16.3-10.1">
-              <p id="section-6.16.3-10.1.1">Interfaces and APIs<a href="#section-6.16.3-10.1.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-6.16.3-11">To be added.<a href="#section-6.16.3-11" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.16.3-12.1">
-              <p id="section-6.16.3-12.1.1">Protocols<a href="#section-6.16.3-12.1.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-6.16.3-13">To be added.<a href="#section-6.16.3-13" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.16.3-14.1">
-              <p id="section-6.16.3-14.1.1">Data Models<a href="#section-6.16.3-14.1.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-6.16.3-15">To be added.<a href="#section-6.16.3-15" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.16.3-16.1">
-              <p id="section-6.16.3-16.1.1">Alignment with IETF<a href="#section-6.16.3-16.1.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-6.16.3-17">To be added.<a href="#section-6.16.3-17" class="pilcrow">¶</a></p>
+<p id="section-6.16.3-8">More to be added.<a href="#section-6.16.3-8" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3465,8 +3429,8 @@ The architecture integrates an AI Fault Injection Engine with network
                  |-----------------------------|
 
 Legend:
-  (A) Fault injection commands (e.g., disable link, drop packets, d
-      egrade signal)
+  (A) Fault injection commands (e.g., disable link, drop packets,
+      degrade signal)
   (B) Telemetry feedback (e.g., latency, packet loss, BER)
   (C) Recovery actions (e.g., reroute traffic, adjust optical
       parameters)
@@ -3698,7 +3662,7 @@ The architecture integrates an AI Green Energy Optimization Engine with
            |  optical controller (O-PNC),            |
            |  and/or higher layer controllers (MDSC) |
            |                    &amp;                    |
-           |  NFVO                                   |
+           |                   NFVO                  |
            |-----------------------------------------|
                                ^
                           (A)  |
@@ -3827,10 +3791,10 @@ The architecture integrates an AI Policy Enforcement and Compliance
 <figure id="figure-16">
           <div class="alignLeft art-text artwork" id="section-6.20-4.1">
 <pre>
-                 |----------------------------------|
-                 |   AI-based Policy Enforcement &amp;  |
-                 |   Compliance Engine              |
-                 |----------------------------------|
+             |-----------------------------------|
+             |   AI-based Policy Enforcement &amp;   |
+             |   Compliance Engine               |
+             |-----------------------------------|
                        ^                |
                    (B) |                | (C)
                        |                v
