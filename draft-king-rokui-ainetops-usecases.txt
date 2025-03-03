@@ -122,7 +122,8 @@ Table of Contents
      6.20. AI-Driven Policy Enforcement and Compliance Auditing
      6.21. AI-Driven Network Slicing Optimization
      6.22. Other Use Cases
-   7.  Normative References
+   7.  Security Considerations
+   8.  Normative References
    Appendix A.  IANA Considerations
    Acknowledgments
    Contributors
@@ -975,7 +976,7 @@ Table of Contents
    positives.  It achieves this through behavioral analysis, which
    identifies unauthorized access or suspicious activities, and
    automated responses that isolate compromised devices or block
-   malicious IP addresses.  Additionally, AI’s adaptive learning
+   malicious IP addresses.  Additionally, AI's adaptive learning
    capabilities ensure continuous updates to address new threats in
    dynamic environments.
 
@@ -1183,7 +1184,7 @@ Table of Contents
    As illustrated in Figure 5, achieving proactive assurance involves
    running multiple processes that continuously monitor network
    performance.  These processes collect and analyze a wide array of
-   network telemetry data—including performance monitoring (PM) data,
+   network telemetry data-including performance monitoring (PM) data,
    alarms, logs, network topology, and inventory details (Step A).  By
    employing various techniques including advanced AI/ML algorithms,
    these processes provide real-time trending and forecasting insights,
@@ -1631,7 +1632,7 @@ Table of Contents
       computing optimal traffic paths and dynamically adjusting them
       based on network conditions or demand.  Originally designed for
       deriving paths for MPLS, and GMPLS, Label Switched Paths (LSPs),
-      PCE delivers these computed routes to the LSP’s head end via the
+      PCE delivers these computed routes to the LSP's head end via the
       Path Computation Element Communication Protocol (PCEP).
 
       The PCE architecture [RFC4655] enables efficient path computation
@@ -1846,7 +1847,7 @@ Table of Contents
 
 6.16.1.  Short term approaches
 
-   In the short-term, AI models train on operator’s network traffic
+   In the short-term, AI models train on operator's network traffic
    patterns and employ a set of APIs to connect to network configuration
    equipment in order to add, remove, and modify configurations and
    perform different traffic management related tasks.  Model training
@@ -2106,8 +2107,8 @@ Table of Contents
    This use case leverages AI to design and execute fault injection
    scenarios that test the resilience of IP/optical networks under
    simulated failure conditions.  By proactively introducing controlled
-   disruptions—such as packet drops, latency spikes, or optical signal
-   degradation—AI assesses the network's ability to detect, respond, and
+   disruptions-such as packet drops, latency spikes, or optical signal
+   degradation-AI assesses the network's ability to detect, respond, and
    recover from faults.  This approach enhances network robustness by
    identifying weaknesses and validating automated recovery mechanisms
    before real failures occur, addressing both single-layer (IP or
@@ -2117,7 +2118,7 @@ Table of Contents
    equipment outages), real-time telemetry (e.g., latency, BER), and
    external factors (e.g., weather events, traffic surges) to model
    probable failure points.  It then injects faults, monitors the
-   network’s response, and refines recovery strategies, potentially in a
+   network's response, and refines recovery strategies, potentially in a
    closed-loop manner.  For example, an AI model might predict a high-
    risk optical link based on trending attenuation, simulate a fiber
    cut, and evaluate whether IP-layer rerouting maintains SLAs.  If
@@ -2217,7 +2218,7 @@ Table of Contents
       operator oversight via an AIOps-Assistant interface (similar to
       6.8).  Post-test analysis generates reports on resilience gaps,
       updates network policies (e.g., QoS, routing), and refines the AI
-      model’s training dataset.  Closed-loop automation may execute
+      model's training dataset.  Closed-loop automation may execute
       recovery actions autonomously, validated by subsequent tests.
 
    *  Alignment with IETF
@@ -2226,7 +2227,7 @@ Table of Contents
       groups.  The Network Management Research Group (NMRG) explores AI
       applications in networking, providing a foundation for fault
       injection methodologies.  The Traffic Engineering Architecture and
-      Signaling (TEAS) working group’s work on resilience and path
+      Signaling (TEAS) working group's work on resilience and path
       computation (e.g., RFC 8453 for ACTN) supports multi-layer
       testing.  Extensions to YANG (NETMOD), PCEP (PCE), and telemetry
       protocols (OPSAWG) could standardize fault injection and
@@ -2321,7 +2322,7 @@ Table of Contents
       network management, paralleling Section 6.17 standardization ties.
       The Operations and Management Area Working Group (OPSAWG) supports
       telemetry and efficiency metrics, while the Traffic Engineering
-      Architecture and Signaling (TEAS) working group’s path
+      Architecture and Signaling (TEAS) working group's path
       optimization work (e.g., RFC 8453 for ACTN) enables energy-
       efficient rerouting.  Extensions to YANG (NETMOD), PCEP (PCE), and
       telemetry standards (OPSAWG) could standardize energy
@@ -2680,7 +2681,7 @@ Table of Contents
       efforts in network management and traffic engineering.  The
       Operations and Management Area Working Group (OPSAWG) supports
       telemetry for slice performance metrics, while the Traffic
-      Engineering Architecture and Signaling (TEAS) working group’s work
+      Engineering Architecture and Signaling (TEAS) working group's work
       on path optimization (e.g., RFC 8453 for ACTN) enables slice-aware
       routing.  Extensions to YANG (NETMOD), PCEP (PCE), and telemetry
       standards (OPSAWG) could standardize this use case, leveraging
@@ -2710,7 +2711,11 @@ Table of Contents
 
    To be added.
 
-7.  Normative References
+7.  Security Considerations
+
+   To be discussed in future versions of this document.
+
+8.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
