@@ -131,7 +131,7 @@ these use cases, the requirements, and their implications.
 ## Background
 
 Efficient and coordinated use of resources is paramount for maintaining 
-optimal performance and reliability of many network environments. The applicability 
+optimal performance and reliability in many network environments. The applicability 
 of Artificial Intelligence is well-established, and the use cases are outlined
 in this document. 
 
@@ -283,7 +283,7 @@ resources across different network layers, such as IP and optical layers.
    based operations to intelligent, automated systems capable of real-
    time adaptation, predictive insights, and optimized decision-making.
 
-   This section outlines the following key areas where AINetOps can be
+   This section outlines the key areas where AINetOps can be
    applied effectively in network operations, leveraging both data-
    driven models and domain-specific knowledge.
 
@@ -324,7 +324,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
 ## Operator Network Assistance
 
    Powered by Gen-AI, the operator network assistant functions as a
-   virtual network engineer, providing a real-time recommendations,
+   virtual network engineer, providing real-time recommendations,
    insights, and automated solutions.  These systems use NLP for
    interface interaction, deep learning for anomaly classification, and
    contextual understanding to enhance operator decision-making.
@@ -382,7 +382,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    hardware failure or resolving issues with network protocols.  In an
    optical network, single-layer troubleshooting could involve
    identifying fiber cuts, optical signal degradation, or equipment
-   failures
+   failures.
 
    Multi-layer troubleshooting, on the other hand, requires a more
    integrated approach, as it involves identifying and resolving issues
@@ -1185,25 +1185,130 @@ To be added.
 
 ## Network Anomaly Detection
 
-* Architecture
+Network anomaly detection is a critical component of modern network security and management, aimed at identifying deviations from normal network behavior that may indicate potential threats or operational issues. With the increasing complexity of networks and the growing    sophistication of cyber threats, traditional rule-based detection methods are often insufficient. The integration of Artificial Intelligence (AI) and Machine Learning (ML) techniques offers a more dynamic and adaptive approach to detecting anomalies in real-time. This section outlines the architecture, interfaces, protocols, data models, and alignment with IETF standards necessary to implement an effective AI-driven network anomaly detection system. The design and implementation of such systems may use some relevant technologies, such as RFC 8345 (YANG Data Model for Network Topologies), RFC 6241 (NETCONF Protocol), and RFC 8529 (YANG Schema Mount).
 
-To be added.
+Machine learning would provide a key function in network anomaly detection as it can be seamlessly integrated into the architecture, via the “Analysis Layer” described in the figure above. By leveraging ML techniques, it would be possible to identify deviations from normal behavior, uncovering anomalies that might be imperceptible to human network engineers.
 
-* Interfaces and APIs
+An ML technique using unsupervised learning is particularly well-suited for network anomaly detection, as the network infrastructure is typically dynamic and evolving by nature. While machine learning requires large volumes of high-quality data and substantial computational resources for training, its benefits outweigh these challenges. Machine learning models offer generalizability, robustness, and reduced dependence on manual fine-tuning. More importantly, they enable the detection of complex and previously unseen anomaly patterns, enhancing network security, reliability, and operational efficiency. 
 
-To be added.
 
-* Protocols
+### Architecture
 
-To be added.
+The architecture for network anomaly detection using AI typically involves a distributed system where data collection, analysis, and    response mechanisms are decoupled but interconnected. The system comprises the following key components:
 
-* Data Models
+   - Data Collection Layer: Responsible for gathering network traffic data from various sources such as routers, switches, and endpoints. 
+     This layer may leverage protocols like IPFIX (RFC 7011) for flow data export.
+   - Analysis Layer: Utilizes machine learning (ML) models to detect anomalies in the collected data. This layer may include both real-time and batch processing capabilities.
+   - Response Layer: Executes predefined actions based on the analysis results, such as alerting administrators, blocking malicious traffic,or reconfiguring network devices. This layer may integrate with DOTS (RFC 8811) to mitigate DDoS attacks.
 
-To be added.
+The architecture should be scalable to handle large volumes of data and adaptable to incorporate new AI models as they evolve.
 
-* Alignment with IETF
+The following figure illustrates the high-level architecture of an AI-based network anomaly detection system:
 
-To be added.
+~~~
+                         +-------------------+
+                         |                   |
+                         |    Analysis       |
+            +----------->|      Layer        |------------+
+            |            |     (AI/ML)       |            |
+            |            +-------------------+            |
+            |                                             |
+            |                                             v
+   +-------------------+                       +-----------------+
+   |                   |                       |                 |
+   |  Data Collection  |                       |    Response     |
+   |      Layer        |<------+       +-------|      Layer      |
+   |                   |       |       |       |                 |
+   +-------------------+       |       |       +-----------------+
+                               |       |resolve incidents, etc
+                      monitor  |       |
+                               |       v
+                        +-------------------+     
+                        |  Network Devices  |       
+                        | (Routers, Switches|      
+                        | Endpoints, etc.)  |      
+                        +-------------------+   
+~~~
+{: #fig-NAD title="Architecture of network anomaly detection system"}
+
+### Interfaces and APIs
+
+To facilitate interoperability and integration with existing network management systems, the following interfaces and APIs are recommended:
+
+ - Northbound API: Provides a standardized interface for external systems to query anomaly detection results and receive alerts.This API should align with RESTCONF (RFC 8040) for consistency with IETF standards.
+ - Southbound API: Allows the anomaly detection system to interact with network devices for data collection and response actions. This API may use NETCONF (RFC 6241) or RESTCONF (RFC 8040) for device management.
+ - Model Management API: Enables the deployment, updating, and monitoring of AI models used in the analysis layer. This API should support secure communication as defined in RFC 8446 (TLS 1.3).
+
+These APIs should adhere to RESTful principles or other widely adopted standards to ensure ease of integration.
+
+The following figure illustrates the interaction between the anomaly detection system and external components via the defined interfaces:
+
+~~~
+
+    +-----------------------------------------------------------+
+    |                       External Systems                    |
+    +-----------------------------------------------------------+
+     ^                            ^ 
+     |                            |Model Management API
+     |Northbound API              |
+     |                   +-------------------+
+     |                   |                   |
+     |                   |    Analysis       |
+     |      +----------->|      Layer        |------------+
+     |      |            |     (AI/ML)       |            |
+     |      |            +-------------------+            |
+     |      |                                             |
+     |      |                                             v
+   +-------------------+                       +-----------------+
+   |                   |                       |                 |
+   |  Data Collection  |                       |    Response     |
+   |      Layer        |<------+       +-------|      Layer      |
+   |                   |       |       |       |                 |
+   +-------------------+       |       |       +-----------------+
+                               |       |
+             Southbound API    |       | Southbound API 
+  (NETCONF, IPFIX,BGP-LS, etc) |       v (NETCONF, PCEP, BGP, etc)
+                        +-------------------+     
+                        |  Network Devices  |       
+                        | (Routers, Switches|      
+                        | Endpoints, etc.)  |      
+                        +-------------------+   
+~~~
+{: #fig-NAD-Intf title="Interfaces of network anomaly detection system"}
+
+### Protocols
+
+The following protocols are suggested for communication between the components of the anomaly detection system:
+
+ - NETCONF/RESTCONF: For configuring and managing network devices and retrieving operational data, as defined in RFC 6241 and RFC 8040.
+ - gRPC/HTTP2: For high-performance communication between the analysis layer and other components, leveraging HTTP/2 (RFC 7540) for efficient data transfer.
+ - MQTT: For lightweight, publish-subscribe messaging between distributed components, particularly in IoT environments, as specified in RFC 7252 (CoAP) or MQTT 5.0 (OASIS Standard).
+
+The choice of protocol should consider factors such as latency, bandwidth, and security requirements.
+
+### Data Models
+
+Data models for network anomaly detection should be designed to capture both the structure and semantics of network traffic data. 
+   The following models are recommended:
+
+ - YANG Data Models: For representing network configuration and state data in a structured format, as defined in RFC 7950 and 
+     extended by RFC 8345 for network topologies.
+ - JSON/XML Schemas: For defining the format of data exchanged between components via APIs, consistent with RFC 8259 (JSON) and RFC 7303 (XML).
+ - Feature Vectors: For representing the input data to AI models, which may include packet headers, flow statistics, and behavioral 
+     patterns. These vectors should align with the IPFIX Information Model (RFC 7012) for flow data representation.
+
+These data models should be extensible to accommodate new types of network data and evolving AI techniques.
+
+### Alignment with IETF
+
+The development of AI-based network anomaly detection systems should align with existing IETF standards and working groups, such as:
+
+ - NETMOD (Network Modeling): For leveraging YANG data models (RFC 7950, RFC 8345) and NETCONF/RESTCONF protocols (RFC 6241, RFC 8040).
+ - MILE (Managed Incident Lightweight Exchange, concluded): For standardizing the exchange of security incident information, as outlined in RFC 8329.
+ - DOTS (DDoS Open Threat Signaling ,concluded): For coordinating responses to distributed denial-of-service attacks, as defined in RFC 8811.
+ - Awaiting to add more WGs, BGP-LS, PCE, etc.
+
+Collaboration with these groups ensures that the anomaly detection system integrates seamlessly with existing IETF frameworks and contributes to the broader goal of network security and management.
 
 ## Network Predictive Maintenance
 
