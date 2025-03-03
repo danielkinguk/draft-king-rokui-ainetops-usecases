@@ -134,7 +134,7 @@ Table of Contents
    The increasing complexity of modern networks has driven the need for
    innovative approaches to network operations and management.
    Artificial Intelligence for Network Operations (AINetOps) has emerged
-   as a innovative concept, leveraging artificial intelligence (AI) and
+   as an innovative concept, leveraging artificial intelligence (AI) and
    machine learning (ML) to automate, enhance, and optimize network
    management tasks.  AINetOps offers the potential to reduce
    operational costs, improve service reliability, and enhance user
@@ -173,8 +173,8 @@ Table of Contents
    environments.  The applicability of Artificial Intelligence is well-
    established, and the use cases are outlined in this document.
 
-   Editors note: Future versions of this document will include will
-   include prior IRTF and IETF work.
+   Editors note: Future versions of this document will include prior
+   IRTF and IETF work.
 
 2.  Conventions and Definitions
 
@@ -281,7 +281,7 @@ Table of Contents
    This draft introduces the term “Operational Benefit”, which
    encompasses the comprehensive suite of tools, and methodologies that
    facilitate the efficient management, debugging, troubleshooting,
-   monitoring, configuration, and optimization of IP Optical networks.
+   monitoring, configuration, and optimizing of IP Optical networks.
    These operational benefits might include network management systems,
    automated diagnostic tools, performance monitoring and telemetry
    systems, configuration management platforms, and optimization
@@ -1186,7 +1186,7 @@ Table of Contents
    As illustrated in Figure 5, achieving proactive assurance involves
    running multiple processes that continuously monitor network
    performance.  These processes collect and analyze a wide array of
-   network telemetry data-including performance monitoring (PM) data,
+   network telemetry data, including performance monitoring (PM) data,
    alarms, logs, network topology, and inventory details (Step A).  By
    employing various techniques including advanced AI/ML algorithms,
    these processes provide real-time trending and forecasting insights,
