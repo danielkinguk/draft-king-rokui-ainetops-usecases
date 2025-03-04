@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-02T01:05:21.804655+00:00",
+  "timestamp": "2025-03-04T01:02:18.415383+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -423,25 +423,71 @@
       "id": "PR_kwDONbAZCM6Mz2kP",
       "title": "Use case: Cognitive Search On Internal Operator Data",
       "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "NathalieRM",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-02-27T14:46:20Z",
-      "updatedAt": "2025-02-27T14:46:20Z",
+      "updatedAt": "2025-03-02T18:33:08Z",
       "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
       "baseRefName": "main",
       "baseRefOid": "d5aa33f71d5861b62412f2f34a0f9ac8baf88da2",
       "headRepository": "NathalieRM/draft-king-rokui-ainetops-usecases",
       "headRefName": "main",
       "headRefOid": "be843ce6e163a5de4a9ba7f4ef7ae73544b2739a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2025-03-02T18:33:02Z",
+      "mergedAt": "2025-03-02T18:33:02Z",
+      "mergedBy": "reza-github",
+      "mergeCommit": {
+        "oid": "ab95cd356f1b5843cf2119febd844979f5d85b11"
+      },
+      "comments": [
+        {
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merged",
+          "createdAt": "2025-03-02T18:33:07Z",
+          "updatedAt": "2025-03-02T18:33:07Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 14,
+      "id": "PR_kwDONbAZCM6NDM-T",
+      "title": "adding section 6.17 - Resilience testing",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/pull/14",
+      "state": "MERGED",
+      "author": "alitizghadam",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-03-02T01:20:06Z",
+      "updatedAt": "2025-03-02T18:32:42Z",
+      "baseRepository": "danielkinguk/draft-king-rokui-ainetops-usecases",
+      "baseRefName": "main",
+      "baseRefOid": "d5aa33f71d5861b62412f2f34a0f9ac8baf88da2",
+      "headRepository": "alitizghadam/draft-king-rokui-ainetops-usecases",
+      "headRefName": "AT-changes",
+      "headRefOid": "3d70e48fe4fe029091d0ac063d4889f67ea420cf",
+      "closedAt": "2025-03-02T18:32:34Z",
+      "mergedAt": "2025-03-02T18:32:34Z",
+      "mergedBy": "reza-github",
+      "mergeCommit": {
+        "oid": "62a7b725a6835cdadd8cb638ac3a3069586467b1"
+      },
+      "comments": [
+        {
+          "author": "reza-github",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Merged",
+          "createdAt": "2025-03-02T18:32:42Z",
+          "updatedAt": "2025-03-02T18:32:42Z"
+        }
+      ],
       "reviews": []
     }
   ]
