@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-06T01:02:26.657707+00:00",
+  "timestamp": "2025-03-09T00:54:32.878333+00:00",
   "repo": "danielkinguk/draft-king-rokui-ainetops-usecases",
   "labels": [
     {
@@ -123,6 +123,24 @@
       "body": "The objective of the I-D is focus on the applicability of IETF technologies and enabling-AI for Network Operations. We can scope the work in a sub-section, perhaps in the \"Introduction\". ",
       "createdAt": "2025-01-16T15:16:52Z",
       "updatedAt": "2025-01-16T15:16:52Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 15,
+      "id": "I_kwDONbAZCM6tEYRE",
+      "title": "Review from Thorsten",
+      "url": "https://github.com/danielkinguk/draft-king-rokui-ainetops-usecases/issues/15",
+      "state": "OPEN",
+      "author": "danielkinguk",
+      "authorAssociation": "OWNER",
+      "assignees": [
+        "danielkinguk"
+      ],
+      "labels": [],
+      "body": "\nFrom: Thorsten Dahm <thorsten.dahm@gmail.com> \nSent: 07 March 2025 15:20\nTo: rrokui@ciena.com; c.l@huawei.com; King, Daniel <d.king@lancaster.ac.uk>\nSubject: [External] Your Draft about AINetOps\n\nThis email originated outside the University. Check before clicking links or attachments.\nHi Reza, Cheng Li, Daniel,\n\nI've read your draft-king-rokui-ainetops-usecases-00 document. A few comments and thoughts on the content:\n\nI'd like to see more mention of the work from the ANIMA WG on automation and autonomous networking. \n\nAnd perhaps a few sentences about SDN, which can give you more / better and a different insight into your network than a classical multi-vendor network will provide. Especially relevant could this be for your section on Traffic Optimization. \n\nIn general, this document covers a lot, maybe it would make sense to split it and maybe concentrate on Network Configuration Management at the beginning. A few more comments on the text below, using \"\"\" to quote the text in the draft, adding my comment below.\n\n\"\"\"\n   This draft introduces the term \u201cOperational Benefit\u201d, which\n   encompasses the comprehensive suite of tools, and methodologies that\n   facilitate the efficient management, debugging, troubleshooting,\n   monitoring, configuration, and optimizing of IP Optical networks.\n\"\"\"   \n   \n   I would get rid of Optical here, and just call it IP networks.\n\n\"\"\"   \n   By understanding and interpreting human language, these AI assistants\n   can effectively communicate with operators, making it easier for them\n   to manage complex network environments without needing extensive\n   technical expertise.\n\"\"\"   \n   \n   I'd be careful with such a claim given the current state of AI assistants. In general, I'd add at least a sentence or two about it. In the case of communication via voice, while existing AI assistants are somewhat working in English, they work very poorly in other languages, for example certain German dialects that I guarantee you some operators will use :-)\n      \n\"\"\"   \n   The deep learning models\n   continuously improve over time, becoming more adept at recognizing\n   new types of anomalies and adapting to evolving network conditions.\n\"\"\"     \n   \n   I'm missing here a hint on data quality. Those models require a high quality of input data to produce the best results, and the data we as network operators have to deal with on a daily basis is sometimes not of the highest quality.\n   \n     \n\"\"\"   \n   In essence, AI-powered operator network assistants\n   are transforming network management by augmenting human capabilities\n   with advanced technology, leading to smarter and more proactive\n   network operations.\n\"\"\"   \n      \n   Again, that's a claim we make here, without any data to back it up (yet?). I would rewrite this sentence in that regard.\n   \n   \n\"\"\"   \n   By employing AINetOps techniques, network engineers can quickly\n   pinpoint the root cause of problems,\n\"\"\"   \n   \n   Another part where I would be careful. Root-cause analysis especially in very complex environments including cloud networking and such can be very tricky, and AI could lead to the wrong troubleshooting path. AI may be able to assist here, or help finding patterns in a large amount of data, but I'm not sure if it would yet be able to do a proper Root-cause analysis to pinpoint a solution.\n   \n   \n\"\"\"   \n   In an\n   optical network, single-layer troubleshooting could involve\n   identifying fiber cuts, optical signal degradation, or equipment\n   failures\n\"\"\"   \n   \n   How would AI help here doing things or providing an advantage that we do not already have today? Fiber cuts can be spotted, optical signal degradation is shown in any equipment monitoring interface I've used in the past.\n   \n   \n\"\"\"   \n   These insights are typically derived from real-time monitoring\n   systems that continuously track network performance and health\n   metrics.  For example, showing the Network Element (NE) with the\n   highest alarms or displaying the current alarm table for a specific\n   NE (e.g., NE 1.1.1.1) can provide immediate visibility into potential\n   issues.  Similarly, identifying the NEs with the highest problems\n   during the last hour or plotting the Bit Error Rate (BER) for the 10\n   worst modems in a specific region (e.g., Northeast) allows operators\n   to quickly pinpoint areas that require attention.  These insights are\n   crucial for maintaining network stability and ensuring prompt\n   resolution of emerging issues.\n\"\"\"   \n   \n   \n   This is something a lot of commercial and open source real-time monitoring systems can do already today as you wrote in the first sentence. They often have dashboards built in to show the NE with the highest alarms and so on. It's missing here what the additional benefit would be by adding AI to the mix here.\n\n\n\ncheers,\nThorsten\n",
+      "createdAt": "2025-03-07T17:54:43Z",
+      "updatedAt": "2025-03-07T17:54:43Z",
       "closedAt": null,
       "comments": []
     }
