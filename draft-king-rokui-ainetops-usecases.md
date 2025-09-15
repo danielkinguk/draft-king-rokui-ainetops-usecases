@@ -3,7 +3,7 @@ title: "Artificial Intelligence (AI) for Network Operations"
 abbrev: "AINetOps Use Cases"
 category: info
 
-docname: draft-king-rokui-ainetops-usecases-00
+docname: draft-king-rokui-ainetops-usecases-01
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
