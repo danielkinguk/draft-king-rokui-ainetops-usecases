@@ -1291,6 +1291,9 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.13">
                 <p id="section-toc.1-1.5.2.13.1"><a href="#section-5.13" class="auto internal xref">5.13</a>. <a href="#name-multi-agent-interworking" class="internal xref">Multi-Agent Interworking</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.14">
+                <p id="section-toc.1-1.5.2.14.1"><a href="#section-5.14" class="auto internal xref">5.14</a>. <a href="#name-human-on-the-loop" class="internal xref">Human on the Loop</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
@@ -2477,6 +2480,47 @@ agent-to-agent communication.  Work on the discovery and interworking
 aspects described in this section should be coordinated with those
 activities, and with the GRASP-based rendezvous mechanism described
 in <span>[<a href="#I-D.carpenter-anima-grasp-rendezvous" class="cite xref">I-D.carpenter-anima-grasp-rendezvous</a>]</span>.<a href="#section-5.13-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="human-on-the-loop">
+<section id="section-5.14">
+        <h3 id="name-human-on-the-loop">
+<a href="#section-5.14" class="section-number selfRef">5.14. </a><a href="#name-human-on-the-loop" class="section-name selfRef">Human on the Loop</a>
+        </h3>
+<p id="section-5.14-1">human on the Loop has been integrated  into the AI-driven IP network
+management and operation loop, providing safeguards for critical decisions and
+enabling human-Agent collaboration.<a href="#section-5.14-1" class="pilcrow">¶</a></p>
+<p id="section-5.14-2">Interaction with the system is typically provided through natural language
+interfaces that allow operators to review decisions, request explanations, and
+provide guidance when necessary.<a href="#section-5.14-2" class="pilcrow">¶</a></p>
+<p id="section-5.14-3">Implementation shall support conversational interaction via chat copilot
+platforms (for natural language) and structured APIs (such as A2A-T, for
+workflowbased operations). It shall also maintain comprehensive audit logs
+of all humanAgent interactions to ensure accountability, including intent
+submissions, approvals, and interventions.<a href="#section-5.14-3" class="pilcrow">¶</a></p>
+<p id="section-5.14-4">Key interaction modes between Human operators and agents include:<a href="#section-5.14-4" class="pilcrow">¶</a></p>
+<p id="section-5.14-5">• Intent Input (initiates the loop): Human operators submit high-level
+  IP network intents (e.g., "deploy a low-latency L3VPN for 4G backhaul")
+  via copilot or structured workflows.<a href="#section-5.14-5" class="pilcrow">¶</a></p>
+<p id="section-5.14-6">• Decision Approval: The IP Network AI Agent escalates critical tasks
+  (e.g., core route changes, bulk configuration deletions) to human operators
+  for approval, providing context such as data simulation results and risk
+  assessments.<a href="#section-5.14-6" class="pilcrow">¶</a></p>
+<p id="section-5.14-7">• Intervention &amp; Guidance: Human Operators intervene in ongoing tasks
+  (e.g., correcting a fault diagnosis) or providing expert guidance
+  (e.g., updating troubleshooting rules) to Agents.<a href="#section-5.14-7" class="pilcrow">¶</a></p>
+<p id="section-5.14-8">• Feedback Provision: Human Operators submit feedback on Agent
+  performance (e.g., incorrect configuration suggestions) to drive
+  continuous improvement.<a href="#section-5.14-8" class="pilcrow">¶</a></p>
+<p id="section-5.14-9">Note that agent discovery and inter-agent communication are the
+subject of dedicated IETF activities: the DAWN (Discovery of Agents,
+Workloads, and Named Entities) effort addresses the discovery of
+agents and their capabilities, and the AGENTPROTO (Agent
+Communication Protocols) effort addresses end-to-end protocols for
+agent-to-agent communication.  Work on the discovery and interworking
+aspects described in this section should be coordinated with those
+activities, and with the GRASP-based rendezvous mechanism described
+in <span>[<a href="#I-D.carpenter-anima-grasp-rendezvous" class="cite xref">I-D.carpenter-anima-grasp-rendezvous</a>]</span>.<a href="#section-5.14-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
