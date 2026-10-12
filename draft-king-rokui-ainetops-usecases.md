@@ -1071,7 +1071,7 @@ agent-to-agent communication.  Work on the discovery and interworking
 aspects described in this section should be coordinated with those
 activities, and with the GRASP-based rendezvous mechanism described
 in {{?I-D.carpenter-anima-grasp-rendezvous}}.
-   
+
 # AINetOps Scenarios and Use-cases
 
 {Editor's note: This is a work in progress. More use cases will be added, and existing ones will be revised.}
@@ -1521,5 +1521,5 @@ This document has no IANA actions.
 This work has benefited from several discussions at the IETF and the
 AI4NETWORK Side Meetings.
 
-This work has benefited from several discussions at the IETF and the 
+This work has benefited from several discussions at the IETF and the
 AI4NETWORK Side Meetings.
