@@ -6,8 +6,9 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>Artificial Intelligence (AI) for Network Operations</title>
 <meta content="Reza Rokui" name="author">
-<meta content="Cheng Li" name="author">
 <meta content="Daniel King" name="author">
+<meta content="Cheng Li" name="author">
+<meta content="Qin Wu" name="author">
 <meta content="
        This document explores the role of the IETF and IRTF in advancing
 Artificial Intelligence for network operations (AINetOps), focusing on
@@ -15,34 +16,37 @@ requirements for IETF protocols and architectures. AINetOps applies AI/ML
 techniques to automate and optimize network operations, enabling use
 cases such as reactive troubleshooting, proactive assurance, closed-loop
 optimization, misconfiguration detection, and virtual operator
-assistance. 
-       The document addresses AINetOps for both single-layer IP or Optical
+assistance. In addition, AINetOps also introduces network management agents
+which make AI native operations non-deterministic, therefore constraining
+the behavior of AI agents within operational and compliance boundaries become
+extremely important. 
+       The document addresses AINetOps challenges for both single-layer IP or Optical
 networks and multi-layer IP/Optical networks. It defines the concept of
 AINetOps for networking and provides its operational benefits such as
 network assurance, predictive analytics, network optimization,
 multi-layer planning, and more. It aims to guide the evolution of IETF
 protocols to support AINetOps-driven network management. 
     " name="description">
-<meta content="xml2rfc 3.28.0" name="generator">
+<meta content="xml2rfc 3.34.1" name="generator">
 <meta content="AI" name="keyword">
 <meta content="ML" name="keyword">
 <meta content="Artificial Intelligence" name="keyword">
 <meta content="Use Cases" name="keyword">
-<meta content="draft-king-rokui-ainetops-usecases-00" name="ietf.draft">
+<meta content="draft-king-rokui-ainetops-usecases-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.0
-    Python 3.12.9
-    ConfigArgParse 1.7
+  xml2rfc 3.34.1
+    Python 3.14.8
+    ConfigArgParse 1.8.0
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
-    Jinja2 3.1.5
-    lxml 5.3.0
-    platformdirs 4.3.6
+    intervaltree 3.2.1
+    Jinja2 3.1.6
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.12.2
     pycountry 24.6.1
-    PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
-    wcwidth 0.2.13
+    PyYAML 6.0.3
+    requests 2.33.1
+    wcwidth 0.9.1
 -->
 <link href="draft-king-rokui-ainetops-usecases.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -78,7 +82,6 @@ protocols to support AINetOps-driven network management.
   src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: italic;
@@ -127,7 +130,6 @@ protocols to support AINetOps-driven network management.
   src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: normal;
@@ -183,7 +185,7 @@ protocols to support AINetOps-driven network management.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -191,7 +193,7 @@ protocols to support AINetOps-driven network management.
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -308,16 +310,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -337,10 +342,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -351,59 +356,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -441,26 +446,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -476,20 +480,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -525,9 +531,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -537,17 +543,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -583,6 +591,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -596,25 +605,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -634,13 +635,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -651,18 +645,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -721,9 +713,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -813,23 +805,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -840,19 +836,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -873,54 +871,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -939,26 +937,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -974,12 +972,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1041,17 +1040,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1061,11 +1062,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">AINetOps Use Cases</td>
-<td class="right">March 2025</td>
+<td class="right">October 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rokui, et al.</td>
-<td class="center">Expires 4 September 2025</td>
+<td class="center">Expires 15 April 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1073,17 +1074,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">RTG</dd>
+<dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-king-rokui-ainetops-usecases-00</dd>
+<dd class="internet-draft">draft-king-rokui-ainetops-usecases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-03-03" class="published">3 March 2025</time>
+<time datetime="2026-10-12" class="published">12 October 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-04">4 September 2025</time></dd>
+<dd class="expires"><time datetime="2027-04-15">15 April 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1091,12 +1092,16 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div class="org">Ciena</div>
 </div>
 <div class="author">
+      <div class="author-name">D. King</div>
+<div class="org">Lancaster University</div>
+</div>
+<div class="author">
       <div class="author-name">C. Li</div>
 <div class="org">Huawei</div>
 </div>
 <div class="author">
-      <div class="author-name">D. King</div>
-<div class="org">Lancaster University</div>
+      <div class="author-name">Q. Wu</div>
+<div class="org">Huawei</div>
 </div>
 </dd>
 </dl>
@@ -1110,8 +1115,11 @@ requirements for IETF protocols and architectures. AINetOps applies AI/ML
 techniques to automate and optimize network operations, enabling use
 cases such as reactive troubleshooting, proactive assurance, closed-loop
 optimization, misconfiguration detection, and virtual operator
-assistance.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
-<p id="section-abstract-2">The document addresses AINetOps for both single-layer IP or Optical
+assistance. In addition, AINetOps also introduces network management agents
+which make AI native operations non-deterministic, therefore constraining
+the behavior of AI agents within operational and compliance boundaries become
+extremely important.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">The document addresses AINetOps challenges for both single-layer IP or Optical
 networks and multi-layer IP/Optical networks. It defines the concept of
 AINetOps for networking and provides its operational benefits such as
 network assurance, predictive analytics, network optimization,
@@ -1137,7 +1145,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 4 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 15 April 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1146,7 +1154,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1167,18 +1175,24 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
         </h2>
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+            <p id="section-toc.1-1.1.1"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-background" class="internal xref">Background</a></p>
 </li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.2">
+                <p id="section-toc.1-1.1.2.2.1" class="keepWithNext"><a href="#section-1.2" class="auto internal xref">1.2</a>.  <a href="#name-prior-and-related-ietf-and-" class="internal xref">Prior and Related IETF and IRTF Work</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.3">
+                <p id="section-toc.1-1.1.2.3.1" class="keepWithNext"><a href="#section-1.3" class="auto internal xref">1.3</a>.  <a href="#name-scope" class="internal xref">Scope</a></p>
+</li>
             </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-ai-ml-deep-learning-and-gen" class="internal xref">AI, ML, Deep Learning and Gen-AI</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-ai-ml-deep-learning-gen-ai-" class="internal xref">AI, ML, Deep Learning, Gen-AI, Agentic AI</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-definition-of-ainetops" class="internal xref">Definition of AINetOps</a></p>
@@ -1190,7 +1204,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="auto internal xref">5.1</a>.  <a href="#name-operator-network-assistance" class="internal xref">Operator Network Assistance</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
-                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-network-active-and-reactive" class="internal xref">Network active and reactive assurance</a></p>
+                <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="auto internal xref">5.2</a>.  <a href="#name-network-active-and-reactive" class="internal xref">Network Active and Reactive Assurance</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="auto internal xref">5.2.1</a>.  <a href="#name-root-cause-analysis" class="internal xref">Root Cause Analysis</a></p>
@@ -1267,7 +1281,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.13">
-                <p id="section-toc.1-1.5.2.13.1"><a href="#section-5.13" class="auto internal xref">5.13</a>. <a href="#name-multi-agent-interworking" class="internal xref">Multi Agent Interworking</a></p>
+                <p id="section-toc.1-1.5.2.13.1"><a href="#section-5.13" class="auto internal xref">5.13</a>. <a href="#name-multi-agent-interworking" class="internal xref">Multi-Agent Interworking</a></p>
 </li>
             </ul>
 </li>
@@ -1357,7 +1371,15 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-references" class="internal xref">References</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
+                <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="auto internal xref">8.1</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
+                <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="auto internal xref">8.2</a>.  <a href="#name-informative-references" class="internal xref">Informative References</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
             <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="auto internal xref">Appendix A</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
@@ -1397,7 +1419,7 @@ and to identify gaps that may require new or extended solutions. This
 document aims to outline key AINetOps use cases, highlight associated
 technical challenges, and propose requirements for protocols and
 architectures to address these challenges effectively.<a href="#section-1-2" class="pilcrow">¶</a></p>
-<p id="section-1-3">The use cases considered in this document span multiple aspects of
+<p id="section-1-3">The use cases considered in this document span across multiple phases of
 network operations, including reactive troubleshooting, proactive
 assurance (e.g., anomaly detection, predictive maintenance), closed-loop
 optimization, and misconfiguration detection. Emerging capabilities, such
@@ -1408,19 +1430,100 @@ these use cases, encompassing IP, optical, and cross-layer optimization,
 underscores the complexity of integrating AINetOps into existing
 networks.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <p id="section-1-4">This document provides a foundation for advancing IETF protocols and
-architectures to enable AINetOps-driven network operations by exploring
+architectures to enable AINetOps-driven network operations and prevent
+non-deterministic outcome introduced by AINetOPs by exploring
 these use cases, the requirements, and their implications.<a href="#section-1-4" class="pilcrow">¶</a></p>
 <div id="background">
 <section id="section-1.1">
         <h3 id="name-background">
 <a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-background" class="section-name selfRef">Background</a>
         </h3>
-<p id="section-1.1-1">Efficient and coordinated use of resources is paramount for maintaining 
-optimal performance and reliability of many network environments. The applicability 
+<p id="section-1.1-1">Efficient and coordinated use of resources is paramount for maintaining
+optimal performance and reliability of many network environments. The applicability
 of Artificial Intelligence is well-established, and the use cases are outlined
 in this document.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
-<p id="section-1.1-2">Editors note: Future versions of this document will include prior
-IRTF and IETF work.<a href="#section-1.1-2" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="prior-and-related-ietf-and-irtf-work">
+<section id="section-1.2">
+        <h3 id="name-prior-and-related-ietf-and-">
+<a href="#section-1.2" class="section-number selfRef">1.2. </a><a href="#name-prior-and-related-ietf-and-" class="section-name selfRef">Prior and Related IETF and IRTF Work</a>
+        </h3>
+<p id="section-1.2-1">The IETF has already standardized an autonomic networking
+   architecture that is directly relevant to AINetOps.  The Autonomic
+   Service Agent (ASA) model, the Autonomic Control Plane, and the GRASP
+   protocol <span>[<a href="#RFC8990" class="cite xref">RFC8990</a>]</span> were designed for autonomous, policy-driven agents
+   operating in network infrastructure; AI-based agents can be viewed as
+   a more capable instantiation of that model rather than a departure
+   from it.<a href="#section-1.2-1" class="pilcrow">¶</a></p>
+<p id="section-1.2-2">In the IRTF, the Network Management Research Group (NMRG) has
+   examined the research challenges of coupling AI with network
+   management <span>[<a href="#I-D.irtf-nmrg-ai-challenges" class="cite xref">I-D.irtf-nmrg-ai-challenges</a>]</span> and has proposed a framework
+   for LLM-assisted network management with a human-in-the-loop
+   <span>[<a href="#I-D.irtf-nmrg-llm-nm" class="cite xref">I-D.irtf-nmrg-llm-nm</a>]</span>.<a href="#section-1.2-2" class="pilcrow">¶</a></p>
+<p id="section-1.2-3">A number of related individual drafts are active in this space:<a href="#section-1.2-3" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-1.2-4.1">
+            <p id="section-1.2-4.1.1">A governance framework for AI-mediated autonomous network device
+management <span>[<a href="#I-D.smith-opsawg-ai-network-governance" class="cite xref">I-D.smith-opsawg-ai-network-governance</a>]</span>.<a href="#section-1.2-4.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-4.2">
+            <p id="section-1.2-4.2.1">An AI-based Network Management Agent (NMA) concept and
+architecture <span>[<a href="#I-D.zhao-nmop-network-management-agent" class="cite xref">I-D.zhao-nmop-network-management-agent</a>]</span>, with a
+companion YANG data model for its Agent-to-User (A2U) interface
+<span>[<a href="#I-D.zhao-nmop-nma-a2u-yang" class="cite xref">I-D.zhao-nmop-nma-a2u-yang</a>]</span>.<a href="#section-1.2-4.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-4.3">
+            <p id="section-1.2-4.3.1">Applicability and gap analyses of NETCONF/RESTCONF for AI-driven
+operations, and proposed Model Context Protocol (MCP) extensions
+for network equipment management
+<span>[<a href="#I-D.zeng-opsawg-applicability-mcp-a2a" class="cite xref">I-D.zeng-opsawg-applicability-mcp-a2a</a>]</span>,
+<span>[<a href="#I-D.zeng-opsawg-llm-netconf-gap" class="cite xref">I-D.zeng-opsawg-llm-netconf-gap</a>]</span>,
+<span>[<a href="#I-D.zw-opsawg-mcp-network-mgmt" class="cite xref">I-D.zw-opsawg-mcp-network-mgmt</a>]</span>.<a href="#section-1.2-4.3.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-4.4">
+            <p id="section-1.2-4.4.1">A canonical semantic representation intended to bridge YANG data
+models and the semantic framing needed by LLM-based agents
+<span>[<a href="#I-D.feng-netmod-naim" class="cite xref">I-D.feng-netmod-naim</a>]</span>.<a href="#section-1.2-4.4.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-4.5">
+            <p id="section-1.2-4.5.1">A GRASP-based agent rendezvous mechanism
+<span>[<a href="#I-D.carpenter-anima-grasp-rendezvous" class="cite xref">I-D.carpenter-anima-grasp-rendezvous</a>]</span>.<a href="#section-1.2-4.5.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-1.2-4.6">
+            <p id="section-1.2-4.6.1">An agent communication framework and registry for network AIOps
+<span>[<a href="#I-D.fu-nmop-agent-communication-framework" class="cite xref">I-D.fu-nmop-agent-communication-framework</a>]</span> and a problem
+statement on model grounding and token operations
+<span>[<a href="#I-D.fu-nmop-tokenops-probelem-statement" class="cite xref">I-D.fu-nmop-tokenops-probelem-statement</a>]</span>, both based on operator
+deployment experience.<a href="#section-1.2-4.6.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-1.2-5">In addition, the ICON (Observability, Intervention and Control of
+   Network Management Agent) effort <span>[<a href="#ICON" class="cite xref">ICON</a>]</span> is exploring how network
+   management agents can be continuously monitored, intervened upon, and
+   controlled when they misbehave, including trajectory records of agent
+   behavior, human oversight, and standardized intervention and recovery
+   mechanisms.  Section 7 discusses these considerations as they apply
+   across the use cases in this document.<a href="#section-1.2-5" class="pilcrow">¶</a></p>
+<p id="section-1.2-6">Discussion of the integration of AI/ML into network operations using
+   IETF technologies takes place on the AINETOPS non-working-group
+   mailing list (ainetops@ietf.org).<a href="#section-1.2-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="scope">
+<section id="section-1.3">
+        <h3 id="name-scope">
+<a href="#section-1.3" class="section-number selfRef">1.3. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
+        </h3>
+<p id="section-1.3-1">This document describes use cases and identifies associated
+   requirements.  It is intended to scope, ground, and prioritize
+   subsequent normative work, such as YANG data models, protocol
+   extensions, and operational guidance, rather than to serve as a
+   standalone endpoint.<a href="#section-1.3-1" class="pilcrow">¶</a></p>
+<p id="section-1.3-2">The specification of AI and ML algorithms, AI model architectures, and
+   training methodologies is out of scope for this document.  The use
+   cases and requirements described here are intentionally agnostic to
+   any particular AI technique or implementation.<a href="#section-1.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -1492,7 +1595,7 @@ of AI, ML, and generative-AI techniques to enhance and automate network operatio
           <span class="break"></span><dl class="dlParallel" id="section-2-3.6.1">
             <dt id="section-2-3.6.1.1">Closed-Loop Optimization:</dt>
             <dd style="margin-left: 1.5em" id="section-2-3.6.1.2">
-              <p id="section-2-3.6.1.2.1">Automated feedback-driven processes for continuously improving network 
+              <p id="section-2-3.6.1.2.1">Automated feedback-driven processes for continuously improving network
 performance and reliability.<a href="#section-2-3.6.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
@@ -1502,7 +1605,7 @@ performance and reliability.<a href="#section-2-3.6.1.2.1" class="pilcrow">¶</a
           <span class="break"></span><dl class="dlParallel" id="section-2-3.7.1">
             <dt id="section-2-3.7.1.1">Multi-Layer Optimization:</dt>
             <dd style="margin-left: 1.5em" id="section-2-3.7.1.2">
-              <p id="section-2-3.7.1.2.1">Addressing cross-layer dependencies and optimizing 
+              <p id="section-2-3.7.1.2.1">Addressing cross-layer dependencies and optimizing
 resources across different network layers, such as IP and optical layers.<a href="#section-2-3.7.1.2.1" class="pilcrow">¶</a></p>
 </dd>
           <dd class="break"></dd>
@@ -1514,13 +1617,16 @@ resources across different network layers, such as IP and optical layers.<a href
         <li class="normal" id="section-2-3.9">
           <p id="section-2-3.9.1">O-PNC: Optical Provisioning Network Controllers<a href="#section-2-3.9.1" class="pilcrow">¶</a></p>
 </li>
+        <li class="normal" id="section-2-3.10">
+          <p id="section-2-3.10.1">MDSC: Multi-Domain Service Coordinator<a href="#section-2-3.10.1" class="pilcrow">¶</a></p>
+</li>
       </ul>
 </section>
 </div>
-<div id="ai-ml-deep-learning-and-gen-ai">
+<div id="ai-ml-deep-learning-gen-ai-agentic-ai">
 <section id="section-3">
-      <h2 id="name-ai-ml-deep-learning-and-gen">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-ai-ml-deep-learning-and-gen" class="section-name selfRef">AI, ML, Deep Learning and Gen-AI</a>
+      <h2 id="name-ai-ml-deep-learning-gen-ai-">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-ai-ml-deep-learning-gen-ai-" class="section-name selfRef">AI, ML, Deep Learning, Gen-AI, Agentic AI</a>
       </h2>
 <p id="section-3-1">Artificial Intelligence (AI) is the broad field dedicated to creating
    systems that can perform tasks typically requiring human
@@ -1541,11 +1647,15 @@ resources across different network layers, such as IP and optical layers.<a href
    techniques are often employed in Gen-AI to create more sophisticated
    and realistic outputs, pushing the boundaries of what AI can achieve
    in terms of creativity and innovation.<a href="#section-3-2" class="pilcrow">¶</a></p>
-<p id="section-3-3"><a href="#fig1" class="auto internal xref">Figure 1</a> shows the relationship between AI, ML, Deep Learning, and
-   Gen-AI.<a href="#section-3-3" class="pilcrow">¶</a></p>
-<span id="name-figure-1-relationship-betwe"></span><div id="fig1">
+<p id="section-3-3">agentic AI autonomously plans and executes multi-step workflows to
+   achieve a specific goal. Generative AI focuses on creation (text,
+   images, code). Agentic AI focuses on action, decision-making, and
+   problem-solving.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-4"><a href="#fig1" class="auto internal xref">Figure 1</a> shows the relationship between AI, ML, Deep Learning, and
+   Gen-AI.<a href="#section-3-4" class="pilcrow">¶</a></p>
+<span id="name-relationship-between-ai-ml-"></span><div id="fig1">
 <figure id="figure-1">
-        <div class="alignCenter art-text artwork" id="section-3-4.1">
+        <div class="alignCenter art-text artwork" id="section-3-5.1">
 <pre>
           |-------------------------------------|
           |                  AI                 |
@@ -1555,16 +1665,18 @@ resources across different network layers, such as IP and optical layers.<a href
           |   |   |    Deep Learning    |   |   |
           |   |   |   |-------------|   |   |   |
           |   |   |   |   Gen-AI    |   |   |   |
-          |   |   |   |             |   |   |   |
-          |   |   |   |             |   |   |   |
-          |   |   |   |-------------|   |   |   |
+          |   |   |   | +--------+  |   |   |   |
+          |   |   |   | | Agentic|  |   |   |   |
+          |   |   |   | |   AI   |  |   |   |   |
+          |   |   |   | +--------+  |   |   |   |
+          |   |   |   +-------------+   |   |   |
           |   |   |---------------------|   |   |
           |   |-----------------------------|   |
           |-------------------------------------|
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
-<a href="#name-figure-1-relationship-betwe" class="selfRef">Figure 1: Relationship between AI, ML, Deep Learning, and Gen-AI</a>
+<a href="#name-relationship-between-ai-ml-" class="selfRef">Relationship between AI, ML, Deep Learning, Gen-AI, Agentic AI</a>
         </figcaption></figure>
 </div>
 </section>
@@ -1575,7 +1687,7 @@ resources across different network layers, such as IP and optical layers.<a href
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-definition-of-ainetops" class="section-name selfRef">Definition of AINetOps</a>
       </h2>
 <p id="section-4-1">Figure 2 illustrates the concept of AI for Network Operations
-   (AINetOps), which leverages AI, ML, Gen-AI techniques and rule-based
+   (AINetOps), which leverages AI, ML, Gen-AI, Agentic AI techniques and rule-based
    systems to enhance and automate network operations.  By integrating
    both historical and real-time streaming data, AINetOps employs
    advanced data analytics to uncover hidden patterns, establish data
@@ -1586,10 +1698,10 @@ resources across different network layers, such as IP and optical layers.<a href
    proactive and predictive analytics, allowing network operators to
    address potential issues before they impact users, thereby ensuring
    more resilient and reliable network operations.<a href="#section-4-1" class="pilcrow">¶</a></p>
-<p id="section-4-2">This draft introduces the term “Operational Benefit”, which
-   encompasses the comprehensive suite of tools, and methodologies that
+<p id="section-4-2">This document introduces the term "Operational Benefit", which
+   encompasses the comprehensive suite of tools and methodologies that
    facilitate the efficient management, debugging, troubleshooting,
-   monitoring, configuration, and optimizing of IP Optical networks.
+   monitoring, configuration, and optimization of IP Optical networks.
    These operational benefits might include network management systems,
    automated diagnostic tools, performance monitoring and telemetry
    systems, configuration management platforms, and optimization
@@ -1598,13 +1710,12 @@ resources across different network layers, such as IP and optical layers.<a href
    ultimately enhancing service delivery and reducing operational costs.
    The integration of these operational benefits is crucial for
    maintaining seamless network operations and achieving strategic
-   business objectives<a href="#section-4-2" class="pilcrow">¶</a></p>
-<p id="section-4-3">Section 5 expands the Operational benefits shown in Figure 2 and
+   business objectives.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<p id="section-4-3">Section 5 expands the operational benefits shown in Figure 2 and
    provides a detailed explanation of the various operational benefits
-   offered by AINetOp.<a href="#section-4-3" class="pilcrow">¶</a></p>
-<p id="section-4-4"><a href="#fig2" class="auto internal xref">Figure 2</a> shows the relationship between AI, ML, Deep Learning, and
-   Gen-AI.<a href="#section-4-4" class="pilcrow">¶</a></p>
-<span id="name-figure-2-definition-of-aine"></span><div id="fig2">
+   offered by AINetOps.<a href="#section-4-3" class="pilcrow">¶</a></p>
+<p id="section-4-4"><a href="#fig2" class="auto internal xref">Figure 2</a> shows the definition of AINetOps.<a href="#section-4-4" class="pilcrow">¶</a></p>
+<span id="name-definition-of-ainetops-2"></span><div id="fig2">
 <figure id="figure-2">
         <div class="alignCenter art-text artwork" id="section-4-5.1">
 <pre>
@@ -1612,10 +1723,11 @@ resources across different network layers, such as IP and optical layers.<a href
     |            |    |  AI /        |     |                       |
     |    Big     |    |  ML /        |     |                       |
     |    Data    |  + |  Gen-AI/     |  =  |        AINetOps       |
+    |            |    |  Agentic AI/ |     |                       |
     |            |    |  Rule-based  |     |                       |
     |            |    |              |     |                       |
     |------------|    |--------------|     |-----------------------|
-                                               AINetOPS provides
+                                               AINetOps provides
                                                Operational Benefits
       Big Data: Historical or Real-time data
                (e.g., time series PM, Alarm, Topology, Log,
@@ -1623,7 +1735,7 @@ resources across different network layers, such as IP and optical layers.<a href
 </pre>
 </div>
 <figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
-<a href="#name-figure-2-definition-of-aine" class="selfRef">Figure 2: Definition of AINetOp</a>
+<a href="#name-definition-of-ainetops-2" class="selfRef">Definition of AINetOps</a>
         </figcaption></figure>
 </div>
 </section>
@@ -1634,61 +1746,67 @@ resources across different network layers, such as IP and optical layers.<a href
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-operational-benefits-provid" class="section-name selfRef">Operational Benefits Provided by AINetOps</a>
       </h2>
 <p id="section-5-1">AINetOps has the potential to revolutionize network operations by
-   addressing the inherent complexity, scale, and dynamic nature of
-   modern networks.  By applying various AI/ML/Gen-AI techniques,
-   network operators can transition from traditional manual or rule-
-   based operations to intelligent, automated systems capable of real-
-   time adaptation, predictive insights, and optimized decision-making.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<p id="section-5-2">This section outlines the following key areas where AINetOps can be
-   applied effectively in network operations, leveraging both data-
-   driven models and domain-specific knowledge.<a href="#section-5-2" class="pilcrow">¶</a></p>
+addressing the inherent complexity, scale, and dynamic nature of
+modern networks.  By applying various AI/ML/Gen-AI techniques,
+network operators can transition from traditional manual or rule-
+based operations to intelligent, automated systems capable of real-
+time adaptation, predictive insights, and optimized decision-making.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">In addition, human on the loop has been integrated into the AI-driven
+IP network management and operation loop, which allow the system execute
+network operations autonomously while human operators monitor outcomes,
+enforce governance policies, and intervene only for exceptional or
+high-risk situations. With Human on the loop,  uncertain or ambiguous
+network operations or tasks can be tackled.<a href="#section-5-2" class="pilcrow">¶</a></p>
+<p id="section-5-3">This section outlines the following key areas where AINetOps can be
+applied effectively in network operations, leveraging both data-
+driven models and domain-specific knowledge.<a href="#section-5-3" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-5-3.1">
-          <p id="section-5-3.1.1">Section 5.1 "Operator Network Assistance"<a href="#section-5-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-5-4.1">
+          <p id="section-5-4.1.1">Section 5.1 "Operator Network Assistance"<a href="#section-5-4.1.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.2">
-          <p id="section-5-3.2.1">Section 5.2 "Network active and reactive assurance".  This area is also
-related to "Root Cause Analysis" Section 5.2.1<a href="#section-5-3.2.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.2">
+          <p id="section-5-4.2.1">Section 5.2 "Network Active and Reactive Assurance".  This area is also
+ related to "Root Cause Analysis" Section 5.2.1<a href="#section-5-4.2.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.3">
-          <p id="section-5-3.3.1">Section 5.3 "Predictive Analytics" which includes "Proactive
+        <li class="normal" id="section-5-4.3">
+          <p id="section-5-4.3.1">Section 5.3 "Predictive Analytics" which includes "Proactive
  Network Assurance and Monitoring" Section 5.3.1, "Anomaly
  Detection" Section 5.3.2, "Trending and Forecasting"
  Section 5.3.3, "Predictive Maintenance" Section 5.3.4 and "Network
- Capacity Planning" Section 5.3.5<a href="#section-5-3.3.1" class="pilcrow">¶</a></p>
+ Capacity Planning" Section 5.3.5<a href="#section-5-4.3.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.4">
-          <p id="section-5-3.4.1">Section 5.4 "Network Operational Insight".  This area can be
-grouped into "Operational Insights Requiring No Further Analysis "
-Section 5.4.1 and "Operational Insights Requiring Further Analysis
-" Section 5.4.2<a href="#section-5-3.4.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.4">
+          <p id="section-5-4.4.1">Section 5.4 "Network Operational Insights".  This area can be
+ grouped into "Operational Insights Requiring No Further Analysis"
+ Section 5.4.1 and "Operational Insights Requiring Further Analysis"
+ Section 5.4.2<a href="#section-5-4.4.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.5">
-          <p id="section-5-3.5.1">Section 5.5 "Network Configuration Management"<a href="#section-5-3.5.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.5">
+          <p id="section-5-4.5.1">Section 5.5 "Network Configuration Management"<a href="#section-5-4.5.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.6">
-          <p id="section-5-3.6.1">Section 5.6 "IP/Optical multi-layer Planning"<a href="#section-5-3.6.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.6">
+          <p id="section-5-4.6.1">Section 5.6 "IP/Optical Multi-layer Planning"<a href="#section-5-4.6.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.7">
-          <p id="section-5-3.7.1">Section 5.7 "Cross-Layer and Multi-Layer Optimization"<a href="#section-5-3.7.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.7">
+          <p id="section-5-4.7.1">Section 5.7 "Cross-Layer and Multi-Layer Optimization"<a href="#section-5-4.7.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.8">
-          <p id="section-5-3.8.1">Section 5.8 "Traffic Optimization"<a href="#section-5-3.8.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.8">
+          <p id="section-5-4.8.1">Section 5.8 "Traffic Optimization"<a href="#section-5-4.8.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.9">
-          <p id="section-5-3.9.1">Section 5.9 "Closed-Loop Automation"<a href="#section-5-3.9.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.9">
+          <p id="section-5-4.9.1">Section 5.9 "Closed-Loop Automation"<a href="#section-5-4.9.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.10">
-          <p id="section-5-3.10.1">Section 5.10 "Network Maintenance and Cleanup"<a href="#section-5-3.10.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.10">
+          <p id="section-5-4.10.1">Section 5.10 "Network Maintenance and Cleanup"<a href="#section-5-4.10.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.11">
-          <p id="section-5-3.11.1">Section 5.11 "Network API Construction"<a href="#section-5-3.11.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.11">
+          <p id="section-5-4.11.1">Section 5.11 "Network API Construction"<a href="#section-5-4.11.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.12">
-          <p id="section-5-3.12.1">Section 5.12 "AI-Driven Security Monitoring"<a href="#section-5-3.12.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.12">
+          <p id="section-5-4.12.1">Section 5.12 "AI-Driven Security Monitoring"<a href="#section-5-4.12.1" class="pilcrow">¶</a></p>
 </li>
-        <li class="normal" id="section-5-3.13">
-          <p id="section-5-3.13.1">Section 5.13 "Multi Agent Interworking"<a href="#section-5-3.13.1" class="pilcrow">¶</a></p>
+        <li class="normal" id="section-5-4.13">
+          <p id="section-5-4.13.1">Section 5.13 "Multi-Agent Interworking"<a href="#section-5-4.13.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <div id="operator-network-assistance">
@@ -1697,7 +1815,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-operator-network-assistance" class="section-name selfRef">Operator Network Assistance</a>
         </h3>
 <p id="section-5.1-1">Powered by Gen-AI, the operator network assistant functions as a
-   virtual network engineer, providing a real-time recommendations,
+   virtual network engineer, providing real-time recommendations,
    insights, and automated solutions.  These systems use NLP for
    interface interaction, deep learning for anomaly classification, and
    contextual understanding to enhance operator decision-making.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
@@ -1711,7 +1829,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    to manage complex network environments without needing extensive
    technical expertise.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
 <p id="section-5.1-3">In addition to NLP, Operator Assistance can integrate other AINetOps
-   functions to solve operators scenarios and use-cases.  This
+   functions to solve operator scenarios and use-cases.  This
    capability allows the system to provide timely alerts and
    recommendations, helping operators to address issues before they
    escalate into major disruptions.  The deep learning models
@@ -1735,9 +1853,9 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
 <div id="network-active-and-reactive-assurance">
 <section id="section-5.2">
         <h3 id="name-network-active-and-reactive">
-<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-network-active-and-reactive" class="section-name selfRef">Network active and reactive assurance</a>
+<a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-network-active-and-reactive" class="section-name selfRef">Network Active and Reactive Assurance</a>
         </h3>
-<p id="section-5.2-1">Network active and reactive assurance and troubleshooting, both at the single-
+<p id="section-5.2-1">Network Active and Reactive Assurance and troubleshooting, both at the single-
    layer (IP or Optical) and multi-layer (IP over Optical), are critical
    components in maintaining the health and stability of modern IP,
    Optical, and IPoDWDM networks.  This process involves the
@@ -1781,7 +1899,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
           <h4 id="name-root-cause-analysis">
 <a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-root-cause-analysis" class="section-name selfRef">Root Cause Analysis</a>
           </h4>
-<p id="section-5.2.1-1">In the context of "Network active and reactive assurance," Root Cause Analysis
+<p id="section-5.2.1-1">In the context of "Network Active and Reactive Assurance," Root Cause Analysis
    (RCA) is a critical aspect that extends the reactive troubleshooting
    process to uncover the underlying reasons behind network issues.
    When an issue is detected in the network, RCA leverages advanced
@@ -1827,7 +1945,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    time network data, statistical algorithms, and ML techniques to
    identify the likelihood of future outcomes based on past data.  In
    the context of network operations, predictive analytics involves the
-   use of these methodologies in following areas to anticipate network
+   use of these methodologies in the following areas to anticipate network
    issues, optimize performance, and improve operational efficiency.  By
    examining patterns and trends in historical network data, predictive
    analytics can potentially forecast network problems before they
@@ -1847,7 +1965,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    foresee and address potential issues before they impact the network.
    This approach leads to more efficient, reliable, and secure network
    operations, ultimately enhancing the overall performance and user
-   experience.  The AINetOps can address the following operator's
+   experience.  AINetOps can address the following operator
    scenarios.<a href="#section-5.3-3" class="pilcrow">¶</a></p>
 <div id="proactive-network-assurance-and-monitoring-health-check">
 <section id="section-5.3.1">
@@ -1855,15 +1973,15 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
 <a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-proactive-network-assurance" class="section-name selfRef">Proactive Network Assurance and Monitoring (Health Check)</a>
           </h4>
 <p id="section-5.3.1-1">Proactive Network Assurance and Monitoring represents a paradigm
-   shift from the Network active and reactive assurance discussed in Section 5.2.
+   shift from the Network Active and Reactive Assurance discussed in Section 5.2.
    Instead of waiting for issues to arise and then addressing them,
    proactive network assurance involves anticipating potential problems
    and implementing measures to prevent them from occurring.  This
    forward-thinking strategy leverages AINetOps to predict and mitigate
    network issues before they impact service quality.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.3.1-2">In single-layer proactive assurance, the focus is on continuously
-   monitoring and analyzing the health of a specific layer IP or Optical
-   layer of the network to identify early warning signs of potential
+   monitoring and analyzing the health of a specific layer (IP or Optical)
+   of the network to identify early warning signs of potential
    issues.  For instance, in an IP network, this might involve analyzing
    traffic patterns to detect anomalies that could indicate an impending
    routing problem or hardware failure.  ML algorithms can be employed
@@ -1877,7 +1995,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    layers.  This holistic view allows for the detection of complex
    issues that span multiple layers, such as optical signal impairments
    that could degrade IP data transmission quality.  By correlating data
-   from both layers, AINetOps solution can provide insights into how
+   from both layers, an AINetOps solution can provide insights into how
    changes in the optical layer might affect IP performance and vice
    versa.  This enables operators to take preemptive actions, such as
    optimizing signal paths or adjusting routing protocols, to maintain
@@ -1889,14 +2007,14 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    enhances the user experience by ensuring consistent network
    performance but also reduces operational costs associated with
    emergency troubleshooting and repairs.  Furthermore, the use of
-   advanced analytics and machine learning in AIOps allows for
+   advanced analytics and machine learning in AINetOps allows for
    continuous learning and improvement, enabling networks to become more
    resilient and adaptive over time.<a href="#section-5.3.1-4" class="pilcrow">¶</a></p>
 <p id="section-5.3.1-5">In today's dynamic and high-demand network environments, proactive
    network assurance and monitoring is one of the operational benefits
    provided by AINetOps and are essential for staying ahead of potential
    issues and maintaining a competitive edge.  By leveraging the power
-   of AINetOp, network operators can transform their approach from
+   of AINetOps, network operators can transform their approach from
    reactive to proactive, ensuring that their networks are not only
    robust and resilient but also capable of delivering the high-quality
    service that users expect.  This shift towards proactive assurance
@@ -1946,7 +2064,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
           <h4 id="name-trending-and-forecasting">
 <a href="#section-5.3.3" class="section-number selfRef">5.3.3. </a><a href="#name-trending-and-forecasting" class="section-name selfRef">Trending and Forecasting</a>
           </h4>
-<p id="section-5.3.3-1">"Trending and Forecasting" operational benefit is distinct but is
+<p id="section-5.3.3-1">The "Trending and Forecasting" operational benefit is distinct but is
    related to "Anomaly Detection" Section 5.3.2.  Trending and
    forecasting in the context of single-layer or multi-layer IP optical
    networks are pivotal components of predictive analytics, providing
@@ -1973,7 +2091,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    packet error rates.  By anticipating these issues, network operators
    can implement preemptive measures, such as rerouting traffic or
    adjusting signal parameters, to maintain seamless service.  The
-   integration of trending and forecasting through AIOps thus enhances
+   integration of trending and forecasting through AINetOps thus enhances
    the resilience and efficiency of IP optical networks, ensuring
    superior performance and reliability.<a href="#section-5.3.3-2" class="pilcrow">¶</a></p>
 </section>
@@ -1984,8 +2102,8 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
 <a href="#section-5.3.4" class="section-number selfRef">5.3.4. </a><a href="#name-predictive-maintenance" class="section-name selfRef">Predictive Maintenance</a>
           </h4>
 <p id="section-5.3.4-1">Predictive maintenance in the context of single-layer or multi-layer
-   IP optical networks is other aspect of predictive analytics, offering
-   substantial operational benefits through AINeetOps.  In single-layer
+   IP optical networks is another aspect of predictive analytics, offering
+   substantial operational benefits through AINetOps.  In single-layer
    networks, such as purely IP or optical networks, predictive
    maintenance involves using historical and real-time data to forecast
    when network components might fail or degrade.  For instance, in an
@@ -2011,7 +2129,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    approach ensures that both layers of the network are maintained
    optimally, preventing cascading failures and maintaining high service
    quality.  Through the integration of predictive maintenance with
-   AIOps, IP optical networks can achieve greater reliability,
+   AINetOps, IP optical networks can achieve greater reliability,
    efficiency, and cost-effectiveness, ensuring uninterrupted service
    delivery to end-users.<a href="#section-5.3.4-2" class="pilcrow">¶</a></p>
 </section>
@@ -2037,7 +2155,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
           <h4 id="name-traffic-optimization">
 <a href="#section-5.3.6" class="section-number selfRef">5.3.6. </a><a href="#name-traffic-optimization" class="section-name selfRef">Traffic Optimization</a>
           </h4>
-<p id="section-5.3.6-1">Referring to Section 5.8 for details of AINetOps "Traffic
+<p id="section-5.3.6-1">Refer to Section 5.8 for details of AINetOps "Traffic
    Optimization".<a href="#section-5.3.6-1" class="pilcrow">¶</a></p>
 <p id="section-5.3.6-2">If "Traffic Optimization" is based on prediction of the traffic
    flows, it can be categorized as one of the areas of "Predictive
@@ -2064,8 +2182,8 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    decisions to optimize resource allocation and improve overall
    efficiency.  This insight is particularly valuable in multi-layer IP/
    Optical networks, where the interplay between different network
-   layers can be complex. <span>[<a href="#RFC5557" class="cite xref">RFC5557</a>]</span> provides examples of the PCE 
-   being using to optimize resource allocation.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
+   layers can be complex. <span>[<a href="#RFC5557" class="cite xref">RFC5557</a>]</span> provides examples of the PCE
+   being used to optimize resource allocation.<a href="#section-5.4-2" class="pilcrow">¶</a></p>
 <p id="section-5.4-3">By leveraging these insights, operators can
    ensure that both the IP and optical layers are operating
    harmoniously, leading to optimal performance and cost efficiency.  In
@@ -2091,7 +2209,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    systems that continuously track network performance and health
    metrics.  For example, showing the Network Element (NE) with the
    highest alarms or displaying the current alarm table for a specific
-   NE (e.g., NE 1.1.1.1) can provide immediate visibility into potential
+   NE (e.g., NE 192.0.2.1) can provide immediate visibility into potential
    issues.  Similarly, identifying the NEs with the highest problems
    during the last hour or plotting the Bit Error Rate (BER) for the 10
    worst modems in a specific region (e.g., Northeast) allows operators
@@ -2166,7 +2284,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    up the deployment process but also reduces the likelihood of human
    errors that can occur during manual configuration, leading to a more
    robust and efficient network infrastructure.<a href="#section-5.5-1" class="pilcrow">¶</a></p>
-<p id="section-5.5-2">Furthermore, AINetOps can play a role on validation of network
+<p id="section-5.5-2">Furthermore, AINetOps can play a role in validation of network
    configuration, i.e., "network configuration audit".  AINetOps plays a
    crucial role in validating configurations against predefined network
    configuration, ensuring that all network setups comply with intent
@@ -2192,7 +2310,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
 <p id="section-5.6-1">Multi-layer planning is an approach that integrates the planning of
    IP and optical networks based on traffic patterns, network
    simulations, and capacity planning.  By analyzing these factors, IP
-   optical network can be designed to optimize resource allocation,
+   optical networks can be designed to optimize resource allocation,
    enhance network efficiency, and ensure the network can handle current
    and future demands, resulting in a more resilient and scalable
    infrastructure.<a href="#section-5.6-1" class="pilcrow">¶</a></p>
@@ -2221,7 +2339,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    and optical layers are operating harmoniously, leading to optimal
    performance and cost efficiency.  In essence, Network Operational
    Insights empower operators with the knowledge needed to maintain a
-   high-performing, resilient, and future-proof network infrastructure<a href="#section-5.7-2" class="pilcrow">¶</a></p>
+   high-performing, resilient, and future-proof network infrastructure.<a href="#section-5.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="traffic-optimization-1">
@@ -2229,7 +2347,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
         <h3 id="name-traffic-optimization-2">
 <a href="#section-5.8" class="section-number selfRef">5.8. </a><a href="#name-traffic-optimization-2" class="section-name selfRef">Traffic Optimization</a>
         </h3>
-<p id="section-5.8-1">Another AINetOps operational benefits is "Traffic Optimization" where
+<p id="section-5.8-1">Another AINetOps operational benefit is "Traffic Optimization" where
    IP/Optical network traffic flows can be monitored and appropriate
    adjustments to network protocols, network topology, network
    configuration, load balancing, bandwidth allocation and so on can be
@@ -2257,7 +2375,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    initiatives.  In essence, AI-driven traffic optimization enables
    networks to be more resilient, responsive, and capable of delivering
    consistent high-quality service.<a href="#section-5.8-3" class="pilcrow">¶</a></p>
-<p id="section-5.8-4">Note that "Traffic Optimization" AINetOps operational benefits is
+<p id="section-5.8-4">Note that the "Traffic Optimization" AINetOps operational benefit is
    closely related to "Predictive Analytics" covered in Section 5.3.<a href="#section-5.8-4" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -2304,7 +2422,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
    broader management layer, including OSS/BSS.  By developing robust
    and versatile APIs, network operators can ensure smooth communication
    and coordination between different network management systems,
-   thereby enhancing overall network efficiency and performance<a href="#section-5.11-1" class="pilcrow">¶</a></p>
+   thereby enhancing overall network efficiency and performance.<a href="#section-5.11-1" class="pilcrow">¶</a></p>
 <p id="section-5.11-2">The APIs developed for network controllers serve as a bridge,
    enabling the OSS to interact with the underlying network
    infrastructure in a more dynamic and automated manner.  This
@@ -2334,7 +2452,7 @@ Section 5.4.1 and "Operational Insights Requiring Further Analysis
         </h3>
 <p id="section-5.12-1">AI is becoming a cornerstone of modern network security, enabling
 proactive, adaptive, and intelligent measures to safeguard network
-operations against a rapidly evolving threats. By leveraging AI, network
+operations against rapidly evolving threats. By leveraging AI, network
 operators can enhance their ability to detect, prevent, and respond to
 threats in real-time while automating complex     security processes.
 This section details the key areas where AI drives security enhancements
@@ -2387,23 +2505,32 @@ recommending corrective actions.<a href="#section-5.12.3-1" class="pilcrow">¶</
 <div id="multi-agent-interworking">
 <section id="section-5.13">
         <h3 id="name-multi-agent-interworking">
-<a href="#section-5.13" class="section-number selfRef">5.13. </a><a href="#name-multi-agent-interworking" class="section-name selfRef">Multi Agent Interworking</a>
+<a href="#section-5.13" class="section-number selfRef">5.13. </a><a href="#name-multi-agent-interworking" class="section-name selfRef">Multi-Agent Interworking</a>
         </h3>
 <p id="section-5.13-1">As seen in the use cases above, the usage of agents introduces various challenges,
-spanning from the definition of APIs that can be used by the various agent to the
+spanning from the definition of APIs that can be used by the various agents to the
 interworking with already existing components of the Network Management and Control stack.
 New challenges arise when we move from a single agent to a multi-agent architecture.
-When multiple agents are deployed we need to consider how they discover each other, 
-how they interwork with the discovered agents and how they are kept in synch.<a href="#section-5.13-1" class="pilcrow">¶</a></p>
+When multiple agents are deployed we need to consider how they discover each other,
+how they interwork with the discovered agents and how they are kept in sync.<a href="#section-5.13-1" class="pilcrow">¶</a></p>
 <p id="section-5.13-2">The discovery aspect could be relatively simple in the short term, when few agents will
 be deployed in the network and it could be possible to manually configure each agent
-with the identifiers and capabilities of the other agents to interact with. With the evolution 
-of AI based architectures with more and more agents being part of the architecture, 
-mechanisms to advertise their presence and more important their capabilities will be required.<a href="#section-5.13-2" class="pilcrow">¶</a></p>
-<p id="section-5.13-3">The second aspect to consider is the interworking between them. As of today the way we 
-interact with agents is mostly based on LLM, but would that be the best way for
+with the identifiers and capabilities of the other agents to interact with. With the evolution
+of AI based architectures with more and more agents being part of the architecture,
+mechanisms to advertise their presence and more importantly their capabilities will be required.<a href="#section-5.13-2" class="pilcrow">¶</a></p>
+<p id="section-5.13-3">The second aspect to consider is the interworking between them. As of today, the way we
+interact with agents is mostly based on LLMs, but would that be the best way for
 interacting between them as well? Probably a more machine oriented type of language,
-encoding and protocols would have better performances.<a href="#section-5.13-3" class="pilcrow">¶</a></p>
+encoding and protocols would have better performance.<a href="#section-5.13-3" class="pilcrow">¶</a></p>
+<p id="section-5.13-4">Note that agent discovery and inter-agent communication are the
+subject of dedicated IETF activities: the DAWN (Discovery of Agents,
+Workloads, and Named Entities) effort addresses the discovery of
+agents and their capabilities, and the AGENTPROTO (Agent
+Communication Protocols) effort addresses end-to-end protocols for
+agent-to-agent communication.  Work on the discovery and interworking
+aspects described in this section should be coordinated with those
+activities, and with the GRASP-based rendezvous mechanism described
+in <span>[<a href="#I-D.carpenter-anima-grasp-rendezvous" class="cite xref">I-D.carpenter-anima-grasp-rendezvous</a>]</span>.<a href="#section-5.13-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -4070,93 +4197,165 @@ This use case aligns with 3GPP efforts in network slicing and IETF
 <p id="section-7-1">To be discussed in future versions of this document.<a href="#section-7-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="sec-normative-references">
+<div id="sec-combined-references">
 <section id="section-8">
-      <h2 id="name-normative-references">
-<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+      <h2 id="name-references">
+<a href="#section-8" class="section-number selfRef">8. </a><a href="#name-references" class="section-name selfRef">References</a>
       </h2>
+<div id="sec-normative-references">
+<section id="section-8.1">
+        <h3 id="name-normative-references">
+<a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
+        </h3>
 <dl class="references">
 <dt id="RFC2119">[RFC2119]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4655">[RFC4655]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Farrel, A.</span>, <span class="refAuthor">Vasseur, J.-P.</span>, and <span class="refAuthor">J. Ash</span>, <span class="refTitle">"A Path Computation Element (PCE)-Based Architecture"</span>, <span class="seriesInfo">RFC 4655</span>, <span class="seriesInfo">DOI 10.17487/RFC4655</span>, <time datetime="2006-08" class="refDate">August 2006</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc4655">https://www.rfc-editor.org/rfc/rfc4655</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5557">[RFC5557]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Lee, Y.</span>, <span class="refAuthor">Le Roux, JL.</span>, <span class="refAuthor">King, D.</span>, and <span class="refAuthor">E. Oki</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Requirements and Protocol Extensions in Support of Global Concurrent Optimization"</span>, <span class="seriesInfo">RFC 5557</span>, <span class="seriesInfo">DOI 10.17487/RFC5557</span>, <time datetime="2009-07" class="refDate">July 2009</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc5557">https://www.rfc-editor.org/rfc/rfc5557</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6241">[RFC6241]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Enns, R., Ed.</span>, <span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refAuthor">Schoenwaelder, J., Ed.</span>, and <span class="refAuthor">A. Bierman, Ed.</span>, <span class="refTitle">"Network Configuration Protocol (NETCONF)"</span>, <span class="seriesInfo">RFC 6241</span>, <span class="seriesInfo">DOI 10.17487/RFC6241</span>, <time datetime="2011-06" class="refDate">June 2011</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6241">https://www.rfc-editor.org/rfc/rfc6241</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6805">[RFC6805]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">King, D., Ed.</span> and <span class="refAuthor">A. Farrel, Ed.</span>, <span class="refTitle">"The Application of the Path Computation Element Architecture to the Determination of a Sequence of Domains in MPLS and GMPLS"</span>, <span class="seriesInfo">RFC 6805</span>, <span class="seriesInfo">DOI 10.17487/RFC6805</span>, <time datetime="2012-11" class="refDate">November 2012</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc6805">https://www.rfc-editor.org/rfc/rfc6805</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7012">[RFC7012]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Claise, B., Ed.</span> and <span class="refAuthor">B. Trammell, Ed.</span>, <span class="refTitle">"Information Model for IP Flow Information Export (IPFIX)"</span>, <span class="seriesInfo">RFC 7012</span>, <span class="seriesInfo">DOI 10.17487/RFC7012</span>, <time datetime="2013-09" class="refDate">September 2013</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7012">https://www.rfc-editor.org/rfc/rfc7012</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7252">[RFC7252]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Shelby, Z.</span>, <span class="refAuthor">Hartke, K.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"The Constrained Application Protocol (CoAP)"</span>, <span class="seriesInfo">RFC 7252</span>, <span class="seriesInfo">DOI 10.17487/RFC7252</span>, <time datetime="2014-06" class="refDate">June 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7252">https://www.rfc-editor.org/rfc/rfc7252</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7303">[RFC7303]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Thompson, H.</span> and <span class="refAuthor">C. Lilley</span>, <span class="refTitle">"XML Media Types"</span>, <span class="seriesInfo">RFC 7303</span>, <span class="seriesInfo">DOI 10.17487/RFC7303</span>, <time datetime="2014-07" class="refDate">July 2014</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7303">https://www.rfc-editor.org/rfc/rfc7303</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7540">[RFC7540]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Belshe, M.</span>, <span class="refAuthor">Peon, R.</span>, and <span class="refAuthor">M. Thomson, Ed.</span>, <span class="refTitle">"Hypertext Transfer Protocol Version 2 (HTTP/2)"</span>, <span class="seriesInfo">RFC 7540</span>, <span class="seriesInfo">DOI 10.17487/RFC7540</span>, <time datetime="2015-05" class="refDate">May 2015</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7540">https://www.rfc-editor.org/rfc/rfc7540</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7950">[RFC7950]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bjorklund, M., Ed.</span>, <span class="refTitle">"The YANG 1.1 Data Modeling Language"</span>, <span class="seriesInfo">RFC 7950</span>, <span class="seriesInfo">DOI 10.17487/RFC7950</span>, <time datetime="2016-08" class="refDate">August 2016</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc7950">https://www.rfc-editor.org/rfc/rfc7950</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8040">[RFC8040]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bierman, A.</span>, <span class="refAuthor">Bjorklund, M.</span>, and <span class="refAuthor">K. Watsen</span>, <span class="refTitle">"RESTCONF Protocol"</span>, <span class="seriesInfo">RFC 8040</span>, <span class="seriesInfo">DOI 10.17487/RFC8040</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8040">https://www.rfc-editor.org/rfc/rfc8040</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8051">[RFC8051]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Zhang, X., Ed.</span> and <span class="refAuthor">I. Minei, Ed.</span>, <span class="refTitle">"Applicability of a Stateful Path Computation Element (PCE)"</span>, <span class="seriesInfo">RFC 8051</span>, <span class="seriesInfo">DOI 10.17487/RFC8051</span>, <time datetime="2017-01" class="refDate">January 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8051">https://www.rfc-editor.org/rfc/rfc8051</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8174">[RFC8174]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8231">[RFC8231]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Crabbe, E.</span>, <span class="refAuthor">Minei, I.</span>, <span class="refAuthor">Medved, J.</span>, and <span class="refAuthor">R. Varga</span>, <span class="refTitle">"Path Computation Element Communication Protocol (PCEP) Extensions for Stateful PCE"</span>, <span class="seriesInfo">RFC 8231</span>, <span class="seriesInfo">DOI 10.17487/RFC8231</span>, <time datetime="2017-09" class="refDate">September 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8231">https://www.rfc-editor.org/rfc/rfc8231</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8259">[RFC8259]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Bray, T., Ed.</span>, <span class="refTitle">"The JavaScript Object Notation (JSON) Data Interchange Format"</span>, <span class="seriesInfo">STD 90</span>, <span class="seriesInfo">RFC 8259</span>, <span class="seriesInfo">DOI 10.17487/RFC8259</span>, <time datetime="2017-12" class="refDate">December 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8259">https://www.rfc-editor.org/rfc/rfc8259</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8329">[RFC8329]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Lopez, D.</span>, <span class="refAuthor">Lopez, E.</span>, <span class="refAuthor">Dunbar, L.</span>, <span class="refAuthor">Strassner, J.</span>, and <span class="refAuthor">R. Kumar</span>, <span class="refTitle">"Framework for Interface to Network Security Functions"</span>, <span class="seriesInfo">RFC 8329</span>, <span class="seriesInfo">DOI 10.17487/RFC8329</span>, <time datetime="2018-02" class="refDate">February 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8329">https://www.rfc-editor.org/rfc/rfc8329</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8345">[RFC8345]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Medved, J.</span>, <span class="refAuthor">Varga, R.</span>, <span class="refAuthor">Bahadur, N.</span>, <span class="refAuthor">Ananthakrishnan, H.</span>, and <span class="refAuthor">X. Liu</span>, <span class="refTitle">"A YANG Data Model for Network Topologies"</span>, <span class="seriesInfo">RFC 8345</span>, <span class="seriesInfo">DOI 10.17487/RFC8345</span>, <time datetime="2018-03" class="refDate">March 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8345">https://www.rfc-editor.org/rfc/rfc8345</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8446">[RFC8446]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Rescorla, E.</span>, <span class="refTitle">"The Transport Layer Security (TLS) Protocol Version 1.3"</span>, <span class="seriesInfo">RFC 8446</span>, <span class="seriesInfo">DOI 10.17487/RFC8446</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8446">https://www.rfc-editor.org/rfc/rfc8446</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8453">[RFC8453]</dt>
-      <dd>
+        <dd>
 <span class="refAuthor">Ceccarelli, D., Ed.</span> and <span class="refAuthor">Y. Lee, Ed.</span>, <span class="refTitle">"Framework for Abstraction and Control of TE Networks (ACTN)"</span>, <span class="seriesInfo">RFC 8453</span>, <span class="seriesInfo">DOI 10.17487/RFC8453</span>, <time datetime="2018-08" class="refDate">August 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8453">https://www.rfc-editor.org/rfc/rfc8453</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8811">[RFC8811]</dt>
-    <dd>
+      <dd>
 <span class="refAuthor">Mortensen, A., Ed.</span>, <span class="refAuthor">Reddy.K, T., Ed.</span>, <span class="refAuthor">Andreasen, F.</span>, <span class="refAuthor">Teague, N.</span>, and <span class="refAuthor">R. Compton</span>, <span class="refTitle">"DDoS Open Threat Signaling (DOTS) Architecture"</span>, <span class="seriesInfo">RFC 8811</span>, <span class="seriesInfo">DOI 10.17487/RFC8811</span>, <time datetime="2020-08" class="refDate">August 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8811">https://www.rfc-editor.org/rfc/rfc8811</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
+</section>
+</div>
+<div id="sec-informative-references">
+<section id="section-8.2">
+        <h3 id="name-informative-references">
+<a href="#section-8.2" class="section-number selfRef">8.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
+        </h3>
+<dl class="references">
+<dt id="I-D.carpenter-anima-grasp-rendezvous">[I-D.carpenter-anima-grasp-rendezvous]</dt>
+        <dd>
+<span class="refAuthor">Carpenter, B. E.</span>, <span class="refTitle">"Using GRASP as an Agent Rendezvous Mechanism"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-carpenter-anima-grasp-rendezvous-01</span>, <time datetime="2026-07-26" class="refDate">26 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-carpenter-anima-grasp-rendezvous-01">https://datatracker.ietf.org/doc/html/draft-carpenter-anima-grasp-rendezvous-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.feng-netmod-naim">[I-D.feng-netmod-naim]</dt>
+        <dd>
+<span class="refAuthor">Feng, C.</span>, <span class="refTitle">"NAIM: A Canonical Semantic Representation for AI-Assisted YANG Modeling and Validation"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-feng-netmod-naim-01</span>, <time datetime="2026-07-18" class="refDate">18 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-feng-netmod-naim-01">https://datatracker.ietf.org/doc/html/draft-feng-netmod-naim-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.fu-nmop-agent-communication-framework">[I-D.fu-nmop-agent-communication-framework]</dt>
+        <dd>
+<span class="refAuthor">Fu, Y.</span>, <span class="refAuthor">Qiong, S.</span>, <span class="refAuthor">Song, X.</span>, and <span class="refAuthor">C. Xie</span>, <span class="refTitle">"Agent Communication Framework for Network AIOps"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-fu-nmop-agent-communication-framework-00</span>, <time datetime="2026-01-24" class="refDate">24 January 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-fu-nmop-agent-communication-framework-00">https://datatracker.ietf.org/doc/html/draft-fu-nmop-agent-communication-framework-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.fu-nmop-tokenops-probelem-statement">[I-D.fu-nmop-tokenops-probelem-statement]</dt>
+        <dd>
+<span class="refAuthor">Fu, Y.</span>, <span class="refAuthor">Qiong, S.</span>, <span class="refAuthor">Song, X.</span>, and <span class="refAuthor">C. Xie</span>, <span class="refTitle">"Token Operation Problem Statement"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-fu-nmop-tokenops-probelem-statement-00</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-fu-nmop-tokenops-probelem-statement-00">https://datatracker.ietf.org/doc/html/draft-fu-nmop-tokenops-probelem-statement-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.irtf-nmrg-ai-challenges">[I-D.irtf-nmrg-ai-challenges]</dt>
+        <dd>
+<span class="refAuthor">François, J.</span>, <span class="refAuthor">Clemm, A.</span>, <span class="refAuthor">Papadimitriou, D.</span>, <span class="refAuthor">Fernandes, S.</span>, and <span class="refAuthor">S. Schneider</span>, <span class="refTitle">"Research Challenges in Coupling Artificial Intelligence and Network Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-ai-challenges-06</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-ai-challenges-06">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-ai-challenges-06</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.irtf-nmrg-llm-nm">[I-D.irtf-nmrg-llm-nm]</dt>
+        <dd>
+<span class="refAuthor">Cui, Y.</span>, <span class="refAuthor">Xing, M.</span>, and <span class="refAuthor">L. Zhang</span>, <span class="refTitle">"A Framework for LLM-Assisted Network Management with Human-in-the-Loop"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-irtf-nmrg-llm-nm-00</span>, <time datetime="2025-03-13" class="refDate">13 March 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-llm-nm-00">https://datatracker.ietf.org/doc/html/draft-irtf-nmrg-llm-nm-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.smith-opsawg-ai-network-governance">[I-D.smith-opsawg-ai-network-governance]</dt>
+        <dd>
+<span class="refAuthor">Smith, A.</span> and <span class="refAuthor">N. Pai</span>, <span class="refTitle">"Governance Framework for AI-Mediated Autonomous Network Device Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-smith-opsawg-ai-network-governance-01</span>, <time datetime="2026-09-27" class="refDate">27 September 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-smith-opsawg-ai-network-governance-01">https://datatracker.ietf.org/doc/html/draft-smith-opsawg-ai-network-governance-01</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.zeng-opsawg-applicability-mcp-a2a">[I-D.zeng-opsawg-applicability-mcp-a2a]</dt>
+        <dd>
+<span class="refAuthor">Zeng, G.</span>, <span class="refAuthor">Mao, J.</span>, <span class="refAuthor">Liu, B.</span>, <span class="refAuthor">Geng, N.</span>, <span class="refAuthor">Shang, X.</span>, <span class="refAuthor">Gao, Q.</span>, and <span class="refAuthor">Z. Li</span>, <span class="refTitle">"When NETCONF Is Not Enough: Applicability of MCP and A2A for Advanced Network Management Scenarios"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-zeng-opsawg-applicability-mcp-a2a-00</span>, <time datetime="2025-11-02" class="refDate">2 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-zeng-opsawg-applicability-mcp-a2a-00">https://datatracker.ietf.org/doc/html/draft-zeng-opsawg-applicability-mcp-a2a-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.zeng-opsawg-llm-netconf-gap">[I-D.zeng-opsawg-llm-netconf-gap]</dt>
+        <dd>
+<span class="refAuthor">Zeng, G.</span>, <span class="refAuthor">Mao, J.</span>, <span class="refAuthor">Liu, B.</span>, <span class="refAuthor">Geng, N.</span>, <span class="refAuthor">Shang, X.</span>, <span class="refAuthor">Gao, Q.</span>, and <span class="refAuthor">Z. Li</span>, <span class="refTitle">"Gap Analysis of Network Configuration Protocols in LLM-Driven Intent-Based Networking"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-zeng-opsawg-llm-netconf-gap-00</span>, <time datetime="2025-11-02" class="refDate">2 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-zeng-opsawg-llm-netconf-gap-00">https://datatracker.ietf.org/doc/html/draft-zeng-opsawg-llm-netconf-gap-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.zhao-nmop-network-management-agent">[I-D.zhao-nmop-network-management-agent]</dt>
+        <dd>
+<span class="refAuthor">XingZhao</span>, <span class="refAuthor">Wang, M.</span>, <span class="refAuthor">Wu, B.</span>, <span class="refAuthor">Ceccarelli, D.</span>, <span class="refAuthor">Zheng, H.</span>, and <span class="refAuthor">J. Zhou</span>, <span class="refTitle">"AI based Network Management Agent(NMA): Concepts and Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-zhao-nmop-network-management-agent-05</span>, <time datetime="2026-07-05" class="refDate">5 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-zhao-nmop-network-management-agent-05">https://datatracker.ietf.org/doc/html/draft-zhao-nmop-network-management-agent-05</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.zhao-nmop-nma-a2u-yang">[I-D.zhao-nmop-nma-a2u-yang]</dt>
+        <dd>
+<span class="refAuthor">XingZhao</span>, <span class="refAuthor">Wang, M.</span>, <span class="refAuthor">Ceccarelli, D.</span>, and <span class="refAuthor">Y. Xu</span>, <span class="refTitle">"Framework and YANG Data Model for the NMA A2U Interface"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-zhao-nmop-nma-a2u-yang-00</span>, <time datetime="2026-07-06" class="refDate">6 July 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-zhao-nmop-nma-a2u-yang-00">https://datatracker.ietf.org/doc/html/draft-zhao-nmop-nma-a2u-yang-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.zw-opsawg-mcp-network-mgmt">[I-D.zw-opsawg-mcp-network-mgmt]</dt>
+        <dd>
+<span class="refAuthor">Zeng, G.</span>, <span class="refAuthor">Mao, J.</span>, <span class="refAuthor">Liu, B.</span>, <span class="refAuthor">Shang, X.</span>, <span class="refAuthor">Gao, Q.</span>, <span class="refAuthor">Li, Z.</span>, and <span class="refAuthor">Q. Wu</span>, <span class="refTitle">"Model Context Protocol (MCP) Extensions for Network Equipment Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-zw-opsawg-mcp-network-mgmt-00</span>, <time datetime="2025-11-02" class="refDate">2 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-zw-opsawg-mcp-network-mgmt-00">https://datatracker.ietf.org/doc/html/draft-zw-opsawg-mcp-network-mgmt-00</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="ICON">[ICON]</dt>
+        <dd>
+<span class="refTitle">"Observability, Intervention and Control of Network Management Agent"</span>, <time datetime="2026" class="refDate">2026</time>, <span>&lt;<a href="https://github.com/billwuqin/Agent-Observability-Intervention-Control">https://github.com/billwuqin/Agent-Observability-Intervention-Control</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC8990">[RFC8990]</dt>
+      <dd>
+<span class="refAuthor">Bormann, C.</span>, <span class="refAuthor">Carpenter, B., Ed.</span>, and <span class="refAuthor">B. Liu, Ed.</span>, <span class="refTitle">"GeneRic Autonomic Signaling Protocol (GRASP)"</span>, <span class="seriesInfo">RFC 8990</span>, <span class="seriesInfo">DOI 10.17487/RFC8990</span>, <time datetime="2021-05" class="refDate">May 2021</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8990">https://www.rfc-editor.org/rfc/rfc8990</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+</dl>
+</section>
+</div>
 </section>
 </div>
 <div id="iana-considerations">
@@ -4253,6 +4452,14 @@ AI4NETWORK Side Meetings.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Daniel King</span></div>
+<div dir="auto" class="left"><span class="org">Lancaster University</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:d.king@lancaster.ac.uk" class="email">d.king@lancaster.ac.uk</a>
+</div>
+</address>
+<address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Cheng Li</span></div>
 <div dir="auto" class="left"><span class="org">Huawei</span></div>
 <div class="email">
@@ -4261,11 +4468,11 @@ AI4NETWORK Side Meetings.<a href="#appendix-B-1" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Daniel King</span></div>
-<div dir="auto" class="left"><span class="org">Lancaster University</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Qin Wu</span></div>
+<div dir="auto" class="left"><span class="org">Huawei</span></div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:d.king@lancaster.ac.uk" class="email">d.king@lancaster.ac.uk</a>
+<a href="mailto:bill.wu@huawei.com" class="email">bill.wu@huawei.com</a>
 </div>
 </address>
 </section>
