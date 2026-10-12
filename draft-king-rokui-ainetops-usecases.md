@@ -999,7 +999,7 @@ Key interaction modes between Human operators and agents include:
 • Feedback Provision: Human Operators submit feedback on Agent
   performance (e.g., incorrect configuration suggestions) to drive
   continuous improvement.
-  
+
 # AINetOps Scenarios and Use-cases
 
 {Editor's note: This is a work in progress. More use cases will be added, and existing ones will be revised.}
