@@ -1062,51 +1062,6 @@ interact with agents is mostly based on LLMs, but would that be the best way for
 interacting between them as well? Probably a more machine oriented type of language,
 encoding and protocols would have better performances.
 
-## Human on the Loop
-
-human on the Loop has been integrated  into the AI-driven IP network
-management and operation loop, providing safeguards for critical decisions and
-enabling human-Agent collaboration.
-
-Interaction with the system is typically provided through natural language
-interfaces that allow operators to review decisions, request explanations, and
-provide guidance when necessary.
-
-Implementation shall support conversational interaction via chat copilot
-platforms (for natural language) and structured APIs (such as A2A-T, for
-workflowbased operations). It shall also maintain comprehensive audit logs
-of all humanAgent interactions to ensure accountability, including intent
-submissions, approvals, and interventions.
-
-Key interaction modes between Human operators and agents include:
-
-• Intent Input (initiates the loop): Human operators submit high-level
-  IP network intents (e.g., "deploy a low-latency L3VPN for 4G backhaul")
-  via copilot or structured workflows.
-
-• Decision Approval: The IP Network AI Agent escalates critical tasks
-  (e.g., core route changes, bulk configuration deletions) to human operators
-  for approval, providing context such as data simulation results and risk
-  assessments.
-
-• Intervention & Guidance: Human Operators intervene in ongoing tasks
-  (e.g., correcting a fault diagnosis) or providing expert guidance
-  (e.g., updating troubleshooting rules) to Agents.
-
-• Feedback Provision: Human Operators submit feedback on Agent
-  performance (e.g., incorrect configuration suggestions) to drive
-  continuous improvement.
-
-Note that agent discovery and inter-agent communication are the
-subject of dedicated IETF activities: the DAWN (Discovery of Agents,
-Workloads, and Named Entities) effort addresses the discovery of
-agents and their capabilities, and the AGENTPROTO (Agent
-Communication Protocols) effort addresses end-to-end protocols for
-agent-to-agent communication.  Work on the discovery and interworking
-aspects described in this section should be coordinated with those
-activities, and with the GRASP-based rendezvous mechanism described
-in {{?I-D.carpenter-anima-grasp-rendezvous}}.
-
 # AINetOps Scenarios and Use-cases
 
 {Editor's note: This is a work in progress. More use cases will be added, and existing ones will be revised.}
