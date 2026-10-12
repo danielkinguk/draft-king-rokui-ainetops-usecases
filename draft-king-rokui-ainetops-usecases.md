@@ -1324,7 +1324,7 @@ Legend
    intervene when an agent goes wrong (e.g., task suspension, rollback
    to a last known safe state, or termination), and the control of what
    an agent is permitted to do before and during action execution.  The
-   ICON effort {{ICON}} is exploring the use cases, requirements, and
+   ICON effort is exploring the use cases, requirements, and
    solutions in this space; the key challenges identified include:
 
    *  Limited transparency in agent planning and decision-making.
@@ -1391,7 +1391,7 @@ Legend
 
    *  Alignment with IETF
 
-      This work aligns with the ICON effort {{ICON}}, discussed at an IETF
+      This work aligns with the ICON effort, discussed at an IETF
       126 side meeting, and with the AINETOPS mailing list activity
       described in Section 1.2.  Agent discovery, trust and
       authorization, and agent-to-agent communication are explicitly out
