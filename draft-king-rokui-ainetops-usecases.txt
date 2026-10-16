@@ -5,11 +5,11 @@
 Network Working Group                                           R. Rokui
 Internet-Draft                                                     Ciena
 Intended status: Informational                                   D. King
-Expires: 15 April 2027                              Lancaster University
+Expires: 19 April 2027                              Lancaster University
                                                                    C. Li
                                                                    Q. Wu
                                                                   Huawei
-                                                         12 October 2026
+                                                         16 October 2026
 
 
           Artificial Intelligence (AI) for Network Operations
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 April 2027.
+   This Internet-Draft will expire on 19 April 2027.
 
 Copyright Notice
 
@@ -1251,16 +1251,16 @@ Table of Contents
    |    AIOps   |(C)|  Domain Specific  | (I)|------------+
    | Assistant  +--->  Network Agent    <----|AI Guardrail|
    +--^---------+   |    (D)            |    | Assistant  |
-      |             +-------------------+    +---^--------+
-      |                    |                     |(H)
-      |                    |               +-----+------+
-      |                    |               | Evaluation |
-      |                    |(E)            | Process    |
-      | (B)                |               +-----^------+
-      |                    |                     |(G)
-      |            +-------v-------+             |
-      |            |   P-PNC(s),   |  (F)  +-----+--------+
-      +------------+   O-PNC(s),   |------>|Observability |
+      |             +---------------^---+    +---^--------+
+      |                    |        |            |(H)
+      |                    |        |      +-----+------+
+      |                    |        |      | Evaluation |
+      |                    |(E)     |      | Process    |
+      | (B)                |        |      +-----^------+
+      |                    |        |            |(G)
+      |            +-------v-------+|            |
+      |            |   P-PNC(s),   || (F)  +-----+--------+
+      +------------+   O-PNC(s),   |+----->|Observability |
                    |   MDSC        |       |   Process    |
                    +-------^-------+       +--------------+
                            |(A)
@@ -1694,22 +1694,20 @@ Legend
               ai-network-governance-01>.
 
    [I-D.zeng-opsawg-applicability-mcp-a2a]
-              Zeng, G., Mao, J., Liu, B., Geng, N., Shang, X., Gao, Q.,
-              and Z. Li, "When NETCONF Is Not Enough: Applicability of
-              MCP and A2A for Advanced Network Management Scenarios",
-              Work in Progress, Internet-Draft, draft-zeng-opsawg-
-              applicability-mcp-a2a-00, 2 November 2025,
-              <https://datatracker.ietf.org/doc/html/draft-zeng-opsawg-
-              applicability-mcp-a2a-00>.
+              Zeng, G., Mao, J., and B. Liu, "When NETCONF Is Not
+              Enough: Applicability of MCP and A2A for Advanced Network
+              Management Scenarios", Work in Progress, Internet-Draft,
+              draft-zeng-opsawg-applicability-mcp-a2a-01, 14 October
+              2026, <https://datatracker.ietf.org/doc/html/draft-zeng-
+              opsawg-applicability-mcp-a2a-01>.
 
    [I-D.zeng-opsawg-llm-netconf-gap]
-              Zeng, G., Mao, J., Liu, B., Geng, N., Shang, X., Gao, Q.,
-              and Z. Li, "Gap Analysis of Network Configuration
-              Protocols in LLM-Driven Intent-Based Networking", Work in
-              Progress, Internet-Draft, draft-zeng-opsawg-llm-netconf-
-              gap-00, 2 November 2025,
+              Zeng, G., Mao, J., and B. Liu, "Gap Analysis of Network
+              Configuration Protocols in LLM-Driven Intent-Based
+              Networking", Work in Progress, Internet-Draft, draft-zeng-
+              opsawg-llm-netconf-gap-01, 14 October 2026,
               <https://datatracker.ietf.org/doc/html/draft-zeng-opsawg-
-              llm-netconf-gap-00>.
+              llm-netconf-gap-01>.
 
    [I-D.zhao-nmop-network-management-agent]
               XingZhao, Wang, M., Wu, B., Ceccarelli, D., Zheng, H., and
