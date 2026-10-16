@@ -1074,9 +1074,9 @@ in {{?I-D.carpenter-anima-grasp-rendezvous}}.
 
 ## Human on the Loop
 
-human on the Loop has been integrated  into the AI-driven IP network
-management and operation loop, providing safeguards for critical decisions and
-enabling human-Agent collaboration.
+Human on the Loop has been integrated  into the AI-driven IP network
+management and operation loop, providing closed loop safeguards for critical decisions and
+enabling human-Agent collaboration (e.g., require human approval).
 
 Interaction with the system is typically provided through natural language
 interfaces that allow operators to review decisions, request explanations, and
@@ -1084,9 +1084,9 @@ provide guidance when necessary.
 
 Implementation shall support conversational interaction via chat copilot
 platforms (for natural language) and structured APIs (such as A2A-T, for
-workflowbased operations). It shall also maintain comprehensive audit logs
-of all humanAgent interactions to ensure accountability, including intent
-submissions, approvals, and interventions.
+workflow based operations). It shall also maintain comprehensive trajectory
+record or accountability logs of all human and Agent interactions to ensure
+accountability, including intent submissions, approvals, and interventions.
 
 Key interaction modes between Human operators and agents include:
 
@@ -1095,17 +1095,17 @@ Key interaction modes between Human operators and agents include:
   via copilot or structured workflows.
 
 • Decision Approval: The IP Network AI Agent escalates critical tasks
-  (e.g., core route changes, bulk configuration deletions) to human operators
-  for approval, providing context such as data simulation results and risk
-  assessments.
+  (e.g., core route changes, bulk configuration deletions) via AI guardrail
+  assitant to human operators for approval, providing context such as data
+  simulation results and risk assessments.
 
 • Intervention & Guidance: Human Operators intervene in ongoing tasks
   (e.g., correcting a fault diagnosis) or providing expert guidance
   (e.g., updating troubleshooting rules) to Agents.
 
-• Feedback Provision: Human Operators submit feedback on Agent
-  performance (e.g., incorrect configuration suggestions) to drive
-  continuous improvement.
+• Feedback Provision: Human Operators submit feedback to AI guardrail
+  assistant on Agent performance or misbehavior information  (e.g.,
+  incorrect configuration suggestions) to drive continuous improvement.
 
 Note that agent discovery and inter-agent communication are the
 subject of dedicated IETF activities: the DAWN (Discovery of Agents,
@@ -1200,7 +1200,7 @@ of its implications and requirements.
 |    AIOps   |(C)|  Domain Specific  | (I)|------------+
 | Assistant  +--->  Network Agent    <----|AI Guardrail|
 +--^---------+   |    (D)            |    | Assistant  |
-   |             +---------------^---+    +---^--------+
+   |             +-------------------+    +---^--------+
    |                    |        |            |(H)
    |                    |        |      +-----+------+
    |                    |        |      | Evaluation |
