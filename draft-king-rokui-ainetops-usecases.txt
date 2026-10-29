@@ -118,7 +118,7 @@ Table of Contents
            Guardrail Support
      6.3.  AI-Driven Policy Enforcement and Compliance evaluation
            using AI Guardrail
-     6.4.  Network Anomaly Detection Incremental Improvement with AI
+     6.4.  Agent Anomaly Detection Incremental Improvement with AI
            Guardrail Support
    7.  Agent Observability, Intervention, and Control
    8.  Security Considerations
@@ -1468,8 +1468,8 @@ Legend:
     Figure 5: AI-Driven Policy Enforcement and Compliance Auditing
                           using AI Guardrail
 
-6.4.  Network Anomaly Detection Incremental Improvement with AI
-      Guardrail Support
+6.4.  Agent Anomaly Detection Incremental Improvement with AI Guardrail
+      Support
 
    Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
@@ -1548,7 +1548,7 @@ Legend:
         Adjustment policy or Detection Agent requests Human-in-the-Loop
         Escalation from AI Guardrail Assistant
 
-    Figure 6: Network anomaly detection optimization using AI Guardrail
+     Figure 6: Agent anomaly detection optimization using AI Guardrail
 
 7.  Agent Observability, Intervention, and Control
 
