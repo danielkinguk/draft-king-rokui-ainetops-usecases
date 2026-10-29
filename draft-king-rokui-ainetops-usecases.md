@@ -1311,6 +1311,92 @@ Legend:
 ~~~~
 {: #assurance-guardrail title=" Multi-layer Active Assurance Using Network Agent and AI Guardrail" artwork-align="center"}
 
+## AI-Driven Policy Enforcement and Compliance evaluation using AI Guardrail
+
+This use case leverages Network Change AI Agent to automate the enforcement of network policies and
+evaluation of compliance with regulatory standards,ethical, and organizational boundaries and internal
+guidelines. By continuously monitoring network Change AI Agent Behavior, AI Guardrail ensures that policies
+are consistently applied and compliance requirements are met. This use case addresses both single-layer
+(e.g., IP) and multi-layer (e.g., IP over optical) scenarios, as well as cross-domain environments.
+
+The AI Guardrail system analyzes real-time telemetry (e.g., trace, logs, metrics, audit information),
+historical data, and external inputs (e.g., regulatory updates, threat intelligence) to enforce
+policies and evaluate compliance. For example, AI Guardrail can detect unauthorized changes to firewall
+rules, enforce encryption standards for sensitive data, or ensure that network configurations align with
+policy/compliance requirements such as GDPR requirements. If violations are detected, AI Guardrail can
+automatically remediate issues or alert operators for manual intervention. In case of issue remediation
+on high risk operation, the remdiation solution can be escalated to the human operator for approval.
+AI Guardrails generally operate at three distinct operational levels to enforce policy and ensure :
+
+- Input Guardrails (Prompt Shielding)
+
+  - Goal: Detect and block malicious user behavior from the intent request before it reaches the network AI Agent.
+
+  - Key Enforcements: Preventing prompt injections, filtering out Personally Identifiable Information (PII),
+                      blocking hate speech, and stopping jailbreak attempts.
+
+- Output Guardrails (Response Validation)
+
+  - Goal: Verify that the generated configurations or policy is accurate, compliant, and safe for the end-user.
+
+  - Key Enforcements: Preventing hallucinations (fact-checking against internal knowledge bases), blocking
+                      toxic or biased outputs, and ensuring intellectual property (IP) compliance.
+
+- Continuous Evaluation (Logging & Analytics)
+
+  - Goal: Provide a transparent audit trail for compliance officers and regulators.
+
+  - Key Enforcements: Maintaining detailed logs of inputs, safety violations, system interventions, and
+                      Agent Behavior drift over time.
+
+~~~~
+                                   +---------------+
+                                   | Human Operator|
+                                   |               |
+                                   +----^----+-----+
+                                    (D) |    | (E)
+                                    +---|----V-----+
+                        +-----------|              |
+                     (E)|  |--------| AI Guardrail |
+                    Control|        +-----^--------+
+                    Signal |              |Report
+                        |  |        +--------------+
+                        | Intervene |   Agent (C)  |
+                        |  |Signal  | Evaluation   |
+                        |  | (E)    |   Process    |
+                        |  |        +-----^--------+
++-----------------------V--V-+            |Report
+|                            |      +-----|-------+
+|   Domain Specific Network  |      |    Agent    |
+|       Change Agent         |------>Observability|
+|    (Policy Enforcement     | (B)  |   Process   |
+|       &Compliance)         |      +-------------+
++----------------------------+
+             ^
+             |(A)
+             |
++------------V---------------+
+|                            |
+|  Packet Controller(P-PNC)  |
+|  Optical Controller(O-PNC) |
+|                            |
++----------------------------+
+             ^
+             |(A)
+ +-----------V--------------+
+ |    IP/Optical Network    |
+ +--------------------------+
+
+   Legend:
+   (A) Network Change Agent Send Policy enforcement commands (e.g., block traffic, adjust QoS)
+   (B) Agent Observability Information Feedback
+   (C) Evaluate policy and authorization compliance
+   (D) The Agent management plane notifies Human Operator about compliance reports and alerts
+   (E) The human Operator uses AI guardrail Assistant to intervene or
+    control Network Agent with the policy update.
+~~~~
+{: #audit-guardrail title="AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail" artwork-align="center"}
+
 ##   Network Anomaly Detection with AI Guardrail Support
 
    Network anomaly detection is a critical component of modern network
@@ -1391,80 +1477,6 @@ Legend:
 
 ~~~~
 {: #fault-guardrail title="Network anomaly detection optimization using AI Guardrail" artwork-align="center"}
-
-## AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail
-
-This use case leverages Network Change AI Agent to automate the enforcement of network policies and
-auditing of compliance with regulatory standards,ethical, and organizational boundaries and internal
-guidelines. By continuously monitoring network Change AI Agent Behavior, AI Guardrail ensures that policies
-are consistently applied and compliance requirements are met. This use case addresses both single-layer
-(e.g., IP) and multi-layer (e.g., IP over optical) scenarios, as well as cross-domain environments.
-
-The AI Guardrail system analyzes real-time telemetry (e.g., trace, logs, metrics, audit information),
-historical data, and external inputs (e.g., regulatory updates, threat intelligence) to enforce
-policies and audit compliance. For example, AI Guardrail can detect unauthorized changes to firewall
-rules, enforce encryption standards for sensitive data, or ensure that network configurations align with
-policy/compliance requirements such as GDPR requirements. If violations are detected, AI Guardrail can
-automatically remediate issues or alert operators for manual intervention. AI Guardrails generally operate
-at three distinct operational levels to enforce policy and ensure :
-
-- Input Guardrails (Prompt Shielding)
-
-  - Goal: Detect and block malicious user behavior from the intent request before it reaches the network AI Agent.
-
-  - Key Enforcements: Preventing prompt injections, filtering out Personally Identifiable Information (PII),
-                      blocking hate speech, and stopping jailbreak attempts.
-
-- Output Guardrails (Response Validation)
-
-  - Goal: Verify that the generated configurations or policy is accurate, compliant, and safe for the end-user.
-
-  - Key Enforcements: Preventing hallucinations (fact-checking against internal knowledge bases), blocking
-                      toxic or biased outputs, and ensuring intellectual property (IP) compliance.
-
-- Continuous Auditing (Logging & Analytics)
-
-  - Goal: Provide a transparent audit trail for compliance officers and regulators.
-
-  - Key Enforcements: Maintaining detailed logs of inputs, safety violations, system interventions, and
-                      Agent Behavior drift over time.
-
-~~~~
-         +-----------+       +-------------+
-         | Evaluation+-------> AI Guardrail|
-         | Process   |       |  Assistant  |
-         +-----------+       +-------------+
-
-               ^                |
-           (B) |                | (C)
-               |                v
-     +------------------------------------+
-     |     Domain Specific Network        |
-     |            Change Agent            |
-     |    (Policy Enforcement&Compliance) |
-     +----------------^-------------------+
-                   (A)|
-  +-------------------v---------------------+
-  |  packet controller (P-PNC),             |
-  |  optical controller (O-PNC),            |
-  |  and/or higher layer controllers (MDSC) |
-  +-----------------------------------------+
-                      ^
-                 (A)  |
-                      v
-        +-----------------------------+
-        |                             |
-        |       IP/Optical Network    |
-        |                             |
-        +-----------------------------+
-
-   Legend:
-   (A) Policy enforcement commands (e.g., block traffic, adjust QoS)
-   (B) Agent Observability Information Feedback
-   (C) Compliance reports and alerts
-
-~~~~
-{: #audit-guardrail title="AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail" artwork-align="center"}
 
 # Agent Observability, Intervention, and Control
 
