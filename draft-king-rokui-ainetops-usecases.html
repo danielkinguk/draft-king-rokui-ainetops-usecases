@@ -1306,10 +1306,10 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-network-active-assurance-wi" class="internal xref">Network Active Assurance with Network AI Agent and AI Guardrail Support</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
-                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-network-anomaly-detection-w" class="internal xref">Network Anomaly Detection with AI Guardrail Support</a></p>
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-ai-driven-policy-enforcemen" class="internal xref">AI-Driven Policy Enforcement and Compliance evaluation using AI Guardrail</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-ai-driven-policy-enforcemen" class="internal xref">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a></p>
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-network-anomaly-detection-w" class="internal xref">Network Anomaly Detection with AI Guardrail Support</a></p>
 </li>
             </ul>
 </li>
@@ -2743,12 +2743,124 @@ Legend:
 </div>
 </section>
 </div>
-<div id="network-anomaly-detection-with-ai-guardrail-support">
+<div id="ai-driven-policy-enforcement-and-compliance-evaluation-using-ai-guardrail">
 <section id="section-6.3">
-        <h3 id="name-network-anomaly-detection-w">
-<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-network-anomaly-detection-w" class="section-name selfRef">Network Anomaly Detection with AI Guardrail Support</a>
+        <h3 id="name-ai-driven-policy-enforcemen">
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-ai-driven-policy-enforcemen" class="section-name selfRef">AI-Driven Policy Enforcement and Compliance evaluation using AI Guardrail</a>
         </h3>
-<p id="section-6.3-1">Network anomaly detection is a critical component of modern network
+<p id="section-6.3-1">This use case leverages Network Change AI Agent to automate the enforcement of network policies and
+evaluation of compliance with regulatory standards,ethical, and organizational boundaries and internal
+guidelines. By continuously monitoring network Change AI Agent Behavior, AI Guardrail ensures that policies
+are consistently applied and compliance requirements are met. This use case addresses both single-layer
+(e.g., IP) and multi-layer (e.g., IP over optical) scenarios, as well as cross-domain environments.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-2">The AI Guardrail system analyzes real-time telemetry (e.g., trace, logs, metrics, audit information),
+historical data, and external inputs (e.g., regulatory updates, threat intelligence) to enforce
+policies and evaluate compliance. For example, AI Guardrail can detect unauthorized changes to firewall
+rules, enforce encryption standards for sensitive data, or ensure that network configurations align with
+policy/compliance requirements such as GDPR requirements. If violations are detected, AI Guardrail can
+automatically remediate issues or alert operators for manual intervention. In case of issue remediation
+on high risk operation, the remdiation solution can be escalated to the human operator for approval.
+AI Guardrails generally operate at three distinct operational levels to enforce policy and ensure :<a href="#section-6.3-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-3.1">
+            <p id="section-6.3-3.1.1">Input Guardrails (Prompt Shielding)<a href="#section-6.3-3.1.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-3.1.2.1">
+                <p id="section-6.3-3.1.2.1.1">Goal: Detect and block malicious user behavior from the intent request before it reaches the network AI Agent.<a href="#section-6.3-3.1.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-3.1.2.2">
+                <p id="section-6.3-3.1.2.2.1">Key Enforcements: Preventing prompt injections, filtering out Personally Identifiable Information (PII),
+                  blocking hate speech, and stopping jailbreak attempts.<a href="#section-6.3-3.1.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="normal" id="section-6.3-3.2">
+            <p id="section-6.3-3.2.1">Output Guardrails (Response Validation)<a href="#section-6.3-3.2.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-3.2.2.1">
+                <p id="section-6.3-3.2.2.1.1">Goal: Verify that the generated configurations or policy is accurate, compliant, and safe for the end-user.<a href="#section-6.3-3.2.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-3.2.2.2">
+                <p id="section-6.3-3.2.2.2.1">Key Enforcements: Preventing hallucinations (fact-checking against internal knowledge bases), blocking
+                  toxic or biased outputs, and ensuring intellectual property (IP) compliance.<a href="#section-6.3-3.2.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+          <li class="normal" id="section-6.3-3.3">
+            <p id="section-6.3-3.3.1">Continuous Evaluation (Logging &amp; Analytics)<a href="#section-6.3-3.3.1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-6.3-3.3.2.1">
+                <p id="section-6.3-3.3.2.1.1">Goal: Provide a transparent audit trail for compliance officers and regulators.<a href="#section-6.3-3.3.2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-6.3-3.3.2.2">
+                <p id="section-6.3-3.3.2.2.1">Key Enforcements: Maintaining detailed logs of inputs, safety violations, system interventions, and
+                  Agent Behavior drift over time.<a href="#section-6.3-3.3.2.2.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</li>
+        </ul>
+<span id="name-ai-driven-policy-enforcement"></span><div id="audit-guardrail">
+<figure id="figure-5">
+          <div class="alignCenter art-text artwork" id="section-6.3-4.1">
+<pre>
+                                   +---------------+
+                                   | Human Operator|
+                                   |               |
+                                   +----^----+-----+
+                                    (D) |    | (E)
+                                    +---|----V-----+
+                        +-----------|              |
+                     (E)|  |--------| AI Guardrail |
+                    Control|        +-----^--------+
+                    Signal |              |Report
+                        |  |        +--------------+
+                        | Intervene |   Agent (C)  |
+                        |  |Signal  | Evaluation   |
+                        |  | (E)    |   Process    |
+                        |  |        +-----^--------+
++-----------------------V--V-+            |Report
+|                            |      +-----|-------+
+|   Domain Specific Network  |      |    Agent    |
+|       Change Agent         |------&gt;Observability|
+|    (Policy Enforcement     | (B)  |   Process   |
+|       &amp;Compliance)         |      +-------------+
++----------------------------+
+             ^
+             |(A)
+             |
++------------V---------------+
+|                            |
+|  Packet Controller(P-PNC)  |
+|  Optical Controller(O-PNC) |
+|                            |
++----------------------------+
+             ^
+             |(A)
+ +-----------V--------------+
+ |    IP/Optical Network    |
+ +--------------------------+
+
+   Legend:
+   (A) Network Change Agent Send Policy enforcement commands (e.g., block traffic, adjust QoS)
+   (B) Agent Observability Information Feedback
+   (C) Evaluate policy and authorization compliance
+   (D) The Agent management plane notifies Human Operator about compliance reports and alerts
+   (E) The human Operator uses AI guardrail Assistant to intervene or
+    control Network Agent with the policy update.
+</pre>
+</div>
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
+<a href="#name-ai-driven-policy-enforcement" class="selfRef">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a>
+          </figcaption></figure>
+</div>
+</section>
+</div>
+<div id="network-anomaly-detection-with-ai-guardrail-support">
+<section id="section-6.4">
+        <h3 id="name-network-anomaly-detection-w">
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-network-anomaly-detection-w" class="section-name selfRef">Network Anomaly Detection with AI Guardrail Support</a>
+        </h3>
+<p id="section-6.4-1">Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
    network behavior that may indicate potential threats or operational
    issues.  With the increasing complexity of networks and the growing
@@ -2768,8 +2880,8 @@ Legend:
    action) or if they are to be treated as false positives (a.k.a.
    suppressing the alarm),perform detailed postmortem analysis of Problems
    with the objective to identify useful adjustments to the prevention and detection
-   mechanisms.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
-<p id="section-6.3-2">After the adjustments are generated, it will be sent to AI Guardrail
+   mechanisms.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
+<p id="section-6.4-2">After the adjustments are generated, it will be sent to AI Guardrail
    Assistant and the AI Guardrail  Assistant apply adjustments to the Network
    Anomaly Detection Agent, the cycle starts again. Alternatively,  Any
    remediation action flagged as "high-impact" by the Network Anomaly Detection
@@ -2778,10 +2890,10 @@ Legend:
    before execution. If consecutive-point monitoring in the Agent Observability
    Module flags that the AI baseline has drifted or been poisoned by bad telemetry,
    the AI guardrail can switch the network back to traditional, static
-   threshold-based detection.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
+   threshold-based detection.<a href="#section-6.4-2" class="pilcrow">¶</a></p>
 <span id="name-network-anomaly-detection-o"></span><div id="fault-guardrail">
-<figure id="figure-5">
-          <div class="alignCenter art-text artwork" id="section-6.3-3.1">
+<figure id="figure-6">
+          <div class="alignCenter art-text artwork" id="section-6.4-3.1">
 <pre>
 +----------------------------+
 |     Agent Observability    |(D)Optimization
@@ -2827,108 +2939,8 @@ Legend:
 
 </pre>
 </div>
-<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
-<a href="#name-network-anomaly-detection-o" class="selfRef">Network anomaly detection optimization using AI Guardrail</a>
-          </figcaption></figure>
-</div>
-</section>
-</div>
-<div id="ai-driven-policy-enforcement-and-compliance-auditing-using-ai-guardrail">
-<section id="section-6.4">
-        <h3 id="name-ai-driven-policy-enforcemen">
-<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-ai-driven-policy-enforcemen" class="section-name selfRef">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a>
-        </h3>
-<p id="section-6.4-1">This use case leverages Network Change AI Agent to automate the enforcement of network policies and
-auditing of compliance with regulatory standards,ethical, and organizational boundaries and internal
-guidelines. By continuously monitoring network Change AI Agent Behavior, AI Guardrail ensures that policies
-are consistently applied and compliance requirements are met. This use case addresses both single-layer
-(e.g., IP) and multi-layer (e.g., IP over optical) scenarios, as well as cross-domain environments.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
-<p id="section-6.4-2">The AI Guardrail system analyzes real-time telemetry (e.g., trace, logs, metrics, audit information),
-historical data, and external inputs (e.g., regulatory updates, threat intelligence) to enforce
-policies and audit compliance. For example, AI Guardrail can detect unauthorized changes to firewall
-rules, enforce encryption standards for sensitive data, or ensure that network configurations align with
-policy/compliance requirements such as GDPR requirements. If violations are detected, AI Guardrail can
-automatically remediate issues or alert operators for manual intervention. AI Guardrails generally operate
-at three distinct operational levels to enforce policy and ensure :<a href="#section-6.4-2" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-3.1">
-            <p id="section-6.4-3.1.1">Input Guardrails (Prompt Shielding)<a href="#section-6.4-3.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-3.1.2.1">
-                <p id="section-6.4-3.1.2.1.1">Goal: Detect and block malicious user behavior from the intent request before it reaches the network AI Agent.<a href="#section-6.4-3.1.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="normal" id="section-6.4-3.1.2.2">
-                <p id="section-6.4-3.1.2.2.1">Key Enforcements: Preventing prompt injections, filtering out Personally Identifiable Information (PII),
-                  blocking hate speech, and stopping jailbreak attempts.<a href="#section-6.4-3.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-          <li class="normal" id="section-6.4-3.2">
-            <p id="section-6.4-3.2.1">Output Guardrails (Response Validation)<a href="#section-6.4-3.2.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-3.2.2.1">
-                <p id="section-6.4-3.2.2.1.1">Goal: Verify that the generated configurations or policy is accurate, compliant, and safe for the end-user.<a href="#section-6.4-3.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="normal" id="section-6.4-3.2.2.2">
-                <p id="section-6.4-3.2.2.2.1">Key Enforcements: Preventing hallucinations (fact-checking against internal knowledge bases), blocking
-                  toxic or biased outputs, and ensuring intellectual property (IP) compliance.<a href="#section-6.4-3.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-          <li class="normal" id="section-6.4-3.3">
-            <p id="section-6.4-3.3.1">Continuous Auditing (Logging &amp; Analytics)<a href="#section-6.4-3.3.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-3.3.2.1">
-                <p id="section-6.4-3.3.2.1.1">Goal: Provide a transparent audit trail for compliance officers and regulators.<a href="#section-6.4-3.3.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="normal" id="section-6.4-3.3.2.2">
-                <p id="section-6.4-3.3.2.2.1">Key Enforcements: Maintaining detailed logs of inputs, safety violations, system interventions, and
-                  Agent Behavior drift over time.<a href="#section-6.4-3.3.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-        </ul>
-<span id="name-ai-driven-policy-enforcement"></span><div id="audit-guardrail">
-<figure id="figure-6">
-          <div class="alignCenter art-text artwork" id="section-6.4-4.1">
-<pre>
-         +-----------+       +-------------+
-         | Evaluation+-------&gt; AI Guardrail|
-         | Process   |       |  Assistant  |
-         +-----------+       +-------------+
-
-               ^                |
-           (B) |                | (C)
-               |                v
-     +------------------------------------+
-     |     Domain Specific Network        |
-     |            Change Agent            |
-     |    (Policy Enforcement&amp;Compliance) |
-     +----------------^-------------------+
-                   (A)|
-  +-------------------v---------------------+
-  |  packet controller (P-PNC),             |
-  |  optical controller (O-PNC),            |
-  |  and/or higher layer controllers (MDSC) |
-  +-----------------------------------------+
-                      ^
-                 (A)  |
-                      v
-        +-----------------------------+
-        |                             |
-        |       IP/Optical Network    |
-        |                             |
-        +-----------------------------+
-
-   Legend:
-   (A) Policy enforcement commands (e.g., block traffic, adjust QoS)
-   (B) Agent Observability Information Feedback
-   (C) Compliance reports and alerts
-
-</pre>
-</div>
 <figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
-<a href="#name-ai-driven-policy-enforcement" class="selfRef">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a>
+<a href="#name-network-anomaly-detection-o" class="selfRef">Network anomaly detection optimization using AI Guardrail</a>
           </figcaption></figure>
 </div>
 </section>
