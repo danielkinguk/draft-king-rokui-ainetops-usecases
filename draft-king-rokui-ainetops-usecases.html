@@ -2570,16 +2570,16 @@ of its implications and requirements.<a href="#section-6-3" class="pilcrow">¶</
 <p id="section-6.1-1">This use case leverages AI to design and execute fault injection
 scenarios that test the resilience of IP/optical networks under
 simulated failure conditions.  By proactively introducing controlled
-disruptions-such as packet drops, latency spikes, or optical signal
+disruptions - such as packet drops, latency spikes, or optical signal
 degradation- AI Guardrail system assesses the network Agent 's ability to detect, respond to,
-and recover from faults.  This approach enhances network robustness
+and recover from faults. This approach enhances network robustness
 by identifying weaknesses and validating automated recovery
 mechanisms before real failures occur, addressing both single-layer
 (IP or optical) and multi-layer (IP over optical) scenarios.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
 <p id="section-6.1-2">The Fault management AI Agent analyzes historical failure data (e.g., fiber cuts,
-equipment outages), real-time telemetry (e.g., latency, BER), and
+equipment outages), real-time network telemetry data (e.g., latency, BER), and
 external factors (e.g., weather events, traffic surges) to model
-probable failure points.  It then trigger AI Fault Inject Engine to
+probable failure risk points.  It then trigger AI Fault Inject Engine to
 inject faults, monitors the network's response, and refines recovery
 strategies, potentially in a closed-loop manner.  For example, an Fault management AI Agent
 might predict a high-risk optical link based on trending attenuation, simulate a fiber
@@ -2664,66 +2664,77 @@ Legend
    Alarms (TCA), among others.<a href="#section-6.2-3" class="pilcrow">¶</a></p>
 <p id="section-6.2-4">As illustrated in Figure 3, active assurance assumes that a fault
    occurs in the IP/Optical network (Step A) and is subsequently
-   detected automatically by higher-layer controllers (Step B). These
-   controllers may employ detection methods that include monitoring
+   detected automatically by higher-layer orchestrator (Step B). The
+   orchestrator may employ detection methods that include monitoring
    alarms, analyzing performance telemetry data, or processing customer
    reports indicating service disruptions. To initiate troubleshooting,
    the detection logic launches the AIOps-Assistant, which serves as the
-   front-end interface for AINetOps (Step C).  The assistant then utilizes
-   the backend assurance and troubleshooting mechanisms, leveraging a
-   Gen-AI multi-agent framework.  In Step D, a dynamic workflow is executed
-   to diagnose the issue and identify potential root causes.  Optionally,
+   front-end interface for AINetOps (Step C).  The assistant then sends
+   a intent request and utilizes the backend assurance and troubleshooting
+   mechanisms on the nework management agent to fullfill the intent,
+   leveraging a Gen-AI multi-agent framework.  In Step D, a dynamic workflow
+   is executed to diagnose the issue and identify potential root causes.  Optionally,
    at Step E, the Gen-AI dynamic workflow can recommend remedial actions
    to resolve the issue and implement these actions in a closed-loop fashion,
-   ensuring automated network recovery. In Step F, higher-layer controllers
-   as Agent Fabric Gateway Collect log, trace, metric information and report
-   them to the Observabiltiy process to establish Agent behavior visibility.
+   ensuring automated network recovery. In Step F, the network controllers
+   as Agent Fabric Gateway Collect log, trace, metric information on Agent
+   behavior and report them to the Observabiltiy process to establish Agent behavior visibility.
    In step G, these information will be further fed into evaluation process
    to identify operational anomalies or performance drifts. In Step H,
    these operational anomalies and performance drifts will be captured
    by AI Guardrail Assistant, so that human operator can use captured information
    and AI Guardrial Assitant to check and validate user input,tools invocation,
-   agent output, interrupt, and rollover from unanticipated behaviors.<a href="#section-6.2-4" class="pilcrow">¶</a></p>
+   agent output, interrupt, and rollover from unanticipated behaviors in case of
+   high risk operation.<a href="#section-6.2-4" class="pilcrow">¶</a></p>
 <span id="name-multi-layer-active-assuranc"></span><div id="assurance-guardrail">
 <figure id="figure-4">
           <div class="alignCenter art-text artwork" id="section-6.2-5.1">
 <pre>
-+------------+   +-------------------+
-|    AIOps   |(C)|  Domain Specific  | (I)|------------+
-| Assistant  +---&gt;  Network Agent    &lt;----|AI Guardrail|
-+--^---------+   |    (D)            |    | Assistant  |
-   |             +-------------------+    +---^--------+
-   |                    |        |            |(H)
-   |                    |        |      +-----+------+
-   |                    |        |      | Evaluation |
-   |                    |(E)     |      | Process    |
-   | (B)                |        |      +-----^------+
-   |                    |        |            |(G)
-   |            +-------v-------+|            |
-   |            |   P-PNC(s),   || (F)  +-----+--------+
-   +------------+   O-PNC(s),   |+-----&gt;|Observability |
-                |   MDSC        |       |   Process    |
-                +-------^-------+       +--------------+
-                        |(A)
-                        |
-              +---------+------------+
-              |                      |
-              | IP/Optical Network   |
-              |                      |
-              +----------------------+
+ +----------------------------+     +---------------+
+ |  OSS/Service Orchestrator  |     | Human Operator|
+ |      +---------------+     |     |               |
+ |      |AIOps Asssitant|     |     +----^----+-----+
+ |      +---------------+     |       (H)|    |(H)
+ +---^------------------------+      +---|----V-----+
+     |              |    +-----------|              |
+     |              | (H)|  |--------| AI Guardrail |
+     |              |Control|        +-----^--------+
+     |              |Signal |              |Report
+     |      Intent  |    |  |        +--------------+
+     |     Request  |    | Intervene |   Agent      |
+     |        (C)   |    |  |Signal  | Evaluation(G)|
+     (B)            |    |  | (H)    |   Process    |
+     |              |    |  |        +-----^--------+
+     |              |    |  |              |Report
+     |     +--------V----V--V-+      +-----|-------+
+     |     |Network Management|  (F) |    Agent    |
+     |     |     Agent (D)    +------&gt;Observability|
+     |     +--^-------|-------+      |   Process   |
+     |        |       |              +-------------+
+     |        |       |(E)  Observability
+     |        |       |   Signal interface
+  +--|--------|-------V-------+
+  |           Network         |
+  |         Controller        |
+  +----------------^----------+
+                   |(A)
+ +-----------------|----------+
+ |    Physical Network        |
+ +----------------------------+
+
 
 Legend:
 (A) A fault happened in the network (e.g., Fiber cut, IP packet drop,
     TCA crossing etc.)
-(B) The higher layer Controller notifies Operator
-(C) To start troubleshooting, AIOps-Assistant starts automatically
-(D) Start troubleshooting using Gen-AI multi-agent dynamic workflow
-(E) Optional remedial actions
+(B) The Network Controller and higher layer Orchestrator notifies Operator
+(C) To start troubleshooting, AIOps-Assistant starts send service assurance intent request to Network Management Agent
+(D) Network Management Agent starts troubleshooting using Gen-AI multi-agent dynamic workflow
+(E) Optional remedial actions from Network Management Agent
 (F) Telemetry for agent behavior visibility
 (G) Evaluate operational anomalies or performance drifts
 (H) The Agent management plane notifies Human Operator
 (I) The human Operator uses AI guardrail Assistant to intervene or
-     control Network Agent.
+    control Network Agent.
 </pre>
 </div>
 <figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
