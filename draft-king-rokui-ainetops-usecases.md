@@ -1397,7 +1397,7 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
 ~~~~
 {: #audit-guardrail title="AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail" artwork-align="center"}
 
-##   Agent Anomaly Detection Incremental Improvement with AI Guardrail Support
+##   Agent Misbehavior Detection Incremental Improvement with AI Guardrail Support
 
    Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
@@ -1410,16 +1410,19 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
    The lifecycle of a network anomaly can be articulated in three
    stages, structured as a loop: Detection, Validation, Refinement.
    The Network Anomaly Detection stage is performed by the network anomaly
-   detection Agent while Network Anomaly Validation and refinement is performed by Agent
-   Observability module and AI Guardrail Assistant. The Network Anomaly
-   Detection stage is about the continuous monitoring of the network
-   through Network Telemetry {{?RFC9232}} and the identification of Symptoms.
-   The key objective for the validation and refinement stage is clearly to decide if
-   the detected Symptoms are signaling a real problem (a.k.a. requires
-   action) or if they are to be treated as false positives (a.k.a.
-   suppressing the alarm), perform detailed postmortem analysis of Problems
-   with the objective to identify useful adjustments to the prevention and detection
-   mechanisms.
+   detection Agent while Agent mis-behavior Validation and refinement is
+   performed by Agent Observability module, Agent Failure Detection
+   module and Agent Attribution Engine. The Network Anomaly Detection stage
+   is about the continuous monitoring of the network through Network Telemetry
+   {{?RFC9232}} and the identification of Symptoms.
+   The key objective for the Agent behavior validation and refinement stage is
+   to detect when an agent deviates from its intended path or safe boundaries,
+   decide if the detected Symptoms are signaling a real problem (a.k.a. requires
+   action) or if they are to be treated as false positives(e.g., tools hide failure),
+   perform detailed postmortem analysis of Problems with the objective to identify
+   useful adjustments to the Agent failure prevention and detection mechanisms,
+   e.g., attribute the failure to the responsible actor,and adjust the system to
+   prevent it from happening again.
 
    After the adjustments are generated, it will be sent to AI Guardrail
    Assistant and the AI Guardrail Assistant apply adjustments to the Network
@@ -1428,9 +1431,9 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
    Agent is put into a correction queue and escalated to AI Guardrail Assistant,
    requiring manual administrative approval via an external management console
    before execution. If consecutive-point monitoring in the Agent Observability
-   Module flags that the AI baseline has drifted or been poisoned by bad telemetry,
-   the AI guardrail can switch the network back to traditional, static
-   threshold-based detection.
+   Module flags that the AI baseline has drifted or been poisoned by bad Agent
+   event telemetry, the AI guardrail can switch the network back to traditional,
+   static threshold-based detection.
 
 ~~~~
  +----------------------------+
@@ -1471,7 +1474,8 @@ Legend:
 (B) Resolve the problem with the Predefined Actions such as traffic blocking,reconfiguring
 (C) Agent Event Notification to Agent Observability Collector
 (D) Evaluate the Agent events and detect the Agent task failure based on poicy assertion or
-    identify useful adjustments (e.g., cause and failure mapping table update ) to the Network Anomaly Detection Agent
+    identify useful adjustments (e.g., cause and failure mapping table update ) to the
+    Network Anomaly Detection Agent
 (E) AI Guardrail Assistant optimizes the Network Detection Agent based on
     Adjustment policy or Anomaly Detection Agent requests Human-in-the-Loop
     Escalation from AI Guardrail Assistant
