@@ -1397,7 +1397,7 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
 ~~~~
 {: #audit-guardrail title="AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail" artwork-align="center"}
 
-##   Network Anomaly Detection with AI Guardrail Support
+##   Network Anomaly Detection Incremental Improvement with AI Guardrail Support
 
    Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
@@ -1417,12 +1417,12 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
    The key objective for the validation and refinement stage is clearly to decide if
    the detected Symptoms are signaling a real problem (a.k.a. requires
    action) or if they are to be treated as false positives (a.k.a.
-   suppressing the alarm),perform detailed postmortem analysis of Problems
+   suppressing the alarm), perform detailed postmortem analysis of Problems
    with the objective to identify useful adjustments to the prevention and detection
    mechanisms.
 
    After the adjustments are generated, it will be sent to AI Guardrail
-   Assistant and the AI Guardrail  Assistant apply adjustments to the Network
+   Assistant and the AI Guardrail Assistant apply adjustments to the Network
    Anomaly Detection Agent, the cycle starts again. Alternatively,  Any
    remediation action flagged as "high-impact" by the Network Anomaly Detection
    Agent is put into a correction queue and escalated to AI Guardrail Assistant,
@@ -1433,15 +1433,15 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
    threshold-based detection.
 
 ~~~~
-+----------------------------+
-|     Agent Observability    |(D)Optimization
-|+----------+   +----------+ |
-||  Network |   | Network  | |       +------------+
++----------------------------+            Human Operators
+|     Agent Observability    |(D)Optimization   ^
+|+----------+   +----------+ |                  |
+||  Network |   | Network  | |       +----------v-+
 ||  Anomaly +---> Anomaly  |<+------->AI Guardrail|
 ||Validation|   |Refinement| |       | Assistant  |
 |+-----^----+   +----------+ |       +----^-------+
 +------+---------------------+            |
-       |                                (E)Invention&
+       |                                (E)Intervention&
        |(C)Evaluation                     |  Control
        |  &Refinement    +----------------V--+
        +-----------------+                   |
