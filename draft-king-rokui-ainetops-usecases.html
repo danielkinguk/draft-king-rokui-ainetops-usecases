@@ -1309,7 +1309,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-ai-driven-policy-enforcemen" class="internal xref">AI-Driven Policy Enforcement and Compliance evaluation using AI Guardrail</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-network-anomaly-detection-w" class="internal xref">Network Anomaly Detection with AI Guardrail Support</a></p>
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-network-anomaly-detection-i" class="internal xref">Network Anomaly Detection Incremental Improvement with AI Guardrail Support</a></p>
 </li>
             </ul>
 </li>
@@ -2855,10 +2855,10 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
 </div>
 </section>
 </div>
-<div id="network-anomaly-detection-with-ai-guardrail-support">
+<div id="network-anomaly-detection-incremental-improvement-with-ai-guardrail-support">
 <section id="section-6.4">
-        <h3 id="name-network-anomaly-detection-w">
-<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-network-anomaly-detection-w" class="section-name selfRef">Network Anomaly Detection with AI Guardrail Support</a>
+        <h3 id="name-network-anomaly-detection-i">
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-network-anomaly-detection-i" class="section-name selfRef">Network Anomaly Detection Incremental Improvement with AI Guardrail Support</a>
         </h3>
 <p id="section-6.4-1">Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
@@ -2878,11 +2878,11 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
    The key objective for the validation and refinement stage is clearly to decide if
    the detected Symptoms are signaling a real problem (a.k.a. requires
    action) or if they are to be treated as false positives (a.k.a.
-   suppressing the alarm),perform detailed postmortem analysis of Problems
+   suppressing the alarm), perform detailed postmortem analysis of Problems
    with the objective to identify useful adjustments to the prevention and detection
    mechanisms.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
 <p id="section-6.4-2">After the adjustments are generated, it will be sent to AI Guardrail
-   Assistant and the AI Guardrail  Assistant apply adjustments to the Network
+   Assistant and the AI Guardrail Assistant apply adjustments to the Network
    Anomaly Detection Agent, the cycle starts again. Alternatively,  Any
    remediation action flagged as "high-impact" by the Network Anomaly Detection
    Agent is put into a correction queue and escalated to AI Guardrail Assistant,
@@ -2895,15 +2895,15 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
 <figure id="figure-6">
           <div class="alignCenter art-text artwork" id="section-6.4-3.1">
 <pre>
-+----------------------------+
-|     Agent Observability    |(D)Optimization
-|+----------+   +----------+ |
-||  Network |   | Network  | |       +------------+
++----------------------------+            Human Operators
+|     Agent Observability    |(D)Optimization   ^
+|+----------+   +----------+ |                  |
+||  Network |   | Network  | |       +----------v-+
 ||  Anomaly +---&gt; Anomaly  |&lt;+-------&gt;AI Guardrail|
 ||Validation|   |Refinement| |       | Assistant  |
 |+-----^----+   +----------+ |       +----^-------+
 +------+---------------------+            |
-       |                                (E)Invention&amp;
+       |                                (E)Intervention&amp;
        |(C)Evaluation                     |  Control
        |  &amp;Refinement    +----------------V--+
        +-----------------+                   |
