@@ -42,11 +42,11 @@ protocols to support AINetOps-driven network management.
     Jinja2 3.1.6
     lxml 6.1.1
     natsort 8.4.0
-    platformdirs 4.12.2
+    platformdirs 4.13.4
     pycountry 24.6.1
     PyYAML 6.0.3
     requests 2.33.1
-    wcwidth 0.9.1
+    wcwidth 0.9.2
 -->
 <link href="draft-king-rokui-ainetops-usecases.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1066,7 +1066,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Rokui, et al.</td>
-<td class="center">Expires 19 April 2027</td>
+<td class="center">Expires 2 May 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1079,12 +1079,12 @@ svg {
 <dd class="internet-draft">draft-king-rokui-ainetops-usecases-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-10-16" class="published">16 October 2026</time>
+<time datetime="2026-10-29" class="published">29 October 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-04-19">19 April 2027</time></dd>
+<dd class="expires"><time datetime="2027-05-02">2 May 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1153,7 +1153,7 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 April 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 2 May 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1300,16 +1300,16 @@ protocols to support AINetOps-driven network management.<a href="#section-abstra
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="auto internal xref">6</a>.  <a href="#name-ainetops-scenarios-and-use-" class="internal xref">AINetOps Scenarios and Use-cases</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-network-active-assurance-wi" class="internal xref">Network Active Assurance with Network AI Agent and AI Guardrail Support</a></p>
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-agentic-ai-driven-resilienc" class="internal xref">Agentic AI-Driven Resilience Testing using AI Guardrail</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-network-anomaly-detection-w" class="internal xref">Network Anomaly Detection with AI Guardrail Support</a></p>
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-network-active-assurance-wi" class="internal xref">Network Active Assurance with Network AI Agent and AI Guardrail Support</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
-                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-ai-driven-policy-enforcemen" class="internal xref">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a></p>
+                <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-network-anomaly-detection-w" class="internal xref">Network Anomaly Detection with AI Guardrail Support</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-agentic-ai-driven-resilienc" class="internal xref">Agentic AI-Driven Resilience Testing using AI Guardrail</a></p>
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-ai-driven-policy-enforcemen" class="internal xref">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a></p>
 </li>
             </ul>
 </li>
@@ -2562,12 +2562,86 @@ of its implications and requirements.<a href="#section-6-3" class="pilcrow">¶</
                                use case.<a href="#section-6-4.6.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<div id="network-active-assurance-with-network-ai-agent-and-ai-guardrail-support">
+<div id="agentic-ai-driven-resilience-testing-using-ai-guardrail">
 <section id="section-6.1">
-        <h3 id="name-network-active-assurance-wi">
-<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-network-active-assurance-wi" class="section-name selfRef">Network Active Assurance with Network AI Agent and AI Guardrail Support</a>
+        <h3 id="name-agentic-ai-driven-resilienc">
+<a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-agentic-ai-driven-resilienc" class="section-name selfRef">Agentic AI-Driven Resilience Testing using AI Guardrail</a>
         </h3>
-<p id="section-6.1-1">Network active and reactive assurance, both at the single- layer (IP
+<p id="section-6.1-1">This use case leverages AI to design and execute fault injection
+scenarios that test the resilience of IP/optical networks under
+simulated failure conditions.  By proactively introducing controlled
+disruptions-such as packet drops, latency spikes, or optical signal
+degradation- AI Guardrail system assesses the network Agent 's ability to detect, respond to,
+and recover from faults.  This approach enhances network robustness
+by identifying weaknesses and validating automated recovery
+mechanisms before real failures occur, addressing both single-layer
+(IP or optical) and multi-layer (IP over optical) scenarios.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1-2">The Fault management AI Agent analyzes historical failure data (e.g., fiber cuts,
+equipment outages), real-time telemetry (e.g., latency, BER), and
+external factors (e.g., weather events, traffic surges) to model
+probable failure points.  It then trigger AI Fault Inject Engine to
+inject faults, monitors the network's response, and refines recovery
+strategies, potentially in a closed-loop manner.  For example, an Fault management AI Agent
+might predict a high-risk optical link based on trending attenuation, simulate a fiber
+cut, and evaluate whether IP-layer rerouting maintains SLAs.  If
+recovery is suboptimal, it suggests adjustments (e.g., updating TE
+policies) and retests. And then Network Agent Behavior related to Tools Excution, Reason
+can be collected and report to the AI Guardrail. The AI Guardrail can use Evaluate process
+to Evaluate how well the Fault management Network Agent are run to support Network resilience test.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+<span id="name-agentic-ai-driven-resilience"></span><div id="resilience-guardrail">
+<figure id="figure-3">
+          <div class="alignCenter art-text artwork" id="section-6.1-3.1">
+<pre>
+            +--------------------------------------+
+            |Network Management AI Guardrail       |
+            |    +--------------+    +-----------+ |
+            |    | Observability|(E) | Evaluation| |
+            |    |    Process   +----&gt;  Process  | |
+            |    +---^----------+    +-----------+ |
+            +--------|-----------------------------+
+                 (D) |
+               |----------------------------|
+ +---------+   |      Fault Management      |
+ |AI Fault |   |      Network Agent         |
+ |Injection|   |----------------------------|
+ | Engine  |         ^                |
+ +----+----+     (B) |                | (C)
+      |              |                v
+      |  |-----------------------------------------|
+      |  |  packet controller (P-PNC),             |
+      |  |  optical controller (O-PNC),            |
+      |  |  and/or higher layer controllers (MDSC) |
+  (A) |  |-----------------------------------------|
+      |                      ^
+      |                  (B) |
+      |                      |
+  +---V---------------------------------------------------+
+  |                                                       |
+  |                    IP/Optical Network                 |
+  |                                                       |
+  +-------------------------------------------------------+
+
+Legend
+(A) Fault injection commands (e.g., disable link, drop packets, degrade signal)
+(B) Telemetry feedback (e.g., latency, packet loss, BER)
+(C)  Recovery actions (e.g., reroute traffic, adjust optical parameters)
+(D) Agent Telemetry Collection (e.g., tool invoking success rate, Task Success rate)
+(E) Agent Resilience Test Performance Evaluation
+
+</pre>
+</div>
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
+<a href="#name-agentic-ai-driven-resilience" class="selfRef">Agentic AI-Driven Resilience Testing using AI Guardrail</a>
+          </figcaption></figure>
+</div>
+</section>
+</div>
+<div id="network-active-assurance-with-network-ai-agent-and-ai-guardrail-support">
+<section id="section-6.2">
+        <h3 id="name-network-active-assurance-wi">
+<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-network-active-assurance-wi" class="section-name selfRef">Network Active Assurance with Network AI Agent and AI Guardrail Support</a>
+        </h3>
+<p id="section-6.2-1">Network active and reactive assurance, both at the single- layer (IP
    or Optical) and multi-layer (IP over Optical), are critical
    components in maintaining the health and stability of modern IP,
    Optical, and IPoDWDM networks.  This process involves the
@@ -2577,18 +2651,18 @@ of its implications and requirements.<a href="#section-6-3" class="pilcrow">¶</
    pinpoint the root cause of problems, whether they originate in the IP
    layer, the optical layer, or across both.  This reactive approach is
    essential for minimizing downtime and maintaining the quality of
-   service expected by network users.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">In single-layer troubleshooting, the focus is on isolating and
+   service expected by network users.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-2">In single-layer troubleshooting, the focus is on isolating and
    resolving issues within a specific layer of the network.  Multi-layer
    troubleshooting, on the other hand, requires a more integrated
    approach, as it involves identifying and resolving issues that span
    across multiple layers of the network.  This could include problems
-   where an issue in the optical layer affects the IP layer.<a href="#section-6.1-2" class="pilcrow">¶</a></p>
-<p id="section-6.1-3">In active assurance, network faults have already occurred.  These
+   where an issue in the optical layer affects the IP layer.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.2-3">In active assurance, network faults have already occurred.  These
    faults may include impairments such as optical fiber
    cuts, IP packet drops, IP link latency issues, or Threshold Crossing
-   Alarms (TCA), among others.<a href="#section-6.1-3" class="pilcrow">¶</a></p>
-<p id="section-6.1-4">As illustrated in Figure 3, active assurance assumes that a fault
+   Alarms (TCA), among others.<a href="#section-6.2-3" class="pilcrow">¶</a></p>
+<p id="section-6.2-4">As illustrated in Figure 3, active assurance assumes that a fault
    occurs in the IP/Optical network (Step A) and is subsequently
    detected automatically by higher-layer controllers (Step B). These
    controllers may employ detection methods that include monitoring
@@ -2609,10 +2683,10 @@ of its implications and requirements.<a href="#section-6-3" class="pilcrow">¶</
    these operational anomalies and performance drifts will be captured
    by AI Guardrail Assistant, so that human operator can use captured information
    and AI Guardrial Assitant to check and validate user input,tools invocation,
-   agent output, interrupt, and rollover from unanticipated behaviors.<a href="#section-6.1-4" class="pilcrow">¶</a></p>
+   agent output, interrupt, and rollover from unanticipated behaviors.<a href="#section-6.2-4" class="pilcrow">¶</a></p>
 <span id="name-multi-layer-active-assuranc"></span><div id="assurance-guardrail">
-<figure id="figure-3">
-          <div class="alignCenter art-text artwork" id="section-6.1-5.1">
+<figure id="figure-4">
+          <div class="alignCenter art-text artwork" id="section-6.2-5.1">
 <pre>
 +------------+   +-------------------+
 |    AIOps   |(C)|  Domain Specific  | (I)|------------+
@@ -2652,18 +2726,18 @@ Legend:
      control Network Agent.
 </pre>
 </div>
-<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
 <a href="#name-multi-layer-active-assuranc" class="selfRef">Multi-layer Active Assurance Using Network Agent and AI Guardrail</a>
           </figcaption></figure>
 </div>
 </section>
 </div>
 <div id="network-anomaly-detection-with-ai-guardrail-support">
-<section id="section-6.2">
+<section id="section-6.3">
         <h3 id="name-network-anomaly-detection-w">
-<a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-network-anomaly-detection-w" class="section-name selfRef">Network Anomaly Detection with AI Guardrail Support</a>
+<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-network-anomaly-detection-w" class="section-name selfRef">Network Anomaly Detection with AI Guardrail Support</a>
         </h3>
-<p id="section-6.2-1">Network anomaly detection is a critical component of modern network
+<p id="section-6.3-1">Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
    network behavior that may indicate potential threats or operational
    issues.  With the increasing complexity of networks and the growing
@@ -2683,8 +2757,8 @@ Legend:
    action) or if they are to be treated as false positives (a.k.a.
    suppressing the alarm),perform detailed postmortem analysis of Problems
    with the objective to identify useful adjustments to the prevention and detection
-   mechanisms.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
-<p id="section-6.2-2">After the adjustments are generated, it will be sent to AI Guardrail
+   mechanisms.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
+<p id="section-6.3-2">After the adjustments are generated, it will be sent to AI Guardrail
    Assistant and the AI Guardrail  Assistant apply adjustments to the Network
    Anomaly Detection Agent, the cycle starts again. Alternatively,  Any
    remediation action flagged as "high-impact" by the Network Anomaly Detection
@@ -2693,10 +2767,10 @@ Legend:
    before execution. If consecutive-point monitoring in the Agent Observability
    Module flags that the AI baseline has drifted or been poisoned by bad telemetry,
    the AI guardrail can switch the network back to traditional, static
-   threshold-based detection.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
+   threshold-based detection.<a href="#section-6.3-2" class="pilcrow">¶</a></p>
 <span id="name-network-anomaly-detection-o"></span><div id="fault-guardrail">
-<figure id="figure-4">
-          <div class="alignCenter art-text artwork" id="section-6.2-3.1">
+<figure id="figure-5">
+          <div class="alignCenter art-text artwork" id="section-6.3-3.1">
 <pre>
 +----------------------------+
 |     Agent Observability    |(D)Optimization
@@ -2742,70 +2816,70 @@ Legend:
 
 </pre>
 </div>
-<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
 <a href="#name-network-anomaly-detection-o" class="selfRef">Network anomaly detection optimization using AI Guardrail</a>
           </figcaption></figure>
 </div>
 </section>
 </div>
 <div id="ai-driven-policy-enforcement-and-compliance-auditing-using-ai-guardrail">
-<section id="section-6.3">
+<section id="section-6.4">
         <h3 id="name-ai-driven-policy-enforcemen">
-<a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-ai-driven-policy-enforcemen" class="section-name selfRef">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a>
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-ai-driven-policy-enforcemen" class="section-name selfRef">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a>
         </h3>
-<p id="section-6.3-1">This use case leverages Network Change AI Agent to automate the enforcement of network policies and
+<p id="section-6.4-1">This use case leverages Network Change AI Agent to automate the enforcement of network policies and
 auditing of compliance with regulatory standards,ethical, and organizational boundaries and internal
 guidelines. By continuously monitoring network Change AI Agent Behavior, AI Guardrail ensures that policies
 are consistently applied and compliance requirements are met. This use case addresses both single-layer
-(e.g., IP) and multi-layer (e.g., IP over optical) scenarios, as well as cross-domain environments.<a href="#section-6.3-1" class="pilcrow">¶</a></p>
-<p id="section-6.3-2">The AI Guardrail system analyzes real-time telemetry (e.g., trace, logs, metrics, audit information),
+(e.g., IP) and multi-layer (e.g., IP over optical) scenarios, as well as cross-domain environments.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
+<p id="section-6.4-2">The AI Guardrail system analyzes real-time telemetry (e.g., trace, logs, metrics, audit information),
 historical data, and external inputs (e.g., regulatory updates, threat intelligence) to enforce
 policies and audit compliance. For example, AI Guardrail can detect unauthorized changes to firewall
 rules, enforce encryption standards for sensitive data, or ensure that network configurations align with
 policy/compliance requirements such as GDPR requirements. If violations are detected, AI Guardrail can
 automatically remediate issues or alert operators for manual intervention. AI Guardrails generally operate
-at three distinct operational levels to enforce policy and ensure :<a href="#section-6.3-2" class="pilcrow">¶</a></p>
+at three distinct operational levels to enforce policy and ensure :<a href="#section-6.4-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-3.1">
-            <p id="section-6.3-3.1.1">Input Guardrails (Prompt Shielding)<a href="#section-6.3-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.4-3.1">
+            <p id="section-6.4-3.1.1">Input Guardrails (Prompt Shielding)<a href="#section-6.4-3.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-3.1.2.1">
-                <p id="section-6.3-3.1.2.1.1">Goal: Detect and block malicious user behavior from the intent request before it reaches the network AI Agent.<a href="#section-6.3-3.1.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.4-3.1.2.1">
+                <p id="section-6.4-3.1.2.1.1">Goal: Detect and block malicious user behavior from the intent request before it reaches the network AI Agent.<a href="#section-6.4-3.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="normal" id="section-6.3-3.1.2.2">
-                <p id="section-6.3-3.1.2.2.1">Key Enforcements: Preventing prompt injections, filtering out Personally Identifiable Information (PII),
-                  blocking hate speech, and stopping jailbreak attempts.<a href="#section-6.3-3.1.2.2.1" class="pilcrow">¶</a></p>
+              <li class="normal" id="section-6.4-3.1.2.2">
+                <p id="section-6.4-3.1.2.2.1">Key Enforcements: Preventing prompt injections, filtering out Personally Identifiable Information (PII),
+                  blocking hate speech, and stopping jailbreak attempts.<a href="#section-6.4-3.1.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="normal" id="section-6.3-3.2">
-            <p id="section-6.3-3.2.1">Output Guardrails (Response Validation)<a href="#section-6.3-3.2.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-6.4-3.2">
+            <p id="section-6.4-3.2.1">Output Guardrails (Response Validation)<a href="#section-6.4-3.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-3.2.2.1">
-                <p id="section-6.3-3.2.2.1.1">Goal: Verify that the generated configurations or policy is accurate, compliant, and safe for the end-user.<a href="#section-6.3-3.2.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.4-3.2.2.1">
+                <p id="section-6.4-3.2.2.1.1">Goal: Verify that the generated configurations or policy is accurate, compliant, and safe for the end-user.<a href="#section-6.4-3.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="normal" id="section-6.3-3.2.2.2">
-                <p id="section-6.3-3.2.2.2.1">Key Enforcements: Preventing hallucinations (fact-checking against internal knowledge bases), blocking
-                  toxic or biased outputs, and ensuring intellectual property (IP) compliance.<a href="#section-6.3-3.2.2.2.1" class="pilcrow">¶</a></p>
+              <li class="normal" id="section-6.4-3.2.2.2">
+                <p id="section-6.4-3.2.2.2.1">Key Enforcements: Preventing hallucinations (fact-checking against internal knowledge bases), blocking
+                  toxic or biased outputs, and ensuring intellectual property (IP) compliance.<a href="#section-6.4-3.2.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
-          <li class="normal" id="section-6.3-3.3">
-            <p id="section-6.3-3.3.1">Continuous Auditing (Logging &amp; Analytics)<a href="#section-6.3-3.3.1" class="pilcrow">¶</a></p>
+          <li class="normal" id="section-6.4-3.3">
+            <p id="section-6.4-3.3.1">Continuous Auditing (Logging &amp; Analytics)<a href="#section-6.4-3.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.3-3.3.2.1">
-                <p id="section-6.3-3.3.2.1.1">Goal: Provide a transparent audit trail for compliance officers and regulators.<a href="#section-6.3-3.3.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.4-3.3.2.1">
+                <p id="section-6.4-3.3.2.1.1">Goal: Provide a transparent audit trail for compliance officers and regulators.<a href="#section-6.4-3.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-              <li class="normal" id="section-6.3-3.3.2.2">
-                <p id="section-6.3-3.3.2.2.1">Key Enforcements: Maintaining detailed logs of inputs, safety violations, system interventions, and
-                  Agent Behavior drift over time.<a href="#section-6.3-3.3.2.2.1" class="pilcrow">¶</a></p>
+              <li class="normal" id="section-6.4-3.3.2.2">
+                <p id="section-6.4-3.3.2.2.1">Key Enforcements: Maintaining detailed logs of inputs, safety violations, system interventions, and
+                  Agent Behavior drift over time.<a href="#section-6.4-3.3.2.2.1" class="pilcrow">¶</a></p>
 </li>
             </ul>
 </li>
         </ul>
 <span id="name-ai-driven-policy-enforcement"></span><div id="audit-guardrail">
-<figure id="figure-5">
-          <div class="alignCenter art-text artwork" id="section-6.3-4.1">
+<figure id="figure-6">
+          <div class="alignCenter art-text artwork" id="section-6.4-4.1">
 <pre>
          +-----------+       +-------------+
          | Evaluation+-------&gt; AI Guardrail|
@@ -2842,82 +2916,8 @@ at three distinct operational levels to enforce policy and ensure :<a href="#sec
 
 </pre>
 </div>
-<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
-<a href="#name-ai-driven-policy-enforcement" class="selfRef">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a>
-          </figcaption></figure>
-</div>
-</section>
-</div>
-<div id="agentic-ai-driven-resilience-testing-using-ai-guardrail">
-<section id="section-6.4">
-        <h3 id="name-agentic-ai-driven-resilienc">
-<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-agentic-ai-driven-resilienc" class="section-name selfRef">Agentic AI-Driven Resilience Testing using AI Guardrail</a>
-        </h3>
-<p id="section-6.4-1">This use case leverages AI to design and execute fault injection
-scenarios that test the resilience of IP/optical networks under
-simulated failure conditions.  By proactively introducing controlled
-disruptions-such as packet drops, latency spikes, or optical signal
-degradation- AI Guardrail system assesses the network Agent 's ability to detect, respond to,
-and recover from faults.  This approach enhances network robustness
-by identifying weaknesses and validating automated recovery
-mechanisms before real failures occur, addressing both single-layer
-(IP or optical) and multi-layer (IP over optical) scenarios.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
-<p id="section-6.4-2">The Fault management AI Agent analyzes historical failure data (e.g., fiber cuts,
-equipment outages), real-time telemetry (e.g., latency, BER), and
-external factors (e.g., weather events, traffic surges) to model
-probable failure points.  It then trigger AI Fault Inject Engine to
-inject faults, monitors the network's response, and refines recovery
-strategies, potentially in a closed-loop manner.  For example, an Fault management AI Agent
-might predict a high-risk optical link based on trending attenuation, simulate a fiber
-cut, and evaluate whether IP-layer rerouting maintains SLAs.  If
-recovery is suboptimal, it suggests adjustments (e.g., updating TE
-policies) and retests. And then Network Agent Behavior related to Tools Excution, Reason
-can be collected and report to the AI Guardrail. The AI Guardrail can use Evaluate process
-to Evaluate how well the Fault management Network Agent are run to support Network resilience test.<a href="#section-6.4-2" class="pilcrow">¶</a></p>
-<span id="name-agentic-ai-driven-resilience"></span><div id="resilience-guardrail">
-<figure id="figure-6">
-          <div class="alignCenter art-text artwork" id="section-6.4-3.1">
-<pre>
-            +--------------------------------------+
-            |Network Management AI Guardrail       |
-            |    +--------------+    +-----------+ |
-            |    | Observability|(E) | Evaluation| |
-            |    |    Process   +----&gt;  Process  | |
-            |    +---^----------+    +-----------+ |
-            +--------|-----------------------------+
-                 (D) |
-               |----------------------------|
- +---------+   |      Fault Management      |
- |AI Fault |   |      Network Agent         |
- |Injection|   |----------------------------|
- | Engine  |         ^                |
- +----+----+     (B) |                | (C)
-      |              |                v
-      |  |-----------------------------------------|
-      |  |  packet controller (P-PNC),             |
-      |  |  optical controller (O-PNC),            |
-      |  |  and/or higher layer controllers (MDSC) |
-  (A) |  |-----------------------------------------|
-      |                      ^
-      |                  (B) |
-      |                      |
-  +---V---------------------------------------------------+
-  |                                                       |
-  |                    IP/Optical Network                 |
-  |                                                       |
-  +-------------------------------------------------------+
-
-Legend
-(A) Fault injection commands (e.g., disable link, drop packets, degrade signal)
-(B) Telemetry feedback (e.g., latency, packet loss, BER)
-(C)  Recovery actions (e.g., reroute traffic, adjust optical parameters)
-(D) Agent Telemetry Collection (e.g., tool invoking success rate, Task Success rate)
-(E) Agent Resilience Test Performance Evaluation
-
-</pre>
-</div>
 <figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
-<a href="#name-agentic-ai-driven-resilience" class="selfRef">Agentic AI-Driven Resilience Testing using AI Guardrail</a>
+<a href="#name-ai-driven-policy-enforcement" class="selfRef">AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail</a>
           </figcaption></figure>
 </div>
 </section>
