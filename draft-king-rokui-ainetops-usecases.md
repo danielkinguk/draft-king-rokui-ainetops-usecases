@@ -1397,7 +1397,7 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
 ~~~~
 {: #audit-guardrail title="AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail" artwork-align="center"}
 
-##   Network Anomaly Detection Incremental Improvement with AI Guardrail Support
+##   Agent Anomaly Detection Incremental Improvement with AI Guardrail Support
 
    Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
@@ -1476,7 +1476,7 @@ Legend:
     Escalation from AI Guardrail Assistant
 
 ~~~~
-{: #fault-guardrail title="Network anomaly detection optimization using AI Guardrail" artwork-align="center"}
+{: #fault-guardrail title="Agent anomaly detection optimization using AI Guardrail" artwork-align="center"}
 
 # Agent Observability, Intervention, and Control
 
