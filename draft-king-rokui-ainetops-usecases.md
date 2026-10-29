@@ -1433,46 +1433,47 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
    threshold-based detection.
 
 ~~~~
-+----------------------------+            Human Operators
-|     Agent Observability    |(D)Optimization   ^
-|+----------+   +----------+ |                  |
-||  Network |   | Network  | |       +----------v-+
-||  Anomaly +---> Anomaly  |<+------->AI Guardrail|
-||Validation|   |Refinement| |       | Assistant  |
-|+-----^----+   +----------+ |       +----^-------+
-+------+---------------------+            |
-       |                                (E)Intervention&
-       |(C)Evaluation                     |  Control
-       |  &Refinement    +----------------V--+
-       +-----------------+                   |
-                         |  Network Anomaly (B)Network Policy
-           +-----------> |  Detection Agent  |-----------+
-           | A)Network   |                   |           |
-           | Telemetry   +-------------------+           |
-           |                                             |
-+----------+---------------------------------------------+--------+
-| +--------|----------+       MCP Server      +----------|------+ |
-| |                   |                       |                 | |
-| |  Data Collection  |                       |    Response     | |
-| |      Layer        |<------|       |-------|      Layer      | |
-| |                   |       |       |       |                 | |
-| +-------------------+       |       |       +-----------------+ |
-+-----------------------------+-------+---------------------------+
-            Southbound API    |       | Southbound API
- (NETCONF, IPFIX,BGP-LS, etc) |       v (NETCONF, PCEP, BGP, etc)
+ +----------------------------+
+ |  Agent       +-----------+ |
+ | Evaluator    |   Agent   | |(D)Optimization
+ |+----------+  |Attribution------+
+ ||          --->   Engine  | |   |
+ ||  Agent   |  +-----------+ |   |        Human Operators
+ |Observability               |   |              ^
+ || Collector|   +----------+ |   |              |
+ ||          |   |  Agent   | |   |   +----------v-+
+ ||          | --> Failure  |-----+--->AI Guardrail|
+ |+-----^----|   |Detector  | |       | Assistant  |
+ |      |        +----------+ |       +------------+
+ +------|---------------------+            |
+        | (C)AgentEvents Notification    (E)Intervention&
+        --------------------+              |  Control
+    +-----------------------|--------------|------------------+
+    | Agent/Tools/Models +-----------------V-+                |
+    |         +--------> |  Network Anomaly  |-------+        |
+    |         |          |  Detection Agent  |       |        |
+    |         |          +-------------------+       |        |
+    | +-------|-------+                   +----------V------+ |
+    | |      Data     |     MCP Server    |                 | |
+    | |   Collection  |                   |     Response    | |
+    | |     Layer     |<------+   +-------|      Layer      | |
+    | ----------------+       |   |       +-----------------+ |
+    +-------------------------+---+---------------------------+
+        (A) Southbound API    |   | (B) Southbound API
+  (NETCONF, IPFIX,BGP-LS,etc) |   v (NETCONF,PCEP, BGP, etc)
                       +-------------------+
                       |  Network Devices  |
                       | (Routers, Switches|
                       | Endpoints, etc.)  |
                       +-------------------+
-
 Legend:
 (A) Network Telemetry Information Collection
-(B) Resolve the problem with the Network Policy
-(C) Evaluate the network anomalies and identify useful adjustments
-(D) Generate adjustments to the Network Anomaly Detection Agent
-(E) AI Guardrail Assistant optimizes the Detection Agent based on
-    Adjustment policy or Detection Agent requests Human-in-the-Loop
+(B) Resolve the problem with the Predefined Actions such as traffic blocking,reconfiguring
+(C) Agent Event Notification to Agent Observability Collector
+(D) Evaluate the Agent events and detect the Agent task failure based on poicy assertion or
+    identify useful adjustments (e.g., cause and failure mapping table update ) to the Network Anomaly Detection Agent 
+(E) AI Guardrail Assistant optimizes the Network Detection Agent based on
+    Adjustment policy or Anomaly Detection Agent requests Human-in-the-Loop
     Escalation from AI Guardrail Assistant
 
 ~~~~
