@@ -1471,7 +1471,7 @@ Legend:
 (B) Resolve the problem with the Predefined Actions such as traffic blocking,reconfiguring
 (C) Agent Event Notification to Agent Observability Collector
 (D) Evaluate the Agent events and detect the Agent task failure based on poicy assertion or
-    identify useful adjustments (e.g., cause and failure mapping table update ) to the Network Anomaly Detection Agent 
+    identify useful adjustments (e.g., cause and failure mapping table update ) to the Network Anomaly Detection Agent
 (E) AI Guardrail Assistant optimizes the Network Detection Agent based on
     Adjustment policy or Anomaly Detection Agent requests Human-in-the-Loop
     Escalation from AI Guardrail Assistant
