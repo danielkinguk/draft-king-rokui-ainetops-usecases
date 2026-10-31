@@ -1090,10 +1090,6 @@ accountability, including intent submissions, approvals, and interventions.
 
 Key interaction modes between Human operators and agents include:
 
-• Intent Input (initiates the loop): Human operators submit high-level
-  IP network intents (e.g., "deploy a low-latency L3VPN for 4G backhaul")
-  via copilot or structured workflows.
-
 • Decision Approval: The IP Network AI Agent escalates critical tasks
   (e.g., core route changes, bulk configuration deletions) via AI guardrail
   assitant to human operators for approval, providing context such as data
