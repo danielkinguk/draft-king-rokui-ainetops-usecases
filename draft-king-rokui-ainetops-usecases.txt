@@ -5,11 +5,11 @@
 Network Working Group                                           R. Rokui
 Internet-Draft                                                     Ciena
 Intended status: Informational                                   D. King
-Expires: 2 May 2027                                 Lancaster University
+Expires: 4 May 2027                                 Lancaster University
                                                                    C. Li
                                                                    Q. Wu
                                                                   Huawei
-                                                         29 October 2026
+                                                         31 October 2026
 
 
           Artificial Intelligence (AI) for Network Operations
@@ -59,7 +59,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 2 May 2027.
+   This Internet-Draft will expire on 4 May 2027.
 
 Copyright Notice
 
@@ -118,7 +118,7 @@ Table of Contents
            Guardrail Support
      6.3.  AI-Driven Policy Enforcement and Compliance evaluation
            using AI Guardrail
-     6.4.  Agent Misbehavior Detection Incremental Improvement with AI
+     6.4.  Agent Failure Detection Incremental Improvement with AI
            Guardrail Support
    7.  Agent Observability, Intervention, and Control
    8.  Security Considerations
@@ -1468,8 +1468,8 @@ Legend:
     Figure 5: AI-Driven Policy Enforcement and Compliance Auditing
                           using AI Guardrail
 
-6.4.  Agent Misbehavior Detection Incremental Improvement with AI
-      Guardrail Support
+6.4.  Agent Failure Detection Incremental Improvement with AI Guardrail
+      Support
 
    Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
