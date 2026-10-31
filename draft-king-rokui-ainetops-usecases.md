@@ -27,10 +27,6 @@ author:
   organization: Lancaster University
   email: d.king@lancaster.ac.uk
 -
-  fullname: Cheng Li
-  organization: Huawei
-  email: c.l@huawei.com
--
   fullname: Qin Wu
   organization: Huawei
   email: bill.wu@huawei.com
@@ -65,8 +61,22 @@ contributor:
   organization: Telus
   email: ali.tizghadam@telus.com
 -
-
-
+  fullname: Cheng Li
+  organization: Huawei
+  email: c.l@huawei.com
+-
+ fullname: Changhua Pei
+ organization: CNIC
+ email: chpei@cnic.cn
+-
+ fullname: Wenxiang Lv
+ organization: China Unicom
+ email: lvwx28@chinaunicom.cn
+-
+ fullname: Zhengqiang Li
+ organization: CMCC
+ email: lizhenqiang@chinamobile.com
+ 
 normative:
 
 informative:
