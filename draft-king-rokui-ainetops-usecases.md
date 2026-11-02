@@ -9,8 +9,8 @@ number:
 date:
 consensus: true
 v: 3
-# area: AREA
-# workgroup: "RTG"
+area: OPS
+workgroup: AINETOPS
 keyword:
  - AI
  - ML
@@ -37,7 +37,7 @@ contributor:
   organization: Cisco
   email: dceccare@cisco.com
 -
-  fullname: Arashmid Aakhavain
+  fullname: Arashmid Akhavain
   organization: Huawei
   email: arashmid.akhavain@huawei.com
 -
@@ -142,9 +142,9 @@ underscores the complexity of integrating AINetOps into existing
 networks.
 
 This document provides a foundation for advancing IETF protocols and
-architectures to enable AINetOps-driven network operations and prevent
-non-deterministic outcome introduced by AINetOPs by exploring
-these use cases, the requirements, and their implications.
+architectures to enable AINetOps-driven network operations, and to
+manage the non-deterministic outcomes that AINetOps agents can introduce,
+by exploring these use cases, the requirements, and their implications.
 
 ## Background
 
@@ -153,7 +153,7 @@ optimal performance and reliability of many network environments. The applicabil
 of Artificial Intelligence is well-established, and the use cases are outlined
 in this document.
 
-## Prior and Related IETF and IRTF Work
+## Prior and Related IETF and IRTF Work {#prior-work}
 
    The IETF has already standardized an autonomic networking
    architecture that is directly relevant to AINetOps.  The Autonomic
@@ -204,8 +204,13 @@ in this document.
    management agents can be continuously monitored, intervened upon, and
    controlled when they misbehave, including trajectory records of agent
    behavior, human oversight, and standardized intervention and recovery
-   mechanisms.  Section 7 discusses these considerations as they apply
-   across the use cases in this document.
+   mechanisms.  The ICON problem statement {{?I-D.wnd-opsawg-icon-ps}}
+   analyzes the gaps in existing observability, guardrail, and
+   intervention approaches, and {{?I-D.mcw-opsawg-icon-requirements}}
+   defines an architectural framework and requirements for agent
+   observability, control, and intervention.  {{icon-sec}} discusses
+   these considerations as they apply across the use cases in this
+   document, and the use cases in {{use-cases}} illustrate them.
 
    Discussion of the integration of AI/ML into network operations using
    IETF technologies takes place on the AINETOPS non-working-group
@@ -248,9 +253,38 @@ as text, images, or audio, by learning from existing data.
 : Natural Language Processing is a field of AI that focuses on the
 interaction between computers and humans through natural language.
 
+* Agentic AI:
+: AI systems, typically built on Gen-AI models, that autonomously plan and
+execute multi-step workflows, invoking tools and acting on their environment
+to achieve a goal.
+
 * AINetOps:
 : Artificial Intelligence for Network Operations refers to the application
 of AI, ML, and generative-AI techniques to enhance and automate network operations.
+
+* Network Management Agent (NMA):
+: An AI-based agent that performs network management tasks on behalf of an
+operator, as described in {{?I-D.zhao-nmop-network-management-agent}}.
+This document uses "network management agent" and "agent" interchangeably.
+
+* Human-in-the-Loop:
+: An operating mode in which a human approves an agent's action before it
+is executed.
+
+* Human-on-the-Loop:
+: An operating mode in which an agent acts autonomously while a human
+supervises its behavior and can intervene, suspend, correct, or terminate
+it.
+
+* AI Guardrail:
+: A mechanism that constrains the inputs, outputs, or actions of an agent
+to an operator-defined safe envelope; see {{?I-D.wnd-opsawg-icon-ps}} for a
+discussion of guardrails and their limitations.
+
+* Trajectory Record:
+: A structured trace of the reasoning steps, tool invocations, actions, and
+observations that an agent follows to reach its conclusion, used for
+observability, evaluation, and accountability.
 
 * Closed-Loop Optimization:
 : Automated feedback-driven processes for continuously improving network
@@ -289,10 +323,12 @@ resources across different network layers, such as IP and optical layers.
    and realistic outputs, pushing the boundaries of what AI can achieve
    in terms of creativity and innovation.
 
-   agentic AI autonomously plans and executes multi-step workflows to
+   Agentic AI autonomously plans and executes multi-step workflows to
    achieve a specific goal. Generative AI focuses on creation (text,
    images, code). Agentic AI focuses on action, decision-making, and
-   problem-solving.
+   problem-solving. Agentic AI systems are typically built on Gen-AI
+   models, which is why they are shown within Gen-AI in Figure 1; the
+   distinction is one of role (taking action) rather than of technique.
 
    {{fig1}} shows the relationship between AI, ML, Deep Learning, and
    Gen-AI.
@@ -955,7 +991,7 @@ driven models and domain-specific knowledge.
    Note that the "Traffic Optimization" AINetOps operational benefit is
    closely related to "Predictive Analytics" covered in Section 5.3.
 
-## Closed-Loop Automation
+## Closed-Loop Automation {#closed-loop}
 
    Closed-loop automation systems use AI to adjust network
    configurations based on real-time data dynamically.  Reinforcement
@@ -1052,7 +1088,7 @@ devices and applications to prioritize enforcement, and ensures
 compliance with regulatory standards by monitoring for deviations and
 recommending corrective actions.
 
-## Multi-Agent Interworking
+## Multi-Agent Interworking {#multi-agent}
 
 As seen in the use cases above, the usage of agents introduces various challenges,
 spanning from the definition of APIs that can be used by the various agents to the
@@ -1082,50 +1118,50 @@ aspects described in this section should be coordinated with those
 activities, and with the GRASP-based rendezvous mechanism described
 in {{?I-D.carpenter-anima-grasp-rendezvous}}.
 
-## Human on the Loop
+## Human on the Loop {#human-on-the-loop}
 
-Human on the Loop has been integrated  into the AI-driven IP network
-management and operation loop, providing closed loop safeguards for critical decisions and
-enabling human-Agent collaboration (e.g., require human approval).
+Human oversight is integrated into the AI-driven network management and
+operation loop, providing closed-loop safeguards for critical decisions and
+enabling human-agent collaboration. Depending on the risk of the task, the
+agent operates either with a human in the loop (approval is required before
+an action is executed) or with a human on the loop (the agent acts
+autonomously while the operator supervises and can intervene).
 
 Interaction with the system is typically provided through natural language
 interfaces that allow operators to review decisions, request explanations, and
 provide guidance when necessary.
 
-Implementation shall support conversational interaction via chat copilot
-platforms (for natural language) and structured APIs (such as A2A-T, for
-workflow based operations). It shall also maintain comprehensive trajectory
-record or accountability logs of all human and Agent interactions to ensure
-accountability, including intent submissions, approvals, and interventions.
+Implementations typically support conversational interaction via chat copilot
+platforms (for natural language) and structured APIs (for workflow-based
+operations). They also maintain trajectory records or accountability logs of
+all human and agent interactions, including intent submissions, approvals,
+and interventions.
 
-Key interaction modes between Human operators and agents include:
+Key interaction modes between human operators and agents include:
 
-• Decision Approval: The IP Network AI Agent escalates critical tasks
-  (e.g., core route changes, bulk configuration deletions) via AI guardrail
-  assitant to human operators for approval, providing context such as data
+* Decision Approval: The network management agent escalates critical tasks
+  (e.g., core route changes, bulk configuration deletions) via the AI guardrail
+  assistant to human operators for approval, providing context such as
   simulation results and risk assessments.
 
-• Intervention & Guidance: Human Operators intervene in ongoing tasks
-  (e.g., correcting a fault diagnosis) or providing expert guidance
-  (e.g., updating troubleshooting rules) to Agents.
+* Intervention and Guidance: Human operators intervene in ongoing tasks
+  (e.g., correcting a fault diagnosis) or provide expert guidance
+  (e.g., updating troubleshooting rules) to agents.
 
-• Feedback Provision: Human Operators submit feedback to AI guardrail
-  assistant on Agent performance or misbehavior information  (e.g.,
+* Feedback Provision: Human operators submit feedback to the AI guardrail
+  assistant on agent performance or misbehavior (e.g.,
   incorrect configuration suggestions) to drive continuous improvement.
 
-Note that agent discovery and inter-agent communication are the
-subject of dedicated IETF activities: the DAWN (Discovery of Agents,
-Workloads, and Named Entities) effort addresses the discovery of
-agents and their capabilities, and the AGENTPROTO (Agent
-Communication Protocols) effort addresses end-to-end protocols for
-agent-to-agent communication.  Work on the discovery and interworking
-aspects described in this section should be coordinated with those
-activities, and with the GRASP-based rendezvous mechanism described
-in {{?I-D.carpenter-anima-grasp-rendezvous}}.
+The observability, intervention, and control mechanisms that make human
+oversight possible are discussed in {{icon-sec}}.
 
-# AINetOps Scenarios and Use-cases
+# AINetOps Scenarios and Use-cases {#use-cases}
 
-{Editor's note: This is a work in progress. More use cases will be added, and existing ones will be revised.}
+{Editor's note: This is a work in progress. The use cases in this version
+focus on the observability, control, and intervention of network management
+agents; the broader catalogue of AINetOps use cases from earlier versions of
+this document is being reconsidered and may be restored here or moved to a
+companion document.}
 
 This section further expands Section 5 by exploring scenarios and use cases for applying AINetOps in network
 operations, focusing on their architectural, procedural, and protocol-level requirements.  Each use case
@@ -1158,7 +1194,7 @@ This use case leverages AI to design and execute fault injection
 scenarios that test the resilience of IP/optical networks under
 simulated failure conditions.  By proactively introducing controlled
 disruptions - such as packet drops, latency spikes, or optical signal
-degradation- AI Guardrail system assesses the network Agent 's ability to detect, respond to,
+degradation - the AI guardrail system assesses the network management agent's ability to detect, respond to,
 and recover from faults. This approach enhances network robustness
 by identifying weaknesses and validating automated recovery
 mechanisms before real failures occur, addressing both single-layer
@@ -1167,15 +1203,16 @@ mechanisms before real failures occur, addressing both single-layer
 The Fault management AI Agent analyzes historical failure data (e.g., fiber cuts,
 equipment outages), real-time network telemetry data (e.g., latency, BER), and
 external factors (e.g., weather events, traffic surges) to model
-probable failure risk points.  It then trigger AI Fault Inject Engine to
+probable failure risk points.  It then triggers the AI fault injection engine to
 inject faults, monitors the network's response, and refines recovery
-strategies, potentially in a closed-loop manner.  For example, an Fault management AI Agent
+strategies, potentially in a closed-loop manner.  For example, a fault management AI agent
 might predict a high-risk optical link based on trending attenuation, simulate a fiber
 cut, and evaluate whether IP-layer rerouting maintains SLAs.  If
 recovery is suboptimal, it suggests adjustments (e.g., updating TE
-policies) and retests. And then Network Agent Behavior related to Tools Excution, Reason
-can be collected and report to the AI Guardrail. The AI Guardrail can use Evaluate process
-to Evaluate how well the Fault management Network Agent are run to support Network resilience test.
+policies) and retests. The agent's behavior during the test (tool invocations,
+reasoning steps, and outcomes) is collected and reported to the AI guardrail's
+observability process, and the guardrail's evaluation process assesses how well
+the fault management agent supported the resilience test.
 
 ~~~~
             +--------------------------------------+
@@ -1208,11 +1245,13 @@ to Evaluate how well the Fault management Network Agent are run to support Netwo
   +-------------------------------------------------------+
 
 Legend
-(A) Fault injection commands (e.g., disable link, drop packets, degrade signal)
+(A) Fault injection commands (e.g., disable link, drop packets,
+    degrade signal)
 (B) Telemetry feedback (e.g., latency, packet loss, BER)
-(C)  Recovery actions (e.g., reroute traffic, adjust optical parameters)
-(D) Agent Telemetry Collection (e.g., tool invoking success rate, Task Success rate)
-(E) Agent Resilience Test Performance Evaluation
+(C) Recovery actions (e.g., reroute traffic, adjust optical parameters)
+(D) Agent telemetry collection (e.g., tool invocation success rate,
+    task success rate)
+(E) Agent resilience test performance evaluation
 
 ~~~~
 {: #resilience-guardrail title="Agentic AI-Driven Resilience Testing using AI Guardrail" artwork-align="center"}
@@ -1243,36 +1282,36 @@ Legend
    cuts, IP packet drops, IP link latency issues, or Threshold Crossing
    Alarms (TCA), among others.
 
-   As illustrated in Figure 3, active assurance assumes that a fault
+   As illustrated in {{assurance-guardrail}}, active assurance assumes that a fault
    occurs in the IP/Optical network (Step A) and is subsequently
-   detected automatically by higher-layer orchestrator (Step B). The
+   detected automatically by the higher-layer orchestrator (Step B). The
    orchestrator may employ detection methods that include monitoring
    alarms, analyzing performance telemetry data, or processing customer
    reports indicating service disruptions. To initiate troubleshooting,
-   the detection logic launches the AIOps-Assistant, which serves as the
+   the detection logic launches the AINetOps assistant, which serves as the
    front-end interface for AINetOps (Step C).  The assistant then sends
-   a intent request and utilizes the backend assurance and troubleshooting
-   mechanisms on the nework management agent to fullfill the intent,
+   an intent request and utilizes the backend assurance and troubleshooting
+   mechanisms of the network management agent to fulfill the intent,
    leveraging a Gen-AI multi-agent framework.  In Step D, a dynamic workflow
    is executed to diagnose the issue and identify potential root causes.  Optionally,
    at Step E, the Gen-AI dynamic workflow can recommend remedial actions
    to resolve the issue and implement these actions in a closed-loop fashion,
-   ensuring automated network recovery. In Step F, the network controllers
-   as Agent Fabric Gateway Collect log, trace, metric information on Agent
-   behavior and report them to the Observabiltiy process to establish Agent behavior visibility.
-   In step G, these information will be further fed into evaluation process
+   ensuring automated network recovery. In Step F, the network controller
+   collects log, trace, and metric information on agent behavior and reports
+   it to the observability process to establish agent behavior visibility.
+   In Step G, this information is fed into the evaluation process
    to identify operational anomalies or performance drifts. In Step H,
-   these operational anomalies and performance drifts will be captured
-   by AI Guardrail Assistant, so that human operator can use captured information
-   and AI Guardrial Assitant to check and validate user input,tools invocation,
-   agent output, interrupt, and rollover from unanticipated behaviors in case of
-   high risk operation.
+   these operational anomalies and performance drifts are reported to the
+   human operator through the AI guardrail assistant. In Step I, the human
+   operator uses the AI guardrail assistant to check and validate user input,
+   tool invocations, and agent output, and to interrupt the agent or roll back
+   from unanticipated behaviors in the case of a high-risk operation.
 
 ~~~~
  +----------------------------+     +---------------+
  |  OSS/Service Orchestrator  |     | Human Operator|
  |      +---------------+     |     |               |
- |      |AIOps Asssitant|     |     +----^----+-----+
+ |      |AINetOps Assist|     |     +----^----+-----+
  |      +---------------+     |       (H)|    |(H)
  +---^------------------------+      +---|----V-----+
      |              |    +-----------|              |
@@ -1305,9 +1344,12 @@ Legend
 Legend:
 (A) A fault happened in the network (e.g., Fiber cut, IP packet drop,
     TCA crossing etc.)
-(B) The Network Controller and higher layer Orchestrator notifies Operator
-(C) To start troubleshooting, AIOps-Assistant starts send service assurance intent request to Network Management Agent
-(D) Network Management Agent starts troubleshooting using Gen-AI multi-agent dynamic workflow
+(B) The Network Controller and higher layer Orchestrator notify the
+    Operator
+(C) To start troubleshooting, the AINetOps assistant sends a service
+    assurance intent request to the Network Management Agent
+(D) Network Management Agent starts troubleshooting using a Gen-AI
+    multi-agent dynamic workflow
 (E) Optional remedial actions from Network Management Agent
 (F) Telemetry for agent behavior visibility
 (G) Evaluate operational anomalies or performance drifts
@@ -1317,11 +1359,11 @@ Legend:
 ~~~~
 {: #assurance-guardrail title=" Multi-layer Active Assurance Using Network Agent and AI Guardrail" artwork-align="center"}
 
-## AI-Driven Policy Enforcement and Compliance evaluation using AI Guardrail
+## AI-Driven Policy Enforcement and Compliance Evaluation using AI Guardrail
 
-This use case leverages Network Change AI Agent to automate the enforcement of network policies and
-evaluation of compliance with regulatory standards,ethical, and organizational boundaries and internal
-guidelines. By continuously monitoring network Change AI Agent Behavior, AI Guardrail ensures that policies
+This use case leverages a network change AI agent to automate the enforcement of network policies and
+the evaluation of compliance with regulatory, organizational, and operator policy boundaries and internal
+guidelines. By continuously monitoring the network change AI agent's behavior, the AI guardrail ensures that policies
 are consistently applied and compliance requirements are met. This use case addresses both single-layer
 (e.g., IP) and multi-layer (e.g., IP over optical) scenarios, as well as cross-domain environments.
 
@@ -1330,23 +1372,24 @@ historical data, and external inputs (e.g., regulatory updates, threat intellige
 policies and evaluate compliance. For example, AI Guardrail can detect unauthorized changes to firewall
 rules, enforce encryption standards for sensitive data, or ensure that network configurations align with
 policy/compliance requirements such as GDPR requirements. If violations are detected, AI Guardrail can
-automatically remediate issues or alert operators for manual intervention. In case of issue remediation
-on high risk operation, the remdiation solution can be escalated to the human operator for approval.
-AI Guardrails generally operate at three distinct operational levels to enforce policy and ensure :
+automatically remediate issues or alert operators for manual intervention. Where the remediation is itself
+a high-risk operation, the proposed remediation is escalated to the human operator for approval.
+AI guardrails generally operate at three distinct operational levels to enforce policy and ensure compliance:
 
 - Input Guardrails (Prompt Shielding)
 
-  - Goal: Detect and block malicious user behavior from the intent request before it reaches the network AI Agent.
+  - Goal: Detect and block malicious or out-of-policy requests before they reach the network management agent.
 
-  - Key Enforcements: Preventing prompt injections, filtering out Personally Identifiable Information (PII),
-                      blocking hate speech, and stopping jailbreak attempts.
+  - Key Enforcements: Preventing prompt injection, filtering out Personally Identifiable Information (PII),
+                      rejecting requests outside the requester's authorization, and stopping jailbreak attempts.
 
 - Output Guardrails (Response Validation)
 
-  - Goal: Verify that the generated configurations or policy is accurate, compliant, and safe for the end-user.
+  - Goal: Verify that the generated configuration or policy is accurate, compliant, and safe to apply.
 
-  - Key Enforcements: Preventing hallucinations (fact-checking against internal knowledge bases), blocking
-                      toxic or biased outputs, and ensuring intellectual property (IP) compliance.
+  - Key Enforcements: Preventing hallucinated or unverified changes (checking against the intended network
+                      state and internal knowledge bases), and blocking changes that exceed the agent's
+                      authorization scope or violate operator policy.
 
 - Continuous Evaluation (Logging & Analytics)
 
@@ -1394,16 +1437,18 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
  +--------------------------+
 
    Legend:
-   (A) Network Change Agent Send Policy enforcement commands (e.g., block traffic, adjust QoS)
+   (A) Network Change Agent sends policy enforcement commands
+       (e.g., block traffic, adjust QoS)
    (B) Agent Observability Information Feedback
    (C) Evaluate policy and authorization compliance
-   (D) The Agent management plane notifies Human Operator about compliance reports and alerts
+   (D) The Agent management plane notifies Human Operator about
+       compliance reports and alerts
    (E) The human Operator uses AI guardrail Assistant to intervene or
     control Network Agent with the policy update.
 ~~~~
-{: #audit-guardrail title="AI-Driven Policy Enforcement and Compliance Auditing using AI Guardrail" artwork-align="center"}
+{: #audit-guardrail title="AI-Driven Policy Enforcement and Compliance Evaluation using AI Guardrail" artwork-align="center"}
 
-##   Agent Failure Detection Incremental Improvement with AI Guardrail Support
+## Agent Failure Detection and Incremental Improvement with AI Guardrail Support
 
    Network anomaly detection is a critical component of modern network
    security and management, aimed at identifying deviations from normal
@@ -1424,15 +1469,15 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
    The key objective for the Agent behavior validation and refinement stage is
    to detect when an agent deviates from its intended path or safe boundaries,
    decide if the detected Symptoms are signaling a real problem (a.k.a. requires
-   action) or if they are to be treated as false positives(e.g., tools hide failure),
-   perform detailed postmortem analysis of Problems with the objective to identify
-   useful adjustments to the Agent failure prevention and detection mechanisms,
-   e.g., attribute the failure to the responsible actor,and adjust the system to
-   prevent it from happening again.
+   action) or if they are to be treated as false positives (e.g., a tool that
+   hides a failure), and perform detailed postmortem analysis of problems with the
+   objective of identifying useful adjustments to the agent failure prevention
+   and detection mechanisms, e.g., attributing the failure to the responsible
+   actor and adjusting the system to prevent it from happening again.
 
-   After the adjustments are generated, it will be sent to AI Guardrail
-   Assistant and the AI Guardrail Assistant apply adjustments to the Network
-   Anomaly Detection Agent, the cycle starts again. Alternatively,  Any
+   After the adjustments are generated, they are sent to the AI guardrail
+   assistant, which applies them to the network anomaly detection agent, and
+   the cycle starts again. Any
    remediation action flagged as "high-impact" by the Network Anomaly Detection
    Agent is put into a correction queue and escalated to AI Guardrail Assistant,
    requiring manual administrative approval via an external management console
@@ -1477,27 +1522,30 @@ AI Guardrails generally operate at three distinct operational levels to enforce 
                       +-------------------+
 Legend:
 (A) Network Telemetry Information Collection
-(B) Resolve the problem with the Predefined Actions such as traffic blocking,reconfiguring
+(B) Resolve the problem with predefined actions such as traffic
+    blocking or reconfiguration
 (C) Agent Event Notification to Agent Observability Collector
-(D) Evaluate the Agent events and detect the Agent task failure based on poicy assertion or
-    identify useful adjustments (e.g., cause and failure mapping table update ) to the
-    Network Anomaly Detection Agent
-(E) AI Guardrail Assistant optimizes the Network Detection Agent based on
-    Adjustment policy or Anomaly Detection Agent requests Human-in-the-Loop
-    Escalation from AI Guardrail Assistant
+(D) Evaluate the Agent events and detect Agent task failure based on
+    policy assertion, or identify useful adjustments (e.g., cause and
+    failure mapping table update) to the Network Anomaly Detection
+    Agent
+(E) AI Guardrail Assistant optimizes the Network Anomaly Detection
+    Agent based on the adjustment policy, or the Anomaly Detection
+    Agent requests Human-in-the-Loop escalation from the AI Guardrail
+    Assistant
 
 ~~~~
 {: #fault-guardrail title="Agent anomaly detection optimization using AI Guardrail" artwork-align="center"}
 
-# Agent Observability, Intervention, and Control
+# Agent Observability, Intervention, and Control {#icon-sec}
 
    The considerations in this section are cross-cutting: they apply to
    several of the operational benefits and use cases described in this
    document rather than constituting a single use case.  In particular,
-   closed-loop automation (Section 5.9), the Gen-AI multi-agent dynamic
-   workflows of Section 6.1 and Section 6.2, the multi-agent
-   architectures of Section 6.15, and the agentic networks described in
-   Section 6.16.3 all rely on increasing levels of agent autonomy.
+   closed-loop automation ({{closed-loop}}), multi-agent interworking
+   ({{multi-agent}}), human-on-the-loop collaboration
+   ({{human-on-the-loop}}), and the agentic workflows of the use cases in
+   {{use-cases}} all rely on increasing levels of agent autonomy.
    Because AI-native operations may be non-deterministic, network
    management agents can misbehave or deviate from expected behavior.
    Static AI guardrails, operating at the input/output or pre-action
@@ -1511,7 +1559,12 @@ Legend:
    to a last known safe state, or termination), and the control of what
    an agent is permitted to do before and during action execution.  The
    ICON effort is exploring the use cases, requirements, and
-   solutions in this space; the key challenges identified include:
+   solutions in this space: {{?I-D.wnd-opsawg-icon-ps}} analyzes the
+   problem space and the gaps in current approaches, and
+   {{?I-D.mcw-opsawg-icon-requirements}} defines an architectural framework
+   (human oversight, an agent management plane, and an agent enforcement
+   plane) and the corresponding observability, control, and intervention
+   requirements.  The key challenges identified include:
 
    *  Limited transparency in agent planning and decision-making.
 
@@ -1532,8 +1585,9 @@ Legend:
 
       Observability, evaluation, intervention, and control components
       attach to the agents introduced in the use cases above (e.g., the
-      AIOps-Assistant front-end and the Gen-AI multi-agent dynamic
-      workflows).  Agent behavior is captured as trajectory records:
+      AINetOps assistant front-end and the network management agents of
+      {{use-cases}}), forming the agent management plane described in
+      {{?I-D.mcw-opsawg-icon-requirements}}.  Agent behavior is captured as trajectory records:
       structured traces of the reasoning sequence, actions, and
       observations an agent follows to reach its conclusion.  A human
       oversight channel allows operators to monitor these records,
@@ -1577,16 +1631,30 @@ Legend:
 
    *  Alignment with IETF
 
-      This work aligns with the ICON effort, discussed at an IETF
-      126 side meeting, and with the AINETOPS mailing list activity
-      described in Section 1.2.  Agent discovery, trust and
+      This work aligns with the ICON effort ({{?I-D.wnd-opsawg-icon-ps}},
+      {{?I-D.mcw-opsawg-icon-requirements}}), discussed on the OPSAWG and
+      AINETOPS mailing lists, and with the AINETOPS activity described in
+      {{prior-work}}.  Agent discovery, trust and
       authorization, and agent-to-agent communication are explicitly out
       of scope of ICON; those aspects are addressed by the DAWN and
-      AGENTPROTO activities discussed in Section 5.13.
+      AGENTPROTO activities discussed in {{multi-agent}}.
 
 # Security Considerations
 
-To be discussed in future versions of this document.
+This document describes use cases and does not define a protocol or data
+model. However, the network management agents it describes act on
+production networks, and their behavior may be non-deterministic. The
+principal security considerations are therefore those discussed in
+{{icon-sec}}: an agent may be manipulated through its inputs (e.g., prompt
+injection), may exceed its intended authorization scope, or may take
+actions whose effects are difficult to attribute or reverse. Mitigations
+include least-privilege authorization of agents, human approval of
+high-risk actions, tamper-evident trajectory records to support audit and
+accountability, and the ability to suspend, roll back, or terminate an
+agent's actions. Security considerations for the observability, control,
+and intervention mechanisms themselves are discussed in
+{{?I-D.mcw-opsawg-icon-requirements}}. Future versions of this document
+will expand this section as the use cases mature.
 
 --- back
 
@@ -1598,7 +1666,5 @@ This document has no IANA actions.
 {:numbered="false"}
 
 This work has benefited from several discussions at the IETF and the
-AI4NETWORK Side Meetings.
-
-This work has benefited from several discussions at the IETF and the
-AI4NETWORK Side Meetings.
+AI4NETWORK and AINETOPS side meetings. The authors thank Thorsten Dahm for
+his review of an early version of this document.
