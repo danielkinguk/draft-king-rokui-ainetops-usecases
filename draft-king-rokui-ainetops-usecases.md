@@ -1543,7 +1543,7 @@ Legend:
 
 ## Agentic Video Session Handover using AI Guardrail
 
-This use case illustrates how a network management agent proposes
+This use case illustrates how a AI agent proposes
 video streaming session handovers across distributed compute nodes,
 while an AI guardrail evaluates the proposed actions against
 predefined resource, security, and operational policy boundaries.  The
@@ -1614,7 +1614,7 @@ migration and resource optimization scenarios.
    behaviors occurring at machine speed.
 
    This section therefore addresses the continuous observability of
-   network management agent behavior, the ability of human operators to
+   AI agent behavior, the ability of human operators to
    intervene when an agent goes wrong (e.g., task suspension, rollback
    to a last known safe state, or termination), and the control of what
    an agent is permitted to do before and during action execution.  The
@@ -1631,7 +1631,7 @@ migration and resource optimization scenarios.
    *  Difficulty attributing accountability to a specific agent entity
       or human.
 
-   *  Lack of a standardized way to benchmark network management agents.
+   *  Lack of a standardized way to benchmark AI Agents such as network management agents.
 
    *  Lack of human oversight of long-running autonomous workflows.
 
@@ -1645,7 +1645,7 @@ migration and resource optimization scenarios.
 
       Observability, evaluation, intervention, and control components
       attach to the agents introduced in the use cases above (e.g., the
-      AINetOps assistant front-end and the network management agents of
+      AINetOps assistant front-end and the AI agents of
       {{use-cases}}), forming the agent management plane described in
       {{?I-D.mcw-opsawg-icon-requirements}}.  Agent behavior is captured as trajectory records:
       structured traces of the reasoning sequence, actions, and
@@ -1702,7 +1702,7 @@ migration and resource optimization scenarios.
 # Security Considerations
 
 This document describes use cases and does not define a protocol or data
-model. However, the network management agents it describes act on
+model. However, the AI agents it describes act on
 production networks, and their behavior may be non-deterministic. The
 principal security considerations are therefore those discussed in
 {{icon-sec}}: an agent may be manipulated through its inputs (e.g., prompt
