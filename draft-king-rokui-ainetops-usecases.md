@@ -1537,6 +1537,62 @@ Legend:
 ~~~~
 {: #fault-guardrail title="Agent anomaly detection optimization using AI Guardrail" artwork-align="center"}
 
+## Agentic Video Session Handover using AI Guardrail
+
+This use case illustrates how a network management agent proposes
+video streaming session handovers across distributed compute nodes,
+while an AI guardrail evaluates the proposed actions against
+predefined resource, security, and operational policy boundaries.  The
+agent may propose actions that exceed these boundaries; however, the
+guardrail prevents unauthorized or potentially disruptive operations
+from taking effect.
+
+For example, consider a small edge compute node hosting four High
+Definition (HD) video sessions that collectively consume its available
+compute capacity.  When a session requests an upgrade to 4K
+resolution, the agent proposes additional compute and bandwidth
+resources and a handover to a larger compute node.  The guardrail
+evaluates these requests against available capacity and operational
+constraints before permitting execution.  During a successful
+handover, the session identity and playback position remain unchanged,
+while the connection identifier changes to reflect the new connection
+at the target node.
+
+Before executing the proposed operations, the AI guardrail evaluates
+them against predefined policies, including compute capacity, network
+bandwidth limits, authorized target nodes, maximum permitted blast
+radius, and security constraints on subscriber information.  Requests
+that violate these boundaries are refused before any session state is
+modified.  Requests within the permitted boundaries may proceed
+autonomously, while requests exceeding a soft operational threshold
+but remaining within hard resource limits may require human operator
+approval.  Such approval forms part of the control mechanism, which
+governs whether an agent's proposed action is permitted to execute.
+
+During a session handover, unexpected failures may occur, such as the
+target node failing to acknowledge the transferred session state.  In
+this scenario, an initially permitted handover copies the session
+state, but the acknowledgement fails.  Subsequent attempts to remove
+the source session are refused by the guardrail to prevent disruption.
+The human operator may then intervene to pause the agent, roll back
+the incomplete handover, and replace the agent's execution plan.
+These intervention mechanisms enable recovery from failures occurring
+after an action has been authorized, complementing the preventive
+nature of control.
+
+Throughout the process, the agent's resource requests, policy
+evaluations, control decisions, session transitions, and operator
+interventions are recorded through the agent observability process.
+These records support operational auditing, failure diagnosis, and
+evaluation of agent behavior.
+
+This use case highlights the need for interoperable mechanisms to
+express and enforce agent operational constraints, communicate control
+decisions and human approvals, support intervention and recovery, and
+expose structured records of agent behavior.  These capabilities are
+applicable beyond video streaming to autonomous network service
+migration and resource optimization scenarios.
+
 # Agent Observability, Intervention, and Control {#icon-sec}
 
    The considerations in this section are cross-cutting: they apply to
