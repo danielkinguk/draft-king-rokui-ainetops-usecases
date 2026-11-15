@@ -1599,55 +1599,62 @@ applicable beyond video streaming to autonomous network service
 migration and resource optimization scenarios.
 
 ~~~~
-                                   +---------------+
-                                   | Human Operator|
-                                   |               |
-                                   +----^----+-----+
-                                    (E) |    | (F)
-                                    +---|----V-----+
-                        +-----------|              |
-                     (E)|  |--------| AI Guardrail |
-                    Control|        +-----^--------+
-                    Signal |              |Report
-                        |  |        +--------------+
-                        | Intervene |   Agent (C)  |
-                        |  |Signal  | Evaluation   |
-                        |  | (F)    |   Process    |
-                        |  |        +-----^--------+
-+-----------------------V--V-+            |Report
-|                            |      +-----|-------+
-| Video Session Agent        |      |    Agent    |
-| proposes session handover  |------>Observability|
-|                            | (D)  |   Process   |
-|                            |      +-------------+
-+----------------------------+
-              ^
-              |(A)
-              |
-+-------------V--------------+      +--------------------------+
-| Edge Compute Node          |      | Larger Compute Node      |
-| four HD sessions           |      | same session identity    |
-| compute capacity full      |      | same playback position   |
-| source session             |-(B)->| new connection id        |
-+----------------------------+      +--------------------------+
+    +--------------------------------------+
+    |            Human Operator            +--+
+    +-----------------------^--------------+  |
+                            |                 |
+                (E) control |                 | (F) intervention
+           request approval |                 | pause, rollback,
+          approve or reject |                 | correct the plan
+                 +----------v---------+
+                 |    AI Guardrail    |
+                 |  before execution  |
+                 +----------^---------+
+                            |                 |
+               (C) proposal |                 |
+                            |                 |
++---------------------------+-----------------v----------------+
+|                     Video Session Agent                      |
+|                  proposes session handover                   |
++---------------------------^-------------+--------------------+
+                            |             |
+             (A) 4K request |             | (D) records
+                            |             |
+  +-------------------------+------+  +---v------------------+
+  |       Edge Compute Node        |  |        Agent         |
+  |        four HD sessions        |  |    Observability     |
+  |     compute capacity full      |  +---+------------------+
+  |         source session         |      |
+  +-------------------------+------+      |
+                            |             |
+    (B) authorized handover |             |
+   after permit or approval |             |
+  +-------------------------v------+  +---v------------------+
+  |      Larger Compute Node       |  |   Agent Evaluation   |
+  |     same session identity      |  | behavior assessment  |
+  |     same playback position     |  +----------------------+
+  |       new connection id        |
+  +--------------------------------+
 
 Legend:
 (A) A session on the edge node requests an upgrade from HD to 4K.
     Four HD sessions already consume the node's compute capacity.
-(B) Permitted handover of the source session to the larger compute
-    node. The session identity and playback position are unchanged;
-    the connection identifier changes.
-(C) Evaluate the proposal against compute capacity, bandwidth
-    limits, authorized target nodes, blast radius, and
-    subscriber-information constraints.
-(D) Record resource requests, policy evaluations, control
-    decisions, session transitions, and operator interventions.
-(E) Control decision before any session state is modified:
-    permit, refuse, or request human approval when a soft
-    operational threshold is exceeded but hard limits are met.
-(F) After a permitted handover is not acknowledged, refuse
-    removal of the source session. The operator may pause the
-    agent, roll back the handover, and replace the plan.
+(B) Authorized handover. It occurs only after the guardrail permits
+    the action, or after required human approval. The session
+    identity and playback position are unchanged; the connection
+    identifier changes.
+(C) The AI guardrail evaluates the proposed action against compute
+    capacity, bandwidth limits, authorized target nodes,
+    blast-radius constraints, and subscriber-information security
+    policies before permitting execution. Removal of the source
+    session is refused if the target does not acknowledge.
+(D) The observability process separately records the proposal and
+    its outcome. The agent evaluation process uses those records
+    to assess behavior. It does not make the control decision.
+(E) Control. The guardrail requests approval; the operator
+    approves or rejects the proposed action.
+(F) Intervention. The operator pauses the agent, initiates
+    rollback, or corrects the plan after a failure.
 ~~~~
 {: #handover-guardrail title="Agentic Video Session Handover using AI Guardrail" artwork-align="center"}
 
