@@ -1547,7 +1547,7 @@ This use case illustrates how a AI agent proposes
 video streaming session handovers across distributed compute nodes,
 while an AI guardrail evaluates the proposed actions against
 predefined resource, security, and operational policy boundaries.  The
-agent may propose actions that exceed these boundaries; however, the
+agent may propose actions that exceed these boundaries, however, the
 guardrail prevents unauthorized or potentially disruptive operations
 from taking effect.
 
@@ -1593,7 +1593,7 @@ evaluation of agent behavior.
 This use case highlights the need for interoperable mechanisms to
 express and enforce agent operational constraints, communicate control
 decisions and human approvals, support intervention and recovery, and
-expose structured records of agent behavior.  These capabilities are
+expose structured records of agent behavior. These capabilities are
 applicable beyond video streaming to autonomous network service
 migration and resource optimization scenarios.
 
