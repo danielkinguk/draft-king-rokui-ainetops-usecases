@@ -30,6 +30,10 @@ author:
   fullname: Qin Wu
   organization: Huawei
   email: bill.wu@huawei.com
+-
+  fullname: Shailesh Prabhu
+  organization: Nokia
+  email: shailesh.prabhu@nokia.com
 
 contributor:
 -
