@@ -1606,10 +1606,10 @@ migration and resource optimization scenarios.
                 (E) control |                 | (F) intervention
            request approval |                 | pause, rollback,
           approve or reject |                 | correct the plan
-                 +----------v---------+
-                 |    AI Guardrail    |
-                 |  before execution  |
-                 +----------^---------+
+                 +----------v---------+       |
+                 |    AI Guardrail    |       |
+                 |  before execution  |       |
+                 +----------^---------+       |
                             |                 |
              (C) proposal / |                 |
            control decision |                 |
