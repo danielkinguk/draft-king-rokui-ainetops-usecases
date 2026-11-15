@@ -1611,9 +1611,9 @@ migration and resource optimization scenarios.
                  |  before execution  |
                  +----------^---------+
                             |                 |
-               (C) proposal |                 |
-                            |                 |
-+---------------------------+-----------------v----------------+
+             (C) proposal / |                 |
+           control decision |                 |
++---------------------------v-----------------v----------------+
 |                     Video Session Agent                      |
 |                  proposes session handover                   |
 +---------------------------^-------------+--------------------+
@@ -1643,18 +1643,23 @@ Legend:
     the action, or after required human approval. The session
     identity and playback position are unchanged; the connection
     identifier changes.
-(C) The AI guardrail evaluates the proposed action against compute
+(C) Proposal and control decision. The agent submits the proposed
+    handover, and the AI guardrail returns permit, refuse, or needs
+    approval. The guardrail evaluates the action against compute
     capacity, bandwidth limits, authorized target nodes,
     blast-radius constraints, and subscriber-information security
-    policies before permitting execution. Removal of the source
-    session is refused if the target does not acknowledge.
+    policies. The handover does not proceed merely because a
+    proposal was submitted. Removal of the source session is
+    refused if the target does not acknowledge.
 (D) The observability process separately records the proposal and
     its outcome. The agent evaluation process uses those records
     to assess behavior. It does not make the control decision.
 (E) Control. The guardrail requests approval; the operator
     approves or rejects the proposed action.
-(F) Intervention. The operator pauses the agent, initiates
-    rollback, or corrects the plan after a failure.
+(F) Intervention. Following a handover failure, the operator may
+    pause the agent, initiate rollback of the incomplete handover,
+    or correct the execution plan. The agent remains subject to
+    control policies during recovery.
 ~~~~
 {: #handover-guardrail title="Agentic Video Session Handover using AI Guardrail" artwork-align="center"}
 
