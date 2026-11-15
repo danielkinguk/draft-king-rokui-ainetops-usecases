@@ -1555,12 +1555,13 @@ For example, consider a small edge compute node hosting four High
 Definition (HD) video sessions that collectively consume its available
 compute capacity.  When a session requests an upgrade to 4K
 resolution, the agent proposes additional compute and bandwidth
-resources and a handover to a larger compute node.  The guardrail
-evaluates these requests against available capacity and operational
-constraints before permitting execution.  During a successful
-handover, the session identity and playback position remain unchanged,
-while the connection identifier changes to reflect the new connection
-at the target node.
+resources and a handover to a larger compute node.  As illustrated
+in {{handover-guardrail}}, the guardrail evaluates these requests
+against available capacity and operational constraints before
+permitting execution.  During a successful handover, the session
+identity and playback position remain unchanged, while the
+connection identifier changes to reflect the new connection at the
+target node.
 
 Before executing the proposed operations, the AI guardrail evaluates
 them against predefined policies, including compute capacity, network
@@ -1596,6 +1597,59 @@ decisions and human approvals, support intervention and recovery, and
 expose structured records of agent behavior. These capabilities are
 applicable beyond video streaming to autonomous network service
 migration and resource optimization scenarios.
+
+~~~~
+                                   +---------------+
+                                   | Human Operator|
+                                   |               |
+                                   +----^----+-----+
+                                    (E) |    | (F)
+                                    +---|----V-----+
+                        +-----------|              |
+                     (E)|  |--------| AI Guardrail |
+                    Control|        +-----^--------+
+                    Signal |              |Report
+                        |  |        +--------------+
+                        | Intervene |   Agent (C)  |
+                        |  |Signal  | Evaluation   |
+                        |  | (F)    |   Process    |
+                        |  |        +-----^--------+
++-----------------------V--V-+            |Report
+|                            |      +-----|-------+
+| Video Session Agent        |      |    Agent    |
+| proposes session handover  |------>Observability|
+|                            | (D)  |   Process   |
+|                            |      +-------------+
++----------------------------+
+              ^
+              |(A)
+              |
++-------------V--------------+      +--------------------------+
+| Edge Compute Node          |      | Larger Compute Node      |
+| four HD sessions           |      | same session identity    |
+| compute capacity full      |      | same playback position   |
+| source session             |-(B)->| new connection id        |
++----------------------------+      +--------------------------+
+
+Legend:
+(A) A session on the edge node requests an upgrade from HD to 4K.
+    Four HD sessions already consume the node's compute capacity.
+(B) Permitted handover of the source session to the larger compute
+    node. The session identity and playback position are unchanged;
+    the connection identifier changes.
+(C) Evaluate the proposal against compute capacity, bandwidth
+    limits, authorized target nodes, blast radius, and
+    subscriber-information constraints.
+(D) Record resource requests, policy evaluations, control
+    decisions, session transitions, and operator interventions.
+(E) Control decision before any session state is modified:
+    permit, refuse, or request human approval when a soft
+    operational threshold is exceeded but hard limits are met.
+(F) After a permitted handover is not acknowledged, refuse
+    removal of the source session. The operator may pause the
+    agent, roll back the handover, and replace the plan.
+~~~~
+{: #handover-guardrail title="Agentic Video Session Handover using AI Guardrail" artwork-align="center"}
 
 # Agent Observability, Intervention, and Control {#icon-sec}
 
